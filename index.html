@@ -59,21 +59,32 @@ main{
   isolation:isolate;
 }
 
-/* Ramos laterais — mantidos exatamente na composição atual */
+/* Ramos laterais — lírios fine-line, espelhados */
 .cover::before,.cover::after{
   content:"";
   position:absolute;
-  width:110px;
-  height:430px;
+  width:72px;
+  height:300px;
   pointer-events:none;
-  opacity:.2;
-  z-index:-1;
+  opacity:.42;
+  z-index:0;
   background-repeat:no-repeat;
   background-size:contain;
-  background-image:url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 430"%3E%3Cg fill="none" stroke="%238A3040" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M48 420C50 310 68 205 101 78"/%3E%3Cpath d="M67 286C47 268 39 242 42 218"/%3E%3Cpath d="M82 220C66 202 63 177 69 156"/%3E%3Cpath d="M95 150C82 132 83 108 94 91"/%3E%3Cg transform="translate(101 62)"%3E%3Cpath d="M0 22C-13 8-25 4-29 13c-3 8 8 14 22 15-17 2-25 10-19 17 7 8 18 1 26-9-4 14-1 27 8 27 9 0 11-13 8-27 8 11 19 17 25 10 6-8-3-16-19-19 14-1 24-7 21-15-4-10-17-5-29 7 5-14 3-26-5-28-9-1-13 10-9 27Z"/%3E%3Ccircle cx="0" cy="22" r="5"/%3E%3C/g%3E%3Cg transform="translate(68 150) scale(.68)"%3E%3Cpath d="M0 22C-13 8-25 4-29 13c-3 8 8 14 22 15-17 2-25 10-19 17 7 8 18 1 26-9-4 14-1 27 8 27 9 0 11-13 8-27 8 11 19 17 25 10 6-8-3-16-19-19 14-1 24-7 21-15-4-10-17-5-29 7 5-14 3-26-5-28-9-1-13 10-9 27Z"/%3E%3Ccircle cx="0" cy="22" r="5"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+  background-position:center;
 }
-.cover::before{left:-44px;top:16%}
-.cover::after{right:-44px;top:11%;transform:scaleX(-1)}
+
+.cover::before{
+  left:10px;
+  top:21%;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20300%22%3E%0A%3Cg%20fill%3D%22none%22%20stroke%3D%22%238F4B55%22%20stroke-width%3D%221.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%20%3Ccircle%20cx%3D%2260%22%20cy%3D%22105%22%20r%3D%2227%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M60%2069V52%20M60%20141V158%20M24%20105H7%20M96%20105H113%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M34%2079L22%2067%20M86%2079L98%2067%20M34%20131L22%20143%20M86%20131L98%20143%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M60%2035V25%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M60%20175V185%22%2F%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E");
+}
+
+.cover::after{
+  right:34px;
+  top:4%;
+  background-position:center 8px;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20300%22%3E%0A%3Cg%20fill%3D%22none%22%20stroke%3D%22%238F4B55%22%20stroke-width%3D%221.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%20%3Cpath%20d%3D%22M76%2055%0A%20%20%20%20%20%20%20%20%20%20%20C53%2065%2040%2087%2040%20111%0A%20%20%20%20%20%20%20%20%20%20%20C40%20143%2064%20166%2093%20166%0A%20%20%20%20%20%20%20%20%20%20%20C105%20166%20116%20162%20124%20155%0A%20%20%20%20%20%20%20%20%20%20%20C111%20157%20100%20153%2091%20146%0A%20%20%20%20%20%20%20%20%20%20%20C76%20134%2069%20115%2072%2097%0A%20%20%20%20%20%20%20%20%20%20%20C74%2080%2083%2066%2096%2058%0A%20%20%20%20%20%20%20%20%20%20%20C89%2055%2083%2054%2076%2055Z%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M26%2081V93%20M20%2087H32%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M99%20192V204%20M93%20198H105%22%2F%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E");
+}
 
 .eyebrow{
   position:absolute;
@@ -322,6 +333,7 @@ h1 .script{
 
 /* ---------- RESPONSIVO ---------- */
 @media(max-width:430px){
+  .cover::before,.cover::after{opacity:.42;}
   .top-block{margin-top:clamp(30px,4.8vh,48px)}
   .mark{width:min(88vw,380px)}
   .kicker{margin:12px 0 0}
@@ -372,7 +384,7 @@ body::before{display:none}
   margin-top:clamp(28px,4.5vh,46px);
 }
 .mark{
-  margin-top:0;
+  margin-top:12px;
 }
 .kicker{
   margin-top:12px;
@@ -438,6 +450,7 @@ h1 .script{
 }
 
 @media(max-width:430px){
+  .cover::before,.cover::after{opacity:.42;}
   .top-block{margin-top:clamp(28px,4.5vh,46px)}
   .copy-stack{margin-top:clamp(28px,4.1vh,40px)}
   h1{font-size:clamp(78px,20.5vw,140px)}
@@ -450,58 +463,6 @@ h1 .script{
   .copy-stack{margin-top:26px}
   h1{font-size:80px}
   .rule{margin:20px 0 17px}
-}
-
-
-/* ===== FINAL CAPA — TIPOGRAFIA E RITMO ===== */
-.copy-stack{
-  width:min(92vw,390px);
-  margin:clamp(12px,1.7vh,18px) auto 0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-}
-
-.copy-stack h1{
-  width:100%;
-  margin:0;
-  color:#b77b82;
-  font-family:"Cormorant Garamond",Georgia,serif;
-  font-weight:700;
-  font-size:clamp(58px,17.2vw,104px);
-  line-height:.9;
-  letter-spacing:-.045em;
-  white-space:normal;
-  text-align:center;
-}
-
-.copy-stack h1 .title-main{
-  display:block;
-  color:#b77b82;
-  font-weight:700;
-}
-
-.copy-stack h1 .title-sub{
-  display:block;
-  margin-top:-.02em;
-  color:#b77b82;
-  font-weight:700;
-  font-size:.63em;
-  line-height:.96;
-  letter-spacing:-.025em;
-}
-
-.copy-stack h1 .sim{
-  color:#6e2434;
-  font-weight:700;
-  font-style:normal;
-}
-
-.copy-stack .rule{
-  margin:20px 0 18px;
-  width:54px;
-  height:1px;
 }
 
 </style>
