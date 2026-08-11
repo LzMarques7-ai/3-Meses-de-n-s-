@@ -694,23 +694,27 @@ h1 .script{
   margin-bottom:34px;
 }
 .letter p{
-  margin:0 0 20px;
+  margin:0 0 12px;
   font-size:18px;
-  line-height:1.62;
+  line-height:1.58;
+  color:var(--muted);
+  text-indent:1.4em;
 }
-.letter p + .letter-emphasis{
-  margin-top:30px!important;
-}
+.letter p:first-of-type{ text-indent:0; }
 .letter-emphasis{
-  color:var(--wine)!important;
-  font-weight:600!important;
-  font-size:21px!important;
-  line-height:1.25!important;
+  color:var(--muted)!important;
+  font-weight:400!important;
+  font-size:18px!important;
+  line-height:1.58!important;
+  margin-top:0!important;
 }
 .letter .final-letter{
-  margin-top:34px!important;
-  font-size:25px!important;
-  line-height:1.12!important;
+  margin-top:22px!important;
+  color:var(--wine)!important;
+  font-weight:600!important;
+  font-size:22px!important;
+  line-height:1.25!important;
+  text-indent:0;
 }
 .story-next{
   margin-top:30px;
@@ -906,14 +910,15 @@ h1 .script{
   }
   .letter p{
     font-size:17px;
-    line-height:1.58;
-    margin-bottom:18px;
+    line-height:1.56;
+    margin-bottom:11px;
   }
   .letter-emphasis{
-    font-size:20px!important;
+    font-size:17px!important;
+    line-height:1.56!important;
   }
   .letter .final-letter{
-    font-size:24px!important;
+    font-size:22px!important;
   }
   .story-page h2{
     font-size:clamp(38px,10.5vw,58px);
@@ -995,7 +1000,7 @@ h1 .script{
 <section class="story" id="reveal" aria-hidden="true">
   <div class="story-progress" aria-hidden="true">
     <span class="active"></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
   </div>
 
   <div class="story-pages">
@@ -1066,22 +1071,90 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 03 — COMO EU ME SINTO -->
-    <article class="story-page feeling-page">
-      <div class="story-label">03 · se eu pudesse te explicar</div>
-      <h2>Porque você merece saber<br>como eu me sinto com você.</h2>
-      <div class="feeling-copy">
-        <p>Eu gosto de quem eu sou quando estou com você.</p>
-        <p>Gosto das coisas pequenas que provavelmente você nem percebe. Do jeito que uma conversa qualquer consegue virar uma memória. Do jeito que a sua presença muda completamente um lugar.</p>
-        <p>E talvez a parte mais bonita seja que, depois de tudo, eu ainda consigo olhar para você e sentir que escolheria ficar.</p>
+    <!-- 03 — COMO EU ME SINTO / PARTE I -->
+    <article class="story-page letter-page">
+      <div class="story-label">03 · como eu me sinto com você</div>
+      <div class="letter">
+        <h2>Como eu me sinto<br>com você.</h2>
+        <p>Eu acho que a primeira coisa que sinto quando estou com você é paz.</p>
+        <p>Minha cabeça costuma estar sempre cheia. Eu penso demais, volto nas coisas, imagino possibilidades, penso no que poderia ter sido diferente, no que pode acontecer depois.</p>
+        <p>Com você, isso diminui.</p>
+        <p>Não sei exatamente como você consegue, mas perto de você eu consigo simplesmente ficar.</p>
+        <p>Isso, para mim, é muito.</p>
+        <p>Você me acalma.</p>
+        <p>Me dá segurança.</p>
+        <p>Me faz sentir acolhido e, por alguns momentos, eu consigo parar de pensar em tudo que normalmente fica passando pela minha cabeça.</p>
+        <p>Também fico mais bobo perto de você.</p>
+        <p>Gosto de brincar, de ficar mais “chucro”, de te irritar só para ver sua reação, de fazer qualquer coisa que faça a gente rir.</p>
+        <p>E gosto de perceber que, quando estou com você, meus problemas parecem um pouco menores.</p>
+        <p>Eu gosto das coisas que a gente faz quando está junto.</p>
+        <p>Gosto de sair para comer com você, assistir filmes, conversar sobre qualquer coisa, ficar abraçado, te beijar, fazer cafuné, olhar para os seus olhos e reparar no seu sorriso.</p>
+        <p>Gosto até de dormir com você.</p>
+        <p>Não pelo sono em si, mas pela sensação de poder simplesmente deitar e não precisar pensar em mais nada.</p>
       </div>
-      <div class="memory-placeholder">aqui podemos colocar uma foto ou uma lembrança só nossa</div>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+    <!-- 04 — COMO EU ME SINTO / PARTE II -->
+    <article class="story-page letter-page">
+      <div class="story-label">04 · como eu me sinto com você</div>
+      <div class="letter">
+        <p>E acho que é isso que mais gosto em nós.</p>
+        <p>Eu não preciso que aconteça alguma coisa extraordinária para gostar de estar com você.</p>
+        <p>Às vezes basta a gente estar no mesmo lugar.</p>
+        <p>E, mesmo assim, eu sinto saudade quando você não está.</p>
+        <p>Eu sinto saudade de coisas que talvez nem tenham acontecido ainda.</p>
+        <p>Dos lugares que ainda quero conhecer com você.</p>
+        <p>Dos filmes que ainda vamos assistir.</p>
+        <p>Das noites em que ainda vamos dormir juntos.</p>
+        <p>Das coisas que ainda nem sabemos que vão virar lembrança.</p>
+        <p>Talvez seja por isso que eu goste tanto quando você fala de um futuro em que eu estou.</p>
+        <p>Porque antes de você, eu acho que eu simplesmente ia vivendo.</p>
+        <p>Não pensava muito no que vinha depois.</p>
+        <p>Era como se eu estivesse sempre preocupado com o agora e, ao mesmo tempo, não estivesse realmente preocupado com nada.</p>
+        <p>Você mudou isso em mim.</p>
+        <p>Você começou a me fazer pensar no futuro de uma maneira diferente.</p>
+        <p>Não porque você tenha colocado um roteiro na minha cabeça, mas porque, pela primeira vez, eu comecei a querer saber como seria a vida se você estivesse nela.</p>
+        <p>E isso mudou muita coisa em mim.</p>
+        <p>Você também me fez enxergar algumas coisas de um jeito mais adulto.</p>
+        <p>Talvez eu tenha chegado até você ainda com uma cabeça muito de menino, achando que a vida era só ir vivendo e ver no que dava.</p>
+        <p>Hoje eu penso diferente.</p>
+        <p>Você me trouxe um sentido que eu não sabia que estava procurando.</p>
+        <p>E talvez seja por isso que eu consiga entender melhor quando digo que você é a mulher da minha vida.</p>
+        <p>Não é só porque eu gosto de você.</p>
+        <p>Não é só porque eu te amo.</p>
+        <p>É porque eu consigo imaginar minha vida daqui para frente e, quando penso nela, você aparece naturalmente.</p>
+        <p>Eu admiro muito quem você é.</p>
+        <p>Seu caráter.</p>
+        <p>O jeito que você consegue ser compreensiva comigo e com as pessoas.</p>
+        <p>A maneira como você batalha pelas suas coisas.</p>
+        <p>E talvez uma das coisas que mais me faça te admirar seja justamente perceber o quanto você tenta ser forte.</p>
+        <p>Porque eu sei que o mundo nem sempre é gentil com pessoas que têm um coração como o seu.</p>
+        <p>E, às vezes, eu só queria que você pudesse descansar um pouco.</p>
+        <p>Que não precisasse carregar tudo.</p>
+        <p>Que pudesse simplesmente ser cuidada também.</p>
+        <p>Porque você merece isso.</p>
+        <p>E eu gosto de poder ser uma pessoa com quem você pode fazer isso.</p>
+        <p>Você trouxe cor para uma vida que muitas vezes eu enxergava em cinza.</p>
+        <p>Trouxe luz para uma parte de mim que eu costumava deixar no escuro.</p>
+        <p>E talvez o mais bonito seja que você não fez isso tentando me mudar.</p>
+        <p>Você simplesmente chegou, ficou, e foi fazendo parte.</p>
+        <p>Hoje eu me sinto bem comigo mesmo quando estou com você.</p>
+        <p>E isso significa muito para mim, porque eu nem sempre sou a pessoa mais fácil de gostar quando estou sozinho comigo.</p>
+        <p>Mas com você eu consigo gostar um pouco mais de quem eu sou.</p>
+        <p>Talvez seja esse o meu jeito mais simples de explicar tudo:</p>
+        <p>com você, eu consigo descansar de mim mesmo.</p>
+        <p>E, ao mesmo tempo, você me fez querer ser alguém melhor para continuar ao seu lado.</p>
+        <p>É estranho pensar que uma pessoa possa trazer tanta calma e, ao mesmo tempo, fazer a gente querer viver tanta coisa.</p>
+        <p>Mas você faz isso comigo.</p>
+        <p>E eu espero que ainda tenha muita coisa para a gente viver.</p>
+      </div>
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
     <!-- 03 — ANTES DE NÓS -->
     <article class="story-page timeline-page">
-      <div class="story-label">04 · antes de existir um “nós”</div>
+      <div class="story-label">05 · antes de existir um “nós”</div>
       <h2>A história não começou<br>no dia do pedido.</h2>
       <p class="page-intro">Antes de sermos namorados, já existia alguma coisa entre nós. Talvez só não soubéssemos ainda o que aquilo significava.</p>
 
@@ -1104,7 +1177,7 @@ h1 .script{
 
     <!-- 04 — PEDIDO -->
     <article class="story-page proposal-page">
-      <div class="story-label">05 · 23 · 05 · 2026</div>
+      <div class="story-label">06 · 23 · 05 · 2026</div>
       <div class="proposal-date">23 · 05 · 2026</div>
       <h2>O dia em que<br>tudo ganhou um nome.</h2>
       <p>Depois de tudo que veio antes, chegou o momento em que eu finalmente te fiz a pergunta.</p>
@@ -1116,7 +1189,7 @@ h1 .script{
 
     <!-- 05 — MEMÓRIAS -->
     <article class="story-page memories-page">
-      <div class="story-label">06 · os primeiros meses</div>
+      <div class="story-label">07 · os primeiros meses</div>
       <h2>Três meses não cabem<br>em uma página.</h2>
       <p class="page-intro">Então aqui vamos guardar as pequenas coisas: momentos, fotos, frases, lugares e lembranças que fizeram esses meses serem nossos.</p>
       <div class="memory-grid">
@@ -1129,7 +1202,7 @@ h1 .script{
 
     <!-- 06 — COMO EU TE VEJO -->
     <article class="story-page see-page">
-      <div class="story-label">07 · se eu pudesse te mostrar</div>
+      <div class="story-label">08 · se eu pudesse te mostrar</div>
       <h2>Como eu te vejo.</h2>
       <div class="see-lines">
         <p>forte quando acha que está fraca.</p>
@@ -1143,7 +1216,7 @@ h1 .script{
 
     <!-- 07 — FUTURO / FINAL -->
     <article class="story-page final-page">
-      <div class="story-label">08 · daqui pra frente</div>
+      <div class="story-label">09 · daqui pra frente</div>
       <h2>Eu não sei exatamente<br>onde a vida vai levar a gente.</h2>
       <div class="final-copy">
         <p>Mas sei que quero continuar descobrindo.</p>
