@@ -685,21 +685,32 @@ h1 .script{
   font:400 18px/1.55 "Cormorant Garamond",Georgia,serif;
 }
 .letter{
-  width:min(100%,600px);
+  width:min(100%,640px);
   text-align:left;
+  padding:8px 0 20px;
 }
 .letter h2{
   text-align:center;
-  margin-bottom:30px;
+  margin-bottom:34px;
 }
 .letter p{
-  margin:0 0 17px;
+  margin:0 0 20px;
+  font-size:18px;
+  line-height:1.62;
+}
+.letter p + .letter-emphasis{
+  margin-top:30px!important;
 }
 .letter-emphasis{
   color:var(--wine)!important;
   font-weight:600!important;
   font-size:21px!important;
-  margin-top:28px!important;
+  line-height:1.25!important;
+}
+.letter .final-letter{
+  margin-top:34px!important;
+  font-size:25px!important;
+  line-height:1.12!important;
 }
 .story-next{
   margin-top:30px;
@@ -890,6 +901,20 @@ h1 .script{
     padding-left:24px;
     padding-right:24px;
   }
+  .letter{
+    padding-top:2px;
+  }
+  .letter p{
+    font-size:17px;
+    line-height:1.58;
+    margin-bottom:18px;
+  }
+  .letter-emphasis{
+    font-size:20px!important;
+  }
+  .letter .final-letter{
+    font-size:24px!important;
+  }
   .story-page h2{
     font-size:clamp(38px,10.5vw,58px);
   }
@@ -970,29 +995,80 @@ h1 .script{
 <section class="story" id="reveal" aria-hidden="true">
   <div class="story-progress" aria-hidden="true">
     <span class="active"></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
   </div>
 
   <div class="story-pages">
 
-    <!-- 01 — CARTA -->
+    <!-- 01 — CARTA / PARTE I -->
     <article class="story-page letter-page">
-      <div class="story-label">01 · uma coisa que eu precisava dizer</div>
+      <div class="story-label">01 · uma coisa que eu precisava te dizer</div>
       <div class="letter">
         <h2>Eu queria ter feito isso antes.</h2>
-        <p>Não só agora, depois de três meses.</p>
-        <p>Queria ter encontrado um jeito de colocar em palavras tudo o que aconteceu nesse tempo, mas talvez eu nunca tenha sido muito bom em falar sobre aquilo que realmente sinto.</p>
-        <p>E antes de qualquer coisa, eu preciso te pedir desculpas.</p>
-        <p>Desculpa pelos dois primeiros meses em que eu não fiz nada assim. Desculpa por ter deixado o tempo passar como se uma data não merecesse ser lembrada, quando, na verdade, cada momento ao seu lado merecia.</p>
-        <p>Talvez eu tenha pensado que precisava fazer alguma coisa enorme para demonstrar o que você significa para mim.</p>
-        <p class="letter-emphasis">E no fim eu percebi que só precisava começar.</p>
+        <p>Na verdade, queria ter feito algumas coisas antes.</p>
+        <p>O primeiro mês passou e eu simplesmente esqueci. Não porque não fosse importante, mas porque sou meio cabeça de vento e ainda não tinha me acostumado com a ideia de ter uma data nossa para lembrar.</p>
+        <p>No segundo, eu já sabia que estava passando.</p>
+        <p class="letter-emphasis">E mesmo assim não fiz nada.</p>
+        <p>Fiquei pensando que depois eu poderia fazer alguma coisa mais especial, até que comecei a ter a ideia disso aqui. Já faz um tempo que venho pensando e mexendo nisso, tentando encontrar uma forma de colocar em palavras algumas coisas que provavelmente eu não conseguiria te falar olhando para você.</p>
+        <p>Então acho que começar por um pedido de desculpas é o mais certo.</p>
+        <p>Eu já te pedi desculpas pelas coisas que fiz. Sei que você me perdoou, e eu não estou escrevendo isso para tentar voltar ao que já passou.</p>
+        <p>Estou escrevendo porque, mesmo sendo passado, eu ainda penso em algumas coisas e reconheço que errei.</p>
+        <p class="letter-emphasis">Fui imaturo.</p>
+        <p>Houve uma situação em que eu saí escondido e não fui sincero com você. Eu sei que não deveria ter feito aquilo.</p>
+        <p>Naquela época, eu também enxergava algumas coisas de uma maneira muito diferente da que enxergo hoje. Eu dava importância para pessoas e coisas que, olhando agora, percebo que não tinham o mesmo valor que eu imaginava.</p>
+        <p>E talvez o que mais me faça pensar nisso seja perceber o quanto a minha forma de te enxergar também mudou.</p>
+        <p class="letter-emphasis">Hoje, você é prioridade para mim. É a mulher que eu escolho para a minha vida.</p>
+        <p>E eu me arrependo de ter demorado para enxergar isso com a clareza que tenho hoje.</p>
+        <p>Também queria te pedir desculpas por outra coisa que pode parecer pequena, mas que ficou na minha cabeça: ter deixado os dois primeiros meses passarem como se fossem dias comuns.</p>
+        <p>Eu poderia ter feito uma carta.</p>
+        <p>Poderia ter comprado alguma coisa para você.</p>
+        <p>Poderia ter inventado uma surpresa, preparado alguma coisa simples ou só parado um pouco para te dizer o quanto eu estava feliz por estar vivendo aquilo com você.</p>
+        <p class="letter-emphasis">Eu poderia ter feito tanta coisa.</p>
+        <p class="letter-emphasis">E não fiz.</p>
       </div>
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 02 — COMO EU ME SINTO -->
+    <!-- 02 — CARTA / PARTE II -->
+    <article class="story-page letter-page">
+      <div class="story-label">02 · e tem mais uma coisa</div>
+      <div class="letter">
+        <p>Talvez porque eu ainda estivesse aprendendo que demonstrar também faz parte de amar.</p>
+        <p>Porque eu sinto muito mais do que consigo colocar para fora.</p>
+        <p>Eu tenho esse jeito meio estranho de, às vezes, ficar no meu próprio mundo, quieto, pensando em um milhão de coisas ou simplesmente gostando de ficar sozinho comigo mesmo.</p>
+        <p>E eu sei que, de fora, isso pode parecer distância.</p>
+        <p>Mas nem sempre é.</p>
+        <p>Às vezes, eu só sou assim.</p>
+        <p>Ainda estou aprendendo a deixar alguém entrar nesse meu mundo sem sentir que preciso me fechar nele.</p>
+        <p>E quero que você entenda uma coisa:</p>
+        <p class="letter-emphasis">quando eu fico no meu mundo, isso nunca significou que eu queria você fora dele.</p>
+        <p class="letter-emphasis">Muito pelo contrário.</p>
+        <p>Você é uma das poucas pessoas que eu quero que conheça esse lugar.</p>
+        <p>Talvez eu nunca consiga ser tão bom demonstrando quanto você é.</p>
+        <p>Talvez eu ainda esqueça alguma data, fique distraído, demore para perceber alguma coisa ou não encontre as palavras certas na hora certa.</p>
+        <p>Mas eu quero continuar aprendendo.</p>
+        <p>Porque hoje eu sei uma coisa que talvez eu ainda não soubesse quando tudo isso começou:</p>
+        <p class="letter-emphasis">eu não quero só estar com você.</p>
+        <p class="letter-emphasis">Eu quero cuidar do que a gente tem.</p>
+        <p>Quero que você sinta meu carinho nas coisas pequenas.</p>
+        <p>Quero que minhas atitudes façam você se sentir escolhida.</p>
+        <p>Quero que você consiga olhar para mim e não precise ficar procurando sinais para saber o que eu sinto.</p>
+        <p>Porque eu não quero que você apenas saiba que eu te amo.</p>
+        <p class="letter-emphasis">Eu quero que você tenha certeza.</p>
+        <p>E talvez seja por isso que eu finalmente tenha escrito tudo isso.</p>
+        <p>Não para consertar o que já passou.</p>
+        <p>Mas para que você saiba que eu lembro.</p>
+        <p class="letter-emphasis">Que eu reconheço.</p>
+        <p class="letter-emphasis">Que eu mudei.</p>
+        <p>E que, daqui para frente, eu quero que minhas atitudes sejam capazes de dizer aquilo que, às vezes, eu não consigo falar.</p>
+        <p class="letter-emphasis final-letter">Eu te amo. E eu quero que você sinta isso em mim.</p>
+      </div>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+    <!-- 03 — COMO EU ME SINTO -->
     <article class="story-page feeling-page">
-      <div class="story-label">02 · se eu pudesse te explicar</div>
+      <div class="story-label">03 · se eu pudesse te explicar</div>
       <h2>Porque você merece saber<br>como eu me sinto com você.</h2>
       <div class="feeling-copy">
         <p>Eu gosto de quem eu sou quando estou com você.</p>
@@ -1005,7 +1081,7 @@ h1 .script{
 
     <!-- 03 — ANTES DE NÓS -->
     <article class="story-page timeline-page">
-      <div class="story-label">03 · antes de existir um “nós”</div>
+      <div class="story-label">04 · antes de existir um “nós”</div>
       <h2>A história não começou<br>no dia do pedido.</h2>
       <p class="page-intro">Antes de sermos namorados, já existia alguma coisa entre nós. Talvez só não soubéssemos ainda o que aquilo significava.</p>
 
@@ -1028,7 +1104,7 @@ h1 .script{
 
     <!-- 04 — PEDIDO -->
     <article class="story-page proposal-page">
-      <div class="story-label">04 · 23 · 05 · 2026</div>
+      <div class="story-label">05 · 23 · 05 · 2026</div>
       <div class="proposal-date">23 · 05 · 2026</div>
       <h2>O dia em que<br>tudo ganhou um nome.</h2>
       <p>Depois de tudo que veio antes, chegou o momento em que eu finalmente te fiz a pergunta.</p>
@@ -1040,7 +1116,7 @@ h1 .script{
 
     <!-- 05 — MEMÓRIAS -->
     <article class="story-page memories-page">
-      <div class="story-label">05 · os primeiros meses</div>
+      <div class="story-label">06 · os primeiros meses</div>
       <h2>Três meses não cabem<br>em uma página.</h2>
       <p class="page-intro">Então aqui vamos guardar as pequenas coisas: momentos, fotos, frases, lugares e lembranças que fizeram esses meses serem nossos.</p>
       <div class="memory-grid">
@@ -1053,7 +1129,7 @@ h1 .script{
 
     <!-- 06 — COMO EU TE VEJO -->
     <article class="story-page see-page">
-      <div class="story-label">06 · se eu pudesse te mostrar</div>
+      <div class="story-label">07 · se eu pudesse te mostrar</div>
       <h2>Como eu te vejo.</h2>
       <div class="see-lines">
         <p>forte quando acha que está fraca.</p>
@@ -1067,7 +1143,7 @@ h1 .script{
 
     <!-- 07 — FUTURO / FINAL -->
     <article class="story-page final-page">
-      <div class="story-label">07 · daqui pra frente</div>
+      <div class="story-label">08 · daqui pra frente</div>
       <h2>Eu não sei exatamente<br>onde a vida vai levar a gente.</h2>
       <div class="final-copy">
         <p>Mas sei que quero continuar descobrindo.</p>
