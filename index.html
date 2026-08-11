@@ -495,10 +495,132 @@ h1 .script{
   .rule{margin:28px auto 17px}
 }
 
+
+/* ===== TELA DE SENHA — ENTRADA ===== */
+.password-gate{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  box-sizing:border-box;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(183,123,130,.10), transparent 34%),
+    linear-gradient(180deg,#f8f0e5 0%,#f4e9dd 100%);
+  color:#6e2434;
+  transition:opacity .7s ease, visibility .7s ease;
+}
+.password-gate.is-hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+.password-card{
+  width:min(100%,390px);
+  text-align:center;
+}
+.password-kicker{
+  margin:0 0 22px;
+  font-family:"Montserrat",Arial,sans-serif;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.24em;
+  color:#9b6b70;
+}
+.password-card h2{
+  margin:0;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:clamp(34px,9vw,48px);
+  line-height:.96;
+  font-weight:700;
+  letter-spacing:-.025em;
+  color:#7f4a52;
+}
+.password-hint{
+  margin:22px 0 18px;
+  font-family:"Montserrat",Arial,sans-serif;
+  font-size:11px;
+  letter-spacing:.08em;
+  color:#a2767b;
+}
+#password-form{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.password-input{
+  width:150px;
+  height:48px;
+  box-sizing:border-box;
+  border:0;
+  border-bottom:1px solid rgba(110,36,52,.38);
+  outline:none;
+  background:transparent;
+  text-align:center;
+  font-family:"Montserrat",Arial,sans-serif;
+  font-size:20px;
+  font-weight:600;
+  letter-spacing:.28em;
+  color:#6e2434;
+}
+.password-input:focus{
+  border-bottom-color:#6e2434;
+}
+.password-button{
+  margin-top:24px;
+  min-width:150px;
+  padding:13px 24px;
+  border:0;
+  border-radius:999px;
+  background:#6e2434;
+  color:#f8f0e5;
+  font-family:"Montserrat",Arial,sans-serif;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.18em;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.password-error{
+  min-height:15px;
+  margin:10px 0 0;
+  font-family:"Montserrat",Arial,sans-serif;
+  font-size:10px;
+  color:#9b4f5b;
+}
+@media(max-width:430px){
+  .password-gate{padding:20px}
+  .password-card h2{font-size:clamp(32px,9.5vw,43px)}
+}
+
 </style>
 </head>
 
 <body>
+
+<section id="password-gate" class="password-gate" aria-label="Entrada">
+  <div class="password-card">
+    <p class="password-kicker">ANTES DE ENTRAR</p>
+    <h2>algumas coisas<br>foram feitas para duas pessoas.</h2>
+    <p class="password-hint">digite a senha para continuar.</p>
+    <form id="password-form" autocomplete="off">
+      <input
+        id="site-password"
+        class="password-input"
+        type="password"
+        inputmode="numeric"
+        maxlength="6"
+        aria-label="Senha"
+        autocomplete="off"
+      >
+      <button class="password-button" type="submit">ENTRAR</button>
+      <p id="password-error" class="password-error" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
 <main>
 <section class="cover" aria-label="Capa">
 
@@ -551,6 +673,33 @@ function closeReveal(){
   e.setAttribute("aria-hidden","true");
   document.body.style.overflow="";
 }
+</script>
+
+
+<script>
+(function(){
+  const gate = document.getElementById("password-gate");
+  const form = document.getElementById("password-form");
+  const input = document.getElementById("site-password");
+  const error = document.getElementById("password-error");
+
+  form.addEventListener("submit", function(event){
+    event.preventDefault();
+
+    if(input.value === "230526"){
+      gate.classList.add("is-hidden");
+      document.body.classList.remove("locked");
+      setTimeout(function(){
+        gate.remove();
+      }, 750);
+      return;
+    }
+
+    error.textContent = "essa não é a senha.";
+    input.value = "";
+    input.focus();
+  });
+})();
 </script>
 
 </body>
