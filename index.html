@@ -627,6 +627,288 @@ h1 .script{
   .password-card h2{font-size:clamp(32px,9.5vw,43px)}
 }
 
+
+/* ===== RASCUNHO DA HISTÓRIA — próximas telas ===== */
+.story{
+  position:fixed;
+  inset:0;
+  z-index:9000;
+  background:
+    radial-gradient(ellipse 80% 45% at 50% 15%, rgba(231,205,194,.25), transparent 72%),
+    var(--ivory);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(18px);
+  transition:opacity .65s ease, transform .65s ease, visibility .65s;
+  overflow:hidden;
+}
+.story.open{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+.story-pages{
+  width:100%;
+  height:100%;
+  overflow-y:auto;
+  overflow-x:hidden;
+  scroll-snap-type:y mandatory;
+  -webkit-overflow-scrolling:touch;
+}
+.story-page{
+  position:relative;
+  min-height:100svh;
+  padding:max(72px,env(safe-area-inset-top) + 38px) 28px max(48px,env(safe-area-inset-bottom) + 30px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+}
+.story-label{
+  margin-bottom:26px;
+  color:var(--wine2);
+  font:500 9px/1 "DM Sans",sans-serif;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+}
+.story-page h2{
+  margin:0;
+  color:var(--wine);
+  font:600 clamp(40px,10.8vw,72px)/.92 "Cormorant Garamond",Georgia,serif;
+  letter-spacing:-.035em;
+}
+.story-page p{
+  color:var(--muted);
+  font:400 18px/1.55 "Cormorant Garamond",Georgia,serif;
+}
+.letter{
+  width:min(100%,600px);
+  text-align:left;
+}
+.letter h2{
+  text-align:center;
+  margin-bottom:30px;
+}
+.letter p{
+  margin:0 0 17px;
+}
+.letter-emphasis{
+  color:var(--wine)!important;
+  font-weight:600!important;
+  font-size:21px!important;
+  margin-top:28px!important;
+}
+.story-next{
+  margin-top:30px;
+  border:0;
+  background:none;
+  color:var(--wine2);
+  font:600 9px "DM Sans",sans-serif;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+.story-next span{
+  display:inline-block;
+  margin-left:8px;
+  font-size:14px;
+}
+.feeling-copy{
+  width:min(100%,520px);
+  margin-top:22px;
+}
+.feeling-copy p{
+  margin:0 0 14px;
+}
+.memory-placeholder{
+  width:min(100%,360px);
+  min-height:110px;
+  margin-top:15px;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  border:1px solid rgba(137,77,86,.22);
+  border-radius:18px;
+  color:var(--rose);
+  font:500 9px/1.5 "DM Sans",sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.page-intro{
+  max-width:520px;
+  margin:22px auto 0;
+}
+.timeline{
+  width:min(100%,520px);
+  margin-top:28px;
+  text-align:left;
+}
+.timeline-item{
+  display:grid;
+  grid-template-columns:72px 1fr;
+  gap:18px;
+  padding:17px 0;
+  border-top:1px solid rgba(137,77,86,.18);
+}
+.timeline-item:last-child{
+  border-bottom:1px solid rgba(137,77,86,.18);
+}
+.timeline-item > span{
+  padding-top:4px;
+  color:var(--rose);
+  font:500 8px "DM Sans",sans-serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.timeline-item strong{
+  color:var(--wine);
+  font:600 25px/1 "Cormorant Garamond",Georgia,serif;
+}
+.timeline-item p{
+  margin:7px 0 0;
+  font-size:16px;
+  line-height:1.35;
+}
+.proposal-date{
+  margin:10px 0 24px;
+  color:var(--red);
+  font:500 9px "DM Sans",sans-serif;
+  letter-spacing:.24em;
+}
+.proposal-page > p{
+  max-width:430px;
+}
+.quote{
+  margin:30px 0 10px;
+  color:var(--wine);
+  font:600 clamp(27px,7vw,46px)/1.05 "Cormorant Garamond",Georgia,serif;
+}
+.yes{
+  color:var(--wine);
+  font:700 clamp(52px,14vw,88px)/.9 "Cormorant Garamond",Georgia,serif;
+  letter-spacing:-.04em;
+}
+.small-note{
+  max-width:390px;
+  font-size:16px!important;
+}
+.memory-grid{
+  width:min(100%,620px);
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:28px;
+}
+.memory-card{
+  min-height:150px;
+  display:grid;
+  place-items:center;
+  padding:15px;
+  border:1px solid rgba(137,77,86,.2);
+  border-radius:14px;
+  background:rgba(255,255,255,.18);
+  color:var(--rose);
+  font:600 9px/1.4 "DM Sans",sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.memory-card small{
+  font-size:7px;
+  font-weight:500;
+  letter-spacing:.08em;
+}
+.see-lines{
+  width:min(100%,500px);
+  margin-top:30px;
+}
+.see-lines p{
+  margin:0;
+  padding:14px 0;
+  border-bottom:1px solid rgba(137,77,86,.16);
+  color:var(--wine);
+  font-size:22px;
+}
+.closing-note{
+  max-width:420px;
+  margin-top:25px!important;
+  font-size:15px!important;
+  color:var(--rose)!important;
+}
+.final-copy{
+  max-width:500px;
+  margin-top:24px;
+}
+.final-copy p{
+  margin:0 0 15px;
+}
+.final-signature{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:28px;
+  color:var(--rose);
+  font:500 9px/1.4 "DM Sans",sans-serif;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.final-signature strong{
+  color:var(--wine);
+  font:600 29px/1 "Cormorant Garamond",Georgia,serif;
+  letter-spacing:0;
+  text-transform:none;
+}
+.story .close{
+  margin-top:34px;
+  cursor:pointer;
+}
+.story-progress{
+  position:fixed;
+  z-index:3;
+  right:16px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+.story-progress span{
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:rgba(100,31,45,.2);
+  transition:all .25s ease;
+}
+.story-progress span.active{
+  height:16px;
+  border-radius:4px;
+  background:var(--wine);
+}
+@media(max-width:430px){
+  .story-page{
+    padding-left:24px;
+    padding-right:24px;
+  }
+  .story-page h2{
+    font-size:clamp(38px,10.5vw,58px);
+  }
+  .story-page p{
+    font-size:17px;
+  }
+  .memory-grid{
+    grid-template-columns:1fr 1fr 1fr;
+  }
+  .memory-card{
+    min-height:125px;
+    font-size:8px;
+  }
+  .timeline-item{
+    grid-template-columns:58px 1fr;
+    gap:13px;
+  }
+}
+
 </style>
 </head>
 
@@ -685,28 +967,154 @@ h1 .script{
 </section>
 </main>
 
-<section class="reveal" id="reveal" aria-hidden="true">
-  <div class="reveal-inner">
-    <div class="reveal-label">por enquanto, só o começo</div>
-    <h2>Tem muita coisa<br>para contar.</h2>
-    <p>esta é apenas a primeira página.<br>o resto da história ainda está por vir.</p>
-    <button class="close" onclick="closeReveal()">voltar</button>
+<section class="story" id="reveal" aria-hidden="true">
+  <div class="story-progress" aria-hidden="true">
+    <span class="active"></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="story-pages">
+
+    <!-- 01 — CARTA -->
+    <article class="story-page letter-page">
+      <div class="story-label">01 · uma coisa que eu precisava dizer</div>
+      <div class="letter">
+        <h2>Eu queria ter feito isso antes.</h2>
+        <p>Não só agora, depois de três meses.</p>
+        <p>Queria ter encontrado um jeito de colocar em palavras tudo o que aconteceu nesse tempo, mas talvez eu nunca tenha sido muito bom em falar sobre aquilo que realmente sinto.</p>
+        <p>E antes de qualquer coisa, eu preciso te pedir desculpas.</p>
+        <p>Desculpa pelos dois primeiros meses em que eu não fiz nada assim. Desculpa por ter deixado o tempo passar como se uma data não merecesse ser lembrada, quando, na verdade, cada momento ao seu lado merecia.</p>
+        <p>Talvez eu tenha pensado que precisava fazer alguma coisa enorme para demonstrar o que você significa para mim.</p>
+        <p class="letter-emphasis">E no fim eu percebi que só precisava começar.</p>
+      </div>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+    <!-- 02 — COMO EU ME SINTO -->
+    <article class="story-page feeling-page">
+      <div class="story-label">02 · se eu pudesse te explicar</div>
+      <h2>Porque você merece saber<br>como eu me sinto com você.</h2>
+      <div class="feeling-copy">
+        <p>Eu gosto de quem eu sou quando estou com você.</p>
+        <p>Gosto das coisas pequenas que provavelmente você nem percebe. Do jeito que uma conversa qualquer consegue virar uma memória. Do jeito que a sua presença muda completamente um lugar.</p>
+        <p>E talvez a parte mais bonita seja que, depois de tudo, eu ainda consigo olhar para você e sentir que escolheria ficar.</p>
+      </div>
+      <div class="memory-placeholder">aqui podemos colocar uma foto ou uma lembrança só nossa</div>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+    <!-- 03 — ANTES DE NÓS -->
+    <article class="story-page timeline-page">
+      <div class="story-label">03 · antes de existir um “nós”</div>
+      <h2>A história não começou<br>no dia do pedido.</h2>
+      <p class="page-intro">Antes de sermos namorados, já existia alguma coisa entre nós. Talvez só não soubéssemos ainda o que aquilo significava.</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <span>antes</span>
+          <div><strong>amizade</strong><p>meses de proximidade, conversas e momentos que, na época, pareciam simplesmente normais.</p></div>
+        </div>
+        <div class="timeline-item">
+          <span>depois</span>
+          <div><strong>alguma coisa mudou</strong><p>os sentimentos começaram a aparecer, mesmo sem a gente levar aquilo totalmente a sério.</p></div>
+        </div>
+        <div class="timeline-item">
+          <span>então</span>
+          <div><strong>viramos “nós” aos poucos</strong><p>vieram os sentimentos, os erros, as dúvidas e tudo aquilo que fez a nossa história ser nossa.</p></div>
+        </div>
+      </div>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+    <!-- 04 — PEDIDO -->
+    <article class="story-page proposal-page">
+      <div class="story-label">04 · 23 · 05 · 2026</div>
+      <div class="proposal-date">23 · 05 · 2026</div>
+      <h2>O dia em que<br>tudo ganhou um nome.</h2>
+      <p>Depois de tudo que veio antes, chegou o momento em que eu finalmente te fiz a pergunta.</p>
+      <div class="quote">“Você quer namorar comigo?”</div>
+      <div class="yes">sim.</div>
+      <p class="small-note">E foi assim que aquilo que já existia entre nós virou oficialmente um “nós”.</p>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+    <!-- 05 — MEMÓRIAS -->
+    <article class="story-page memories-page">
+      <div class="story-label">05 · os primeiros meses</div>
+      <h2>Três meses não cabem<br>em uma página.</h2>
+      <p class="page-intro">Então aqui vamos guardar as pequenas coisas: momentos, fotos, frases, lugares e lembranças que fizeram esses meses serem nossos.</p>
+      <div class="memory-grid">
+        <div class="memory-card">foto<br><small>uma memória</small></div>
+        <div class="memory-card">foto<br><small>uma história</small></div>
+        <div class="memory-card">foto<br><small>uma coisa que só nós entendemos</small></div>
+      </div>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+    <!-- 06 — COMO EU TE VEJO -->
+    <article class="story-page see-page">
+      <div class="story-label">06 · se eu pudesse te mostrar</div>
+      <h2>Como eu te vejo.</h2>
+      <div class="see-lines">
+        <p>forte quando acha que está fraca.</p>
+        <p>linda quando nem percebe.</p>
+        <p>especial nas coisas que considera pequenas.</p>
+        <p>importante mesmo quando acha que está incomodando.</p>
+      </div>
+      <p class="closing-note">Essa parte ainda vai ganhar as palavras que são realmente nossas.</p>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+    <!-- 07 — FUTURO / FINAL -->
+    <article class="story-page final-page">
+      <div class="story-label">07 · daqui pra frente</div>
+      <h2>Eu não sei exatamente<br>onde a vida vai levar a gente.</h2>
+      <div class="final-copy">
+        <p>Mas sei que quero continuar descobrindo.</p>
+        <p>Quero mais dias comuns. Mais conversas. Mais fotos ruins. Mais histórias que só nós dois vamos entender.</p>
+        <p>Quero continuar escolhendo você.</p>
+      </div>
+      <div class="final-signature">
+        <span>23 · 05 · 2026</span>
+        <strong>feliz 3 meses, meu amor.</strong>
+        <span>— Léo</span>
+      </div>
+      <button class="close" onclick="closeReveal()">voltar para a capa</button>
+    </article>
+
   </div>
 </section>
 
 <script>
+let storyIndex = 0;
+
 function openReveal(){
-  const e=document.getElementById("reveal");
-  e.classList.add("open");
-  e.setAttribute("aria-hidden","false");
+  const story = document.getElementById("reveal");
+  story.classList.add("open");
+  story.setAttribute("aria-hidden","false");
   document.body.style.overflow="hidden";
+  storyIndex = 0;
+  updateStoryProgress();
 }
 
 function closeReveal(){
-  const e=document.getElementById("reveal");
-  e.classList.remove("open");
-  e.setAttribute("aria-hidden","true");
+  const story = document.getElementById("reveal");
+  story.classList.remove("open");
+  story.setAttribute("aria-hidden","true");
   document.body.style.overflow="";
+}
+
+function storyNext(){
+  const pages = document.querySelectorAll(".story-page");
+  storyIndex = Math.min(storyIndex + 1, pages.length - 1);
+  pages[storyIndex].scrollIntoView({behavior:"smooth", block:"start"});
+  updateStoryProgress();
+}
+
+function updateStoryProgress(){
+  document.querySelectorAll(".story-progress span").forEach((dot, i)=>{
+    dot.classList.toggle("active", i === storyIndex);
+  });
 }
 </script>
 
