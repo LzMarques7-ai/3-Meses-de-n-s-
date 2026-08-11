@@ -159,46 +159,42 @@ h1{
   flex:0 0 auto;
   color:var(--wine);
   font-family:"Cormorant Garamond",Georgia,serif;
-  font-size:clamp(80px,21vw,142px);
+  font-size:clamp(78px,20.5vw,138px);
   font-weight:700;
-  line-height:.82;
-  letter-spacing:-.05em;
+  line-height:.84;
+  letter-spacing:-.048em;
   white-space:nowrap;
   text-align:center;
   text-rendering:geometricPrecision;
-  font-kerning:normal;
   animation:titleIn 1.25s cubic-bezier(.2,.75,.2,1) .2s both;
 }
 
-/* O título é tratado como uma composição: o segundo verso tem
-   alinhamento próprio para que “depois do” e “sim” formem uma única linha. */
+/* A segunda linha deve parecer parte do mesmo título: mais encorpada,
+   mais próxima da primeira e sem perder a delicadeza. */
 h1 em{
-  display:flex;
-  align-items:baseline;
-  justify-content:center;
-  gap:.12em;
-  margin-top:.035em;
+  display:block;
+  margin-top:.025em;
   color:var(--wine);
-  font-size:.68em;
+  font-size:.62em;
   font-weight:700;
   font-style:normal;
-  line-height:.86;
-  letter-spacing:-.045em;
+  line-height:.92;
+  letter-spacing:-.038em;
   white-space:nowrap;
 }
 
-/* “sim”: manuscrita, mais cheia e opticamente alinhada ao segundo verso. */
+/* “sim”: manuscrita elegante, desenhada mas perfeitamente legível. */
 h1 .script{
-  font-family:"Parisienne","Ballet","Cormorant Garamond",cursive;
-  color:var(--wine);
-  font-size:1.00em;
+  font-family:"Ballet","Parisienne","Cormorant Garamond",cursive;
+  color:var(--wine2);
+  font-size:1.02em;
   font-weight:400;
   font-style:normal;
-  letter-spacing:-.02em;
+  letter-spacing:-.015em;
   display:inline-block;
   white-space:nowrap;
-  margin:0;
-  transform:translateY(-.035em);
+  margin-left:.045em;
+  transform:translateY(.035em);
 }
 
 .rule{
@@ -329,9 +325,9 @@ h1 .script{
   .mark{width:min(88vw,380px)}
   .kicker{margin:12px 0 0}
   .copy-stack{margin-top:clamp(10px,1.5vh,16px)}
-  h1{font-size:clamp(80px,21vw,142px);line-height:.82}
-  h1 em{font-size:.68em;line-height:.86}
-  h1 .script{font-size:1em}
+  h1{font-size:clamp(62px,18vw,118px);line-height:.84}
+  h1 em{font-size:.62em;line-height:.92}
+  h1 .script{font-size:1.02em}
   .rule{margin-top:22px;margin-bottom:19px}
   .subtitle{font-size:18.5px;max-width:350px}
   .bottom{margin-top:24px}
@@ -369,7 +365,7 @@ h1 .script{
   </div>
 
   <div class="copy-stack">
-    <h1><span>3 meses</span><em><span>depois do</span><span class="script">“sim”.</span></em></h1>
+    <h1>3 meses<em>depois do <span class="script">“sim”.</span></em></h1>
 
     <div class="rule"></div>
 
