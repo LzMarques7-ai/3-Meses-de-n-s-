@@ -25,13 +25,13 @@ main {min-height:100svh;display:grid;place-items:center;padding:max(30px,env(saf
 .cover::before {left:-38px;top:16%}
 .cover::after {right:-38px;top:11%;transform:scaleX(-1)}
 .eyebrow {position:absolute;top:3.5%;left:0;right:0;color:var(--wine2);font-size:9px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;animation:rise 1s ease both}
-.mark {width:min(88vw,560px);height:min(29vh,250px);margin-bottom:4px;display:grid;place-items:center;animation:appear 1.15s cubic-bezier(.2,.7,.2,1) .08s both}
+.mark {width:min(82vw,520px);height:min(25vh,215px);margin:0 0 2px;display:grid;place-items:center;flex:0 0 auto;animation:appear 1.15s cubic-bezier(.2,.7,.2,1) .08s both}
 .mark img {width:100%;height:100%;object-fit:contain;opacity:.72;filter:sepia(.25) saturate(.8)}
-.kicker {display:flex;align-items:center;gap:12px;margin-bottom:8px;color:var(--red);font-size:9px;letter-spacing:.23em;text-transform:uppercase;animation:rise 1s ease .18s both}
+.kicker {display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 18px;min-height:12px;flex:0 0 auto;color:var(--red);font-size:9px;letter-spacing:.23em;text-transform:uppercase;animation:rise 1s ease .18s both}
 .kicker::before,.kicker::after {content:"";width:24px;height:1px;background:var(--rose)}
-h1 {margin:0;color:var(--wine);font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(66px,18vw,126px);font-weight:500;line-height:.78;letter-spacing:-.045em;animation:titleIn 1.25s cubic-bezier(.2,.75,.2,1) .2s both}
+h1 {position:relative;z-index:2;margin:0;flex:0 0 auto;color:var(--wine);font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(66px,18vw,126px);font-weight:500;line-height:.86;letter-spacing:-.045em;animation:titleIn 1.25s cubic-bezier(.2,.75,.2,1) .2s both}
 h1 em {display:block;margin-top:.16em;color:var(--wine2);font-size:.56em;font-style:normal;letter-spacing:-.025em}
-.rule {width:56px;height:1px;margin:28px 0 23px;background:linear-gradient(90deg,transparent,var(--red),transparent);animation:widen 1s ease .55s both}
+.rule {width:56px;height:1px;margin:30px 0 23px;background:linear-gradient(90deg,transparent,var(--red),transparent);animation:widen 1s ease .55s both}
 .subtitle {max-width:315px;margin:0;color:var(--muted);font-family:"Cormorant Garamond",Georgia,serif;font-size:20px;line-height:1.18;animation:rise 1s ease .62s both}
 .enter {margin-top:35px;border:1px solid rgba(100,31,45,.42);border-radius:999px;padding:13px 24px;background:rgba(255,255,255,.30);color:var(--wine);font:500 10px/1 "DM Sans",sans-serif;letter-spacing:.2em;text-transform:uppercase;-webkit-tap-highlight-color:transparent;transition:transform .25s ease,background .25s ease,border-color .25s ease;animation:rise 1s ease .76s both}
 .enter:active {transform:scale(.96);background:var(--cream);border-color:var(--wine2)}
@@ -47,7 +47,7 @@ h1 em {display:block;margin-top:.16em;color:var(--wine2);font-size:.56em;font-st
 @keyframes titleIn {from {opacity:0;transform:translateY(20px);filter:blur(7px)}to {opacity:1;transform:translateY(0);filter:blur(0)}}
 @keyframes rise {from {opacity:0;transform:translateY(10px)}to {opacity:1;transform:translateY(0)}}
 @keyframes widen {from {opacity:0;width:0}to {opacity:1;width:56px}}
-@media(max-width:430px){.cover::before,.cover::after{width:110px;opacity:.2}.cover::before{left:-44px}.cover::after{right:-44px}.mark{height:min(22vh,180px);width:min(50vw,220px)}.subtitle{font-size:19px}}
+@media(max-width:430px){.cover::before,.cover::after{width:110px;opacity:.2}.cover::before{left:-44px}.cover::after{right:-44px}.mark{height:min(20vh,165px);width:min(70vw,290px);margin-bottom:0}.kicker{margin:0 0 16px}.subtitle{font-size:19px}}
 @media(max-height:720px){.mark{height:145px;width:88vw}h1{font-size:72px}.rule{margin:20px 0 16px}.enter{margin-top:24px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
