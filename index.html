@@ -568,6 +568,38 @@ h1 .script{
 .password-input:focus{
   border-bottom-color:#6e2434;
 }
+.password-wrap{
+  position:relative;
+  width:150px;
+  height:48px;
+}
+.password-wrap .password-input{
+  width:100%;
+  height:100%;
+  padding:0;
+  color:transparent;
+  caret-color:#6e2434;
+  -webkit-text-fill-color:transparent;
+}
+.password-hearts{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  pointer-events:none;
+  color:#6e2434;
+  font-family:Arial,sans-serif;
+  font-size:17px;
+  line-height:1;
+  letter-spacing:0;
+}
+.password-heart{
+  display:inline-block;
+  transform:translateY(1px);
+}
+
 .password-button{
   margin-top:24px;
   min-width:150px;
@@ -602,19 +634,22 @@ h1 .script{
 
 <section id="password-gate" class="password-gate" aria-label="Entrada">
   <div class="password-card">
-    <p class="password-kicker">ANTES DE ENTRAR</p>
-    <h2>algumas coisas<br>foram feitas para duas pessoas.</h2>
-    <p class="password-hint">digite a senha para continuar.</p>
+      <h2>se eu tentasse te falar tudo isso,<br>provavelmente não conseguiria,<br>então fiz assim.</h2>
+    <p class="password-hint">dica: é a data em que tudo mudou.</p>
     <form id="password-form" autocomplete="off">
-      <input
-        id="site-password"
-        class="password-input"
-        type="password"
-        inputmode="numeric"
-        maxlength="6"
-        aria-label="Senha"
-        autocomplete="off"
-      >
+      <div class="password-wrap">
+        <input
+          id="site-password"
+          class="password-input"
+          type="text"
+          inputmode="numeric"
+          maxlength="6"
+          aria-label="Senha"
+          autocomplete="off"
+          pattern="[0-9]*"
+        >
+        <div id="password-hearts" class="password-hearts" aria-hidden="true"></div>
+      </div>
       <button class="password-button" type="submit">ENTRAR</button>
       <p id="password-error" class="password-error" aria-live="polite"></p>
     </form>
@@ -681,7 +716,24 @@ function closeReveal(){
   const gate = document.getElementById("password-gate");
   const form = document.getElementById("password-form");
   const input = document.getElementById("site-password");
+  const hearts = document.getElementById("password-hearts");
   const error = document.getElementById("password-error");
+
+  function renderHearts(){
+    hearts.innerHTML = "";
+    for(let i = 0; i < input.value.length; i++){
+      const heart = document.createElement("span");
+      heart.className = "password-heart";
+      heart.textContent = "♥";
+      hearts.appendChild(heart);
+    }
+  }
+
+  input.addEventListener("input", function(){
+    input.value = input.value.replace(/\D/g,"").slice(0,6);
+    error.textContent = "";
+    renderHearts();
+  });
 
   form.addEventListener("submit", function(event){
     event.preventDefault();
@@ -697,6 +749,7 @@ function closeReveal(){
 
     error.textContent = "essa não é a senha.";
     input.value = "";
+    renderHearts();
     input.focus();
   });
 })();
