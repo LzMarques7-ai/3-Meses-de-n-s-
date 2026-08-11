@@ -716,6 +716,80 @@ h1 .script{
   line-height:1.25!important;
   text-indent:0;
 }
+
+.letter-section-title{
+  margin:32px 0 17px;
+  text-align:left;
+  color:var(--wine2);
+  font:600 12px/1.2 "DM Sans",sans-serif;
+  letter-spacing:.16em;
+  text-transform:lowercase;
+}
+.letter-section-title:first-child{
+  margin-top:0;
+}
+.music-reference{
+  position:relative;
+  width:min(100%,560px);
+  margin:38px auto 8px;
+  padding:30px 24px 27px;
+  border-top:1px solid rgba(111,36,52,.28);
+  border-bottom:1px solid rgba(111,36,52,.28);
+  text-align:center;
+}
+.music-ornament{
+  color:var(--wine);
+  font:20px/1 "Cormorant Garamond",Georgia,serif;
+  letter-spacing:.25em;
+}
+.music-ornament.bottom{
+  margin-top:23px;
+  font-size:13px;
+  letter-spacing:.12em;
+  opacity:.7;
+}
+.music-kicker{
+  margin-top:13px;
+  color:var(--rose);
+  font:500 8px/1.3 "DM Sans",sans-serif;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.music-title{
+  margin-top:8px;
+  color:var(--wine);
+  font:600 31px/1 "Cormorant Garamond",Georgia,serif;
+}
+.music-artist{
+  margin-top:5px;
+  color:var(--muted);
+  font:400 11px/1.2 "DM Sans",sans-serif;
+  letter-spacing:.06em;
+}
+.music-rule{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  width:80%;
+  margin:19px auto 18px;
+  color:var(--wine);
+  opacity:.65;
+}
+.music-rule i{
+  flex:1;
+  height:1px;
+  background:rgba(111,36,52,.28);
+}
+.music-rule span{
+  font:14px/1 "Cormorant Garamond",Georgia,serif;
+}
+.music-reference blockquote{
+  margin:0;
+  color:var(--muted);
+  font:400 15px/1.65 "Cormorant Garamond",Georgia,serif;
+  text-align:center;
+}
+
 .story-next{
   margin-top:30px;
   border:0;
@@ -905,6 +979,19 @@ h1 .script{
     padding-left:24px;
     padding-right:24px;
   }
+  .letter-section-title{
+    margin-top:27px;
+    margin-bottom:15px;
+  }
+  .music-reference{
+    padding-left:18px;
+    padding-right:18px;
+  }
+  .music-reference blockquote{
+    font-size:14px;
+    line-height:1.62;
+  }
+
   .letter{
     padding-top:2px;
   }
@@ -1000,7 +1087,7 @@ h1 .script{
 <section class="story" id="reveal" aria-hidden="true">
   <div class="story-progress" aria-hidden="true">
     <span class="active"></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span>
   </div>
 
   <div class="story-pages">
@@ -1068,24 +1155,86 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 03 — ANTES DE NÓS -->
-    <article class="story-page timeline-page">
+    <!-- 05 — ANTES DE EXISTIR UM “NÓS” / PARTE I -->
+    <article class="story-page letter-page">
       <div class="story-label">05 · antes de existir um “nós”</div>
-      <h2>A história não começou<br>no dia do pedido.</h2>
-      <p class="page-intro">Antes de sermos namorados, já existia alguma coisa entre nós. Talvez só não soubéssemos ainda o que aquilo significava.</p>
+      <div class="letter">
+        <h2>Antes de existir<br>um “nós”.</h2>
 
-      <div class="timeline">
-        <div class="timeline-item">
-          <span>antes</span>
-          <div><strong>amizade</strong><p>meses de proximidade, conversas e momentos que, na época, pareciam simplesmente normais.</p></div>
-        </div>
-        <div class="timeline-item">
-          <span>depois</span>
-          <div><strong>alguma coisa mudou</strong><p>os sentimentos começaram a aparecer, mesmo sem a gente levar aquilo totalmente a sério.</p></div>
-        </div>
-        <div class="timeline-item">
-          <span>então</span>
-          <div><strong>viramos “nós” aos poucos</strong><p>vieram os sentimentos, os erros, as dúvidas e tudo aquilo que fez a nossa história ser nossa.</p></div>
+        <p>Antes de existir namoro, antes de existir qualquer coisa que pudesse ser chamada de “nós”, a gente era amigo. A gente já se via no colégio, mas foi a Amanda que acabou apresentando a gente de verdade. E foi assim que começou, sem intenção nenhuma.</p>
+
+        <p>A gente começou a conversar e, dependendo do dia, conversava mais ou menos. Mas eu sempre gostava das nossas conversas. Eu podia ser eu mesmo com você, ser meio lelé da cuca, falar besteira e você ainda gostava disso. A gente gostava de muita coisa parecida também, então era fácil passar horas conversando.</p>
+
+        <p>E você tinha suas maneiras de tentar me irritar: Igor Bueno, Japonês, qualquer coisa que pudesse me tirar do sério. E eu, obviamente, discordava só para continuar a brincadeira.</p>
+
+        <p>E tem uma coisa que sempre foi engraçada para mim: você sempre me achou um canalha. E talvez, olhando para algumas coisas daquela época, eu nem pudesse reclamar tanto.</p>
+
+        <p>Eu era diferente. Eu pensava diferente. Ainda tinha muita coisa em mim que eu não entendia. Mas, mesmo assim, você foi ficando, e eu fui gostando cada vez mais de ter você por perto.</p>
+
+        <div class="letter-section-title">a festa da cidade</div>
+
+        <p>Foi na festa da cidade que aconteceu a primeira coisa que fez tudo ficar um pouco diferente. Foi quando eu fiquei com você pela primeira vez, e eu lembro de ter percebido que aquilo não parecia simplesmente uma brincadeira entre dois amigos. Tinha alguma coisa diferente ali.</p>
+
+        <p>Ao mesmo tempo, eu ainda não sabia exatamente o que era. E, como se a situação já não fosse engraçada o suficiente, eu ainda paguei um óculos caro de plástico para sua irmã deixar você ficar comigo. Até hoje eu considero um investimento duvidoso. KKKKKK.</p>
+
+        <p>Depois da festa, a gente acabou dando uma esfriada. Cada um foi um pouco para o seu lado e, por um tempo, pareceu que talvez aquilo tivesse sido só um momento. Mas não ficou só nisso.</p>
+
+        <div class="letter-section-title">a tatuagem</div>
+
+        <p>Depois veio o dia em que fui acompanhar você na sua tatuagem. E acho que foi ali que alguma coisa começou a ficar mais clara para mim. Não aconteceu nada absurdo. Eu só estava com você, te observando, prestando atenção no seu jeito, e percebi que você estava chamando minha atenção de uma maneira que antes não chamava.</p>
+
+        <p>Eu queria estar ali. Queria conversar com você. Queria saber mais de você. E comecei a pensar mais em você mesmo quando a gente não estava junto. Ainda não era uma certeza. Era só uma sensação que estava começando a aparecer.</p>
+      </div>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+    <!-- 06 — ANTES DE EXISTIR UM “NÓS” / PARTE II -->
+    <article class="story-page letter-page">
+      <div class="story-label">06 · antes de existir um “nós”</div>
+      <div class="letter">
+
+        <div class="letter-section-title">meu aniversário</div>
+
+        <p>E então chegou o meu aniversário. Foi nessa época que comecei a perceber que o que eu sentia por você estava ficando diferente de verdade. Não foi uma coisa instantânea. Eu não simplesmente acordei e pensei: “estou apaixonado por ela”. Foi acontecendo aos poucos.</p>
+
+        <p>A gente foi querendo saber mais um do outro, foi ficando mais presente, mais próximo, e eu comecei a perceber que você já ocupava um espaço diferente na minha cabeça. Acho que foi aí que comecei a entender que talvez eu não estivesse mais olhando para você apenas como minha amiga.</p>
+
+        <div class="letter-section-title">o parque</div>
+
+        <p>Depois veio o parque. E, olhando para tudo agora, acho engraçado perceber como essas coisas foram acontecendo sem que nenhum dos dois tivesse planejado chegar onde chegamos.</p>
+
+        <p>A gente só continuava se aproximando, continuava conversando, continuava querendo estar perto, e cada vez parecia mais natural. Até que começou a existir uma conexão que os dois sentiam.</p>
+
+        <p>Não foi uma decisão. Não teve um momento em que alguém disse que, a partir dali, tudo seria diferente. Foi acontecendo. E acho que foi justamente por isso que demoramos um pouco para perceber. Porque, quando alguma coisa muda aos poucos, às vezes você só percebe quando já mudou.</p>
+
+        <p>E, quando eu finalmente percebi, você já não era só aquela amiga com quem eu gostava de conversar. Você era a pessoa em quem eu pensava, a pessoa que eu queria por perto, a pessoa que começou a despertar em mim coisas que eu ainda não sabia explicar.</p>
+
+        <p>E hoje, olhando para trás, é engraçado pensar em como tudo começou. Você me conheceu achando que eu era um canalha. Eu conheci você sem imaginar onde aquilo ia chegar. A gente foi vivendo, foi se conhecendo, foi se aproximando e, quando eu percebi, já tinha acontecido.</p>
+
+        <p>Talvez seja por isso que essa música tenha tanto a ver com a nossa história. Porque ela parece contar justamente essa passagem: a pessoa que você achava que eu era, o tempo passando, tudo que a gente acabou construindo e o momento em que eu simplesmente me entreguei ao que estava acontecendo.</p>
+
+        <div class="music-reference">
+          <div class="music-ornament" aria-hidden="true">♪ ♫ ♪</div>
+          <div class="music-kicker">uma referência à nossa história</div>
+          <div class="music-title">“Foi assim”</div>
+          <div class="music-artist">Sotam, Rob, Pulim</div>
+          <div class="music-rule" aria-hidden="true"><span>♪</span><i></i><span>♫</span></div>
+          <blockquote>
+            “Foi assim” — Sotam, Rob, Pulim
+            <br><br>
+            E foi assim<br>
+            Quando eu te vi a primeira vez<br>
+            Você duvidava da minha cara<br>
+            Me chamava de canalha<br>
+            Mas hoje o tempo passou<br>
+            E olha só o que a gente fez
+            <br><br>
+            E quando eu vi<br>
+            Num piscar de olhos, me entreguei<br>
+            Agora não penso mais em nada<br>
+            Além de te ter em casa, virou minha namorada.
+          </blockquote>
+          <div class="music-ornament bottom" aria-hidden="true">♪ ───── ♫ ───── ♪</div>
         </div>
       </div>
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
@@ -1093,7 +1242,7 @@ h1 .script{
 
     <!-- 04 — PEDIDO -->
     <article class="story-page proposal-page">
-      <div class="story-label">06 · 23 · 05 · 2026</div>
+      <div class="story-label">07 · 23 · 05 · 2026</div>
       <div class="proposal-date">23 · 05 · 2026</div>
       <h2>O dia em que<br>tudo ganhou um nome.</h2>
       <p>Depois de tudo que veio antes, chegou o momento em que eu finalmente te fiz a pergunta.</p>
@@ -1105,7 +1254,7 @@ h1 .script{
 
     <!-- 05 — MEMÓRIAS -->
     <article class="story-page memories-page">
-      <div class="story-label">07 · os primeiros meses</div>
+      <div class="story-label">08 · os primeiros meses</div>
       <h2>Três meses não cabem<br>em uma página.</h2>
       <p class="page-intro">Então aqui vamos guardar as pequenas coisas: momentos, fotos, frases, lugares e lembranças que fizeram esses meses serem nossos.</p>
       <div class="memory-grid">
@@ -1118,7 +1267,7 @@ h1 .script{
 
     <!-- 06 — COMO EU TE VEJO -->
     <article class="story-page see-page">
-      <div class="story-label">08 · se eu pudesse te mostrar</div>
+      <div class="story-label">09 · se eu pudesse te mostrar</div>
       <h2>Como eu te vejo.</h2>
       <div class="see-lines">
         <p>forte quando acha que está fraca.</p>
@@ -1132,7 +1281,7 @@ h1 .script{
 
     <!-- 07 — FUTURO / FINAL -->
     <article class="story-page final-page">
-      <div class="story-label">09 · daqui pra frente</div>
+      <div class="story-label">10 · daqui pra frente</div>
       <h2>Eu não sei exatamente<br>onde a vida vai levar a gente.</h2>
       <div class="final-copy">
         <p>Mas sei que quero continuar descobrindo.</p>
