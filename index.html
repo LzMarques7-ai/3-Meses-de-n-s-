@@ -9,7 +9,7 @@
 <title>3 meses depois do “sim”</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Ballet&family=Parisienne&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ballet&family=Parisienne&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap');
 
 :root{
   --ivory:#F7F1E8;
@@ -74,7 +74,7 @@ main{
 }
 
 .cover::before{
-  left:10px;
+  left:-2px;
   top:21%;
   background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20300%22%3E%0A%3Cg%20fill%3D%22none%22%20stroke%3D%22%238F4B55%22%20stroke-width%3D%221.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%0A%20%20%3Ccircle%20cx%3D%2260%22%20cy%3D%22105%22%20r%3D%2227%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M60%2069V52%20M60%20141V158%20M24%20105H7%20M96%20105H113%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M34%2079L22%2067%20M86%2079L98%2067%20M34%20131L22%20143%20M86%20131L98%20143%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M60%2035V25%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M60%20175V185%22%2F%3E%0A%3C%2Fg%3E%0A%3C%2Fsvg%3E");
 }
@@ -370,9 +370,9 @@ html,body{
 
 body{
   background:
-    radial-gradient(ellipse 82% 38% at 50% 22%, rgba(232,207,197,.22), transparent 72%),
-    radial-gradient(ellipse 48% 34% at 8% 78%, rgba(214,180,171,.10), transparent 74%),
-    radial-gradient(ellipse 48% 34% at 92% 78%, rgba(214,180,171,.10), transparent 74%),
+    radial-gradient(ellipse 82% 38% at 50% 22%, rgba(232,207,197,.32), transparent 72%),
+    radial-gradient(ellipse 48% 34% at 8% 78%, rgba(214,180,171,.14), transparent 74%),
+    radial-gradient(ellipse 48% 34% at 92% 78%, rgba(214,180,171,.14), transparent 74%),
     var(--ivory);
 }
 
@@ -390,27 +390,27 @@ body::before{display:none}
   margin-top:12px;
 }
 
-/* Equilíbrio entre a data e o título. */
+/* Equilíbrio entre a data, o título e a linha inferior. */
 .copy-stack{
   width:min(100%,430px);
-  margin-top:clamp(28px,4.1vh,40px);
+  margin-top:clamp(18px,2.7vh,27px);
 }
 
-/* Título inteiro com a mesma família; mais encorpado e editorial. */
+/* Título maior, mais encorpado e com desenho de “3” mais limpo. */
 h1{
-  font-family:"Cormorant Garamond",Georgia,serif;
-  font-size:clamp(78px,20.5vw,140px);
+  font-family:"Bodoni Moda","Cormorant Garamond",Georgia,serif;
+  font-size:clamp(84px,21.5vw,148px);
   font-weight:700;
-  line-height:.86;
-  letter-spacing:-.048em;
-  color:#9D7370;
+  line-height:.84;
+  letter-spacing:-.055em;
+  color:#8F5A5F;
 }
 
 /* Segundo verso continua visualmente integrado ao primeiro. */
 h1 em{
   margin-top:.025em;
-  color:#9D7370;
-  font-family:"Cormorant Garamond",Georgia,serif;
+  color:#8F5A5F;
+  font-family:"Bodoni Moda","Cormorant Garamond",Georgia,serif,Georgia,serif;
   font-size:.67em;
   font-weight:700;
   line-height:.88;
@@ -419,7 +419,7 @@ h1 em{
 
 /* Só “sim” recebe o vinho; mesma tipografia do título, sem manuscrita. */
 h1 .script{
-  font-family:"Cormorant Garamond",Georgia,serif;
+  font-family:"Bodoni Moda","Cormorant Garamond",Georgia,serif;
   color:var(--wine);
   font-size:1em;
   font-weight:700;
@@ -429,16 +429,17 @@ h1 .script{
   display:inline;
 }
 
-/* Espaço inferior do título e espaço superior do texto ficam equilibrados. */
+/* A linha inferior fica visualmente tão afastada do título quanto
+   a data fica do início do título. */
 .rule{
   width:58px;
-  margin:23px 0 20px;
-  background:linear-gradient(90deg,transparent,#B87578,transparent);
+  margin:31px 0 20px;
+  background:linear-gradient(90deg,transparent,#A9636B,transparent);
 }
 
-/* Flores laterais mais delicadas, sem folhas. */
+/* Sol e Lua com presença suficiente para não desaparecerem no bege. */
 .cover::before,.cover::after{
-  opacity:.19;
+  opacity:.42;
 }
 
 /* Evita o botão e o rodapé encostarem. */
@@ -452,17 +453,17 @@ h1 .script{
 @media(max-width:430px){
   .cover::before,.cover::after{opacity:.42;}
   .top-block{margin-top:clamp(28px,4.5vh,46px)}
-  .copy-stack{margin-top:clamp(28px,4.1vh,40px)}
-  h1{font-size:clamp(78px,20.5vw,140px)}
-  h1 em{font-size:.67em}
-  .rule{margin:23px 0 20px}
+  .copy-stack{margin-top:clamp(18px,2.7vh,27px)}
+  h1{font-size:clamp(84px,21.5vw,148px)}
+  h1 em{font-size:.69em}
+  .rule{margin:31px 0 20px}
 }
 
 @media(max-height:720px){
   .top-block{margin-top:22px}
-  .copy-stack{margin-top:26px}
-  h1{font-size:80px}
-  .rule{margin:20px 0 17px}
+  .copy-stack{margin-top:20px}
+  h1{font-size:84px}
+  .rule{margin:28px 0 17px}
 }
 
 </style>
