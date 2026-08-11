@@ -49,6 +49,7 @@ main{
   padding:max(30px,env(safe-area-inset-top)) 22px max(34px,env(safe-area-inset-bottom));
 }
 
+/* ---------- CAPA ---------- */
 .cover{
   position:relative;
   width:min(100%,720px);
@@ -61,24 +62,25 @@ main{
   isolation:isolate;
 }
 
+/* Ramos laterais — mantidos exatamente na composição atual */
 .cover::before,.cover::after{
   content:"";
   position:absolute;
-  width:155px;
+  width:110px;
   height:430px;
   pointer-events:none;
-  opacity:.25;
+  opacity:.2;
   z-index:-1;
   background-repeat:no-repeat;
   background-size:contain;
   background-image:url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 430"%3E%3Cg fill="none" stroke="%238A3040" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpath d="M25 420C31 300 47 190 111 30"/%3E%3Cpath d="M38 337C18 329 10 310 12 293c20 2 29 17 26 44Z"/%3E%3Cpath d="M49 271c-16-9-22-25-18-42 18 5 25 21 18 42Z"/%3E%3Cpath d="M63 207c-5-18 2-34 17-44 7 18 1 34-17 44Z"/%3E%3Cpath d="M83 151c2-20 13-32 29-36 1 18-9 31-29 36Z"/%3E%3Cpath d="M102 105c-1-17 7-29 20-35 4 15-3 28-20 35Z"/%3E%3Ccircle cx="112" cy="54" r="8"/%3E%3Cpath d="M112 45c-13-19-28-5-15 7-20-4-22 12-4 15-13 14 2 23 12 9 5 20 20 12 14-7 19 2 21-13 3-14 10-16-3-21-10-10Z"/%3E%3C/g%3E%3C/svg%3E');
 }
-.cover::before{left:-38px;top:16%}
-.cover::after{right:-38px;top:11%;transform:scaleX(-1)}
+.cover::before{left:-44px;top:16%}
+.cover::after{right:-44px;top:11%;transform:scaleX(-1)}
 
 .eyebrow{
   position:absolute;
-  top:0.6%;
+  top:.2%;
   left:0;
   right:0;
   color:var(--wine2);
@@ -89,11 +91,21 @@ main{
   animation:rise 1s ease both;
 }
 
+/* Desenho + data: bloco preservado */
+.top-block{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  flex:0 0 auto;
+  margin-top:clamp(30px,4.8vh,48px);
+}
+
 .mark{
-  width:min(86vw,500px);
-  aspect-ratio:1404 / 1120;
+  width:min(88vw,380px);
   height:auto;
-  margin:clamp(12px,2.8vh,28px) 0 0;
+  aspect-ratio:1404 / 1120;
+  margin:12px 0 0;
   display:grid;
   place-items:center;
   flex:0 0 auto;
@@ -114,8 +126,7 @@ main{
   align-items:center;
   justify-content:center;
   gap:12px;
-  /* CORREÇÃO: a data fica abaixo do desenho, sem sobrepor */
-  margin:clamp(8px,1.4vh,14px) 0 18px;
+  margin:12px 0 0;
   min-height:12px;
   flex:0 0 auto;
   color:var(--red);
@@ -131,6 +142,15 @@ main{
   background:var(--rose);
 }
 
+/* ---------- TÍTULO E TEXTO ---------- */
+.copy-stack{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-top:clamp(10px,1.5vh,16px);
+}
+
 h1{
   position:relative;
   z-index:2;
@@ -138,41 +158,38 @@ h1{
   flex:0 0 auto;
   color:var(--wine);
   font-family:"Cormorant Garamond",Georgia,serif;
-  font-size:clamp(70px,19vw,132px);
-  font-weight:500;
-  line-height:.86;
+  font-size:clamp(76px,20.5vw,140px);
+  font-weight:600;
+  line-height:.9;
   letter-spacing:-.045em;
   animation:titleIn 1.25s cubic-bezier(.2,.75,.2,1) .2s both;
 }
 h1 em{
   display:block;
-  margin-top:.16em;
+  margin-top:.12em;
   color:var(--wine2);
   font-size:.59em;
+  font-weight:600;
   font-style:normal;
   letter-spacing:-.025em;
 }
+
+/* “sim” mais desenhado, sem perder leitura */
 h1 .script{
-  font-family:"Cormorant Garamond",Georgia,serif;
-  font-size:1.02em;
-  letter-spacing:-.015em;
-  font-weight:500;
-  font-style:italic;
+  font-family:"Allura","Cormorant Garamond",cursive;
+  color:var(--wine);
+  font-size:1.08em;
+  font-weight:400;
+  font-style:normal;
+  letter-spacing:.01em;
   display:inline-block;
   transform:translateY(.02em);
 }
 
-.copy-stack{
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  transform:translateY(2.2vh);
-}
 .rule{
   width:56px;
   height:1px;
-  margin:30px 0 23px;
+  margin:25px 0 21px;
   background:linear-gradient(90deg,transparent,var(--red),transparent);
   animation:widen 1s ease .55s both;
 }
@@ -182,13 +199,13 @@ h1 .script{
   margin:0;
   color:var(--muted);
   font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;
-  font-size:16px;
+  font-size:18.5px;
   line-height:1.55;
   animation:rise 1s ease .62s both;
 }
 
 .enter{
-  margin-top:26px;
+  margin-top:25px;
   border:1px solid rgba(100,31,45,.42);
   border-radius:999px;
   padding:13px 24px;
@@ -209,9 +226,7 @@ h1 .script{
 
 .bottom{
   position:static;
-  margin-top:clamp(50px,6vh,72px);
-  left:0;
-  right:0;
+  margin-top:24px;
   color:var(--rose);
   font-size:8px;
   letter-spacing:.3em;
@@ -219,6 +234,7 @@ h1 .script{
   animation:rise 1s ease .9s both;
 }
 
+/* ---------- REVELAÇÃO ---------- */
 .reveal{
   position:fixed;
   inset:0;
@@ -273,6 +289,7 @@ h1 .script{
   text-transform:uppercase;
 }
 
+/* ---------- ANIMAÇÕES ---------- */
 @keyframes appear{
   from{opacity:0;transform:translateY(10px) scale(.95)}
   to{opacity:1;transform:translateY(0) scale(1)}
@@ -290,25 +307,23 @@ h1 .script{
   to{opacity:1;width:56px}
 }
 
+/* ---------- RESPONSIVO ---------- */
 @media(max-width:430px){
-  .cover::before,.cover::after{width:110px;opacity:.2}
-  .cover::before{left:-44px}
-  .cover::after{right:-44px}
-  .mark{
-    width:min(88vw,380px);
-    height:auto;
-    aspect-ratio:1404 / 1120;
-    margin-top:12px;
-  }
-  .kicker{
-    margin:12px 0 16px;
-  }
+  .top-block{margin-top:clamp(30px,4.8vh,48px)}
+  .mark{width:min(88vw,380px)}
+  .kicker{margin:12px 0 0}
+  .copy-stack{margin-top:clamp(10px,1.5vh,16px)}
+  h1{font-size:clamp(76px,20.5vw,140px)}
+  .rule{margin-top:25px;margin-bottom:21px}
   .subtitle{font-size:18.5px;max-width:350px}
+  .bottom{margin-top:24px}
 }
 
 @media(max-height:720px){
+  .top-block{margin-top:22px}
   .mark{width:min(86vw,440px)}
   h1{font-size:78px}
+  .copy-stack{margin-top:24px}
   .rule{margin:20px 0 16px}
   .enter{margin-top:24px}
 }
@@ -319,124 +334,6 @@ h1 .script{
     transition-duration:.01ms!important;
   }
 }
-
-/* --- Ajuste fino da composição da capa --- */
-.top-block{
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  flex:0 0 auto;
-  margin-top:clamp(28px,4.5vh,52px);
-}
-
-.eyebrow{
-  top:0.6%;
-}
-
-.mark{
-  margin:0;
-}
-
-.kicker{
-  margin:clamp(10px,1.6vh,16px) 0 0;
-}
-
-/* O bloco textual passa a ter uma distância controlada do bloco imagem/data. */
-.copy-stack{
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  transform:none;
-  margin-top:clamp(30px,4.2vh,48px);
-}
-
-h1{
-  line-height:.88;
-}
-
-h1 em{
-  margin-top:.12em;
-}
-
-h1 .script{
-  /*
-    Itálico desenhado, mas ainda legível:
-    mantém a mesma família editorial do título e evita o aspecto
-    manuscrito exagerado da versão anterior.
-  */
-  font-family:"Cormorant Garamond",Georgia,serif;
-  color:var(--wine);
-  font-style:italic;
-  font-weight:600;
-  letter-spacing:-.02em;
-  font-size:.98em;
-  display:inline-block;
-  transform:translateY(.015em);
-}
-
-.rule{
-  margin:28px 0 21px;
-}
-
-.enter{
-  margin-top:25px;
-}
-
-.bottom{
-  margin-top:24px;
-}
-
-@media(max-width:430px){
-  .top-block{
-    margin-top:clamp(30px,4.8vh,48px);
-  }
-
-  .mark{
-    width:min(88vw,380px);
-  }
-
-  .kicker{
-    margin:12px 0 0;
-  }
-
-  .copy-stack{
-    margin-top:clamp(28px,4vh,42px);
-  }
-
-  .rule{
-    margin:27px 0 21px;
-  }
-
-  .bottom{
-    margin-top:24px;
-  }
-}
-
-@media(max-height:720px){
-  .top-block{
-    margin-top:22px;
-  }
-
-  .copy-stack{
-    margin-top:24px;
-  }
-}
-
-
-/* --- Ajuste final de equilíbrio visual --- */
-.eyebrow{ top:0.2%; }
-.copy-stack{ margin-top:clamp(10px,1.6vh,18px); }
-h1{ font-size:clamp(74px,20vw,140px); font-weight:600; line-height:.9; }
-h1 em{ font-weight:600; }
-.rule{ margin-top:26px; margin-bottom:21px; }
-@media(max-width:430px){
-  .copy-stack{ margin-top:clamp(10px,1.5vh,16px); }
-  h1{ font-size:clamp(76px,20.5vw,140px); }
-  .rule{ margin-top:25px; margin-bottom:21px; }
-}
-
 </style>
 </head>
 
