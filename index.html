@@ -9,7 +9,7 @@
 <title>3 meses depois do “sim”</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500&family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ballet&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap');
 
 :root{
   --ivory:#F7F1E8;
@@ -176,14 +176,15 @@ h1 em{
 
 /* “sim” mais desenhado, sem perder leitura */
 h1 .script{
-  font-family:"Pinyon Script","Cormorant Garamond",cursive;
+  font-family:"Ballet","Cormorant Garamond",cursive;
   color:var(--wine);
-  font-size:1.10em;
+  font-size:1.14em;
   font-weight:400;
   font-style:normal;
-  letter-spacing:0;
+  letter-spacing:.005em;
   display:inline-block;
   transform:translateY(.02em);
+  -webkit-text-stroke:.15px var(--wine);
 }
 
 .rule{
@@ -313,7 +314,7 @@ h1 .script{
   .mark{width:min(88vw,380px)}
   .kicker{margin:12px 0 0}
   .copy-stack{margin-top:clamp(10px,1.5vh,16px)}
-  h1{font-size:clamp(80px,21.5vw,146px)}
+  h1{font-size:clamp(82px,22vw,150px)}
   .rule{margin-top:25px;margin-bottom:21px}
   .subtitle{font-size:18.5px;max-width:350px}
   .bottom{margin-top:24px}
