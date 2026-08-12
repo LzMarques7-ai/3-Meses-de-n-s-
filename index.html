@@ -1330,6 +1330,128 @@ h1 .script{
   }
 }
 
+
+/* ===== REFINAMENTO EDITORIAL — leitura de livro ===== */
+.story-page .letter,
+.story-page .final-copy,
+.story-page .memory-copy {
+  width: min(100%, 680px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.story-page .letter p,
+.story-page .final-copy p,
+.story-page .memory-copy p {
+  margin-top: 0;
+  margin-bottom: 0.72em;
+  line-height: 1.72;
+  text-indent: 1.35em;
+}
+
+.story-page .letter p:first-child,
+.story-page .final-copy p:first-child,
+.story-page .memory-copy p:first-child,
+.story-page .letter-section-title + p {
+  text-indent: 0;
+}
+
+.story-page .letter .letter-final,
+.story-page .final-copy .letter-final {
+  text-indent: 0;
+  margin-top: 1.05em;
+  margin-bottom: 1.05em;
+}
+
+.story-page .letter-section-title {
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+}
+
+.story-page .memory-grid {
+  margin-top: 2.1em;
+}
+
+/* ===== ÍNDICE LATERAL DOS CAPÍTULOS ===== */
+.chapter-index {
+  position: fixed;
+  right: clamp(12px, 2.8vw, 34px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+.chapter-index::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: currentColor;
+  opacity: .18;
+}
+
+.chapter-index a {
+  position: relative;
+  z-index: 1;
+  width: 24px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  color: inherit;
+  opacity: .38;
+  font-size: 10px;
+  line-height: 1;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.chapter-index a.active {
+  opacity: 1;
+  transform: scale(1.12);
+  font-weight: 600;
+}
+
+.chapter-index a.active::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.chapter-index a.active span {
+  opacity: 0;
+}
+
+@media (max-width: 700px) {
+  .chapter-index {
+    right: 8px;
+    gap: 8px;
+  }
+  .chapter-index a {
+    font-size: 9px;
+    width: 18px;
+  }
+  .story-page .letter,
+  .story-page .final-copy,
+  .story-page .memory-copy {
+    width: min(100%, calc(100vw - 54px));
+  }
+  .story-page .letter p,
+  .story-page .final-copy p,
+  .story-page .memory-copy p {
+    line-height: 1.68;
+    margin-bottom: .68em;
+  }
+}
+
 </style>
 </head>
 
@@ -1395,10 +1517,20 @@ h1 .script{
   </div>
 
   <div class="story-pages">
+<nav class="chapter-index" aria-label="Capítulos">
+  <a href="#cap-01" data-chapter="0"><span>01</span></a>
+  <a href="#cap-02" data-chapter="1"><span>02</span></a>
+  <a href="#cap-03" data-chapter="2"><span>03</span></a>
+  <a href="#cap-04" data-chapter="3"><span>04</span></a>
+  <a href="#cap-05" data-chapter="4"><span>05</span></a>
+  <a href="#cap-06" data-chapter="5"><span>06</span></a>
+  <a href="#cap-07" data-chapter="6"><span>07</span></a>
+</nav>
+
 
     <!-- 01 — CARTA / PARTE I -->
-    <article class="story-page letter-page">
-      <div class="story-label">01 · uma coisa que eu precisava te dizer</div>
+    <article class="story-page letter-page>
+      <div class= id="cap-01"story-label">01 · uma coisa que eu precisava te dizer</div>
       <div class="letter">
         <h2>Eu queria ter feito isso antes.</h2>
         <p>Na verdade, queria ter feito algumas coisas antes. O primeiro mês passou e eu simplesmente esqueci. Não porque não fosse importante, mas porque sou meio cabeça de vento e ainda não tinha me acostumado com a ideia de ter uma data nossa para lembrar. No segundo, eu já sabia que estava passando e, mesmo assim, não fiz nada.</p>
@@ -1411,8 +1543,7 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 02 — CARTA / PARTE II -->
-    <article class="story-page letter-page">
+    <!-- 02 — CARTA / PARTE <article class="story-page letter-page id="cap-02"etter-page">
       <div class="story-label">02 · e tem mais uma coisa</div>
       <div class="letter">
         <p>Talvez porque eu ainda estivesse aprendendo que demonstrar também faz parte de amar. Porque eu sinto muito mais do que consigo colocar para fora.</p>
@@ -1427,8 +1558,7 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 03 — COMO EU ME SINTO / PARTE I -->
-    <article class="story-page letter-page">
+    <!-- 03 — COMO EU ME SI<article class="story-page letter-page id="cap-03"tory-page letter-page">
       <div class="story-label">03 · como eu me sinto com você</div>
       <div class="letter">
         <h2>Como eu me sinto<br>com você.</h2>
@@ -1441,8 +1571,7 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 04 — COMO EU ME SINTO / PARTE II -->
-    <article class="story-page letter-page">
+    <!-- 04 — COM<article class="story-page letter-page id="cap-04"le class="story-page letter-page">
       <div class="story-label">04 · como eu me sinto com você</div>
       <div class="letter">
         <p>Talvez seja por isso que eu goste tanto quando você fala de um futuro em que eu estou. Porque, antes de você, eu acho que eu simplesmente ia vivendo. Não pensava muito no que vinha depois. Era como se eu estivesse sempre preocupado com o agora e, ao mesmo tempo, não estivesse realmente preocupado com nada.</p>
@@ -1459,7 +1588,7 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 05 — ANTES DE EXISTIR UM “NÓS” / PARTE I -->
+    <!-- 05 — <article class="story-page letter-page id="cap-05"
     <article class="story-page letter-page">
       <div class="story-label">05 · antes de existir um “nós”</div>
       <div class="letter">
@@ -1492,7 +1621,7 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 06 — ANTES DE EXISTIR UM “NÓS” / PARTE II -->
+    <article class="story-page letter-page id="cap-06"ARTE II -->
     <article class="story-page letter-page">
       <div class="story-label">06 · antes de existir um “nós”</div>
       <div class="letter">
@@ -1541,10 +1670,7 @@ h1 .script{
           <div class="music-ornament bottom" aria-hidden="true">♪ ───── ♫ ───── ♪</div>
         </div>
       </div>
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
-    </article>
-
-    <!-- 07 — 23 · 05 · 2026 -->
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</sp<article class="story-page letter-page proposal-story id="cap-07"026 -->
     <article class="story-page letter-page proposal-story">
       <div class="story-label">07 · 23 · 05 · 2026</div>
       <div class="letter">
@@ -1699,74 +1825,6 @@ h1 .script{
     </article>
 
 
-<!-- MEMÓRIA — OLAVO -->
-    <article class="story-page memory-page olavo-memory">
-      <div class="story-label">MEMÓRIA · 01</div>
-
-      <div class="memory-polaroid">
-        <img src="olavo.jpeg" alt="Olavo, nosso filho">
-        <div class="memory-polaroid-caption">
-          <span>nosso filho, olavo</span>
-          <small>ainda não sabemos exatamente como chegamos nesse ponto,<br>
-          mas ele faz parte da família.</small>
-        </div>
-      </div>
-
-      <div class="memory-note">
-        <p>Olavo.</p>
-        <p>Nosso filho, obviamente.</p>
-        <p>Não aceito questionamentos.</p>
-      </div>
-
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
-    </article>
-
-
-    <!-- MEMÓRIA — ELA CONHECEU MINHA MÃE -->
-    <article class="story-page memory-page family-memory">
-      <div class="story-label">MEMÓRIA · 02</div>
-
-      <div class="memory-polaroid">
-        <img src="dia-que-ela-conheceu-minha-mae.jpeg" alt="O dia em que ela conheceu minha mãe">
-        <div class="memory-polaroid-caption">
-          <span>o dia em que ela conheceu minha mãe</span>
-          <small>um daqueles momentos que parecem simples,<br>
-          mas que acabam significando muito.</small>
-        </div>
-      </div>
-
-      <div class="memory-note">
-        <p>Ela conheceu minha mãe.</p>
-        <p>E, de alguma forma, foi mais um pedacinho da nossa vida começando a se misturar.</p>
-      </div>
-
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
-    </article>
-
-
-    <!-- MEMÓRIA — O DIA EM QUE MINHA VÓ FALECEU -->
-    <article class="story-page memory-page grief-memory">
-      <div class="story-label">MEMÓRIA · 03</div>
-
-      <div class="memory-polaroid">
-        <img src="dia-da-minha-vo.jpeg" alt="Ela comigo no dia em que minha avó faleceu">
-        <div class="memory-polaroid-caption">
-          <span>o dia em que minha vó faleceu</span>
-          <small>e você estava comigo.</small>
-        </div>
-      </div>
-
-      <div class="memory-note">
-        <p>Nem toda memória é sobre um dia feliz.</p>
-        <p>Algumas ficam porque, nos dias mais difíceis, você estava ali.</p>
-      </div>
-
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
-    </article>
-
-
-  </div>
-</section>
 
 <script>
 let storyIndex = 0;
@@ -1876,6 +1934,38 @@ document.querySelectorAll(".memories-page .memory-flip-card").forEach(function(c
 });
 </script>
 
+
+
+<script>
+(function(){
+  const nav = document.querySelector('.chapter-index');
+  if (!nav) return;
+  const links = [...nav.querySelectorAll('a')];
+  const pages = links.map(a => document.getElementById('cap-' + String(Number(a.dataset.chapter)+1).padStart(2,'0'))).filter(Boolean);
+
+  function updateChapter(){
+    const marker = window.innerHeight * 0.38;
+    let active = 0;
+    pages.forEach((page, i) => {
+      const r = page.getBoundingClientRect();
+      if (r.top <= marker) active = i;
+    });
+    links.forEach((a,i) => a.classList.toggle('active', i === active));
+  }
+
+  window.addEventListener('scroll', updateChapter, {passive:true});
+  window.addEventListener('resize', updateChapter);
+  updateChapter();
+
+  links.forEach(a => {
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      const page = pages[Number(this.dataset.chapter)];
+      if (page) page.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
