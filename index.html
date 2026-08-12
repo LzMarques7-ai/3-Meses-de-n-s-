@@ -370,6 +370,12 @@ h1 .script{
   }
 }
 
+/* ===== ROLAGEM CONTÍNUA DA HISTÓRIA ===== */
+.story-pages{
+  scroll-behavior:smooth;
+  overscroll-behavior-y:contain;
+}
+
 /* ===== AJUSTE FINAL — composição compacta e limpa ===== */
 html,body{
   background-color:var(--ivory);
@@ -659,8 +665,10 @@ h1 .script{
   height:100%;
   overflow-y:auto;
   overflow-x:hidden;
-  scroll-snap-type:y mandatory;
+  scroll-snap-type:none;
+  scroll-behavior:smooth;
   -webkit-overflow-scrolling:touch;
+  overscroll-behavior-y:contain;
 }
 .story-page{
   position:relative;
@@ -671,8 +679,6 @@ h1 .script{
   align-items:center;
   justify-content:center;
   text-align:center;
-  scroll-snap-align:start;
-  scroll-snap-stop:always;
 }
 .story-label{
   margin-bottom:26px;
