@@ -1159,6 +1159,23 @@ h1 .script{
   object-fit:cover;
   border-radius:9px;
 }
+
+.memory-photo-card:active{
+  transform:scale(.98);
+}
+
+.memory-photo-card{
+  padding:10px !important;
+  overflow:hidden;
+  cursor:pointer;
+}
+.memory-photo-card img{
+  display:block;
+  width:100%;
+  aspect-ratio:1 / 1.08;
+  object-fit:cover;
+  border-radius:9px;
+}
 .memory-card-caption{
   padding:11px 4px 3px;
   color:#B87979;
@@ -1166,8 +1183,29 @@ h1 .script{
   letter-spacing:.07em;
   text-transform:uppercase;
 }
-.memory-photo-card:active{
-  transform:scale(.98);
+.memory-photo-card:active{transform:scale(.98);}
+
+.memory-photo-card{
+  padding:10px !important;
+  overflow:hidden;
+  cursor:pointer;
+  display:flex !important;
+  flex-direction:column;
+  justify-content:flex-start !important;
+}
+.memory-photo-card img{
+  display:block;
+  width:100%;
+  aspect-ratio:1 / 1.08;
+  object-fit:cover;
+  border-radius:9px;
+}
+.memory-card-caption{
+  padding:11px 4px 3px;
+  color:#B87979;
+  font:500 9px/1.3 "DM Sans",sans-serif;
+  letter-spacing:.07em;
+  text-transform:uppercase;
 }
 </style>
 </head>
@@ -1457,18 +1495,17 @@ h1 .script{
       <h2>Três meses não cabem<br>em uma página.</h2>
       <p class="page-intro">Então aqui vamos guardar as pequenas coisas: momentos, fotos, frases, lugares e lembranças que fizeram esses meses serem nossos.</p>
       <div class="memory-grid">
+        
         <div class="memory-card memory-photo-card" onclick="goToMemory(0)">
-          <img src="olavo.jpeg" alt="Olavo, nosso filho">
           <div class="memory-card-caption">nosso filho, olavo</div>
         </div>
         <div class="memory-card memory-photo-card" onclick="goToMemory(1)">
-          <img src="dia-que-ela-conheceu-minha-mae.jpeg" alt="O dia em que ela conheceu minha mãe">
           <div class="memory-card-caption">o dia em que ela conheceu minha mãe</div>
         </div>
         <div class="memory-card memory-photo-card" onclick="goToMemory(2)">
-          <img src="dia-da-minha-vo.jpeg" alt="Ela comigo no dia em que minha avó faleceu">
           <div class="memory-card-caption">o dia em que minha vó faleceu</div>
         </div>
+      </div>
       </div>
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
@@ -1503,6 +1540,73 @@ h1 .script{
       </div>
       <button class="close" onclick="closeReveal()">voltar para a capa</button>
     </article>
+
+
+<!-- MEMÓRIA — OLAVO -->
+    <article class="story-page memory-page olavo-memory">
+      <div class="story-label">MEMÓRIA · 01</div>
+
+      <div class="memory-polaroid">
+        <img src="olavo.jpeg" alt="Olavo, nosso filho">
+        <div class="memory-polaroid-caption">
+          <span>nosso filho, olavo</span>
+          <small>ainda não sabemos exatamente como chegamos nesse ponto,<br>
+          mas ele faz parte da família.</small>
+        </div>
+      </div>
+
+      <div class="memory-note">
+        <p>Olavo.</p>
+        <p>Nosso filho, obviamente.</p>
+        <p>Não aceito questionamentos.</p>
+      </div>
+
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+
+    <!-- MEMÓRIA — ELA CONHECEU MINHA MÃE -->
+    <article class="story-page memory-page family-memory">
+      <div class="story-label">MEMÓRIA · 02</div>
+
+      <div class="memory-polaroid">
+        <img src="dia-que-ela-conheceu-minha-mae.jpeg" alt="O dia em que ela conheceu minha mãe">
+        <div class="memory-polaroid-caption">
+          <span>o dia em que ela conheceu minha mãe</span>
+          <small>um daqueles momentos que parecem simples,<br>
+          mas que acabam significando muito.</small>
+        </div>
+      </div>
+
+      <div class="memory-note">
+        <p>Ela conheceu minha mãe.</p>
+        <p>E, de alguma forma, foi mais um pedacinho da nossa vida começando a se misturar.</p>
+      </div>
+
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+
+    <!-- MEMÓRIA — O DIA EM QUE MINHA VÓ FALECEU -->
+    <article class="story-page memory-page grief-memory">
+      <div class="story-label">MEMÓRIA · 03</div>
+
+      <div class="memory-polaroid">
+        <img src="dia-da-minha-vo.jpeg" alt="Ela comigo no dia em que minha avó faleceu">
+        <div class="memory-polaroid-caption">
+          <span>o dia em que minha vó faleceu</span>
+          <small>e você estava comigo.</small>
+        </div>
+      </div>
+
+      <div class="memory-note">
+        <p>Nem toda memória é sobre um dia feliz.</p>
+        <p>Algumas ficam porque, nos dias mais difíceis, você estava ali.</p>
+      </div>
+
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
 
   </div>
 </section>
@@ -1598,71 +1702,6 @@ function goToMemory(index){
 }
 </script>
 
-
-    <!-- MEMÓRIA — OLAVO -->
-    <article class="story-page memory-page olavo-memory">
-      <div class="story-label">MEMÓRIA · 01</div>
-
-      <div class="memory-polaroid">
-        <img src="olavo.jpeg" alt="Olavo, nosso filho">
-        <div class="memory-polaroid-caption">
-          <span>nosso filho, olavo</span>
-          <small>ainda não sabemos exatamente como chegamos nesse ponto,<br>
-          mas ele faz parte da família.</small>
-        </div>
-      </div>
-
-      <div class="memory-note">
-        <p>Olavo.</p>
-        <p>Nosso filho, obviamente.</p>
-        <p>Não aceito questionamentos.</p>
-      </div>
-
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
-    </article>
-
-
-    <!-- MEMÓRIA — ELA CONHECEU MINHA MÃE -->
-    <article class="story-page memory-page family-memory">
-      <div class="story-label">MEMÓRIA · 02</div>
-
-      <div class="memory-polaroid">
-        <img src="dia-que-ela-conheceu-minha-mae.jpeg" alt="O dia em que ela conheceu minha mãe">
-        <div class="memory-polaroid-caption">
-          <span>o dia em que ela conheceu minha mãe</span>
-          <small>um daqueles momentos que parecem simples,<br>
-          mas que acabam significando muito.</small>
-        </div>
-      </div>
-
-      <div class="memory-note">
-        <p>Ela conheceu minha mãe.</p>
-        <p>E, de alguma forma, foi mais um pedacinho da nossa vida começando a se misturar.</p>
-      </div>
-
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
-    </article>
-
-
-    <!-- MEMÓRIA — O DIA EM QUE MINHA VÓ FALECEU -->
-    <article class="story-page memory-page grief-memory">
-      <div class="story-label">MEMÓRIA · 03</div>
-
-      <div class="memory-polaroid">
-        <img src="dia-da-minha-vo.jpeg" alt="Ela comigo no dia em que minha avó faleceu">
-        <div class="memory-polaroid-caption">
-          <span>o dia em que minha vó faleceu</span>
-          <small>e você estava comigo.</small>
-        </div>
-      </div>
-
-      <div class="memory-note">
-        <p>Nem toda memória é sobre um dia feliz.</p>
-        <p>Algumas ficam porque, nos dias mais difíceis, você estava ali.</p>
-      </div>
-
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
-    </article>
 
 </body>
 </html>
