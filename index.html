@@ -333,6 +333,13 @@ h1 .script{
 
 /* ---------- RESPONSIVO ---------- */
 @media(max-width:430px){
+  .music-scene{
+    padding-left:18px;
+    padding-right:18px;
+  }
+  .music-scene p{
+    font-size:14px!important;
+  }
   .cover::before,.cover::after{opacity:.42;}
   .top-block{margin-top:clamp(30px,4.8vh,48px)}
   .mark{width:min(88vw,380px)}
@@ -727,6 +734,60 @@ h1 .script{
 }
 .letter-section-title:first-child{
   margin-top:0;
+}
+.music-scene{
+  width:min(100%,500px);
+  margin:34px auto 30px;
+  padding:25px 20px 24px;
+  border-top:1px solid rgba(111,36,52,.25);
+  border-bottom:1px solid rgba(111,36,52,.25);
+  text-align:center;
+}
+.music-scene-note{
+  color:var(--wine);
+  font:20px/1 "Cormorant Garamond",Georgia,serif;
+}
+.music-scene-kicker{
+  margin-top:10px;
+  color:var(--rose);
+  font:500 8px/1.3 "DM Sans",sans-serif;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.music-scene-title{
+  margin-top:7px;
+  color:var(--wine);
+  font:600 34px/1 "Cormorant Garamond",Georgia,serif;
+}
+.music-scene-artist{
+  margin-top:5px;
+  color:var(--muted);
+  font:400 10px/1.2 "DM Sans",sans-serif;
+  letter-spacing:.08em;
+}
+.music-scene-line{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  width:75%;
+  margin:17px auto 15px;
+  color:var(--wine);
+  opacity:.65;
+}
+.music-scene-line i{
+  flex:1;
+  height:1px;
+  background:rgba(111,36,52,.25);
+}
+.music-scene-line span{
+  font:12px/1 "Cormorant Garamond",Georgia,serif;
+}
+.music-scene p{
+  margin:0!important;
+  text-indent:0!important;
+  font-size:15px!important;
+  line-height:1.55!important;
+  font-style:italic;
 }
 .music-reference{
   position:relative;
@@ -1240,15 +1301,71 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 04 — PEDIDO -->
-    <article class="story-page proposal-page">
+    <!-- 07 — 23 · 05 · 2026 -->
+    <article class="story-page letter-page proposal-story">
       <div class="story-label">07 · 23 · 05 · 2026</div>
-      <div class="proposal-date">23 · 05 · 2026</div>
-      <h2>O dia em que<br>tudo ganhou um nome.</h2>
-      <p>Depois de tudo que veio antes, chegou o momento em que eu finalmente te fiz a pergunta.</p>
-      <div class="quote">“Você quer namorar comigo?”</div>
-      <div class="yes">sim.</div>
-      <p class="small-note">E foi assim que aquilo que já existia entre nós virou oficialmente um “nós”.</p>
+      <div class="letter">
+        <h2>Em algum momento,<br>eu simplesmente tive certeza.</h2>
+
+        <p>Não foi porque aconteceu alguma coisa específica naquele dia. Eu só percebi que nunca tinha encontrado alguém como você. Alguém que eu realmente admirasse, que me fizesse querer pensar no futuro e que eu conseguisse imaginar fazendo parte da minha vida de verdade.</p>
+
+        <p>E aí eu entendi que era isso que eu queria. Eu queria você. Queria que você fosse minha namorada.</p>
+
+        <p>Então comecei a pensar em como fazer isso. E, como aparentemente eu não sei fazer nada de um jeito simples, resolvi envolver a sua família também.</p>
+
+        <p>Pedi autorização para a sua mãe. A Bru e a Gaby me ajudaram a arrumar o quarto, enquanto a Kat ficou responsável por te levar para sair e te distrair enquanto eu preparava tudo.</p>
+
+        <p>E eu preparei mesmo. Velas artificiais. Muitas. Muitas mesmo. Pétalas. Muitas pétalas também. Tantas que eu não me contentei em jogar no chão e ainda achei uma ótima ideia colocar algumas dentro do seu guarda-roupa. Até hoje não sei explicar essa decisão.</p>
+
+        <p>Comprei um ursão gigante, chocolate e um buquê de lírios, porque eu lembrava de você falar sobre eles. Também escrevi uma carta.</p>
+
+        <p>Eu queria que tivesse coisas que fossem realmente suas ali. Não queria simplesmente comprar alguma coisa bonita e pronto. Queria que, quando você entrasse naquele quarto, percebesse que eu tinha pensado em você em cada detalhe.</p>
+
+        <p>E então chegou a hora de esperar. E eu estava completamente desesperado. Meu coração parecia que ia pular pela boca. Eu só ficava pensando: “não desmaia”. “não desmaia”. “não desmaia”.</p>
+
+        <p>E, ao mesmo tempo, tinha outro pensamento passando pela minha cabeça: “se essa menina me recusar, eu vou capotar ela aqui mesmo e fugir”. Não era exatamente o pensamento mais romântico do mundo, mas era o que estava passando na minha cabeça naquele momento.</p>
+
+        <p>Aí você chegou. Eu só queria que você entrasse logo porque eu estava morrendo de nervoso.</p>
+
+        <div class="music-scene">
+          <div class="music-scene-note">♪</div>
+          <div class="music-scene-kicker">a música daquele momento</div>
+          <div class="music-scene-title">2 Much</div>
+          <div class="music-scene-artist">Justin Bieber</div>
+          <div class="music-scene-line"><span>♪</span><i></i><span>♪</span></div>
+          <p>Não era só uma música tocando no fundo. Era a música que estava tocando enquanto eu finalmente fazia aquilo que vinha pensando há algum tempo.</p>
+        </div>
+
+        <p>Quando você entrou, começou a tocar “2 Much”, do Justin Bieber. E eu fiz o que tinha planejado.</p>
+
+        <p>Ajoelhei. Peguei a caixinha. E perguntei se você queria namorar comigo.</p>
+
+        <p>Eu estava tremendo inteiro. A minha mão tremia tanto que até colocar a aliança depois virou uma missão.</p>
+
+        <p>E você chorou. Ficou surpresa. Me abraçou. E disse sim.</p>
+
+        <p>E naquele momento veio uma sensação que eu nem sei explicar direito. Foi como se todo aquele nervosismo simplesmente desaparecesse de uma vez.</p>
+
+        <p>Eu estava aliviado. Feliz. Muito feliz. Parecia que eu estava nas nuvens.</p>
+
+        <p>Porque até aquele momento existia uma pergunta na minha cabeça: “e se ela não quiser?”. Depois que você disse sim, não tinha mais pergunta nenhuma. Era só nós dois. Oficialmente.</p>
+
+        <p>E acho engraçado pensar que tudo isso aconteceu poucos dias depois do casamento da sua irmã. Enquanto todo mundo estava vivendo um casamento, eu estava ali preparando o meu próprio jeito de começar uma história com você.</p>
+
+        <p>Não com uma festa enorme. Não com um monte de gente. Só você entrando naquele quarto e encontrando tudo que eu tinha preparado: as velas, as pétalas, o ursão, os lírios, a carta, a caixinha e eu, provavelmente tremendo mais do que deveria.</p>
+
+        <p>Mas naquele dia eu não estava tentando fazer alguma coisa perfeita. Eu só queria fazer uma coisa que tivesse a ver com você.</p>
+
+        <p>Porque eu já tinha certeza do que queria. Eu queria que você fosse minha namorada.</p>
+
+        <p>E, naquele 23 de maio de 2026, você disse que também queria.</p>
+
+        <p>Foi o dia em que aquilo que a gente vinha construindo há tanto tempo finalmente ganhou um nome: namorados.</p>
+
+        <p>E, sinceramente?</p>
+
+        <p class="letter-final">Eu não consigo pensar em um jeito melhor de ter começado.</p>
+      </div>
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
