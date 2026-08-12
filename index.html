@@ -1207,6 +1207,129 @@ h1 .script{
   letter-spacing:.07em;
   text-transform:uppercase;
 }
+
+/* 08 · OS PRIMEIROS MESES — cartões frente/verso */
+.memories-page .memory-flip-grid{
+  perspective:1000px;
+}
+
+.memories-page .memory-flip-card{
+  min-height:150px;
+  padding:0;
+  border:0;
+  background:transparent;
+  display:block;
+  place-items:initial;
+  cursor:pointer;
+  text-transform:none;
+  letter-spacing:normal;
+  perspective:1000px;
+  outline:none;
+}
+
+.memories-page .memory-flip-inner{
+  position:relative;
+  width:100%;
+  height:100%;
+  min-height:150px;
+  transform-style:preserve-3d;
+  transition:transform .7s cubic-bezier(.2,.7,.2,1);
+}
+
+.memories-page .memory-flip-card.is-flipped .memory-flip-inner{
+  transform:rotateY(180deg);
+}
+
+.memories-page .memory-flip-face{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  min-height:150px;
+  border:1px solid rgba(137,77,86,.2);
+  border-radius:14px;
+  overflow:hidden;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  transform-style:preserve-3d;
+  box-sizing:border-box;
+}
+
+.memories-page .memory-flip-front{
+  background:rgba(255,255,255,.18);
+}
+
+.memories-page .memory-flip-front img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:150px;
+  object-fit:cover;
+}
+
+.memories-page .memory-flip-back{
+  transform:rotateY(180deg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px;
+  background:#f7eee5;
+  color:var(--wine);
+  text-align:center;
+}
+
+.memories-page .memory-back-content{
+  width:100%;
+}
+
+.memories-page .memory-back-title{
+  display:block;
+  margin-bottom:10px;
+  color:var(--wine);
+  font:600 8px/1.35 "DM Sans",sans-serif;
+  letter-spacing:.1em;
+}
+
+.memories-page .memory-back-content p{
+  margin:0;
+  color:var(--rose);
+  font:italic 14px/1.35 "Cormorant Garamond",Georgia,serif;
+  letter-spacing:0;
+  text-transform:none;
+}
+
+.memories-page .memory-flip-card:focus-visible .memory-flip-face{
+  outline:2px solid rgba(137,77,86,.35);
+  outline-offset:2px;
+}
+
+@media (max-width:600px){
+  .memories-page .memory-flip-grid{
+    gap:10px;
+  }
+
+  .memories-page .memory-flip-face,
+  .memories-page .memory-flip-inner,
+  .memories-page .memory-flip-card{
+    min-height:150px;
+  }
+
+  .memories-page .memory-flip-back{
+    padding:11px;
+  }
+
+  .memories-page .memory-back-title{
+    font-size:7px;
+    line-height:1.25;
+    margin-bottom:8px;
+  }
+
+  .memories-page .memory-back-content p{
+    font-size:12.5px;
+    line-height:1.3;
+  }
+}
+
 </style>
 </head>
 
@@ -1494,19 +1617,53 @@ h1 .script{
       <div class="story-label">08 · os primeiros meses</div>
       <h2>Três meses não cabem<br>em uma página.</h2>
       <p class="page-intro">Então aqui vamos guardar as pequenas coisas: momentos, fotos, frases, lugares e lembranças que fizeram esses meses serem nossos.</p>
-      <div class="memory-grid">
-        
-        <div class="memory-card memory-photo-card" onclick="goToMemory(0)">
-          <div class="memory-card-caption">nosso filho, olavo</div>
+
+      <div class="memory-grid memory-flip-grid">
+
+        <div class="memory-card memory-flip-card" role="button" tabindex="0" aria-label="Virar cartão: nosso filho, Olavo">
+          <div class="memory-flip-inner">
+            <div class="memory-flip-face memory-flip-front">
+              <img src="olavo.jpeg" alt="Olavo, nosso filho">
+            </div>
+            <div class="memory-flip-face memory-flip-back">
+              <div class="memory-back-content">
+                <span class="memory-back-title">NOSSO FILHO, OLAVO</span>
+                <p>“eu ainda acho engraçado que a gente já tenha um filho antes mesmo de completar três meses.”</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="memory-card memory-photo-card" onclick="goToMemory(1)">
-          <div class="memory-card-caption">o dia em que ela conheceu minha mãe</div>
+
+        <div class="memory-card memory-flip-card" role="button" tabindex="0" aria-label="Virar cartão: o dia em que ela conheceu minha mãe">
+          <div class="memory-flip-inner">
+            <div class="memory-flip-face memory-flip-front">
+              <img src="dia-que-ela-conheceu-minha-mae.jpeg" alt="O dia em que ela conheceu minha mãe">
+            </div>
+            <div class="memory-flip-face memory-flip-back">
+              <div class="memory-back-content">
+                <span class="memory-back-title">O DIA EM QUE ELA CONHECEU MINHA MÃE</span>
+                <p>“foi incrível ver duas pessoas tão importantes para mim finalmente se conhecendo.”</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="memory-card memory-photo-card" onclick="goToMemory(2)">
-          <div class="memory-card-caption">o dia em que minha vó faleceu</div>
+
+        <div class="memory-card memory-flip-card" role="button" tabindex="0" aria-label="Virar cartão: o dia em que minha vó faleceu">
+          <div class="memory-flip-inner">
+            <div class="memory-flip-face memory-flip-front">
+              <img src="dia-da-minha-vo.jpeg" alt="Ela comigo no dia em que minha vó faleceu">
+            </div>
+            <div class="memory-flip-face memory-flip-back">
+              <div class="memory-back-content">
+                <span class="memory-back-title">O DIA EM QUE MINHA VÓ FALECEU</span>
+                <p>“alguns dias não são feitos para serem felizes. São feitos para serem atravessados. E eu lembro de você estar ali.”</p>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
-      </div>
+
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
@@ -1700,6 +1857,23 @@ function goToMemory(index){
     }
   }
 }
+
+
+/* 08 · OS PRIMEIROS MESES — interação dos cartões */
+document.querySelectorAll(".memories-page .memory-flip-card").forEach(function(card){
+  function toggleCard(){
+    card.classList.toggle("is-flipped");
+  }
+
+  card.addEventListener("click", toggleCard);
+
+  card.addEventListener("keydown", function(event){
+    if(event.key === "Enter" || event.key === " "){
+      event.preventDefault();
+      toggleCard();
+    }
+  });
+});
 </script>
 
 
