@@ -659,7 +659,6 @@ h1 .script{
   height:100%;
   overflow-y:auto;
   overflow-x:hidden;
-  scroll-snap-type:y mandatory;
   -webkit-overflow-scrolling:touch;
 }
 .story-page{
@@ -671,8 +670,6 @@ h1 .script{
   align-items:center;
   justify-content:center;
   text-align:center;
-  scroll-snap-align:start;
-  scroll-snap-stop:always;
 }
 .story-label{
   margin-bottom:26px;
@@ -1452,6 +1449,32 @@ h1 .script{
   }
 }
 
+
+/* ===== ROLAGEM CONTÍNUA — leitura sem "pulos" ===== */
+.story-pages{
+  scroll-behavior:smooth;
+  overscroll-behavior-y:contain;
+  -webkit-overflow-scrolling:touch;
+}
+
+.story-page{
+  height:auto;
+}
+
+.story-page + .story-page{
+  padding-top:clamp(72px, 10vh, 120px);
+}
+
+@media (max-width:600px){
+  .story-page{
+    padding-top:max(72px, env(safe-area-inset-top) + 42px);
+    padding-bottom:max(70px, env(safe-area-inset-bottom) + 48px);
+  }
+  .story-page + .story-page{
+    padding-top:clamp(72px, 11vh, 110px);
+  }
+}
+
 </style>
 </head>
 
@@ -1527,10 +1550,9 @@ h1 .script{
   <a href="#cap-07" data-chapter="6"><span>07</span></a>
 </nav>
 
-
     <!-- 01 — CARTA / PARTE I -->
-    <article class="story-page letter-page>
-      <div class= id="cap-01"story-label">01 · uma coisa que eu precisava te dizer</div>
+    <article class="story-page letter-page" id="cap-01">
+      <div class="story-label">uma coisa que eu precisava te dizer</div>
       <div class="letter">
         <h2>Eu queria ter feito isso antes.</h2>
         <p>Na verdade, queria ter feito algumas coisas antes. O primeiro mês passou e eu simplesmente esqueci. Não porque não fosse importante, mas porque sou meio cabeça de vento e ainda não tinha me acostumado com a ideia de ter uma data nossa para lembrar. No segundo, eu já sabia que estava passando e, mesmo assim, não fiz nada.</p>
@@ -1543,8 +1565,9 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 02 — CARTA / PARTE <article class="story-page letter-page id="cap-02"etter-page">
-      <div class="story-label">02 · e tem mais uma coisa</div>
+    <!-- 02 — CARTA / PARTE II -->
+    <article class="story-page letter-page">
+      <div class="story-label">e tem mais uma coisa</div>
       <div class="letter">
         <p>Talvez porque eu ainda estivesse aprendendo que demonstrar também faz parte de amar. Porque eu sinto muito mais do que consigo colocar para fora.</p>
         <p>Eu tenho esse jeito meio estranho de, às vezes, ficar no meu próprio mundo, quieto, pensando em um milhão de coisas ou simplesmente gostando de ficar sozinho comigo mesmo. E eu sei que, de fora, isso pode parecer distância, mas nem sempre é. Às vezes, eu só sou assim. Ainda estou aprendendo a deixar alguém entrar nesse meu mundo sem sentir que preciso me fechar nele.</p>
@@ -1558,8 +1581,9 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 03 — COMO EU ME SI<article class="story-page letter-page id="cap-03"tory-page letter-page">
-      <div class="story-label">03 · como eu me sinto com você</div>
+    <!-- 03 — COMO EU ME SINTO / PARTE I -->
+    <article class="story-page letter-page" id="cap-02">
+      <div class="story-label">como eu me sinto com você</div>
       <div class="letter">
         <h2>Como eu me sinto<br>com você.</h2>
         <p>Eu acho que a primeira coisa que sinto quando estou com você é paz. Minha cabeça costuma estar sempre cheia; eu penso demais, volto nas coisas, imagino possibilidades, penso no que poderia ter sido diferente e no que pode acontecer depois. Com você, isso diminui. Não sei exatamente como você consegue, mas, perto de você, eu consigo simplesmente ficar, e isso, para mim, é muito.</p>
@@ -1571,8 +1595,9 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 04 — COM<article class="story-page letter-page id="cap-04"le class="story-page letter-page">
-      <div class="story-label">04 · como eu me sinto com você</div>
+    <!-- 04 — COMO EU ME SINTO / PARTE II -->
+    <article class="story-page letter-page">
+      <div class="story-label">como eu me sinto com você</div>
       <div class="letter">
         <p>Talvez seja por isso que eu goste tanto quando você fala de um futuro em que eu estou. Porque, antes de você, eu acho que eu simplesmente ia vivendo. Não pensava muito no que vinha depois. Era como se eu estivesse sempre preocupado com o agora e, ao mesmo tempo, não estivesse realmente preocupado com nada.</p>
         <p>Você mudou isso em mim. Você começou a me fazer pensar no futuro de uma maneira diferente, não porque você tenha colocado um roteiro na minha cabeça, mas porque, pela primeira vez, eu comecei a querer saber como seria a vida se você estivesse nela. E isso mudou muita coisa em mim.</p>
@@ -1588,9 +1613,9 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 05 — <article class="story-page letter-page id="cap-05"
-    <article class="story-page letter-page">
-      <div class="story-label">05 · antes de existir um “nós”</div>
+    <!-- 05 — ANTES DE EXISTIR UM “NÓS” / PARTE I -->
+    <article class="story-page letter-page" id="cap-03">
+      <div class="story-label">antes de existir um “nós”</div>
       <div class="letter">
         <h2>Antes de existir<br>um “nós”.</h2>
 
@@ -1621,9 +1646,8 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <article class="story-page letter-page id="cap-06"ARTE II -->
-    <article class="story-page letter-page">
-      <div class="story-label">06 · antes de existir um “nós”</div>
+<article class="story-page letter-page">
+      <div class="story-label">antes de existir um “nós”</div>
       <div class="letter">
 
         <div class="letter-section-title">meu aniversário</div>
@@ -1670,9 +1694,12 @@ h1 .script{
           <div class="music-ornament bottom" aria-hidden="true">♪ ───── ♫ ───── ♪</div>
         </div>
       </div>
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</sp<article class="story-page letter-page proposal-story id="cap-07"026 -->
-    <article class="story-page letter-page proposal-story">
-      <div class="story-label">07 · 23 · 05 · 2026</div>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</sp
+    </article>
+
+    <!-- 04 — 23 · 05 · 2026 -->
+    <article class="story-page letter-page proposal-story" id="cap-04">
+      <div class="story-label">23 · 05 · 2026</div>
       <div class="letter">
         <h2>Em algum momento,<br>eu simplesmente tive certeza.</h2>
 
@@ -1738,9 +1765,9 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 05 — MEMÓRIAS -->
-    <article class="story-page memories-page">
-      <div class="story-label">08 · os primeiros meses</div>
+    <!-- 05 — OS PRIMEIROS MESES -->
+    <article class="story-page memories-page" id="cap-05">
+      <div class="story-label">os primeiros meses</div>
       <h2>Três meses não cabem<br>em uma página.</h2>
       <p class="page-intro">Então aqui vamos guardar as pequenas coisas: momentos, fotos, frases, lugares e lembranças que fizeram esses meses serem nossos.</p>
 
@@ -1794,8 +1821,8 @@ h1 .script{
     </article>
 
     <!-- 06 — COMO EU TE VEJO -->
-    <article class="story-page see-page">
-      <div class="story-label">09 · se eu pudesse te mostrar</div>
+    <article class="story-page see-page" id="cap-06">
+      <div class="story-label">como eu te vejo</div>
       <h2>Como eu te vejo.</h2>
       <div class="see-lines">
         <p>forte quando acha que está fraca.</p>
@@ -1807,9 +1834,9 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 07 — FUTURO / FINAL -->
-    <article class="story-page final-page">
-      <div class="story-label">10 · daqui pra frente</div>
+    <!-- 07 — DAQUI PRA FRENTE / FINAL -->
+    <article class="story-page final-page" id="cap-07">
+      <div class="story-label">daqui pra frente</div>
       <h2>Eu não sei exatamente<br>onde a vida vai levar a gente.</h2>
       <div class="final-copy">
         <p>Mas sei que quero continuar descobrindo.</p>
@@ -1939,29 +1966,32 @@ document.querySelectorAll(".memories-page .memory-flip-card").forEach(function(c
 <script>
 (function(){
   const nav = document.querySelector('.chapter-index');
-  if (!nav) return;
+  const scroller = document.querySelector('.story-pages');
+  if (!nav || !scroller) return;
+
   const links = [...nav.querySelectorAll('a')];
-  const pages = links.map(a => document.getElementById('cap-' + String(Number(a.dataset.chapter)+1).padStart(2,'0'))).filter(Boolean);
+  const pages = links
+    .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+    .filter(Boolean);
 
   function updateChapter(){
-    const marker = window.innerHeight * 0.38;
+    const marker = scroller.getBoundingClientRect().top + scroller.clientHeight * 0.32;
     let active = 0;
     pages.forEach((page, i) => {
-      const r = page.getBoundingClientRect();
-      if (r.top <= marker) active = i;
+      if (page.getBoundingClientRect().top <= marker) active = i;
     });
     links.forEach((a,i) => a.classList.toggle('active', i === active));
   }
 
-  window.addEventListener('scroll', updateChapter, {passive:true});
+  scroller.addEventListener('scroll', updateChapter, {passive:true});
   window.addEventListener('resize', updateChapter);
   updateChapter();
 
   links.forEach(a => {
     a.addEventListener('click', function(e){
       e.preventDefault();
-      const page = pages[Number(this.dataset.chapter)];
-      if (page) page.scrollIntoView({behavior:'smooth', block:'start'});
+      const target = document.getElementById(this.getAttribute('href').slice(1));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
     });
   });
 })();
