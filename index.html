@@ -333,461 +333,109 @@ h1 .script{
 
 /* ---------- RESPONSIVO ---------- */
 @media(max-width:430px){
-  .music-scene{
-    padding-left:18px;
-    padding-right:18px;
-  }
-  .music-scene p{
-    font-size:14px!important;
-  }
-  .cover::before,.cover::after{opacity:.42;}
-  .top-block{margin-top:clamp(30px,4.8vh,48px)}
-  .mark{width:min(88vw,380px)}
-  .kicker{margin:12px 0 0}
-  .copy-stack{margin-top:clamp(10px,1.5vh,16px)}
-  h1{font-size:clamp(80px,21vw,142px);line-height:.82}
-  h1 em{font-size:.68em;line-height:.86}
-  h1 .script{font-size:1em}
-  .rule{margin-top:22px;margin-bottom:19px}
-  .subtitle{font-size:18.5px;max-width:350px}
-  .bottom{margin-top:24px}
-}
-
-@media(max-height:720px){
-  .top-block{margin-top:22px}
-  .mark{width:min(86vw,440px)}
-  h1{font-size:80px;line-height:.84}
-  h1 em{font-size:.62em}
-  .copy-stack{margin-top:24px}
-  .rule{margin:20px 0 16px}
-  .enter{margin-top:24px}
-}
-
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    animation-duration:.01ms!important;
-    transition-duration:.01ms!important;
-  }
-}
-
-/* ===== AJUSTE FINAL — composição compacta e limpa ===== */
-html,body{
-  background-color:var(--ivory);
-  overflow-x:hidden;
-}
-
-body{
-  background:
-    radial-gradient(ellipse 82% 38% at 50% 22%, rgba(232,207,197,.32), transparent 72%),
-    radial-gradient(ellipse 48% 34% at 8% 78%, rgba(214,180,171,.14), transparent 74%),
-    radial-gradient(ellipse 48% 34% at 92% 78%, rgba(214,180,171,.14), transparent 74%),
-    var(--ivory);
-}
-
-/* Não deixa textura/granulação por cima do fundo. */
-body::before{display:none}
-
-/* O desenho + data continuam sendo um bloco único. */
-.top-block{
-  margin-top:clamp(28px,4.5vh,46px);
-}
-.mark{
-  margin-top:12px;
-}
-.kicker{
-  margin-top:12px;
-}
-
-/* Equilíbrio entre a data, o título e a linha inferior. */
-.copy-stack{
-  width:min(100%,430px);
-  margin-top:clamp(18px,2.7vh,27px);
-}
-
-/* Título maior, mais encorpado e com desenho de “3” mais limpo. */
-h1{
-  font-family:"Bodoni Moda","Cormorant Garamond",Georgia,serif;
-  font-size:clamp(84px,21.5vw,148px);
-  font-weight:800;
-  line-height:.84;
-  letter-spacing:-.065em;
-  color:#8F5A5F;
-}
-
-/* Segundo verso continua visualmente integrado ao primeiro. */
-h1 em{
-  margin-top:.025em;
-  color:#8F5A5F;
-  font-family:"Bodoni Moda","Cormorant Garamond",Georgia,serif,Georgia,serif;
-  font-size:.67em;
-  font-weight:800;
-  line-height:.88;
-  letter-spacing:-.052em;
-}
-
-/* Só “sim” recebe o vinho; mesma tipografia do título, sem manuscrita. */
-h1 .script{
-  font-family:"Bodoni Moda","Cormorant Garamond",Georgia,serif;
-  color:var(--wine);
-  font-size:1em;
-  font-weight:800;
-  font-style:normal;
-  letter-spacing:-.052em;
-  transform:none;
-  display:inline;
-}
-
-/* A linha inferior fica visualmente tão afastada do título quanto
-   a data fica do início do título. */
-.rule{
-  width:58px;
-  margin:31px 0 20px;
-  background:linear-gradient(90deg,transparent,#A9636B,transparent);
-}
-
-/* Sol e Lua com presença suficiente para não desaparecerem no bege. */
-.cover::before,.cover::after{
-  opacity:.42;
-}
-
-/* Evita o botão e o rodapé encostarem. */
-.enter{
-  margin-top:25px;
-}
-.bottom{
-  margin-top:24px;
-}
-
-@media(max-width:430px){
-  .cover::before,.cover::after{opacity:.42;}
-  .top-block{margin-top:clamp(28px,4.5vh,46px)}
-  .copy-stack{
-    width:100%;
-    max-width:100%;
-    margin-top:clamp(18px,2.7vh,27px);
-    padding-inline:10px;
-    box-sizing:border-box;
-  }
-  h1{
-    width:100%;
-    max-width:100%;
-    box-sizing:border-box;
-    font-size:clamp(68px,18.2vw,128px);
-    font-weight:800;
-    line-height:.84;
-    letter-spacing:-.065em;
-  }
-  h1 em{
-    width:100%;
-    font-size:.72em;
-    font-weight:800;
-    line-height:.88;
-    letter-spacing:-.052em;
-    gap:.06em;
-  }
-  h1 .script{
-    font-weight:800;
-    letter-spacing:-.052em;
-  }
-  .rule{margin:31px auto 20px}
-}
-
-@media(max-height:720px){
-  .top-block{margin-top:22px}
-  .copy-stack{margin-top:20px}
-  h1{
-    font-size:clamp(66px,17.8vw,122px);
-    font-weight:800;
-  }
-  .rule{margin:28px auto 17px}
-}
-
-
-/* ===== TELA DE SENHA — ENTRADA ===== */
-.password-gate{
-  position:fixed;
-  inset:0;
-  z-index:10000;
+  .music-player{
+  width:min(100%,520px);
+  margin:34px auto 20px;
+  padding:20px 21px;
   display:flex;
   align-items:center;
-  justify-content:center;
-  padding:24px;
-  box-sizing:border-box;
-  background:
-    radial-gradient(circle at 50% 28%, rgba(183,123,130,.10), transparent 34%),
-    linear-gradient(180deg,#f8f0e5 0%,#f4e9dd 100%);
-  color:#6e2434;
-  transition:opacity .7s ease, visibility .7s ease;
+  gap:17px;
+  border:1px solid rgba(111,36,52,.20);
+  border-radius:17px;
+  background:rgba(255,255,255,.20);
+  box-shadow:0 10px 30px rgba(80,35,42,.045);
 }
-.password-gate.is-hidden{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
+.player-cover{
+  flex:0 0 68px;
+  width:68px;
+  height:68px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:linear-gradient(145deg,#7b263b,#b8787d);
+  color:#f8eee5;
+  font:600 37px/1 "Cormorant Garamond",Georgia,serif;
 }
-.password-card{
-  width:min(100%,390px);
-  text-align:center;
+.player-cover span{
+  transform:translateY(-1px);
 }
-.password-kicker{
-  margin:0 0 22px;
-  font-family:"Montserrat",Arial,sans-serif;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.24em;
-  color:#9b6b70;
+.player-main{
+  flex:1;
+  min-width:0;
 }
-.password-card h2{
-  margin:0;
-  font-family:"Cormorant Garamond",Georgia,serif;
-  font-size:clamp(34px,9vw,48px);
-  line-height:.96;
-  font-weight:700;
-  letter-spacing:-.025em;
-  color:#7f4a52;
-}
-.password-hint{
-  margin:22px 0 18px;
-  font-family:"Montserrat",Arial,sans-serif;
-  font-size:11px;
-  letter-spacing:.08em;
-  color:#a2767b;
-}
-#password-form{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
-.password-input{
-  width:150px;
-  height:48px;
-  box-sizing:border-box;
-  border:0;
-  border-bottom:1px solid rgba(110,36,52,.38);
-  outline:none;
-  background:transparent;
-  text-align:center;
-  font-family:"Montserrat",Arial,sans-serif;
-  font-size:20px;
-  font-weight:600;
-  letter-spacing:.28em;
-  color:#6e2434;
-}
-.password-input:focus{
-  border-bottom-color:#6e2434;
-}
-.password-wrap{
-  position:relative;
-  width:150px;
-  height:48px;
-}
-.password-wrap .password-input{
-  width:100%;
-  height:100%;
-  padding:0;
-  color:transparent;
-  caret-color:#6e2434;
-  -webkit-text-fill-color:transparent;
-}
-.password-hearts{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:5px;
-  pointer-events:none;
-  color:#6e2434;
-  font-family:Arial,sans-serif;
-  font-size:17px;
-  line-height:1;
-  letter-spacing:0;
-}
-.password-heart{
-  display:inline-block;
-  transform:translateY(1px);
-}
-
-.password-button{
-  margin-top:24px;
-  min-width:150px;
-  padding:13px 24px;
-  border:0;
-  border-radius:999px;
-  background:#6e2434;
-  color:#f8f0e5;
-  font-family:"Montserrat",Arial,sans-serif;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.18em;
-  cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
-}
-.password-error{
-  min-height:15px;
-  margin:10px 0 0;
-  font-family:"Montserrat",Arial,sans-serif;
-  font-size:10px;
-  color:#9b4f5b;
-}
-@media(max-width:430px){
-  .password-gate{padding:20px}
-  .password-card h2{font-size:clamp(32px,9.5vw,43px)}
-}
-
-
-/* ===== RASCUNHO DA HISTÓRIA — próximas telas ===== */
-.story{
-  position:fixed;
-  inset:0;
-  z-index:9000;
-  background:
-    radial-gradient(ellipse 80% 45% at 50% 15%, rgba(231,205,194,.25), transparent 72%),
-    var(--ivory);
-  opacity:0;
-  visibility:hidden;
-  transform:translateY(18px);
-  transition:opacity .65s ease, transform .65s ease, visibility .65s;
-  overflow:hidden;
-}
-.story.open{
-  opacity:1;
-  visibility:visible;
-  transform:translateY(0);
-}
-.story-pages{
-  width:100%;
-  height:100%;
-  overflow-y:auto;
-  overflow-x:hidden;
-  scroll-snap-type:y mandatory;
-  -webkit-overflow-scrolling:touch;
-}
-.story-page{
-  position:relative;
-  min-height:100svh;
-  padding:max(72px,env(safe-area-inset-top) + 38px) 28px max(48px,env(safe-area-inset-bottom) + 30px);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  scroll-snap-align:start;
-  scroll-snap-stop:always;
-}
-.story-label{
-  margin-bottom:26px;
-  color:var(--wine2);
-  font:500 9px/1 "DM Sans",sans-serif;
-  letter-spacing:.25em;
-  text-transform:uppercase;
-}
-.story-page h2{
-  margin:0;
-  color:var(--wine);
-  font:600 clamp(40px,10.8vw,72px)/.92 "Cormorant Garamond",Georgia,serif;
-  letter-spacing:-.035em;
-}
-.story-page p{
-  color:var(--muted);
-  font:400 18px/1.55 "Cormorant Garamond",Georgia,serif;
-}
-.letter{
-  width:min(100%,640px);
-  text-align:left;
-  padding:8px 0 20px;
-}
-.letter h2{
-  text-align:center;
-  margin-bottom:34px;
-}
-.letter p{
-  margin:0 0 15px;
-  font-size:18px;
-  line-height:1.62;
-  color:var(--muted);
-  text-indent:1.35em;
-}
-.letter p:first-of-type{ text-indent:0; }
-.letter-emphasis{
-  color:var(--muted)!important;
-  font-weight:400!important;
-  font-size:18px!important;
-  line-height:1.62!important;
-  margin-top:0!important;
-}
-.letter-final{
-  margin-top:28px!important;
-  color:var(--wine)!important;
-  font-weight:600!important;
-  font-size:22px!important;
-  line-height:1.25!important;
-  text-indent:0;
-}
-
-.letter-section-title{
-  margin:32px 0 17px;
-  text-align:left;
-  color:var(--wine2);
-  font:600 12px/1.2 "DM Sans",sans-serif;
-  letter-spacing:.16em;
-  text-transform:lowercase;
-}
-.letter-section-title:first-child{
-  margin-top:0;
-}
-.music-scene{
-  width:min(100%,500px);
-  margin:34px auto 30px;
-  padding:25px 20px 24px;
-  border-top:1px solid rgba(111,36,52,.25);
-  border-bottom:1px solid rgba(111,36,52,.25);
-  text-align:center;
-}
-.music-scene-note{
-  color:var(--wine);
-  font:20px/1 "Cormorant Garamond",Georgia,serif;
-}
-.music-scene-kicker{
-  margin-top:10px;
+.player-kicker{
   color:var(--rose);
-  font:500 8px/1.3 "DM Sans",sans-serif;
-  letter-spacing:.2em;
+  font:500 7px/1.2 "DM Sans",sans-serif;
+  letter-spacing:.16em;
   text-transform:uppercase;
+  margin-bottom:5px;
 }
-.music-scene-title{
-  margin-top:7px;
+.player-title{
   color:var(--wine);
-  font:600 34px/1 "Cormorant Garamond",Georgia,serif;
+  font:600 25px/1 "Cormorant Garamond",Georgia,serif;
 }
-.music-scene-artist{
-  margin-top:5px;
+.player-artist{
+  margin-top:3px;
   color:var(--muted);
   font:400 10px/1.2 "DM Sans",sans-serif;
-  letter-spacing:.08em;
+  letter-spacing:.04em;
 }
-.music-scene-line{
+.player-progress{
   display:flex;
   align-items:center;
-  gap:8px;
-  width:75%;
-  margin:17px auto 15px;
+  gap:7px;
+  margin-top:13px;
+}
+.player-time{
+  color:var(--muted);
+  font:400 7px/1 "DM Sans",sans-serif;
+  opacity:.8;
+}
+.player-track{
+  position:relative;
+  flex:1;
+  height:3px;
+  border-radius:10px;
+  background:rgba(111,36,52,.15);
+  overflow:hidden;
+}
+.player-track b{
+  display:block;
+  width:31%;
+  height:100%;
+  background:var(--wine);
+  border-radius:10px;
+}
+.player-controls{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:22px;
+  margin-top:11px;
+}
+.player-side{
   color:var(--wine);
+  font:13px/1 "DM Sans",sans-serif;
   opacity:.65;
 }
-.music-scene-line i{
-  flex:1;
-  height:1px;
-  background:rgba(111,36,52,.25);
+.player-play{
+  width:29px;
+  height:29px;
+  display:grid;
+  place-items:center;
+  padding-left:2px;
+  border-radius:50%;
+  background:var(--wine);
+  color:#fff8f0;
+  font:10px/1 Arial,sans-serif;
 }
-.music-scene-line span{
-  font:12px/1 "Cormorant Garamond",Georgia,serif;
-}
-.music-scene p{
-  margin:0!important;
+.music-caption{
+  margin:0 auto 34px!important;
+  max-width:500px;
+  color:var(--muted);
+  font:italic 15px/1.58 "Cormorant Garamond",Georgia,serif!important;
+  text-align:center;
   text-indent:0!important;
-  font-size:15px!important;
-  line-height:1.55!important;
-  font-style:italic;
 }
 .music-reference{
   position:relative;
@@ -1327,14 +975,31 @@ h1 .script{
 
         <p>Aí você chegou. Eu só queria que você entrasse logo porque eu estava morrendo de nervoso.</p>
 
-        <div class="music-scene">
-          <div class="music-scene-note">♪</div>
-          <div class="music-scene-kicker">a música daquele momento</div>
-          <div class="music-scene-title">2 Much</div>
-          <div class="music-scene-artist">Justin Bieber</div>
-          <div class="music-scene-line"><span>♪</span><i></i><span>♪</span></div>
-          <p>Não era só uma música tocando no fundo. Era a música que estava tocando enquanto eu finalmente fazia aquilo que vinha pensando há algum tempo.</p>
+        <div class="music-player" aria-label="2 Much — Justin Bieber">
+          <div class="player-cover">
+            <span>2</span>
+          </div>
+
+          <div class="player-main">
+            <div class="player-kicker">a música daquele momento</div>
+            <div class="player-title">2 Much</div>
+            <div class="player-artist">Justin Bieber</div>
+
+            <div class="player-progress">
+              <span class="player-time">0:00</span>
+              <i class="player-track"><b></b></i>
+              <span class="player-time">2:43</span>
+            </div>
+
+            <div class="player-controls">
+              <span class="player-side">↶</span>
+              <span class="player-play">▶</span>
+              <span class="player-side">↷</span>
+            </div>
+          </div>
         </div>
+
+        <p class="music-caption">Não era só uma música tocando no fundo. Era a música que estava tocando enquanto eu finalmente fazia aquilo que vinha pensando há algum tempo.</p>
 
         <p>Quando você entrou, começou a tocar “2 Much”, do Justin Bieber. E eu fiz o que tinha planejado.</p>
 
