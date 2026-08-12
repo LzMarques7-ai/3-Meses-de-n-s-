@@ -1087,6 +1087,65 @@ h1 .script{
   }
 }
 
+
+.memory-page{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  padding:70px 22px 110px;
+  box-sizing:border-box;
+}
+.memory-page .story-label{
+  margin-bottom:25px;
+}
+.memory-polaroid{
+  width:min(82vw, 360px);
+  padding:12px 12px 0;
+  background:#fbfaf7;
+  box-shadow:0 18px 40px rgba(60,35,35,.12);
+  transform:rotate(-1deg);
+}
+.memory-polaroid img{
+  display:block;
+  width:100%;
+  aspect-ratio:1 / 1.12;
+  object-fit:cover;
+}
+.memory-polaroid-caption{
+  padding:18px 10px 23px;
+  text-align:center;
+  color:var(--wine);
+}
+.memory-polaroid-caption span{
+  display:block;
+  font:600 22px/1.05 "Cormorant Garamond",Georgia,serif;
+  letter-spacing:.01em;
+}
+.memory-polaroid-caption small{
+  display:block;
+  margin-top:9px;
+  color:var(--muted);
+  font:400 10px/1.45 "DM Sans",sans-serif;
+  letter-spacing:.025em;
+}
+.memory-note{
+  max-width:430px;
+  margin:28px auto 0;
+  text-align:center;
+  color:var(--muted);
+}
+.memory-note p{
+  margin:0 0 5px!important;
+  font:italic 16px/1.5 "Cormorant Garamond",Georgia,serif!important;
+  text-indent:0!important;
+}
+.memory-note p:first-child{
+  color:var(--wine);
+  font-size:24px!important;
+  font-style:normal;
+}
 </style>
 </head>
 
@@ -1493,6 +1552,72 @@ function updateStoryProgress(){
   });
 })();
 </script>
+
+
+    <!-- MEMÓRIA — OLAVO -->
+    <article class="story-page memory-page olavo-memory">
+      <div class="story-label">MEMÓRIA · 01</div>
+
+      <div class="memory-polaroid">
+        <img src="olavo.jpeg" alt="Olavo, nosso filho">
+        <div class="memory-polaroid-caption">
+          <span>nosso filho, olavo</span>
+          <small>ainda não sabemos exatamente como chegamos nesse ponto,<br>
+          mas ele faz parte da família.</small>
+        </div>
+      </div>
+
+      <div class="memory-note">
+        <p>Olavo.</p>
+        <p>Nosso filho, obviamente.</p>
+        <p>Não aceito questionamentos.</p>
+      </div>
+
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+
+    <!-- MEMÓRIA — ELA CONHECEU MINHA MÃE -->
+    <article class="story-page memory-page family-memory">
+      <div class="story-label">MEMÓRIA · 02</div>
+
+      <div class="memory-polaroid">
+        <img src="dia-que-ela-conheceu-minha-mae.jpeg" alt="O dia em que ela conheceu minha mãe">
+        <div class="memory-polaroid-caption">
+          <span>o dia em que ela conheceu minha mãe</span>
+          <small>um daqueles momentos que parecem simples,<br>
+          mas que acabam significando muito.</small>
+        </div>
+      </div>
+
+      <div class="memory-note">
+        <p>Ela conheceu minha mãe.</p>
+        <p>E, de alguma forma, foi mais um pedacinho da nossa vida começando a se misturar.</p>
+      </div>
+
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+
+    <!-- MEMÓRIA — O DIA EM QUE MINHA VÓ FALECEU -->
+    <article class="story-page memory-page grief-memory">
+      <div class="story-label">MEMÓRIA · 03</div>
+
+      <div class="memory-polaroid">
+        <img src="dia-da-minha-vo.jpeg" alt="Ela comigo no dia em que minha avó faleceu">
+        <div class="memory-polaroid-caption">
+          <span>o dia em que minha vó faleceu</span>
+          <small>e você estava comigo.</small>
+        </div>
+      </div>
+
+      <div class="memory-note">
+        <p>Nem toda memória é sobre um dia feliz.</p>
+        <p>Algumas ficam porque, nos dias mais difíceis, você estava ali.</p>
+      </div>
+
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
 
 </body>
 </html>
