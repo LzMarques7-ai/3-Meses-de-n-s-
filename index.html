@@ -1012,29 +1012,39 @@ h1 .script{
 }
 .story-progress-bar{
   --story-progress:0;
+  --dot-top:3px;
   position:fixed;
-  z-index:3;
+  z-index:50;
   right:16px;
   top:50%;
-  width:3px;
-  height:170px;
+  width:12px;
+  height:176px;
   transform:translateY(-50%);
-  border-radius:999px;
-  background:rgba(100,31,45,.14);
-  overflow:hidden;
   pointer-events:none;
+}
+.story-progress-bar::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:3px;
+  bottom:3px;
+  width:1px;
+  transform:translateX(-50%);
+  background:rgba(100,31,45,.18);
 }
 .story-progress-bar::after{
   content:"";
   position:absolute;
-  inset:0 0 auto;
-  width:100%;
-  height:calc(var(--story-progress) * 100%);
-  border-radius:999px;
+  left:50%;
+  top:var(--dot-top);
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
   background:var(--wine);
-  transform-origin:top;
-  transition:height .22s cubic-bezier(.22,.61,.36,1);
-  will-change:height;
+  box-shadow:0 0 0 3px rgba(100,31,45,.07);
+  transition:top .16s linear;
+  will-change:top;
 }
 @media(max-width:430px){
   .story-page{
@@ -1373,73 +1383,7 @@ h1 .script{
   margin-top: 2.1em;
 }
 
-/* ===== ÍNDICE LATERAL DOS CAPÍTULOS ===== */
-.chapter-index {
-  position: fixed;
-  right: clamp(12px, 2.8vw, 34px);
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 50;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  user-select: none;
-}
-
-.chapter-index::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: currentColor;
-  opacity: .18;
-}
-
-.chapter-index a {
-  position: relative;
-  z-index: 1;
-  width: 24px;
-  height: 20px;
-  display: grid;
-  place-items: center;
-  text-decoration: none;
-  color: inherit;
-  opacity: .38;
-  font-size: 10px;
-  line-height: 1;
-  transition: opacity .25s ease, transform .25s ease;
-}
-
-.chapter-index a.active {
-  opacity: 1;
-  transform: scale(1.12);
-  font-weight: 600;
-}
-
-.chapter-index a.active::before {
-  content: "";
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: currentColor;
-}
-
-.chapter-index a.active span {
-  opacity: 0;
-}
-
 @media (max-width: 700px) {
-  .chapter-index {
-    right: 8px;
-    gap: 8px;
-  }
-  .chapter-index a {
-    font-size: 9px;
-    width: 18px;
-  }
   .story-page .letter,
   .story-page .final-copy,
   .story-page .memory-copy {
@@ -1540,16 +1484,6 @@ h1 .script{
 <section class="story" id="reveal" aria-hidden="true">
   <div class="story-progress-bar" aria-hidden="true"></div>
   <div class="story-pages">
-<nav class="chapter-index" aria-label="Capítulos">
-  <a href="#cap-01" data-chapter="0"><span>01</span></a>
-  <a href="#cap-02" data-chapter="1"><span>02</span></a>
-  <a href="#cap-03" data-chapter="2"><span>03</span></a>
-  <a href="#cap-04" data-chapter="3"><span>04</span></a>
-  <a href="#cap-05" data-chapter="4"><span>05</span></a>
-  <a href="#cap-06" data-chapter="5"><span>06</span></a>
-  <a href="#cap-07" data-chapter="6"><span>07</span></a>
-</nav>
-
     <!-- 01 — CARTA / PARTE I -->
     <article class="story-page letter-page" id="cap-01">
       <div class="story-label">uma coisa que eu precisava te dizer</div>
@@ -1886,6 +1820,8 @@ function updateStoryProgress(){
   const maxScroll = Math.max(1, container.scrollHeight - container.clientHeight);
   const progress = Math.max(0, Math.min(1, container.scrollTop / maxScroll));
   bar.style.setProperty("--story-progress", progress.toFixed(4));
+  const trackHeight = Math.max(1, bar.clientHeight - 6);
+  bar.style.setProperty("--dot-top", `${3 + progress * trackHeight}px`);
 }
 
 (function(){
@@ -1973,39 +1909,7 @@ document.querySelectorAll(".memories-page .memory-flip-card").forEach(function(c
 
 
 
-<script>
-(function(){
-  const nav = document.querySelector('.chapter-index');
-  const scroller = document.querySelector('.story-pages');
-  if (!nav || !scroller) return;
 
-  const links = [...nav.querySelectorAll('a')];
-  const pages = links
-    .map(a => document.getElementById(a.getAttribute('href').slice(1)))
-    .filter(Boolean);
-
-  function updateChapter(){
-    const marker = scroller.getBoundingClientRect().top + scroller.clientHeight * 0.32;
-    let active = 0;
-    pages.forEach((page, i) => {
-      if (page.getBoundingClientRect().top <= marker) active = i;
-    });
-    links.forEach((a,i) => a.classList.toggle('active', i === active));
-  }
-
-  scroller.addEventListener('scroll', updateChapter, {passive:true});
-  window.addEventListener('resize', updateChapter);
-  updateChapter();
-
-  links.forEach(a => {
-    a.addEventListener('click', function(e){
-      e.preventDefault();
-      const target = document.getElementById(this.getAttribute('href').slice(1));
-      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
-    });
-  });
-})();
-</script>
 
 </body>
 </html>
