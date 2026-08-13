@@ -1476,117 +1476,19 @@ h1 .script{
 }
 
 
-/* ===== INTERLÚDIO — FONES / SPOTIFY ===== */
-.audio-gate{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:28px;
-  background:var(--cream,#f5eee3);
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-  transition:opacity .45s ease, visibility .45s ease;
-}
-.audio-gate.is-open{
-  opacity:1;
-  visibility:visible;
-  pointer-events:auto;
-}
-.audio-gate-inner{
-  width:min(100%,520px);
-  text-align:center;
-}
-.audio-gate-kicker{
-  margin-bottom:28px;
-  font-size:.72rem;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  opacity:.58;
-}
-.audio-gate-icon{
-  width:58px;
-  height:58px;
-  margin:0 auto 26px;
-  border:1px solid currentColor;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  font-size:25px;
-  opacity:.8;
-}
-.audio-gate h2{
-  margin:0 0 18px;
-  font-family:inherit;
-  font-weight:500;
-  font-size:clamp(2rem,7vw,3.4rem);
-  line-height:1.05;
-}
-.audio-gate-copy{
-  max-width:390px;
-  margin:0 auto 30px;
-  font-size:clamp(1rem,3.6vw,1.15rem);
-  line-height:1.65;
-  opacity:.82;
-}
-.audio-gate-copy strong{
-  font-weight:600;
-}
-.audio-gate-playlist{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  min-height:48px;
-  padding:0 24px;
-  border:1px solid currentColor;
-  border-radius:999px;
-  color:inherit;
-  background:transparent;
-  text-decoration:none;
-  font-size:.82rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  transition:transform .2s ease, opacity .2s ease, background .2s ease;
-}
-.audio-gate-playlist:active{ transform:scale(.98); }
-.audio-gate-playlist.opened{
-  opacity:.58;
-}
-.audio-gate-status{
-  min-height:24px;
-  margin:18px 0 12px;
-  font-size:.78rem;
-  opacity:.65;
-}
-.audio-gate-continue{
-  width:min(100%,280px);
-  min-height:48px;
-  border:0;
-  border-radius:999px;
-  font:inherit;
-  font-size:.82rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  background:currentColor;
-  color:var(--cream,#f5eee3);
-  opacity:.25;
-  cursor:not-allowed;
-  transition:opacity .3s ease, transform .2s ease;
-}
-.audio-gate-continue.ready{
-  opacity:1;
-  cursor:pointer;
-}
-.audio-gate-continue.ready:active{ transform:scale(.98); }
-.audio-gate-note{
-  margin-top:16px;
-  font-size:.7rem;
-  opacity:.45;
-}
+/* Spotify pre-reading gate */
+.audio-gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:28px;background:var(--cream,#f5eee3);color:inherit;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease,visibility .35s ease}
+.audio-gate.is-open{opacity:1;visibility:visible;pointer-events:auto}
+.audio-gate-inner{width:min(100%,520px);text-align:center}
+.audio-gate-kicker{margin-bottom:26px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.58}
+.audio-gate-icon{width:56px;height:56px;margin:0 auto 24px;border:1px solid currentColor;border-radius:50%;display:grid;place-items:center;font-size:23px;opacity:.78}
+.audio-gate h2{margin:0 0 18px;font:inherit;font-size:clamp(2rem,7vw,3.3rem);line-height:1.05;font-weight:500}
+.audio-gate-copy{max-width:390px;margin:0 auto 28px;font-size:clamp(1rem,3.6vw,1.15rem);line-height:1.65;opacity:.82}
+.audio-gate-playlist{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:48px;padding:0 24px;border:1px solid currentColor;border-radius:999px;color:inherit;background:transparent;text-decoration:none;font:inherit;font-size:.8rem;letter-spacing:.07em;text-transform:uppercase}
+.audio-gate-status{min-height:22px;margin:16px 0 12px;font-size:.76rem;opacity:.6}
+.audio-gate-continue{width:min(100%,280px);min-height:48px;border:0;border-radius:999px;background:currentColor;color:var(--cream,#f5eee3);font:inherit;font-size:.8rem;letter-spacing:.07em;text-transform:uppercase;opacity:.22;cursor:not-allowed;transition:opacity .25s ease}
+.audio-gate-continue.ready{opacity:1;cursor:pointer}
+.audio-gate-note{margin-top:14px;font-size:.68rem;opacity:.42}
 
 </style>
 </head>
@@ -2121,14 +2023,9 @@ document.querySelectorAll(".memories-page .memory-flip-card").forEach(function(c
       Eu passei um tempão fazendo isso aqui.<br>
       Acho que fica melhor se você ouvir enquanto lê.
     </div>
-    <a class="audio-gate-playlist" id="spotifyPlaylist"
-       href="https://open.spotify.com/" target="_blank" rel="noopener">
-      ♫&nbsp; abrir nossa playlist no Spotify
-    </a>
+    <a class="audio-gate-playlist" id="spotifyPlaylist" href="https://open.spotify.com/" target="_blank" rel="noopener">♫&nbsp; abrir nossa playlist no Spotify</a>
     <div class="audio-gate-status" id="audioGateStatus">abra a playlist para liberar a continuação.</div>
-    <button class="audio-gate-continue" id="audioGateContinue" disabled>
-      continuar →
-    </button>
+    <button class="audio-gate-continue" id="audioGateContinue" disabled>continuar →</button>
     <div class="audio-gate-note">depois que ouvir, volta aqui.</div>
   </div>
 </div>
@@ -2136,58 +2033,16 @@ document.querySelectorAll(".memories-page .memory-flip-card").forEach(function(c
 
 <script>
 (function(){
-  const gate = document.getElementById('audioGate');
-  const playlist = document.getElementById('spotifyPlaylist');
-  const status = document.getElementById('audioGateStatus');
-  const continueBtn = document.getElementById('audioGateContinue');
-  if (!gate || !playlist || !continueBtn) return;
-
-  let playlistOpened = false;
-  let originalNext = null;
-
-  function openGate(){
-    gate.classList.add('is-open');
-    gate.setAttribute('aria-hidden','false');
-  }
-
-  // Expose this for the cover's existing button if it calls storyNext().
-  window.openAudioGate = openGate;
-
-  playlist.addEventListener('click', function(){
-    playlistOpened = true;
-    playlist.classList.add('opened');
-    status.textContent = 'playlist aberta. quando terminar, volta aqui.';
-    continueBtn.disabled = false;
-    continueBtn.classList.add('ready');
-  });
-
-  continueBtn.addEventListener('click', function(){
-    if (!playlistOpened) return;
-    gate.classList.remove('is-open');
-    gate.setAttribute('aria-hidden','true');
-    status.textContent = 'agora sim.';
-    // Continue the site's existing navigation after the gate.
-    setTimeout(function(){
-      if (typeof originalNext === 'function') originalNext();
-      else if (typeof window.storyNext === 'function' && !window.storyNext._gateBypass) {
-        window.storyNext._gateBypass = true;
-        window.storyNext();
-        setTimeout(function(){ window.storyNext._gateBypass = false; }, 0);
-      }
-    }, 220);
-  });
-
-  // Intercept the first storyNext call, preserving the original function.
-  if (typeof window.storyNext === 'function') {
-    originalNext = window.storyNext;
-    window.storyNext = function(){
-      if (!window.storyNext._gateBypass) {
-        openGate();
-        return;
-      }
-      return originalNext.apply(this, arguments);
-    };
-  }
+  const gate=document.getElementById('audioGate'), link=document.getElementById('spotifyPlaylist'),
+        btn=document.getElementById('audioGateContinue'), status=document.getElementById('audioGateStatus');
+  if(!gate||!link||!btn)return;
+  let opened=false,bypass=false;
+  const originalStoryNext=window.storyNext;
+  function show(){gate.classList.add('is-open');gate.setAttribute('aria-hidden','false')}
+  function hide(){gate.classList.remove('is-open');gate.setAttribute('aria-hidden','true')}
+  link.addEventListener('click',()=>{opened=true;btn.disabled=false;btn.classList.add('ready');status.textContent='playlist aberta. quando terminar, volta aqui.'});
+  btn.addEventListener('click',()=>{if(!opened)return;hide();setTimeout(()=>{bypass=true;if(typeof originalStoryNext==='function')originalStoryNext();bypass=false},180)});
+  if(typeof originalStoryNext==='function')window.storyNext=function(){if(!bypass){show();return}return originalStoryNext.apply(this,arguments)};
 })();
 </script>
 
