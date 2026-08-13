@@ -960,25 +960,68 @@ h1 .script{
   grid-template-columns:repeat(3,1fr);
   gap:10px;
   margin-top:28px;
+  perspective:1200px;
 }
 .memory-card{
   min-height:150px;
-  display:grid;
-  place-items:center;
+  position:relative;
+  cursor:pointer;
+  outline:none;
+  -webkit-tap-highlight-color:transparent;
+  perspective:1200px;
+}
+.memory-card-inner{
+  position:relative;
+  width:100%;
+  height:150px;
+  transform-style:preserve-3d;
+  transition:transform .72s cubic-bezier(.22,.61,.36,1);
+}
+.memory-card.is-flipped .memory-card-inner{transform:rotateY(180deg);}
+.memory-card-face{
+  position:absolute;
+  inset:0;
+  box-sizing:border-box;
+  width:100%;
+  height:100%;
   padding:15px;
   border:1px solid rgba(137,77,86,.2);
   border-radius:14px;
   background:rgba(255,255,255,.18);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.memory-card-front{transform:rotateY(0deg);color:var(--rose);}
+.memory-card-back{
+  transform:rotateY(180deg);
+  color:var(--wine);
+  flex-direction:column;
+  padding:17px 13px;
+}
+.memory-photo-placeholder{width:100%;height:100%;display:grid;place-items:center;}
+.memory-front-text{
   color:var(--rose);
   font:600 9px/1.4 "DM Sans",sans-serif;
-  letter-spacing:.12em;
+  letter-spacing:.10em;
+  text-transform:none;
+}
+.memory-back-title{
+  margin-bottom:10px;
+  color:var(--wine);
+  font:600 12px/1.2 "DM Sans",sans-serif;
+  letter-spacing:.10em;
   text-transform:uppercase;
 }
-.memory-card small{
-  font-size:7px;
-  font-weight:500;
-  letter-spacing:.08em;
+.memory-card-back p{
+  margin:0;
+  color:var(--wine2);
+  font:400 13px/1.42 "Cormorant Garamond",Georgia,serif;
 }
+.memory-card:focus-visible{box-shadow:0 0 0 2px rgba(137,77,86,.22);border-radius:14px;}
 .see-lines{
   width:min(100%,500px);
   margin-top:30px;
@@ -1685,16 +1728,46 @@ h1 .script{
         <p>Se esses foram só os primeiros três meses, eu fico pensando em quanta coisa ainda vai virar memória.</p>
       </div>
 
-      <div class="memory-grid">
-        <div class="memory-card" onclick="goToMemory(0)">
-          foto<br><small>uma memória</small>
-        </div>
-        <div class="memory-card" onclick="goToMemory(1)">
-          foto<br><small>uma história</small>
-        </div>
-        <div class="memory-card" onclick="goToMemory(2)">
-          foto<br><small>uma coisa que só nós entendemos</small>
-        </div>
+      <div class="memory-grid" aria-label="Memórias dos primeiros meses">
+        <article class="memory-card" tabindex="0" role="button" aria-pressed="false" aria-label="Virar cartão 1">
+          <div class="memory-card-inner">
+            <div class="memory-card-face memory-card-front">
+              <div class="memory-photo-placeholder">
+                <span class="memory-front-text">Olavo Marques de Oliveira Corrêa</span>
+              </div>
+            </div>
+            <div class="memory-card-face memory-card-back">
+              <div class="memory-back-title">NOSSO FILHO, OLAVO</div>
+              <p>eu ainda acho engraçado que a gente já tenha um filho antes mesmo de completar três meses.</p>
+            </div>
+          </div>
+        </article>
+        <article class="memory-card" tabindex="0" role="button" aria-pressed="false" aria-label="Virar cartão 2">
+          <div class="memory-card-inner">
+            <div class="memory-card-face memory-card-front">
+              <div class="memory-photo-placeholder">
+                <span class="memory-front-text">dia em que vc conheceu minha mãe</span>
+              </div>
+            </div>
+            <div class="memory-card-face memory-card-back">
+              <div class="memory-back-title">VC E MINHA MÃE</div>
+              <p>foi incrível ver duas pessoas tão importantes para mim finalmente se conhecendo.</p>
+            </div>
+          </div>
+        </article>
+        <article class="memory-card" tabindex="0" role="button" aria-pressed="false" aria-label="Virar cartão 3">
+          <div class="memory-card-inner">
+            <div class="memory-card-face memory-card-front">
+              <div class="memory-photo-placeholder">
+                <span class="memory-front-text">vó Maria</span>
+              </div>
+            </div>
+            <div class="memory-card-face memory-card-back">
+              <div class="memory-back-title">UM DOS DIAS MAIS DIFÍCEIS</div>
+              <p>alguns dias não são feitos para serem felizes, são feitos para serem superados. E eu lembro de você estar ali pra mim meu amor.</p>
+            </div>
+          </div>
+        </article>
       </div>
 
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
@@ -2010,5 +2083,18 @@ document.querySelectorAll(".memories-page .memory-flip-card").forEach(function(c
 </script>
 
 
+<script>
+/* Independent 3D memory cards */
+document.querySelectorAll(".memory-card").forEach(function(card){
+  function flipCard(){
+    var flipped=card.classList.toggle("is-flipped");
+    card.setAttribute("aria-pressed",flipped?"true":"false");
+  }
+  card.addEventListener("click",flipCard);
+  card.addEventListener("keydown",function(event){
+    if(event.key==="Enter"||event.key===" "){event.preventDefault();flipCard();}
+  });
+});
+</script>
 </body>
 </html>
