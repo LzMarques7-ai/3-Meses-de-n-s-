@@ -1475,6 +1475,20 @@ h1 .script{
   }
 }
 
+
+/* ===== REFINO FINAL: LEITURA CONTÍNUA + TIPOGRAFIA + ÍNDICE ===== */
+.story-pages{scroll-behavior:smooth!important;scroll-snap-type:none!important;overscroll-behavior-y:auto!important;}
+.story-page{min-height:auto!important;height:auto!important;padding:clamp(92px,12vh,150px) 28px clamp(70px,10vh,120px)!important;justify-content:flex-start!important;}
+.story-page .letter,.story-page .chapter-copy,.story-page .final-copy,.story-page .memory-copy,.story-page .page-intro,.story-page .memory-back-content{font-family:"Cormorant Garamond",Georgia,serif!important;width:min(100%,680px)!important;}
+.story-page .letter p,.story-page .chapter-copy p,.story-page .final-copy p,.story-page .memory-copy p{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:clamp(19px,4.7vw,22px)!important;line-height:1.72!important;font-weight:400!important;letter-spacing:0!important;color:var(--muted)!important;margin:0 0 1.05em!important;text-indent:1.35em!important;}
+.story-page .letter p:first-child,.story-page .letter-section-title+p,.story-page .chapter-copy p:first-child,.story-page .final-copy p:first-child,.story-page .memory-copy p:first-child{ text-indent:0!important;}
+.story-page h2{font-family:"Cormorant Garamond",Georgia,serif!important;}
+.chapter-index{position:fixed!important;right:8px!important;top:50%!important;transform:translateY(-50%)!important;width:34px!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:6px!important;padding:8px 0!important;z-index:80!important;background:rgba(247,241,232,.86)!important;border-radius:20px!important;backdrop-filter:blur(8px)!important;-webkit-backdrop-filter:blur(8px)!important;}
+.chapter-index::before,.chapter-index::after{display:none!important;content:none!important;}
+.chapter-index a{width:27px!important;height:27px!important;display:flex!important;align-items:center!important;justify-content:center!important;border-radius:50%!important;text-decoration:none!important;color:rgba(100,31,45,.38)!important;font:500 9px/1 "DM Sans",sans-serif!important;letter-spacing:.02em!important;transition:all .25s ease!important;background:transparent!important;position:relative!important;}
+.chapter-index a.active{color:#F7F1E8!important;background:var(--wine)!important;transform:scale(1.08)!important;}
+.chapter-index a:hover{color:var(--wine)!important;background:rgba(100,31,45,.08)!important;}
+@media(max-width:600px){.story-page{padding-left:24px!important;padding-right:43px!important;padding-top:clamp(82px,10vh,120px)!important;padding-bottom:clamp(65px,9vh,105px)!important}.story-page .letter p,.story-page .chapter-copy p,.story-page .final-copy p,.story-page .memory-copy p{font-size:19px!important;line-height:1.7!important}.chapter-index{right:6px!important;width:31px!important;gap:5px!important}.chapter-index a{width:25px!important;height:25px!important;font-size:8px!important;}}
 </style>
 </head>
 
@@ -1873,16 +1887,22 @@ function closeReveal(){
 }
 
 function storyNext(){
-  const pages = document.querySelectorAll(".story-page");
+  const pages = [...document.querySelectorAll(".story-page")];
   storyIndex = Math.min(storyIndex + 1, pages.length - 1);
-  pages[storyIndex].scrollIntoView({behavior:"smooth", block:"start"});
-  updateStoryProgress();
+  pages[storyIndex]?.scrollIntoView({behavior:"smooth", block:"start"});
+  setTimeout(updateStoryProgress,120);
 }
 
 function updateStoryProgress(){
-  document.querySelectorAll(".story-progress span").forEach((dot, i)=>{
-    dot.classList.toggle("active", i === storyIndex);
-  });
+  const container=document.querySelector(".story-pages");
+  const pages=[...document.querySelectorAll(".story-page")];
+  if(!container||!pages.length) return;
+  const center=container.scrollTop+container.clientHeight*.42;
+  let bestPage=pages[0],best=Infinity;
+  pages.forEach(page=>{const d=Math.abs((page.offsetTop+page.offsetHeight*.25)-center);if(d<best){best=d;bestPage=page;}});
+  storyIndex=pages.indexOf(bestPage);
+  const chapter=bestPage.dataset.chapter||"0";
+  document.querySelectorAll(".chapter-index a").forEach(a=>a.classList.toggle("active",a.dataset.chapter===chapter));
 }
 </script>
 
@@ -1997,5 +2017,8 @@ document.querySelectorAll(".memories-page .memory-flip-card").forEach(function(c
 })();
 </script>
 
+<script>
+(function(){const c=document.querySelector(".story-pages");if(!c)return;let t=false;c.addEventListener("scroll",()=>{if(t)return;t=true;requestAnimationFrame(()=>{updateStoryProgress();t=false;});},{passive:true});setTimeout(updateStoryProgress,150);document.querySelectorAll(".chapter-index a").forEach(a=>a.addEventListener("click",()=>setTimeout(updateStoryProgress,120)));})();
+</script>
 </body>
 </html>
