@@ -333,6 +333,10 @@ h1 .script{
 
 /* ---------- RESPONSIVO ---------- */
 @media(max-width:430px){
+  .story-progress-bar{
+    right:10px;
+    height:150px;
+  }
   .music-scene{
     padding-left:18px;
     padding-right:18px;
@@ -1019,27 +1023,40 @@ h1 .script{
   margin-top:34px;
   cursor:pointer;
 }
-.story-progress{
+.story-progress-bar{
+  --dot-top:3px;
   position:fixed;
-  z-index:3;
+  z-index:50;
   right:16px;
   top:50%;
+  width:12px;
+  height:176px;
   transform:translateY(-50%);
-  display:flex;
-  flex-direction:column;
-  gap:7px;
+  pointer-events:none;
 }
-.story-progress span{
-  width:4px;
-  height:4px;
+.story-progress-bar::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:3px;
+  bottom:3px;
+  width:1px;
+  transform:translateX(-50%);
+  background:rgba(100,31,45,.18);
+}
+.story-progress-bar::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:var(--dot-top);
+  width:7px;
+  height:7px;
   border-radius:50%;
-  background:rgba(100,31,45,.2);
-  transition:all .25s ease;
-}
-.story-progress span.active{
-  height:16px;
-  border-radius:4px;
+  transform:translate(-50%,-50%);
   background:var(--wine);
+  box-shadow:0 0 0 3px rgba(100,31,45,.07);
+  transition:top .16s linear;
+  will-change:top;
 }
 @media(max-width:430px){
   .story-page{
@@ -1438,10 +1455,7 @@ h1 .script{
 </main>
 
 <section class="story" id="reveal" aria-hidden="true">
-  <div class="story-progress" aria-hidden="true">
-    <span class="active"></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span><span></span>
-  </div>
+  <div class="story-progress-bar" aria-hidden="true"></div>
 
   <div class="story-pages">
 
@@ -1872,50 +1886,7 @@ h1 .script{
       <button class="close" onclick="closeReveal()">voltar para a capa</button>
     </article>
 
-    <!-- MEMÓRIA — ELA CONHECEU MINHA MÃE -->
-    <article class="story-page memory-page family-memory">
-      <div class="story-label">MEMÓRIA · 02</div>
-
-      <div class="memory-polaroid">
-        <img src="dia-que-ela-conheceu-minha-mae.jpeg" alt="O dia em que ela conheceu minha mãe">
-        <div class="memory-polaroid-caption">
-          <span>o dia em que ela conheceu minha mãe</span>
-          <small>um daqueles momentos que parecem simples,<br>
-          mas que acabam significando muito.</small>
-        </div>
-      </div>
-
-      <div class="memory-note">
-        <p>Ela conheceu minha mãe.</p>
-        <p>E, de alguma forma, foi mais um pedacinho da nossa vida começando a se misturar.</p>
-      </div>
-
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
-    </article>
-
-
-    <!-- MEMÓRIA — O DIA EM QUE MINHA VÓ FALECEU -->
-    <article class="story-page memory-page grief-memory">
-      <div class="story-label">MEMÓRIA · 03</div>
-
-      <div class="memory-polaroid">
-        <img src="dia-da-minha-vo.jpeg" alt="Ela comigo no dia em que minha avó faleceu">
-        <div class="memory-polaroid-caption">
-          <span>o dia em que minha vó faleceu</span>
-          <small>e você estava comigo.</small>
-        </div>
-      </div>
-
-      <div class="memory-note">
-        <p>Nem toda memória é sobre um dia feliz.</p>
-        <p>Algumas ficam porque, nos dias mais difíceis, você estava ali.</p>
-      </div>
-
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
-    </article>
-
-
-  </div>
+</div>
 </section>
 
 <script>
@@ -1927,7 +1898,7 @@ function openReveal(){
   story.setAttribute("aria-hidden","false");
   document.body.style.overflow="hidden";
   storyIndex = 0;
-  updateStoryProgress();
+  requestAnimationFrame(updateStoryProgress);
 }
 
 function closeReveal(){
@@ -1945,10 +1916,22 @@ function storyNext(){
 }
 
 function updateStoryProgress(){
-  document.querySelectorAll(".story-progress span").forEach((dot, i)=>{
-    dot.classList.toggle("active", i === storyIndex);
-  });
+  const container = document.querySelector(".story-pages");
+  const bar = document.querySelector(".story-progress-bar");
+  if(!container || !bar) return;
+
+  const maxScroll = Math.max(1, container.scrollHeight - container.clientHeight);
+  const progress = Math.max(0, Math.min(1, container.scrollTop / maxScroll));
+  const trackHeight = Math.max(1, bar.clientHeight - 6);
+  bar.style.setProperty("--dot-top", `${3 + progress * trackHeight}px`);
 }
+
+(function(){
+  const container = document.querySelector(".story-pages");
+  if(!container) return;
+  container.addEventListener("scroll", updateStoryProgress, {passive:true});
+  window.addEventListener("resize", updateStoryProgress, {passive:true});
+})();
 </script>
 
 
