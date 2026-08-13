@@ -370,12 +370,6 @@ h1 .script{
   }
 }
 
-/* ===== ROLAGEM CONTÍNUA DA HISTÓRIA ===== */
-.story-pages{
-  scroll-behavior:smooth;
-  overscroll-behavior-y:contain;
-}
-
 /* ===== AJUSTE FINAL — composição compacta e limpa ===== */
 html,body{
   background-color:var(--ivory);
@@ -665,10 +659,7 @@ h1 .script{
   height:100%;
   overflow-y:auto;
   overflow-x:hidden;
-  scroll-snap-type:none;
-  scroll-behavior:smooth;
   -webkit-overflow-scrolling:touch;
-  overscroll-behavior-y:contain;
 }
 .story-page{
   position:relative;
@@ -1019,27 +1010,31 @@ h1 .script{
   margin-top:34px;
   cursor:pointer;
 }
-.story-progress{
+.story-progress-bar{
+  --story-progress:0;
   position:fixed;
   z-index:3;
   right:16px;
   top:50%;
+  width:3px;
+  height:170px;
   transform:translateY(-50%);
-  display:flex;
-  flex-direction:column;
-  gap:7px;
+  border-radius:999px;
+  background:rgba(100,31,45,.14);
+  overflow:hidden;
+  pointer-events:none;
 }
-.story-progress span{
-  width:4px;
-  height:4px;
-  border-radius:50%;
-  background:rgba(100,31,45,.2);
-  transition:all .25s ease;
-}
-.story-progress span.active{
-  height:16px;
-  border-radius:4px;
+.story-progress-bar::after{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  width:100%;
+  height:calc(var(--story-progress) * 100%);
+  border-radius:999px;
   background:var(--wine);
+  transform-origin:top;
+  transition:height .22s cubic-bezier(.22,.61,.36,1);
+  will-change:height;
 }
 @media(max-width:430px){
   .story-page{
@@ -1337,20 +1332,153 @@ h1 .script{
 }
 
 
-.memories-page .memory-copy{
-  width:min(100%,620px);
-  margin:0 auto;
-  text-align:left;
+/* ===== REFINAMENTO EDITORIAL — leitura de livro ===== */
+.story-page .letter,
+.story-page .final-copy,
+.story-page .memory-copy {
+  width: min(100%, 680px);
+  margin-left: auto;
+  margin-right: auto;
 }
-.memories-page .memory-copy p{
-  margin:0 0 18px;
+
+.story-page .letter p,
+.story-page .final-copy p,
+.story-page .memory-copy p {
+  margin-top: 0;
+  margin-bottom: 0.72em;
+  line-height: 1.72;
+  text-indent: 1.35em;
 }
-.memories-page .memory-copy p:last-child{
-  margin-bottom:0;
+
+.story-page .letter p:first-child,
+.story-page .final-copy p:first-child,
+.story-page .memory-copy p:first-child,
+.story-page .letter-section-title + p {
+  text-indent: 0;
 }
-.memories-page .memory-grid{
-  margin-top:30px;
+
+.story-page .letter .letter-final,
+.story-page .final-copy .letter-final {
+  text-indent: 0;
+  margin-top: 1.05em;
+  margin-bottom: 1.05em;
 }
+
+.story-page .letter-section-title {
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+}
+
+.story-page .memory-grid {
+  margin-top: 2.1em;
+}
+
+/* ===== ÍNDICE LATERAL DOS CAPÍTULOS ===== */
+.chapter-index {
+  position: fixed;
+  right: clamp(12px, 2.8vw, 34px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+.chapter-index::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: currentColor;
+  opacity: .18;
+}
+
+.chapter-index a {
+  position: relative;
+  z-index: 1;
+  width: 24px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  color: inherit;
+  opacity: .38;
+  font-size: 10px;
+  line-height: 1;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.chapter-index a.active {
+  opacity: 1;
+  transform: scale(1.12);
+  font-weight: 600;
+}
+
+.chapter-index a.active::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.chapter-index a.active span {
+  opacity: 0;
+}
+
+@media (max-width: 700px) {
+  .chapter-index {
+    right: 8px;
+    gap: 8px;
+  }
+  .chapter-index a {
+    font-size: 9px;
+    width: 18px;
+  }
+  .story-page .letter,
+  .story-page .final-copy,
+  .story-page .memory-copy {
+    width: min(100%, calc(100vw - 54px));
+  }
+  .story-page .letter p,
+  .story-page .final-copy p,
+  .story-page .memory-copy p {
+    line-height: 1.68;
+    margin-bottom: .68em;
+  }
+}
+
+
+/* ===== ROLAGEM CONTÍNUA — leitura sem "pulos" ===== */
+.story-pages{
+  scroll-behavior:smooth;
+  overscroll-behavior-y:contain;
+  -webkit-overflow-scrolling:touch;
+}
+
+.story-page{
+  height:auto;
+}
+
+.story-page + .story-page{
+  padding-top:clamp(72px, 10vh, 120px);
+}
+
+@media (max-width:600px){
+  .story-page{
+    padding-top:max(72px, env(safe-area-inset-top) + 42px);
+    padding-bottom:max(70px, env(safe-area-inset-bottom) + 48px);
+  }
+  .story-page + .story-page{
+    padding-top:clamp(72px, 11vh, 110px);
+  }
+}
+
 </style>
 </head>
 
@@ -1410,79 +1538,84 @@ h1 .script{
 </main>
 
 <section class="story" id="reveal" aria-hidden="true">
-  <div class="story-progress" aria-hidden="true">
-    <span class="active"></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span><span></span>
-  </div>
-
+  <div class="story-progress-bar" aria-hidden="true"></div>
   <div class="story-pages">
+<nav class="chapter-index" aria-label="Capítulos">
+  <a href="#cap-01" data-chapter="0"><span>01</span></a>
+  <a href="#cap-02" data-chapter="1"><span>02</span></a>
+  <a href="#cap-03" data-chapter="2"><span>03</span></a>
+  <a href="#cap-04" data-chapter="3"><span>04</span></a>
+  <a href="#cap-05" data-chapter="4"><span>05</span></a>
+  <a href="#cap-06" data-chapter="5"><span>06</span></a>
+  <a href="#cap-07" data-chapter="6"><span>07</span></a>
+</nav>
 
-    <!-- 01 — UMA COISA QUE EU PRECISAVA TE DIZER -->
-    <article class="story-page letter-page">
-      <div class="story-label">01 · uma coisa que eu precisava te dizer</div>
+    <!-- 01 — CARTA / PARTE I -->
+    <article class="story-page letter-page" id="cap-01">
+      <div class="story-label">uma coisa que eu precisava te dizer</div>
       <div class="letter">
         <h2>Eu queria ter feito isso antes.</h2>
-
-        <p>Na verdade, queria ter feito algumas coisas antes. E acho que começar por isso é o mais certo, porque eu sei que nem sempre fui a pessoa que eu queria ter sido com você.</p>
-
-        <p>Eu já te pedi desculpas pelas coisas que fiz e sei que você me perdoou. Não estou escrevendo isso para pedir perdão de novo, como se a gente ainda estivesse preso naquela época. Estou escrevendo porque eu reconheço que algumas atitudes minhas tiveram peso, e porque hoje eu consigo olhar para elas de um jeito diferente.</p>
-
-        <p>Teve aquela situação em que eu saí escondido e não fui correto com você. Naquele momento eu enxergava algumas coisas de outra maneira. Eu tinha algumas amizades, algumas influências e algumas ideias que, olhando hoje, eu percebo que não acrescentavam nada de bom para a minha vida. Eu ainda estava aprendendo a separar o que fazia sentido para mim do que eu só fazia porque estava acostumado.</p>
-
-        <p>Eu não quero usar isso como desculpa. Eu só quero reconhecer que eu era imaturo em algumas coisas e que, desde então, muita coisa mudou na minha cabeça.</p>
-
-        <p>Hoje, você é prioridade para mim. Não porque eu ache que uma pessoa precisa deixar todo o resto de lado para estar em um relacionamento, mas porque eu sei quem eu quero ter por perto e que tipo de vida eu quero construir. E você está nisso.</p>
-
-        <p>Também ficou na minha cabeça uma coisa que pode parecer pequena: eu deixei os dois primeiros meses passarem como se fossem dias comuns. Eu poderia ter feito uma carta, comprado alguma coisa, preparado uma surpresa ou simplesmente parado um pouco para te dizer o quanto eu estava feliz por estar vivendo aquilo com você.</p>
-
-        <p>Eu não fiz. E a explicação mais sincera que tenho é que sou meio cabeça de vento. Eu ainda estava me acostumando com a ideia de ter uma data nossa, com o fato de que agora existia um “nós” para lembrar e cuidar. Não significa que os meses não foram importantes para mim. Eles foram. Eu só não soube demonstrar isso do jeito que deveria.</p>
-
-        <p>Foi daí que começou a ideia desse site. Eu queria encontrar um jeito de te mostrar coisas que, quando estou na sua frente, às vezes ficam presas na minha cabeça. Porque eu sou assim. Às vezes fico no meu próprio mundo, pensando demais, viajando em alguma coisa ou simplesmente sendo o Léo meio lelé da cuca que você já conhece.</p>
-
-        <p>E eu sei que, de fora, isso pode parecer distância. Mas ficar no meu mundo nunca significou querer você longe dele. Muito pelo contrário. Você é uma das pessoas que eu mais quero dentro dele.</p>
-
-        <p>Eu ainda quero aprender a demonstrar mais. Quero lembrar das pequenas coisas, fazer mais surpresas, falar quando estou sentindo e não esperar que você descubra sozinha.</p>
-
-        <p>Porque eu não quero que você apenas saiba que é amada por mim.</p>
-        <p class="letter-final">Eu quero que você tenha certeza.</p>
+        <p>Na verdade, queria ter feito algumas coisas antes. O primeiro mês passou e eu simplesmente esqueci. Não porque não fosse importante, mas porque sou meio cabeça de vento e ainda não tinha me acostumado com a ideia de ter uma data nossa para lembrar. No segundo, eu já sabia que estava passando e, mesmo assim, não fiz nada.</p>
+        <p>Fiquei pensando que depois eu poderia fazer alguma coisa mais especial, até que comecei a ter a ideia disso aqui. Já faz um tempo que venho pensando e mexendo nisso, tentando encontrar uma forma de colocar em palavras algumas coisas que provavelmente eu não conseguiria te falar olhando para você. Então acho que começar por um pedido de desculpas é o mais certo.</p>
+        <p>Eu já te pedi desculpas pelas coisas que fiz. Sei que você me perdoou, e eu não estou escrevendo isso para tentar voltar ao que já passou. Estou escrevendo porque, mesmo sendo passado, eu ainda penso em algumas coisas e reconheço que errei.</p>
+        <p>Fui imaturo. Houve uma situação em que eu saí escondido e não fui sincero com você. Eu sei que não deveria ter feito aquilo. Naquela época, eu também enxergava algumas coisas de uma maneira muito diferente da que enxergo hoje. Eu dava importância para pessoas e coisas que, olhando agora, percebo que não tinham o mesmo valor que eu imaginava.</p>
+        <p>E talvez o que mais me faça pensar nisso seja perceber o quanto a minha forma de te enxergar também mudou. Hoje, você é prioridade para mim. É a mulher que eu escolho para a minha vida. E eu me arrependo de ter demorado para enxergar isso com a clareza que tenho hoje.</p>
+        <p>Também queria te pedir desculpas por outra coisa que pode parecer pequena, mas que ficou na minha cabeça: ter deixado os dois primeiros meses passarem como se fossem dias comuns. Eu poderia ter feito uma carta, poderia ter comprado alguma coisa para você, poderia ter inventado uma surpresa, preparado alguma coisa simples ou só parado um pouco para te dizer o quanto eu estava feliz por estar vivendo aquilo com você. Eu poderia ter feito tanta coisa, e não fiz.</p>
       </div>
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 02 — COMO EU ME SINTO COM VOCÊ -->
+    <!-- 02 — CARTA / PARTE II -->
     <article class="story-page letter-page">
-      <div class="story-label">02 · como eu me sinto com você</div>
+      <div class="story-label">e tem mais uma coisa</div>
       <div class="letter">
-        <h2>Com você,<br>eu consigo simplesmente ficar.</h2>
-
-        <p>Eu acho que a primeira coisa que sinto quando estou com você é paz. Minha cabeça costuma estar sempre a milhão. Eu penso demais, volto nas coisas, imagino possibilidades, lembro de coisas que aconteceram e penso no que poderia ter sido diferente. Com você, isso diminui.</p>
-
-        <p>Você me acalma. Me dá segurança. Me faz sentir acolhido. É como se, por alguns momentos, eu conseguisse descansar da minha própria cabeça.</p>
-
-        <p>E, ao mesmo tempo, você me dá vontade de viver. Acho engraçado essa combinação, porque você consegue ser o lugar onde eu descanso e, ao mesmo tempo, a pessoa que me faz querer sair de casa, comer alguma coisa, assistir um filme, conhecer um lugar, fazer alguma coisa idiota e depois rir lembrando.</p>
-
-        <p>Eu também fico mais bobo com você. Gosto de brincar, de ficar “chucro”, de ser marrento de brincadeira, de te irritar só para ver sua reação. Gosto de te beijar, abraçar, fazer cafuné, olhar nos seus olhos, reparar no seu sorriso e ficar perto sem precisar inventar nada para preencher o silêncio.</p>
-
-        <p>Gosto de dormir com você também. Não é nem pelo sono. É pela sensação de poder deitar ao seu lado e, por um tempo, não precisar resolver nada.</p>
-
-        <p>E tem uma coisa que talvez eu nunca tenha explicado direito: eu nem sempre sou meu próprio fã. Tenho dias em que não gosto tanto de mim, penso demais nas minhas falhas e fico preso em coisas que talvez nem merecessem tanto espaço na minha cabeça.</p>
-
-        <p>Mas perto de você eu consigo me sentir melhor comigo mesmo. Não porque você finja que eu não tenho defeitos, mas porque eu me sinto aceito mesmo tendo eles. Isso vale muito para mim.</p>
-
-        <p>Você também mudou a maneira como eu olho para o futuro. Antes eu tinha muito mais aquela cabeça de “vou vivendo e depois eu vejo o que acontece”. Eu não pensava tanto em construir alguma coisa. Era mais fácil simplesmente deixar a vida acontecer.</p>
-
-        <p>Com você, comecei a pensar diferente. Comecei a imaginar uma vida em que eu não estou sozinho decidindo o que vem depois. Comecei a querer conquistar coisas, ter planos, construir alguma coisa de verdade. Você trouxe uma parte mais adulta de mim para fora. Talvez tenha tirado um pouco daquela visão de menino que eu tinha sobre a vida.</p>
-
-        <p>Talvez seja por isso que, quando penso em você, eu não penso só no que sinto agora. Eu penso em tudo que ainda quero viver.</p>
-
-        <p class="letter-final">Você me traz paz, mas não me faz querer parar. Você me dá vontade de continuar.</p>
+        <p>Talvez porque eu ainda estivesse aprendendo que demonstrar também faz parte de amar. Porque eu sinto muito mais do que consigo colocar para fora.</p>
+        <p>Eu tenho esse jeito meio estranho de, às vezes, ficar no meu próprio mundo, quieto, pensando em um milhão de coisas ou simplesmente gostando de ficar sozinho comigo mesmo. E eu sei que, de fora, isso pode parecer distância, mas nem sempre é. Às vezes, eu só sou assim. Ainda estou aprendendo a deixar alguém entrar nesse meu mundo sem sentir que preciso me fechar nele.</p>
+        <p>E quero que você entenda uma coisa: quando eu fico no meu mundo, isso nunca significou que eu queria você fora dele. Muito pelo contrário. Você é uma das poucas pessoas que eu quero que conheça esse lugar.</p>
+        <p>Talvez eu nunca consiga ser tão bom demonstrando quanto você é. Talvez eu ainda esqueça alguma data, fique distraído, demore para perceber alguma coisa ou não encontre as palavras certas na hora certa. Mas eu quero continuar aprendendo.</p>
+        <p>Porque hoje eu sei uma coisa que talvez eu ainda não soubesse quando tudo isso começou: eu não quero só estar com você. Eu quero cuidar do que a gente tem. Quero que você sinta meu carinho nas coisas pequenas, quero que minhas atitudes façam você se sentir escolhida e quero que você consiga olhar para mim e não precise ficar procurando sinais para saber o que eu sinto.</p>
+        <p>Porque eu não quero que você apenas saiba que eu te amo. Eu quero que você tenha certeza.</p>
+        <p>E talvez seja por isso que eu finalmente tenha escrito tudo isso. Não para consertar o que já passou, mas para que você saiba que eu lembro, que eu reconheço, que eu mudei e que, daqui para frente, eu quero que minhas atitudes sejam capazes de dizer aquilo que, às vezes, eu não consigo falar.</p>
+        <p class="letter-final">Eu te amo. E eu quero que você sinta isso em mim.</p>
       </div>
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-    <!-- 03 — ANTES DE EXISTIR UM “NÓS” -->
+    <!-- 03 — COMO EU ME SINTO / PARTE I -->
+    <article class="story-page letter-page" id="cap-02">
+      <div class="story-label">como eu me sinto com você</div>
+      <div class="letter">
+        <h2>Como eu me sinto<br>com você.</h2>
+        <p>Eu acho que a primeira coisa que sinto quando estou com você é paz. Minha cabeça costuma estar sempre cheia; eu penso demais, volto nas coisas, imagino possibilidades, penso no que poderia ter sido diferente e no que pode acontecer depois. Com você, isso diminui. Não sei exatamente como você consegue, mas, perto de você, eu consigo simplesmente ficar, e isso, para mim, é muito.</p>
+        <p>Você me acalma, me dá segurança e me faz sentir acolhido. Por alguns momentos, eu consigo parar de pensar em tudo que normalmente fica passando pela minha cabeça. Também fico mais bobo perto de você. Gosto de brincar, de ficar mais “chucro”, de te irritar só para ver sua reação, de fazer qualquer coisa que faça a gente rir. E gosto de perceber que, quando estou com você, meus problemas parecem um pouco menores.</p>
+        <p>Eu gosto das coisas que a gente faz quando está junto. Gosto de sair para comer com você, assistir filmes, conversar sobre qualquer coisa, ficar abraçado, te beijar, fazer cafuné, olhar para os seus olhos e reparar no seu sorriso. Gosto até de dormir com você, não pelo sono em si, mas pela sensação de poder simplesmente deitar e não precisar pensar em mais nada.</p>
+        <p>E acho que é isso que mais gosto em nós: eu não preciso que aconteça alguma coisa extraordinária para gostar de estar com você. Às vezes basta a gente estar no mesmo lugar e, mesmo assim, eu sinto saudade quando você não está.</p>
+        <p>Eu sinto saudade de coisas que talvez nem tenham acontecido ainda: dos lugares que ainda quero conhecer com você, dos filmes que ainda vamos assistir, das noites em que ainda vamos dormir juntos e das coisas que ainda nem sabemos que vão virar lembrança.</p>
+      </div>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+    <!-- 04 — COMO EU ME SINTO / PARTE II -->
     <article class="story-page letter-page">
-      <div class="story-label">03 · antes de existir um “nós”</div>
+      <div class="story-label">como eu me sinto com você</div>
+      <div class="letter">
+        <p>Talvez seja por isso que eu goste tanto quando você fala de um futuro em que eu estou. Porque, antes de você, eu acho que eu simplesmente ia vivendo. Não pensava muito no que vinha depois. Era como se eu estivesse sempre preocupado com o agora e, ao mesmo tempo, não estivesse realmente preocupado com nada.</p>
+        <p>Você mudou isso em mim. Você começou a me fazer pensar no futuro de uma maneira diferente, não porque você tenha colocado um roteiro na minha cabeça, mas porque, pela primeira vez, eu comecei a querer saber como seria a vida se você estivesse nela. E isso mudou muita coisa em mim.</p>
+        <p>Você também me fez enxergar algumas coisas de um jeito mais adulto. Talvez eu tenha chegado até você ainda com uma cabeça muito de menino, achando que a vida era só ir vivendo e ver no que dava. Hoje eu penso diferente. Você me trouxe um sentido que eu não sabia que estava procurando.</p>
+        <p>E talvez seja por isso que eu consiga entender melhor quando digo que você é a mulher da minha vida. Não é só porque eu gosto de você. Não é só porque eu te amo. É porque eu consigo imaginar minha vida daqui para frente e, quando penso nela, você aparece naturalmente.</p>
+        <p>Eu admiro muito quem você é: seu caráter, o jeito que você consegue ser compreensiva comigo e com as pessoas, a maneira como você batalha pelas suas coisas. E talvez uma das coisas que mais me faça te admirar seja justamente perceber o quanto você tenta ser forte. Porque eu sei que o mundo nem sempre é gentil com pessoas que têm um coração como o seu.</p>
+        <p>E, às vezes, eu só queria que você pudesse descansar um pouco, que não precisasse carregar tudo, que pudesse simplesmente ser cuidada também. Porque você merece isso, e eu gosto de poder ser uma pessoa com quem você pode fazer isso.</p>
+        <p>Você trouxe cor para uma vida que muitas vezes eu enxergava em cinza. Trouxe luz para uma parte de mim que eu costumava deixar no escuro. E talvez o mais bonito seja que você não fez isso tentando me mudar. Você simplesmente chegou, ficou e foi fazendo parte.</p>
+        <p>Hoje eu me sinto bem comigo mesmo quando estou com você. E isso significa muito para mim, porque eu nem sempre sou a pessoa mais fácil de gostar quando estou sozinho comigo. Mas, com você, eu consigo gostar um pouco mais de quem eu sou.</p>
+        <p>Talvez seja esse o meu jeito mais simples de explicar tudo: com você, eu consigo descansar de mim mesmo. E, ao mesmo tempo, você me fez querer ser alguém melhor para continuar ao seu lado.</p>
+        <p>É estranho pensar que uma pessoa possa trazer tanta calma e, ao mesmo tempo, fazer a gente querer viver tanta coisa. Mas você faz isso comigo. E eu espero que ainda tenha muita coisa para a gente viver.</p>
+      </div>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+    <!-- 05 — ANTES DE EXISTIR UM “NÓS” / PARTE I -->
+    <article class="story-page letter-page" id="cap-03">
+      <div class="story-label">antes de existir um “nós”</div>
       <div class="letter">
         <h2>Antes de existir<br>um “nós”.</h2>
 
@@ -1492,41 +1625,50 @@ h1 .script{
 
         <p>E você tinha suas maneiras de tentar me irritar: Igor Bueno, Japonês, qualquer coisa que pudesse me tirar do sério. E eu, obviamente, discordava só para continuar a brincadeira.</p>
 
-        <p>E tem uma coisa que sempre foi engraçada para mim: você sempre me achou um canalha. E, olhando para algumas coisas daquela época, eu reconheço que você tinha motivos para pensar isso.</p>
+        <p>E tem uma coisa que sempre foi engraçada para mim: você sempre me achou um canalha. E talvez, olhando para algumas coisas daquela época, eu nem pudesse reclamar tanto.</p>
+
+        <p>Eu era diferente. Eu pensava diferente. Ainda tinha muita coisa em mim que eu não entendia. Mas, mesmo assim, você foi ficando, e eu fui gostando cada vez mais de ter você por perto.</p>
 
         <div class="letter-section-title">a festa da cidade</div>
 
-        <p>Foi na festa da cidade que aconteceu a primeira coisa que fez tudo ficar um pouco diferente. Foi quando eu fiquei com você pela primeira vez. E, mesmo sem entender direito o que aquilo significava, eu lembro que não parecia simplesmente uma brincadeira entre dois amigos.</p>
+        <p>Foi na festa da cidade que aconteceu a primeira coisa que fez tudo ficar um pouco diferente. Foi quando eu fiquei com você pela primeira vez, e eu lembro de ter percebido que aquilo não parecia simplesmente uma brincadeira entre dois amigos. Tinha alguma coisa diferente ali.</p>
 
-        <p>Como se a situação já não fosse engraçada o suficiente, eu ainda paguei um óculos caro de plástico para sua irmã deixar você ficar comigo. Até hoje considero um investimento duvidoso. KKKKKK.</p>
+        <p>Ao mesmo tempo, eu ainda não sabia exatamente o que era. E, como se a situação já não fosse engraçada o suficiente, eu ainda paguei um óculos caro de plástico para sua irmã deixar você ficar comigo. Até hoje eu considero um investimento duvidoso. KKKKKK.</p>
 
-        <p>Depois da festa, a gente acabou dando uma esfriada. Cada um foi um pouco para o seu lado e, por um tempo, pareceu que talvez aquilo tivesse sido só um momento.</p>
+        <p>Depois da festa, a gente acabou dando uma esfriada. Cada um foi um pouco para o seu lado e, por um tempo, pareceu que talvez aquilo tivesse sido só um momento. Mas não ficou só nisso.</p>
 
         <div class="letter-section-title">a tatuagem</div>
 
-        <p>Depois veio o dia da sua tatuagem. Eu estava ali com você, te observando, prestando atenção no seu jeito, e comecei a perceber uma coisa que até então eu não tinha percebido daquele jeito.</p>
+        <p>Depois veio o dia em que fui acompanhar você na sua tatuagem. E acho que foi ali que alguma coisa começou a ficar mais clara para mim. Não aconteceu nada absurdo. Eu só estava com você, te observando, prestando atenção no seu jeito, e percebi que você estava chamando minha atenção de uma maneira que antes não chamava.</p>
 
-        <p>Você estava chamando minha atenção diferente. Eu queria conversar mais, queria estar mais presente, queria saber mais de você e comecei a pensar em você mesmo quando a gente não estava junto.</p>
+        <p>Eu queria estar ali. Queria conversar com você. Queria saber mais de você. E comecei a pensar mais em você mesmo quando a gente não estava junto. Ainda não era uma certeza. Era só uma sensação que estava começando a aparecer.</p>
+      </div>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+    </article>
+
+<article class="story-page letter-page">
+      <div class="story-label">antes de existir um “nós”</div>
+      <div class="letter">
 
         <div class="letter-section-title">meu aniversário</div>
 
-        <p>E então chegou o meu aniversário. Foi nessa época que comecei a perceber que aquilo estava ficando diferente de verdade. Não foi uma coisa instantânea. Eu não acordei um dia pensando “estou apaixonado por ela”. Foi acontecendo aos poucos.</p>
+        <p>E então chegou o meu aniversário. Foi nessa época que comecei a perceber que o que eu sentia por você estava ficando diferente de verdade. Não foi uma coisa instantânea. Eu não simplesmente acordei e pensei: “estou apaixonado por ela”. Foi acontecendo aos poucos.</p>
 
-        <p>A gente foi ficando mais próximo, querendo saber mais um do outro, e você começou a ocupar um espaço diferente na minha cabeça.</p>
+        <p>A gente foi querendo saber mais um do outro, foi ficando mais presente, mais próximo, e eu comecei a perceber que você já ocupava um espaço diferente na minha cabeça. Acho que foi aí que comecei a entender que talvez eu não estivesse mais olhando para você apenas como minha amiga.</p>
 
         <div class="letter-section-title">o parque</div>
 
-        <p>Depois veio o parque. E, olhando para tudo agora, acho engraçado como a gente foi chegando até ali sem realmente planejar.</p>
+        <p>Depois veio o parque. E, olhando para tudo agora, acho engraçado perceber como essas coisas foram acontecendo sem que nenhum dos dois tivesse planejado chegar onde chegamos.</p>
 
-        <p>A gente continuava conversando, continuava querendo estar perto e, em algum momento, apareceu o ciúme. Quando uma piazada perguntou se podia tentar ficar com você, eu fiquei extremamente ciumento.</p>
+        <p>A gente só continuava se aproximando, continuava conversando, continuava querendo estar perto, e cada vez parecia mais natural. Até que começou a existir uma conexão que os dois sentiam.</p>
 
-        <p>Foi aí que eu tive que admitir para mim mesmo que aquilo já tinha passado da amizade. Porque amigo não deveria estar daquele jeito só porque alguém perguntou se podia ficar com você.</p>
+        <p>Não foi uma decisão. Não teve um momento em que alguém disse que, a partir dali, tudo seria diferente. Foi acontecendo. E acho que foi justamente por isso que demoramos um pouco para perceber. Porque, quando alguma coisa muda aos poucos, às vezes você só percebe quando já mudou.</p>
 
-        <p>Quando eu finalmente percebi, você já não era só aquela amiga com quem eu gostava de conversar. Você era a pessoa em quem eu pensava, a pessoa que eu queria por perto e a pessoa que estava despertando em mim coisas que eu ainda não sabia explicar.</p>
+        <p>E, quando eu finalmente percebi, você já não era só aquela amiga com quem eu gostava de conversar. Você era a pessoa em quem eu pensava, a pessoa que eu queria por perto, a pessoa que começou a despertar em mim coisas que eu ainda não sabia explicar.</p>
 
-        <p>E o mais bonito é que não foi só de um lado. A conexão foi acontecendo dos dois lados, no nosso tempo, do nosso jeito.</p>
+        <p>E hoje, olhando para trás, é engraçado pensar em como tudo começou. Você me conheceu achando que eu era um canalha. Eu conheci você sem imaginar onde aquilo ia chegar. A gente foi vivendo, foi se conhecendo, foi se aproximando e, quando eu percebi, já tinha acontecido.</p>
 
-        <p>Hoje eu olho para trás e acho engraçado. Você me conheceu achando que eu era um canalha. Eu conheci você sem imaginar onde aquilo ia chegar. A gente foi vivendo, se conhecendo, se aproximando e, quando percebeu, já tinha acontecido.</p>
+        <p>Talvez seja por isso que essa música tenha tanto a ver com a nossa história. Porque ela parece contar justamente essa passagem: a pessoa que você achava que eu era, o tempo passando, tudo que a gente acabou construindo e o momento em que eu simplesmente me entreguei ao que estava acontecendo.</p>
 
         <div class="music-reference">
           <div class="music-ornament" aria-hidden="true">♪ ♫ ♪</div>
@@ -1552,12 +1694,12 @@ h1 .script{
           <div class="music-ornament bottom" aria-hidden="true">♪ ───── ♫ ───── ♪</div>
         </div>
       </div>
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</sp
     </article>
 
     <!-- 04 — 23 · 05 · 2026 -->
-    <article class="story-page letter-page proposal-story">
-      <div class="story-label">04 · 23 · 05 · 2026</div>
+    <article class="story-page letter-page proposal-story" id="cap-04">
+      <div class="story-label">23 · 05 · 2026</div>
       <div class="letter">
         <h2>Em algum momento,<br>eu simplesmente tive certeza.</h2>
 
@@ -1565,21 +1707,30 @@ h1 .script{
 
         <p>E aí eu entendi que era isso que eu queria. Eu queria você. Queria que você fosse minha namorada.</p>
 
-        <p>Então comecei a pensar em como fazer isso. E, como aparentemente eu não sei fazer nada de um jeito simples, resolvi envolver sua família também.</p>
+        <p>Então comecei a pensar em como fazer isso. E, como aparentemente eu não sei fazer nada de um jeito simples, resolvi envolver a sua família também.</p>
 
         <p>Pedi autorização para a sua mãe. A Bru e a Gaby me ajudaram a arrumar o quarto, enquanto a Kat ficou responsável por te levar para sair e te distrair enquanto eu preparava tudo.</p>
 
-        <p>E eu preparei mesmo. Velas artificiais. Muitas. Muitas mesmo. Pétalas. Muitas pétalas também. Tantas que eu não me contentei em colocar no chão e ainda achei uma ótima ideia colocar algumas dentro do seu guarda-roupa. Até hoje não sei explicar essa decisão.</p>
+        <p>E eu preparei mesmo. Velas artificiais. Muitas. Muitas mesmo. Pétalas. Muitas pétalas também. Tantas que eu não me contentei em jogar no chão e ainda achei uma ótima ideia colocar algumas dentro do seu guarda-roupa. Até hoje não sei explicar essa decisão.</p>
 
-        <p>Comprei um ursão gigante, chocolate e um buquê de lírios, porque eu lembrava de você falar deles. Também escrevi uma carta.</p>
+        <p>Comprei um ursão gigante, chocolate e um buquê de lírios, porque eu lembrava de você falar sobre eles. Também escrevi uma carta.</p>
 
-        <p>Eu queria que tivesse coisas que fossem realmente suas ali. Não queria simplesmente comprar alguma coisa bonita e pronto. Queria que você percebesse que eu tinha pensado em você nos detalhes.</p>
+        <p>Eu queria que tivesse coisas que fossem realmente suas ali. Não queria simplesmente comprar alguma coisa bonita e pronto. Queria que, quando você entrasse naquele quarto, percebesse que eu tinha pensado em você em cada detalhe.</p>
 
-        <p>E então chegou a hora de esperar. Eu estava completamente desesperado. Meu coração parecia que ia pular pela boca. Eu só ficava pensando: “não desmaia”. “não desmaia”. “não desmaia”.</p>
+        <p>E então chegou a hora de esperar. E eu estava completamente desesperado. Meu coração parecia que ia pular pela boca. Eu só ficava pensando: “não desmaia”. “não desmaia”. “não desmaia”.</p>
 
         <p>E, ao mesmo tempo, tinha outro pensamento passando pela minha cabeça: “se essa menina me recusar, eu vou capotar ela aqui mesmo e fugir”. Não era exatamente o pensamento mais romântico do mundo, mas era o que estava passando na minha cabeça naquele momento.</p>
 
-        <p>Aí você chegou.</p>
+        <p>Aí você chegou. Eu só queria que você entrasse logo porque eu estava morrendo de nervoso.</p>
+
+        <div class="music-scene">
+          <div class="music-scene-note">♪</div>
+          <div class="music-scene-kicker">a música daquele momento</div>
+          <div class="music-scene-title">2 Much</div>
+          <div class="music-scene-artist">Justin Bieber</div>
+          <div class="music-scene-line"><span>♪</span><i></i><span>♪</span></div>
+          <p>Não era só uma música tocando no fundo. Era a música que estava tocando enquanto eu finalmente fazia aquilo que vinha pensando há algum tempo.</p>
+        </div>
 
         <p>Quando você entrou, começou a tocar “2 Much”, do Justin Bieber. E eu fiz o que tinha planejado.</p>
 
@@ -1589,306 +1740,118 @@ h1 .script{
 
         <p>E você chorou. Ficou surpresa. Me abraçou. E disse sim.</p>
 
-        <p>E naquele momento veio uma sensação que eu nem sei explicar direito. Todo aquele nervosismo simplesmente desapareceu de uma vez. Eu estava aliviado. Feliz. Muito feliz. Parecia que eu estava nas nuvens.</p>
+        <p>E naquele momento veio uma sensação que eu nem sei explicar direito. Foi como se todo aquele nervosismo simplesmente desaparecesse de uma vez.</p>
+
+        <p>Eu estava aliviado. Feliz. Muito feliz. Parecia que eu estava nas nuvens.</p>
+
+        <p>Porque até aquele momento existia uma pergunta na minha cabeça: “e se ela não quiser?”. Depois que você disse sim, não tinha mais pergunta nenhuma. Era só nós dois. Oficialmente.</p>
 
         <p>E acho engraçado pensar que tudo isso aconteceu poucos dias depois do casamento da sua irmã. Enquanto todo mundo estava vivendo um casamento, eu estava ali preparando o meu próprio jeito de começar uma história com você.</p>
 
-        <p>Não com uma festa enorme. Não com um monte de gente. Só você entrando naquele quarto e encontrando as velas, as pétalas, o ursão, os lírios, a carta, a caixinha e eu, provavelmente tremendo mais do que deveria.</p>
+        <p>Não com uma festa enorme. Não com um monte de gente. Só você entrando naquele quarto e encontrando tudo que eu tinha preparado: as velas, as pétalas, o ursão, os lírios, a carta, a caixinha e eu, provavelmente tremendo mais do que deveria.</p>
 
-        <p>Naquele dia eu não estava tentando fazer alguma coisa perfeita. Eu só queria fazer uma coisa que tivesse a ver com você.</p>
+        <p>Mas naquele dia eu não estava tentando fazer alguma coisa perfeita. Eu só queria fazer uma coisa que tivesse a ver com você.</p>
 
-        <p>Porque eu já tinha certeza do que queria.</p>
+        <p>Porque eu já tinha certeza do que queria. Eu queria que você fosse minha namorada.</p>
 
-        <p class="letter-final">Eu queria que você fosse minha namorada.</p>
+        <p>E, naquele 23 de maio de 2026, você disse que também queria.</p>
+
+        <p>Foi o dia em que aquilo que a gente vinha construindo há tanto tempo finalmente ganhou um nome: namorados.</p>
+
+        <p>E, sinceramente?</p>
+
+        <p class="letter-final">Eu não consigo pensar em um jeito melhor de ter começado.</p>
       </div>
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
     <!-- 05 — OS PRIMEIROS MESES -->
-    <article class="story-page memories-page">
-      <div class="story-label">05 · os primeiros meses</div>
-      <h2>Quanta vida coube<br>nesses três meses.</h2>
+    <article class="story-page memories-page" id="cap-05">
+      <div class="story-label">os primeiros meses</div>
+      <h2>Três meses não cabem<br>em uma página.</h2>
+      <p class="page-intro">Então aqui vamos guardar as pequenas coisas: momentos, fotos, frases, lugares e lembranças que fizeram esses meses serem nossos.</p>
 
-      <div class="memory-copy">
-        <p>Depois que a gente começou a namorar, eu fui percebendo uma coisa que parece simples, mas que para mim significa muito: eu tinha alguém presente na minha vida de verdade.</p>
+      <div class="memory-grid memory-flip-grid">
 
-        <p>Alguém que pergunta se eu estou comendo. Se eu bebi água. Se eu estou bem. Às vezes parece até que eu tenho uma fiscal particular da minha vida KKKKK. Mas, por trás dessas perguntas, existe uma coisa que eu gosto muito de saber: você realmente se importa comigo.</p>
-
-        <p>Grande parte da nossa rotina também acontece pelo WhatsApp. Pelas conversas durante o dia, pelos TikToks que eu vejo e já penso em te mandar, pelas coisas aleatórias que você me manda e eu fico pensando “como você achou isso?”. É bobo, mas essas coisas foram virando parte da nossa vida sem a gente perceber.</p>
-
-        <p>No shopping, eu ainda tenho a mania de querer pegar ursinhos nas máquinas, mesmo sabendo que existe uma boa chance de eu perder dinheiro e sair de lá com absolutamente nada. E quando aparece uma cabine de fotos, parece obrigatório entrar e sair com aquelas fotos impressas, mesmo quando alguma fica torta ou a gente está fazendo alguma idiotice.</p>
-
-        <p>Você também começou a comprar mangás para mim porque sabe que eu gosto. E eu quero começar a comprar livros para você também. Ainda preciso descobrir exatamente quais você quer, porque aparentemente comprar um livro para alguém é mais difícil do que eu imaginava.</p>
-
-        <p>Também teve conhecer sua família. Eu estava absurdamente nervoso. Tinha muita gente, eu não sabia direito o que fazer e ficava tentando parecer normal enquanto provavelmente estava com a maior cara de perdido.</p>
-
-        <p>Para você, isso foi engraçado. Para mim, na hora, não estava sendo tão engraçado assim KKKKK. Mas hoje eu gosto de lembrar, porque foi mais um momento em que comecei a entrar de verdade na sua vida.</p>
-
-        <p>E acho engraçado como qualquer lugar acaba ganhando significado depois que a gente vai junto. Não precisa ser um lugar incrível. Às vezes é só um shopping, algum lugar onde fomos comer ou uma cabine de fotos. Depois que você esteve ali comigo, aquilo vira uma lembrança boa.</p>
-
-        <p>Meu aniversário também ficou guardado.</p>
-
-        <p>Eu ainda lembro da vergonha que fiquei quando fizeram aquela surpresa e começaram a cantar parabéns. Fiquei vermelho, sem jeito e sem saber onde colocar a cara.</p>
-
-        <p>Mas depois comecei a reparar nos presentes.</p>
-
-        <p>O livro sobre design, porque você sabia que eu queria aprender mais sobre isso. A blusa do Homem-Aranha, porque você sabe o quanto eu gosto dele. E aquele boné que eu tinha provado muito tempo antes e não tinha comprado.</p>
-
-        <p>Talvez para outra pessoa fossem só presentes. Para mim, tinha uma diferença: você lembrava das coisas que eu falava.</p>
-
-        <p>E é aí que eu acho que esses primeiros meses ficam maiores do que parecem. Não foram só três meses no calendário. Foram conversas, presentes, TikToks, fotos, passeios, família, risadas, pequenas manias e um monte de coisas que agora fazem parte da nossa história.</p>
-
-        <p>E ainda tem coisas que eu quero viver. Uma delas é ir a um jogo do Athletico juntos como casal. Nós dois torcendo pelo mesmo time, no estádio, vivendo aquilo juntos. Só de pensar já parece uma coisa que eu quero muito. É quase como imaginar o Athletico sendo campeão da Libertadores: um sonho que a gente ainda vai ter que viver para descobrir como é.</p>
-
-        <p>Se esses foram só os primeiros três meses, eu fico pensando em quanta coisa ainda vai virar memória.</p>
-      </div>
-
-      <div class="memory-grid">
-        <div class="memory-card" onclick="goToMemory(0)">
-          foto<br><small>uma memória</small>
+        <div class="memory-card memory-flip-card" role="button" tabindex="0" aria-label="Virar cartão: nosso filho, Olavo">
+          <div class="memory-flip-inner">
+            <div class="memory-flip-face memory-flip-front">
+              <img src="olavo.jpeg" alt="Olavo, nosso filho">
+            </div>
+            <div class="memory-flip-face memory-flip-back">
+              <div class="memory-back-content">
+                <span class="memory-back-title">NOSSO FILHO, OLAVO</span>
+                <p>“eu ainda acho engraçado que a gente já tenha um filho antes mesmo de completar três meses.”</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="memory-card" onclick="goToMemory(1)">
-          foto<br><small>uma história</small>
+
+        <div class="memory-card memory-flip-card" role="button" tabindex="0" aria-label="Virar cartão: o dia em que ela conheceu minha mãe">
+          <div class="memory-flip-inner">
+            <div class="memory-flip-face memory-flip-front">
+              <img src="dia-que-ela-conheceu-minha-mae.jpeg" alt="O dia em que ela conheceu minha mãe">
+            </div>
+            <div class="memory-flip-face memory-flip-back">
+              <div class="memory-back-content">
+                <span class="memory-back-title">O DIA EM QUE ELA CONHECEU MINHA MÃE</span>
+                <p>“foi incrível ver duas pessoas tão importantes para mim finalmente se conhecendo.”</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="memory-card" onclick="goToMemory(2)">
-          foto<br><small>uma coisa que só nós entendemos</small>
+
+        <div class="memory-card memory-flip-card" role="button" tabindex="0" aria-label="Virar cartão: o dia em que minha vó faleceu">
+          <div class="memory-flip-inner">
+            <div class="memory-flip-face memory-flip-front">
+              <img src="dia-da-minha-vo.jpeg" alt="Ela comigo no dia em que minha vó faleceu">
+            </div>
+            <div class="memory-flip-face memory-flip-back">
+              <div class="memory-back-content">
+                <span class="memory-back-title">O DIA EM QUE MINHA VÓ FALECEU</span>
+                <p>“alguns dias não são feitos para serem felizes. São feitos para serem atravessados. E eu lembro de você estar ali.”</p>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
 
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
     <!-- 06 — COMO EU TE VEJO -->
-    <article class="story-page see-page">
-      <div class="story-label">06 · como eu te vejo</div>
-      <div class="letter">
-        <h2>Eu reparo em você<br>mais do que você imagina.</h2>
-
-        <p>Se eu tivesse que te descrever de um jeito simples, eu provavelmente começaria dizendo que você é doidinha. Maluca. Serelepe. Engraçada. Tímida quando menos parece que seria. E incrível em um monte de situações.</p>
-
-        <p>Mas isso ainda seria pouco.</p>
-
-        <p>Porque uma das coisas que mais admiro em você não é uma coisa que dá para colocar em uma foto. É o seu jeito de ser com as pessoas. Você é leal, responsável, ligada à sua família e muito mais cuidadosa do que às vezes percebe.</p>
-
-        <p>Eu vejo você acordando cedo para trabalhar, ajudando em casa, ajudando suas irmãs e continuando fazendo o que precisa ser feito mesmo quando provavelmente está cansada. Vejo o jeito que você se preocupa comigo. Vejo como você tenta entender as pessoas antes de simplesmente julgá-las. Vejo como você consegue ser compreensiva comigo até quando eu mesmo sei que estou sendo difícil.</p>
-
-        <p>Eu admiro isso porque sei que não é fácil. Tem uma força em você que talvez você mesma não perceba o tempo inteiro.</p>
-
-        <div class="letter-section-title">a parte que você talvez não perceba</div>
-
-        <p>Eu sei que sou meio lento para algumas coisas. Sou distraído, cabeça de vento, fico no meu mundo e às vezes parece que eu não estou prestando atenção em nada.</p>
-
-        <p>Mas eu reparo em você.</p>
-
-        <p>Reparo nas pequenas mudanças do seu jeito. No seu sorriso quando alguma coisa realmente te deixa feliz. No seu olhar quando você está tentando não rir. No jeito que você fica quando está com vergonha. Nas coisas que você fala sem achar que alguém vai guardar aquilo.</p>
-
-        <p>Eu reparo porque gosto de te conhecer. Não só de estar com você.</p>
-
-        <p>E sim, eu acho você muito bonita. Gosto dos seus olhos, do seu sorriso, do seu cabelo, do seu corpo, de tudo aquilo que faz eu olhar para você e pensar que eu gosto de você inteira. Até aquele seu olhar de felina que às vezes parece que está me julgando sem você precisar falar nada KKKKK.</p>
-
-        <p>Mas a sua aparência nunca foi a única coisa que me fez ficar.</p>
-
-        <p>Eu gosto de quem você é quando ninguém está tentando impressionar ninguém. Gosto da menina engraçada, da menina tímida, da menina responsável, da menina que cuida dos outros, da menina que trabalha mesmo cansada e da menina que ainda consegue ser serelepe no meio de tudo isso.</p>
-
-        <div class="letter-section-title">o que eu encontrei em você</div>
-
-        <p>Você virou uma parte muito bonita da minha vida. Só que acho que “bonita” ainda não explica direito.</p>
-
-        <p>Existe uma sensação de conforto que eu não sei explicar completamente. Minha alma parece menos inquieta perto de você. Eu me sinto acolhido. Eu sinto que posso baixar a guarda um pouco.</p>
-
-        <p>E eu queria que você tivesse isso comigo também.</p>
-
-        <p>Não porque acho que você é fraca. Eu sei que você é forte. Eu vejo isso em você. Mas acho que até as pessoas fortes merecem ter um lugar onde não precisam resolver tudo sozinhas.</p>
-
-        <p>Às vezes eu tenho vontade de te colocar em um potinho e te proteger de tudo que existe lá fora. KKKKK. Eu sei que você não precisa de alguém para viver por você. Você é perfeitamente capaz de enfrentar o mundo.</p>
-
-        <p>Eu só quero que, quando o mundo pesar, você saiba que não precisa enfrentar tudo sozinha.</p>
-
-        <p>Quero cuidar de você. Quero ver você feliz. Quero estar perto quando você conquistar alguma coisa e ouvir seus gritos de alegria. Quero ver você realizando seus sonhos e sentir orgulho de você. E, quando você não conseguir enxergar em si mesma tudo aquilo que eu enxergo, eu quero continuar lembrando.</p>
-
-        <p>Não porque eu ache que você precisa que alguém diga quem você é. Mas porque, às vezes, até quem é forte esquece de olhar para si mesma com carinho.</p>
-
-        <p>Eu quero ser esse lugar para você. Um lugar em que você possa descansar, ser cuidada, rir, chorar, ser doidinha, ser séria, ser tudo o que você é sem precisar diminuir nenhuma parte.</p>
-
-        <p>Eu não quero apenas ser alguém que diz que te ama. Eu quero ser alguém que te respeita, te admira, te deseja, cuida de você e quer te ver feliz.</p>
-
-        <p>E tem uma parte egoísta minha nisso tudo, eu admito. Eu quero continuar recebendo suas declarações mais bonitas. Quero continuar sendo o seu namorado. Quero continuar sendo a pessoa que você escolhe quando olha para a sua vida e pensa em quem quer ao lado.</p>
-
-        <p>Porque no fim das contas, é isso que eu quero: continuar sendo escolhido por você.</p>
-
-        <p class="letter-final">E se um dia você esquecer o quanto é incrível, eu espero estar por perto para lembrar.</p>
+    <article class="story-page see-page" id="cap-06">
+      <div class="story-label">como eu te vejo</div>
+      <h2>Como eu te vejo.</h2>
+      <div class="see-lines">
+        <p>forte quando acha que está fraca.</p>
+        <p>linda quando nem percebe.</p>
+        <p>especial nas coisas que considera pequenas.</p>
+        <p>importante mesmo quando acha que está incomodando.</p>
       </div>
+      <p class="closing-note">Essa parte ainda vai ganhar as palavras que são realmente nossas.</p>
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
     <!-- 07 — DAQUI PRA FRENTE / FINAL -->
-    <article class="story-page final-page">
-      <div class="story-label">07 · daqui pra frente</div>
-      <h2>Eu não sei exatamente<br>como vai ser a nossa vida.</h2>
-
+    <article class="story-page final-page" id="cap-07">
+      <div class="story-label">daqui pra frente</div>
+      <h2>Eu não sei exatamente<br>onde a vida vai levar a gente.</h2>
       <div class="final-copy">
-        <p>Eu não sei exatamente como vai ser a nossa vida daqui a alguns anos.</p>
-        <p>E, pela primeira vez, acho que não preciso saber de tudo.</p>
-        <p>Porque quando penso no futuro, existe uma coisa que parece muito clara para mim.</p>
-        <p>Eu vejo nós dois.</p>
-        <p>Vejo a nossa casa.</p>
-        <p>A nossa bagunça.</p>
-        <p>As nossas coisas espalhadas pelos lugares.</p>
-        <p>Vejo a gente chegando em casa depois de um dia qualquer e tendo um ao outro para contar como foi.</p>
-        <p>Vejo os nossos filhos.</p>
-        <p>Vejo uma vida que ainda nem existe, mas que, quando penso nela, parece estranhamente familiar.</p>
-        <p>Talvez porque você já faça parte dela antes mesmo de ela acontecer.</p>
-
-        <p>Eu quero viajar o mundo com você.</p>
-        <p>Quero conhecer lugares que a gente ainda nem sabe pronunciar direito.</p>
-        <p>Quero tirar fotos em lugares que um dia vão virar lembranças.</p>
-        <p>Quero entrar em restaurantes aleatórios em cidades que nunca visitamos.</p>
-        <p>Quero me perder com você e depois provavelmente colocar a culpa em você quando a gente não souber voltar.</p>
-        <p>Quero ir ao estádio com você.</p>
-        <p>Quero ver o Athletico jogar do seu lado.</p>
-        <p>Quero viver as coisas grandes, mas também quero continuar vivendo essas coisas pequenas que hoje já significam tanto.</p>
-
-        <p>Quero morar com você.</p>
-        <p>Quero ter uma vida confortável.</p>
-        <p>Não porque eu precise de uma vida perfeita.</p>
-        <p>Só quero que a gente tenha tranquilidade para aproveitar a nossa.</p>
-        <p>Quero poder olhar para você e pensar que todo aquele esforço valeu a pena.</p>
-        <p>E, principalmente, quero continuar sendo alguém que faz você se sentir amada.</p>
-
-        <p>Eu sei que ainda tenho muito para aprender.</p>
-        <p>Ainda sou cabeça de vento.</p>
-        <p>Ainda demoro para perceber algumas coisas.</p>
-        <p>Ainda tenho dificuldade para falar tudo o que sinto.</p>
-        <p>Mas agora eu sei o que quero fazer com tudo isso.</p>
-        <p>Quero continuar aprendendo você.</p>
-        <p>Continuar prestando atenção nos detalhes.</p>
-        <p>Continuar lembrando das coisas que você fala.</p>
-        <p>Continuar tentando demonstrar mais.</p>
-        <p>Quero ser alguém em quem você possa confiar.</p>
-        <p>Alguém que você procure quando estiver feliz.</p>
-        <p>E também quando não estiver.</p>
-        <p>Quero ser seu lugar seguro sem nunca fazer você sentir que precisa deixar de ser quem é para estar comigo.</p>
-
-        <p>E tem uma coisa que eu acho que nunca quero perder.</p>
-        <p>Quero ser o seu amor jovem.</p>
-        <p>Mesmo quando a gente não for mais tão jovem assim.</p>
-        <p>Quero que, daqui a muitos anos, você ainda consiga olhar para mim e lembrar daquele menino que tremia inteiro tentando colocar uma aliança no seu dedo.</p>
-        <p>Quero que você ainda ria lembrando das pétalas no seu guarda-roupa.</p>
-        <p>Do ursão.</p>
-        <p>Do óculos caro de plástico.</p>
-        <p>Do Igor Bueno.</p>
-        <p>Do japonês.</p>
-        <p>De todas as coisas meio idiotas que fizeram a gente chegar até aqui.</p>
-
-        <p>Quero envelhecer sem deixar morrer a parte de nós que começou lá atrás.</p>
-        <p>Aquela que ria de qualquer besteira.</p>
-        <p>Que mandava TikTok um para o outro.</p>
-        <p>Que tentava pegar ursinho no shopping.</p>
-        <p>Que tirava foto em cabine.</p>
-        <p>Que ainda não sabia exatamente onde tudo aquilo ia chegar.</p>
-        <p>Porque talvez essa seja uma das coisas que mais gosto na nossa história.</p>
-        <p>A gente não sabia.</p>
-        <p>A gente só foi.</p>
-        <p>E olha onde estamos agora.</p>
-
-        <p>Eu comecei esse site porque sou melhor escrevendo do que falando.</p>
-        <p>Talvez, se eu tentasse te contar tudo isso olhando nos seus olhos, eu esquecesse metade.</p>
-        <p>Talvez eu ficasse nervoso.</p>
-        <p>Talvez falasse alguma besteira.</p>
-        <p>Provavelmente.</p>
-        <p>Mas escrevendo, eu consegui parar um pouco e colocar para fora coisas que normalmente ficam presas na minha cabeça.</p>
-
-        <p>E, se você chegou até aqui, então agora você sabe.</p>
-        <p>Sabe o que eu sinto.</p>
-        <p>Sabe o que eu lembro.</p>
-        <p>Sabe como eu te vejo.</p>
-        <p>E sabe o que eu quero.</p>
-
-        <p>Eu quero você na minha vida.</p>
-        <p>Na nossa casa.</p>
-        <p>Nas nossas viagens.</p>
-        <p>Nos nossos planos.</p>
-        <p>Nas nossas pequenas coisas.</p>
-        <p>Nos nossos dias bons.</p>
-        <p>Nos nossos dias difíceis.</p>
-        <p>Nas histórias que ainda não aconteceram.</p>
-        <p>Nos lugares que ainda não conhecemos.</p>
-        <p>E em todas aquelas memórias que ainda não existem, mas que um dia talvez a gente olhe para trás e lembre de como tudo começou.</p>
-
-        <p>Você foi minha amiga antes de ser minha namorada.</p>
-        <p>Foi alguém que eu não esperava encontrar.</p>
-        <p>Foi a menina que me achava um canalha.</p>
-        <p>Foi a pessoa que, sem perceber, me fez mudar a maneira como eu enxergava a vida.</p>
-        <p>E hoje é a pessoa que eu quero continuar escolhendo.</p>
-
-        <p>Então, se algum dia você esquecer o quanto é amada, volta aqui.</p>
-        <p>Lê tudo de novo.</p>
-        <p>E lembra que, em algum momento, um menino meio cabeça de vento decidiu que precisava escrever um site inteiro porque simplesmente não sabia falar tudo isso olhando para você.</p>
-
-        <p>E talvez essa seja a coisa mais simples que eu consiga te dizer depois de todas essas páginas:</p>
-        <p class="letter-final">eu escolheria você de novo.</p>
-        <p class="letter-final">E escolheria em todas as versões da nossa história.</p>
-
-        <p>Obrigado por ter chegado.</p>
-        <p>Obrigado por ter ficado.</p>
-        <p>Obrigado por ser você.</p>
-        <p class="letter-final">Eu te amo, minha princesa.</p>
+        <p>Mas sei que quero continuar descobrindo.</p>
+        <p>Quero mais dias comuns. Mais conversas. Mais fotos ruins. Mais histórias que só nós dois vamos entender.</p>
+        <p>Quero continuar escolhendo você.</p>
       </div>
-
       <div class="final-signature">
         <span>23 · 05 · 2026</span>
         <strong>feliz 3 meses, meu amor.</strong>
         <span>— Léo</span>
       </div>
-
       <button class="close" onclick="closeReveal()">voltar para a capa</button>
     </article>
 
-    <!-- MEMÓRIA — ELA CONHECEU MINHA MÃE -->
-    <article class="story-page memory-page family-memory">
-      <div class="story-label">MEMÓRIA · 02</div>
 
-      <div class="memory-polaroid">
-        <img src="dia-que-ela-conheceu-minha-mae.jpeg" alt="O dia em que ela conheceu minha mãe">
-        <div class="memory-polaroid-caption">
-          <span>o dia em que ela conheceu minha mãe</span>
-          <small>um daqueles momentos que parecem simples,<br>
-          mas que acabam significando muito.</small>
-        </div>
-      </div>
-
-      <div class="memory-note">
-        <p>Ela conheceu minha mãe.</p>
-        <p>E, de alguma forma, foi mais um pedacinho da nossa vida começando a se misturar.</p>
-      </div>
-
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
-    </article>
-
-
-    <!-- MEMÓRIA — O DIA EM QUE MINHA VÓ FALECEU -->
-    <article class="story-page memory-page grief-memory">
-      <div class="story-label">MEMÓRIA · 03</div>
-
-      <div class="memory-polaroid">
-        <img src="dia-da-minha-vo.jpeg" alt="Ela comigo no dia em que minha avó faleceu">
-        <div class="memory-polaroid-caption">
-          <span>o dia em que minha vó faleceu</span>
-          <small>e você estava comigo.</small>
-        </div>
-      </div>
-
-      <div class="memory-note">
-        <p>Nem toda memória é sobre um dia feliz.</p>
-        <p>Algumas ficam porque, nos dias mais difíceis, você estava ali.</p>
-      </div>
-
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
-    </article>
-
-
-  </div>
-</section>
 
 <script>
 let storyIndex = 0;
@@ -1913,14 +1876,24 @@ function storyNext(){
   const pages = document.querySelectorAll(".story-page");
   storyIndex = Math.min(storyIndex + 1, pages.length - 1);
   pages[storyIndex].scrollIntoView({behavior:"smooth", block:"start"});
-  updateStoryProgress();
 }
 
 function updateStoryProgress(){
-  document.querySelectorAll(".story-progress span").forEach((dot, i)=>{
-    dot.classList.toggle("active", i === storyIndex);
-  });
+  const container = document.querySelector(".story-pages");
+  const bar = document.querySelector(".story-progress-bar");
+  if(!container || !bar) return;
+
+  const maxScroll = Math.max(1, container.scrollHeight - container.clientHeight);
+  const progress = Math.max(0, Math.min(1, container.scrollTop / maxScroll));
+  bar.style.setProperty("--story-progress", progress.toFixed(4));
 }
+
+(function(){
+  const container = document.querySelector(".story-pages");
+  if(!container) return;
+  container.addEventListener("scroll", updateStoryProgress, {passive:true});
+  window.addEventListener("resize", updateStoryProgress, {passive:true});
+})();
 </script>
 
 
@@ -1998,6 +1971,41 @@ document.querySelectorAll(".memories-page .memory-flip-card").forEach(function(c
 });
 </script>
 
+
+
+<script>
+(function(){
+  const nav = document.querySelector('.chapter-index');
+  const scroller = document.querySelector('.story-pages');
+  if (!nav || !scroller) return;
+
+  const links = [...nav.querySelectorAll('a')];
+  const pages = links
+    .map(a => document.getElementById(a.getAttribute('href').slice(1)))
+    .filter(Boolean);
+
+  function updateChapter(){
+    const marker = scroller.getBoundingClientRect().top + scroller.clientHeight * 0.32;
+    let active = 0;
+    pages.forEach((page, i) => {
+      if (page.getBoundingClientRect().top <= marker) active = i;
+    });
+    links.forEach((a,i) => a.classList.toggle('active', i === active));
+  }
+
+  scroller.addEventListener('scroll', updateChapter, {passive:true});
+  window.addEventListener('resize', updateChapter);
+  updateChapter();
+
+  links.forEach(a => {
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      const target = document.getElementById(this.getAttribute('href').slice(1));
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
