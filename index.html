@@ -1489,6 +1489,167 @@ h1 .script{
 .chapter-index a.active{color:#F7F1E8!important;background:var(--wine)!important;transform:scale(1.08)!important;}
 .chapter-index a:hover{color:var(--wine)!important;background:rgba(100,31,45,.08)!important;}
 @media(max-width:600px){.story-page{padding-left:24px!important;padding-right:43px!important;padding-top:clamp(82px,10vh,120px)!important;padding-bottom:clamp(65px,9vh,105px)!important}.story-page .letter p,.story-page .chapter-copy p,.story-page .final-copy p,.story-page .memory-copy p{font-size:19px!important;line-height:1.7!important}.chapter-index{right:6px!important;width:31px!important;gap:5px!important}.chapter-index a{width:25px!important;height:25px!important;font-size:8px!important;}}
+
+/* ===== CORREÇÃO FINAL: LEITURA CONTÍNUA / TIPOGRAFIA / ÍNDICE ===== */
+.story-pages{
+  scroll-behavior:auto !important;
+  scroll-snap-type:none !important;
+  overscroll-behavior-y:auto !important;
+  -webkit-overflow-scrolling:touch;
+}
+.story-page{
+  min-height:auto !important;
+  height:auto !important;
+  padding:clamp(88px,11vh,140px) 66px clamp(76px,9vh,120px) 28px !important;
+  justify-content:flex-start !important;
+}
+.story-page + .story-page{
+  padding-top:clamp(72px,9vh,120px) !important;
+}
+.story-page .letter,
+.story-page .chapter-copy,
+.story-page .final-copy,
+.story-page .memory-copy,
+.story-page .page-intro,
+.story-page .memory-back-content{
+  width:min(100%,680px) !important;
+  font-family:"Cormorant Garamond",Georgia,serif !important;
+  font-variant-caps:normal !important;
+  text-transform:none !important;
+}
+.story-page .letter p,
+.story-page .chapter-copy p,
+.story-page .final-copy p,
+.story-page .memory-copy p,
+.story-page .proposal-story p{
+  font-family:"Cormorant Garamond",Georgia,serif !important;
+  font-size:clamp(19px,4.7vw,22px) !important;
+  line-height:1.72 !important;
+  font-weight:400 !important;
+  letter-spacing:0 !important;
+  color:var(--muted) !important;
+  margin:0 0 1.05em !important;
+  text-indent:1.35em !important;
+  text-transform:none !important;
+  font-variant-caps:normal !important;
+  font-variant:normal !important;
+  -webkit-text-transform:none !important;
+}
+.story-page .letter p:first-child,
+.story-page .letter-section-title + p,
+.story-page .chapter-copy p:first-child,
+.story-page .final-copy p:first-child,
+.story-page .memory-copy p:first-child,
+.story-page .proposal-story p:first-of-type{
+  text-indent:0 !important;
+}
+.story-page h2{
+  font-family:"Cormorant Garamond",Georgia,serif !important;
+  font-variant-caps:normal !important;
+  text-transform:none !important;
+}
+.story-page .story-label{
+  font-family:"DM Sans",sans-serif !important;
+  text-transform:uppercase !important;
+}
+.story-page .letter-final{
+  text-indent:0 !important;
+}
+
+/* Índice: números limpos, sem bolhas sobrepostas e sempre alinhados */
+.chapter-index{
+  position:fixed !important;
+  right:10px !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+  width:34px !important;
+  padding:8px 0 !important;
+  margin:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  gap:3px !important;
+  z-index:100 !important;
+  background:transparent !important;
+  border-radius:0 !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+}
+.chapter-index::before{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  left:5px !important;
+  top:9px !important;
+  bottom:9px !important;
+  width:1px !important;
+  background:rgba(100,31,45,.16) !important;
+  opacity:1 !important;
+}
+.chapter-index::after{display:none !important;content:none !important;}
+.chapter-index a{
+  position:relative !important;
+  z-index:1 !important;
+  width:30px !important;
+  height:24px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  padding-left:11px !important;
+  margin:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  text-decoration:none !important;
+  color:rgba(100,31,45,.28) !important;
+  background:transparent !important;
+  font:500 9px/1 "DM Sans",sans-serif !important;
+  letter-spacing:.04em !important;
+  transform:none !important;
+  transition:color .22s ease,font-weight .22s ease !important;
+}
+.chapter-index a.active{
+  color:var(--wine) !important;
+  background:transparent !important;
+  font-weight:600 !important;
+  transform:none !important;
+}
+.chapter-index a.active::before{
+  content:"" !important;
+  position:absolute !important;
+  left:2px !important;
+  top:50% !important;
+  width:7px !important;
+  height:7px !important;
+  margin-top:-3.5px !important;
+  border-radius:50% !important;
+  background:var(--wine) !important;
+  opacity:1 !important;
+}
+.chapter-index a.active span{opacity:1 !important;}
+.chapter-index a:hover{color:var(--wine) !important;background:transparent !important;}
+
+@media(max-width:600px){
+  .story-page{
+    padding-left:24px !important;
+    padding-right:56px !important;
+    padding-top:clamp(78px,9vh,110px) !important;
+    padding-bottom:clamp(68px,8vh,100px) !important;
+  }
+  .story-page + .story-page{padding-top:clamp(66px,8vh,100px) !important;}
+  .story-page .letter p,
+  .story-page .chapter-copy p,
+  .story-page .final-copy p,
+  .story-page .memory-copy p,
+  .story-page .proposal-story p{
+    font-size:19px !important;
+    line-height:1.72 !important;
+  }
+  .chapter-index{right:5px !important;width:32px !important;gap:2px !important;}
+  .chapter-index a{width:28px !important;height:23px !important;font-size:8px !important;padding-left:10px !important;}
+  .chapter-index::before{left:4px !important;}
+  .chapter-index a.active::before{left:1px !important;width:6px !important;height:6px !important;margin-top:-3px !important;}
+}
+
 </style>
 </head>
 
@@ -1565,7 +1726,7 @@ h1 .script{
 </nav>
 
     <!-- 01 — CARTA / PARTE I -->
-    <article class="story-page letter-page" id="cap-01">
+    <article class="story-page letter-page" id="cap-01" data-chapter="0">
       <div class="story-label">uma coisa que eu precisava te dizer</div>
       <div class="letter">
         <h2>Eu queria ter feito isso antes.</h2>
@@ -1580,7 +1741,7 @@ h1 .script{
     </article>
 
     <!-- 02 — CARTA / PARTE II -->
-    <article class="story-page letter-page">
+    <article class="story-page letter-page" data-chapter="0">
       <div class="story-label">e tem mais uma coisa</div>
       <div class="letter">
         <p>Talvez porque eu ainda estivesse aprendendo que demonstrar também faz parte de amar. Porque eu sinto muito mais do que consigo colocar para fora.</p>
@@ -1596,7 +1757,7 @@ h1 .script{
     </article>
 
     <!-- 03 — COMO EU ME SINTO / PARTE I -->
-    <article class="story-page letter-page" id="cap-02">
+    <article class="story-page letter-page" id="cap-02" data-chapter="1">
       <div class="story-label">como eu me sinto com você</div>
       <div class="letter">
         <h2>Como eu me sinto<br>com você.</h2>
@@ -1610,7 +1771,7 @@ h1 .script{
     </article>
 
     <!-- 04 — COMO EU ME SINTO / PARTE II -->
-    <article class="story-page letter-page">
+    <article class="story-page letter-page" data-chapter="1">
       <div class="story-label">como eu me sinto com você</div>
       <div class="letter">
         <p>Talvez seja por isso que eu goste tanto quando você fala de um futuro em que eu estou. Porque, antes de você, eu acho que eu simplesmente ia vivendo. Não pensava muito no que vinha depois. Era como se eu estivesse sempre preocupado com o agora e, ao mesmo tempo, não estivesse realmente preocupado com nada.</p>
@@ -1628,7 +1789,7 @@ h1 .script{
     </article>
 
     <!-- 05 — ANTES DE EXISTIR UM “NÓS” / PARTE I -->
-    <article class="story-page letter-page" id="cap-03">
+    <article class="story-page letter-page" id="cap-03" data-chapter="2">
       <div class="story-label">antes de existir um “nós”</div>
       <div class="letter">
         <h2>Antes de existir<br>um “nós”.</h2>
@@ -1660,7 +1821,7 @@ h1 .script{
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
-<article class="story-page letter-page">
+<article class="story-page letter-page" data-chapter="2">
       <div class="story-label">antes de existir um “nós”</div>
       <div class="letter">
 
@@ -1708,11 +1869,11 @@ h1 .script{
           <div class="music-ornament bottom" aria-hidden="true">♪ ───── ♫ ───── ♪</div>
         </div>
       </div>
-      <button class="story-next" onclick="storyNext()">continuar <span>↓</sp
+      <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
     <!-- 04 — 23 · 05 · 2026 -->
-    <article class="story-page letter-page proposal-story" id="cap-04">
+    <article class="story-page letter-page proposal-story" id="cap-04" data-chapter="3">
       <div class="story-label">23 · 05 · 2026</div>
       <div class="letter">
         <h2>Em algum momento,<br>eu simplesmente tive certeza.</h2>
@@ -1780,92 +1941,185 @@ h1 .script{
     </article>
 
     <!-- 05 — OS PRIMEIROS MESES -->
-    <article class="story-page memories-page" id="cap-05">
-      <div class="story-label">os primeiros meses</div>
-      <h2>Três meses não cabem<br>em uma página.</h2>
-      <p class="page-intro">Então aqui vamos guardar as pequenas coisas: momentos, fotos, frases, lugares e lembranças que fizeram esses meses serem nossos.</p>
-
-      <div class="memory-grid memory-flip-grid">
-
-        <div class="memory-card memory-flip-card" role="button" tabindex="0" aria-label="Virar cartão: nosso filho, Olavo">
-          <div class="memory-flip-inner">
-            <div class="memory-flip-face memory-flip-front">
-              <img src="olavo.jpeg" alt="Olavo, nosso filho">
-            </div>
-            <div class="memory-flip-face memory-flip-back">
-              <div class="memory-back-content">
-                <span class="memory-back-title">NOSSO FILHO, OLAVO</span>
-                <p>“eu ainda acho engraçado que a gente já tenha um filho antes mesmo de completar três meses.”</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="memory-card memory-flip-card" role="button" tabindex="0" aria-label="Virar cartão: o dia em que ela conheceu minha mãe">
-          <div class="memory-flip-inner">
-            <div class="memory-flip-face memory-flip-front">
-              <img src="dia-que-ela-conheceu-minha-mae.jpeg" alt="O dia em que ela conheceu minha mãe">
-            </div>
-            <div class="memory-flip-face memory-flip-back">
-              <div class="memory-back-content">
-                <span class="memory-back-title">O DIA EM QUE ELA CONHECEU MINHA MÃE</span>
-                <p>“foi incrível ver duas pessoas tão importantes para mim finalmente se conhecendo.”</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="memory-card memory-flip-card" role="button" tabindex="0" aria-label="Virar cartão: o dia em que minha vó faleceu">
-          <div class="memory-flip-inner">
-            <div class="memory-flip-face memory-flip-front">
-              <img src="dia-da-minha-vo.jpeg" alt="Ela comigo no dia em que minha vó faleceu">
-            </div>
-            <div class="memory-flip-face memory-flip-back">
-              <div class="memory-back-content">
-                <span class="memory-back-title">O DIA EM QUE MINHA VÓ FALECEU</span>
-                <p>“alguns dias não são feitos para serem felizes. São feitos para serem atravessados. E eu lembro de você estar ali.”</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
+    <article class="story-page memories-page" id="cap-05" data-chapter="4">
+      <div class="story-label">05 · os primeiros meses</div>
+      <h2>Quanta vida coube<br>nesses três meses.</h2>
+      <div class="memory-copy">
+        <p>Depois que a gente começou a namorar, eu fui percebendo uma coisa que parece simples, mas que mudou bastante a minha rotina: eu passei a ter alguém presente na minha vida de verdade.</p>
+        <p>Alguém que pergunta se eu estou comendo. Se eu bebi água. Se eu estou bem. Às vezes parece até uma fiscalização KKKKKK, mas eu gosto disso. Gosto de saber que existe alguém que realmente presta atenção em mim e se importa comigo nas coisas pequenas.</p>
+        <p>E, como a gente ainda não mora junto, boa parte da nossa rotina acontece de um jeito meio nosso. Pelo WhatsApp, pelas conversas, pelos TikToks que eu mando do nada porque achei alguma coisa que lembrei de você. Tem dias em que a gente nem precisa fazer alguma coisa grande. Só conversar já faz parte da minha rotina.</p>
+        <p>Aos poucos, também começaram a aparecer aquelas pequenas coisas que eu já consigo chamar de nossas. A gente vai ao shopping e eu já fico querendo tentar pegar algum ursinho na máquina, mesmo sabendo que provavelmente vou perder dinheiro. A gente tira foto naquelas cabines que imprimem na hora. Você compra mangá para mim porque sabe que eu gosto, e eu fico pensando que preciso começar a comprar livros para você também, só falta eu descobrir exatamente quais você quer ler.</p>
+        <p>Até as coisas mais bobas acabam virando lembrança. Tipo você me dar um beijinho e depois me morder. Eu ainda não entendi completamente por que isso acontece, mas aparentemente faz parte do pacote de namorar você.</p>
+        <p>Também teve o dia em que conheci sua família. Eu estava absurdamente nervoso. Tinha gente pra caramba e eu não sabia direito onde colocar as mãos, o que falar, como agir, nada. Para você, aparentemente, foi muito mais engraçado do que assustador. E, olhando agora, eu também consigo rir disso. Mas aquele momento significou bastante para mim porque foi mais uma parte da sua vida que começou a se misturar com a minha.</p>
+        <p>Foi aí que comecei a perceber uma coisa que gosto muito na nossa história: não existe necessariamente um lugar que seja “o nosso lugar”. O que faz um lugar ganhar significado é a gente ter estado ali. Um shopping, uma cabine de fotos, um restaurante, uma rua qualquer. Se você estava comigo, de alguma forma aquilo já podia virar uma memória feliz.</p>
+        <p>E teve o meu aniversário. Eu fiquei vermelho, sem jeito e provavelmente queria desaparecer na hora do parabéns surpresa. Mas o que mais ficou comigo não foi só a surpresa. Foi perceber o quanto você presta atenção nas coisas que eu falo.</p>
+        <p>Você me deu um livro sobre design porque sabia que eu queria aprender mais sobre isso. Uma blusa do Homem-Aranha porque você sabe o quanto eu gosto do personagem. E um boné que eu tinha provado muito tempo antes e nem comprei. São coisas diferentes, mas todas tinham uma coisa em comum: você tinha prestado atenção.</p>
+        <p>E eu acho que é isso que mais me marca nesses primeiros meses. Não foi só ter uma namorada. Foi começar a perceber, no cotidiano, que existe alguém que me conhece, me observa, lembra das coisas que eu falo e quer fazer parte da minha vida.</p>
+        <p>Ainda tem muita coisa que eu quero viver com você. Inclusive uma que a gente ainda não viveu: ir a um jogo do Athletico juntos, como casal. Nós dois torcendo, provavelmente passando raiva em algum momento e comemorando juntos quando der certo. E eu penso nisso quase como penso em ver o Athletico finalmente ganhando uma Libertadores: é uma coisa que eu quero muito, que parece até sonho quando imagino.</p>
+        <p>Talvez seja isso que esses três meses tenham sido para mim. Não uma coleção de grandes acontecimentos, mas um monte de pequenas coisas que foram se juntando até virar uma parte importante da minha vida.</p>
+        <p class="letter-final">E se esses foram só os primeiros três meses, eu fico pensando em quanta coisa ainda vai virar memória.</p>
       </div>
 
+      <div class="memory-grid memory-flip-grid">
+        <div class="memory-card memory-flip-card" role="button" tabindex="0" aria-label="Virar cartão: nosso filho, Olavo">
+          <div class="memory-flip-inner">
+            <div class="memory-flip-face memory-flip-front"><img src="olavo.jpeg" alt="Olavo, nosso filho"></div>
+            <div class="memory-flip-face memory-flip-back"><div class="memory-back-content"><span class="memory-back-title">NOSSO FILHO, OLAVO</span><p>“eu ainda acho engraçado que a gente já tenha um filho antes mesmo de completar três meses.”</p></div></div>
+          </div>
+        </div>
+        <div class="memory-card memory-flip-card" role="button" tabindex="0" aria-label="Virar cartão: o dia em que ela conheceu minha mãe">
+          <div class="memory-flip-inner">
+            <div class="memory-flip-face memory-flip-front"><img src="dia-que-ela-conheceu-minha-mae.jpeg" alt="O dia em que ela conheceu minha mãe"></div>
+            <div class="memory-flip-face memory-flip-back"><div class="memory-back-content"><span class="memory-back-title">O DIA EM QUE ELA CONHECEU MINHA MÃE</span><p>“foi incrível ver duas pessoas tão importantes para mim finalmente se conhecendo.”</p></div></div>
+          </div>
+        </div>
+        <div class="memory-card memory-flip-card" role="button" tabindex="0" aria-label="Virar cartão: o dia em que minha vó faleceu">
+          <div class="memory-flip-inner">
+            <div class="memory-flip-face memory-flip-front"><img src="dia-da-minha-vo.jpeg" alt="Ela comigo no dia em que minha vó faleceu"></div>
+            <div class="memory-flip-face memory-flip-back"><div class="memory-back-content"><span class="memory-back-title">O DIA EM QUE MINHA VÓ FALECEU</span><p>“alguns dias não são feitos para serem felizes. São feitos para serem atravessados. E eu lembro de você estar ali.”</p></div></div>
+          </div>
+        </div>
+      </div>
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
     <!-- 06 — COMO EU TE VEJO -->
-    <article class="story-page see-page" id="cap-06">
+    <article class="story-page see-page" id="cap-06" data-chapter="5">
       <div class="story-label">como eu te vejo</div>
       <h2>Como eu te vejo.</h2>
-      <div class="see-lines">
-        <p>forte quando acha que está fraca.</p>
-        <p>linda quando nem percebe.</p>
-        <p>especial nas coisas que considera pequenas.</p>
-        <p>importante mesmo quando acha que está incomodando.</p>
+      <div class="memory-copy">
+        <p>Eu poderia começar falando da sua aparência. Dos seus olhos, do seu sorriso, do seu cabelo, do seu corpo, de tudo aquilo que eu olho e acho bonito. E, sinceramente, eu gosto de tudo isso. Tem até aquele seu olhar de felina que às vezes me faz pensar que você sabe exatamente o que está fazendo, mesmo quando provavelmente não sabe KKKKKK.</p>
+        <p>Mas, se eu ficasse só nisso, eu estaria deixando de falar justamente da parte que mais admiro em você.</p>
+        <p>Porque você é doidinha. Maluca. Serelepe. Engraçada. Tímida em algumas situações e completamente sem juízo em outras. E eu gosto desse seu jeito. Gosto porque é você. Você consegue ser essa pessoa meio maluca que me faz rir e, ao mesmo tempo, ser uma das pessoas mais responsáveis que eu conheço.</p>
+        <p>Eu vejo o quanto você é ligada à sua família. Vejo o quanto você ajuda em casa, ajuda suas irmãs, se preocupa com as pessoas que ama e continua fazendo as coisas mesmo quando provavelmente está cansada. Você acorda cedo para trabalhar, cumpre suas responsabilidades e ainda encontra espaço para cuidar de quem está perto de você.</p>
+        <p>Também vejo o quanto você é compreensiva. Comigo, principalmente. Você conhece minhas manias, meu jeito cabeça de vento, minhas fases em que eu fico no meu próprio mundo e esse meu jeito meio lelé da cuca que você, por algum motivo, resolveu gostar. E mesmo assim você fica.</p>
+        <p>Isso diz muito sobre você.</p>
+        <p>E acho que existe uma coisa que talvez você não perceba tanto quanto eu gostaria. Mesmo sendo distraído, lento para algumas coisas e vivendo metade do tempo dentro da minha própria cabeça, eu reparo em você. Talvez eu não fale na hora. Talvez eu pareça estar pensando em outra coisa. Mas eu reparo.</p>
+        <p>Eu reparo quando você está cansada. Quando alguma coisa te incomoda. Quando você fica mais quieta. Quando está feliz de verdade. Reparo nas coisas que você faz pelos outros sem precisar anunciar que fez. Reparo no jeito que você cuida de quem ama. Reparo até nas pequenas coisas que provavelmente você acha que ninguém percebe.</p>
+        <p>E é por isso que eu não consigo te admirar só pela beleza. Eu admiro seu caráter. Sua lealdade. Sua responsabilidade. Sua força. Sua capacidade de continuar mesmo quando as coisas não estão fáceis.</p>
+        <p>Ao mesmo tempo, eu sei que ser forte o tempo inteiro cansa. E eu não quero que você ache que, comigo, precisa provar alguma coisa. Eu sei que você consegue enfrentar o mundo. Não tenho dúvida disso. Mas, às vezes, eu queria simplesmente colocar você num potinho e proteger você de tudo que existe lá fora.</p>
+        <p>Não porque eu ache que você é fraca. É justamente o contrário. Eu sei que você é forte. Só acho que alguém tão forte também merece ter um lugar onde não precise ser forte o tempo inteiro.</p>
+        <p>Eu queria ser esse lugar para você.</p>
+        <p>Quero ser alguém que te acalma quando sua cabeça estiver cheia. Alguém que cuide de você quando você estiver cansada. Alguém com quem você possa falar quando alguma coisa estiver dando errado. Alguém que fique feliz com você quando tudo estiver dando certo.</p>
+        <p>Porque eu quero ver você feliz. Quero ver você realizando seus sonhos. Quero ver você comemorando, dando aqueles gritos de alegria, sentindo orgulho de si mesma e percebendo que conseguiu aquilo que um dia parecia tão distante.</p>
+        <p>Eu acredito em você. De verdade.</p>
+        <p>E acho que isso também faz parte do que sinto por você. Eu não quero apenas ser amado por você. Eu quero conhecer a pessoa que você vai se tornar e continuar gostando dela. Quero estar por perto enquanto você cresce, muda, aprende, conquista e descobre novas coisas sobre si mesma.</p>
+        <p>Você virou uma parte bonita da minha vida. Uma daquelas partes que eu não quero tratar como se fossem garantidas. Eu quero continuar prestando atenção.</p>
+        <p>Porque quando você não conseguir enxergar em você tudo aquilo que eu vejo, eu quero continuar lembrando. Não para te convencer de que você é perfeita. Só para te lembrar que, aos meus olhos, você é muito mais do que às vezes consegue perceber.</p>
+        <p>Eu amo você de um jeito que vai além de achar você bonita ou gostar de estar perto. Eu amo quem você é. Respeito quem você é. Admiro quem você é. Desejo você, quero cuidar de você e quero ver você bem.</p>
+        <p>E existe uma parte meio egoísta minha nisso tudo. Eu quero continuar sendo a pessoa que recebe suas declarações mais bonitas. Quero continuar sendo seu namorado. Quero continuar sendo a pessoa que você escolhe. Não porque eu queira possuir alguma parte sua, mas porque eu gosto demais da ideia de ser escolhido por você.</p>
+        <p>Se algum dia existir outra vida depois dessa, eu não sei como ela seria. Mas acho bonito imaginar que, se eu tivesse a chance, ainda procuraria você.</p>
+        <p>Porque, depois de tudo que vivi com você até aqui, parece difícil imaginar que eu encontraria alguém que eu quisesse procurar tanto quanto procuro você.</p>
       </div>
-      <p class="closing-note">Essa parte ainda vai ganhar as palavras que são realmente nossas.</p>
       <button class="story-next" onclick="storyNext()">continuar <span>↓</span></button>
     </article>
 
     <!-- 07 — DAQUI PRA FRENTE / FINAL -->
-    <article class="story-page final-page" id="cap-07">
+    <article class="story-page final-page" id="cap-07" data-chapter="6">
       <div class="story-label">daqui pra frente</div>
-      <h2>Eu não sei exatamente<br>onde a vida vai levar a gente.</h2>
+      <h2>Eu não sei exatamente<br>como vai ser a nossa vida.</h2>
       <div class="final-copy">
-        <p>Mas sei que quero continuar descobrindo.</p>
-        <p>Quero mais dias comuns. Mais conversas. Mais fotos ruins. Mais histórias que só nós dois vamos entender.</p>
-        <p>Quero continuar escolhendo você.</p>
+        <p>Eu não sei exatamente como vai ser a nossa vida daqui a alguns anos.</p>
+        <p>E, pela primeira vez, acho que não preciso saber de tudo.</p>
+        <p>Porque quando penso no futuro, existe uma coisa que parece muito clara para mim.</p>
+        <p>Eu vejo nós dois.</p>
+        <p>Vejo a nossa casa.</p>
+        <p>A nossa bagunça.</p>
+        <p>As nossas coisas espalhadas pelos lugares.</p>
+        <p>Vejo a gente chegando em casa depois de um dia qualquer e tendo um ao outro para contar como foi.</p>
+        <p>Vejo os nossos filhos.</p>
+        <p>Vejo uma vida que ainda nem existe, mas que, quando penso nela, parece estranhamente familiar.</p>
+        <p>Talvez porque você já faça parte dela antes mesmo de ela acontecer.</p>
+        <p>Eu quero viajar o mundo com você.</p>
+        <p>Quero conhecer lugares que a gente ainda nem sabe pronunciar direito.</p>
+        <p>Quero tirar fotos em lugares que um dia vão virar lembranças.</p>
+        <p>Quero entrar em restaurantes aleatórios em cidades que nunca visitamos.</p>
+        <p>Quero me perder com você e depois provavelmente colocar a culpa em você quando a gente não souber voltar.</p>
+        <p>Quero ir ao estádio com você.</p>
+        <p>Quero ver o Athletico jogar do seu lado.</p>
+        <p>Quero viver as coisas grandes, mas também quero continuar vivendo essas coisas pequenas que hoje já significam tanto.</p>
+        <p>Quero morar com você.</p>
+        <p>Quero ter uma vida confortável.</p>
+        <p>Não porque eu precise de uma vida perfeita.</p>
+        <p>Só quero que a gente tenha tranquilidade para aproveitar a nossa.</p>
+        <p>Quero poder olhar para você e pensar que todo aquele esforço valeu a pena.</p>
+        <p>E, principalmente, quero continuar sendo alguém que faz você se sentir amada.</p>
+        <p>Eu sei que ainda tenho muito para aprender.</p>
+        <p>Ainda sou cabeça de vento.</p>
+        <p>Ainda demoro para perceber algumas coisas.</p>
+        <p>Ainda tenho dificuldade para falar tudo o que sinto.</p>
+        <p>Mas agora eu sei o que quero fazer com tudo isso.</p>
+        <p>Quero continuar aprendendo você.</p>
+        <p>Continuar prestando atenção nos detalhes.</p>
+        <p>Continuar lembrando das coisas que você fala.</p>
+        <p>Continuar tentando demonstrar mais.</p>
+        <p>Quero ser alguém em quem você possa confiar.</p>
+        <p>Alguém que você procure quando estiver feliz.</p>
+        <p>E também quando não estiver.</p>
+        <p>Quero ser seu lugar seguro sem nunca fazer você sentir que precisa deixar de ser quem é para estar comigo.</p>
+        <p>E tem uma coisa que eu acho que nunca quero perder.</p>
+        <p>Quero ser o seu amor jovem.</p>
+        <p>Mesmo quando a gente não for mais tão jovem assim.</p>
+        <p>Quero que, daqui a muitos anos, você ainda consiga olhar para mim e lembrar daquele menino que tremia inteiro tentando colocar uma aliança no seu dedo.</p>
+        <p>Quero que você ainda ria lembrando das pétalas no seu guarda-roupa.</p>
+        <p>Do ursão.</p>
+        <p>Do óculos caro de plástico.</p>
+        <p>Do Igor Bueno.</p>
+        <p>Do japonês.</p>
+        <p>De todas as coisas meio idiotas que fizeram a gente chegar até aqui.</p>
+        <p>Quero envelhecer sem deixar morrer a parte de nós que começou lá atrás.</p>
+        <p>Aquela que ria de qualquer besteira.</p>
+        <p>Que mandava TikTok um para o outro.</p>
+        <p>Que tentava pegar ursinho no shopping.</p>
+        <p>Que tirava foto em cabine.</p>
+        <p>Que ainda não sabia exatamente onde tudo aquilo ia chegar.</p>
+        <p>Porque talvez essa seja uma das coisas que mais gosto na nossa história.</p>
+        <p>A gente não sabia.</p>
+        <p>A gente só foi.</p>
+        <p>E olha onde estamos agora.</p>
+        <p>Eu comecei esse site porque sou melhor escrevendo do que falando.</p>
+        <p>Talvez, se eu tentasse te contar tudo isso olhando nos seus olhos, eu esquecesse metade.</p>
+        <p>Talvez eu ficasse nervoso.</p>
+        <p>Talvez falasse alguma besteira.</p>
+        <p>Provavelmente.</p>
+        <p>Mas escrevendo, eu consegui parar um pouco e colocar para fora coisas que normalmente ficam presas na minha cabeça.</p>
+        <p>E, se você chegou até aqui, então agora você sabe.</p>
+        <p>Sabe o que eu sinto.</p>
+        <p>Sabe o que eu lembro.</p>
+        <p>Sabe como eu te vejo.</p>
+        <p>E sabe o que eu quero.</p>
+        <p>Eu quero você na minha vida.</p>
+        <p>Na nossa casa.</p>
+        <p>Nas nossas viagens.</p>
+        <p>Nos nossos planos.</p>
+        <p>Nas nossas pequenas coisas.</p>
+        <p>Nos nossos dias bons.</p>
+        <p>Nos nossos dias difíceis.</p>
+        <p>Nas histórias que ainda não aconteceram.</p>
+        <p>Nos lugares que ainda não conhecemos.</p>
+        <p>E em todas aquelas memórias que ainda não existem, mas que um dia talvez a gente olhe para trás e lembre de como tudo começou.</p>
+        <p>Você foi minha amiga antes de ser minha namorada.</p>
+        <p>Foi alguém que eu não esperava encontrar.</p>
+        <p>Foi a menina que me achava um canalha.</p>
+        <p>Foi a pessoa que, sem perceber, me fez mudar a maneira como eu enxergava a vida.</p>
+        <p>E hoje é a pessoa que eu quero continuar escolhendo.</p>
+        <p>Então, se algum dia você esquecer o quanto é amada, volta aqui.</p>
+        <p>Lê tudo de novo.</p>
+        <p>E lembra que, em algum momento, um menino meio cabeça de vento decidiu que precisava escrever um site inteiro porque simplesmente não sabia falar tudo isso olhando para você.</p>
+        <p>E talvez essa seja a coisa mais simples que eu consiga te dizer depois de todas essas páginas:</p>
+        <p class="letter-final">eu escolheria você de novo.</p>
+        <p> E escolheria em todas as versões da nossa história.</p>
+        <p>Obrigado por ter chegado.</p>
+        <p>Obrigado por ter ficado.</p>
+        <p>Obrigado por ser você.</p>
       </div>
       <div class="final-signature">
         <span>23 · 05 · 2026</span>
-        <strong>feliz 3 meses, meu amor.</strong>
+        <strong>Eu te amo, minha princesa.</strong>
         <span>— Léo</span>
       </div>
       <button class="close" onclick="closeReveal()">voltar para a capa</button>
     </article>
-
-
 
 <script>
 let storyIndex = 0;
@@ -1875,8 +2129,7 @@ function openReveal(){
   story.classList.add("open");
   story.setAttribute("aria-hidden","false");
   document.body.style.overflow="hidden";
-  storyIndex = 0;
-  updateStoryProgress();
+  requestAnimationFrame(updateChapterIndex);
 }
 
 function closeReveal(){
@@ -1890,19 +2143,25 @@ function storyNext(){
   const pages = [...document.querySelectorAll(".story-page")];
   storyIndex = Math.min(storyIndex + 1, pages.length - 1);
   pages[storyIndex]?.scrollIntoView({behavior:"smooth", block:"start"});
-  setTimeout(updateStoryProgress,120);
+  setTimeout(updateChapterIndex,250);
 }
 
-function updateStoryProgress(){
+function updateChapterIndex(){
   const container=document.querySelector(".story-pages");
   const pages=[...document.querySelectorAll(".story-page")];
-  if(!container||!pages.length) return;
-  const center=container.scrollTop+container.clientHeight*.42;
-  let bestPage=pages[0],best=Infinity;
-  pages.forEach(page=>{const d=Math.abs((page.offsetTop+page.offsetHeight*.25)-center);if(d<best){best=d;bestPage=page;}});
-  storyIndex=pages.indexOf(bestPage);
-  const chapter=bestPage.dataset.chapter||"0";
-  document.querySelectorAll(".chapter-index a").forEach(a=>a.classList.toggle("active",a.dataset.chapter===chapter));
+  const links=[...document.querySelectorAll(".chapter-index a")];
+  if(!container||!pages.length||!links.length)return;
+  const marker=container.scrollTop+container.clientHeight*.35;
+  let best=pages[0],bestDistance=Infinity;
+  pages.forEach(page=>{
+    const chapter=page.dataset.chapter;
+    if(chapter==null)return;
+    const center=page.offsetTop+Math.min(page.offsetHeight,container.clientHeight)*.25;
+    const distance=Math.abs(center-marker);
+    if(distance<bestDistance){bestDistance=distance;best=page;}
+  });
+  const chapter=best.dataset.chapter||"0";
+  links.forEach(link=>link.classList.toggle("active",link.dataset.chapter===chapter));
 }
 </script>
 
@@ -1985,40 +2244,27 @@ document.querySelectorAll(".memories-page .memory-flip-card").forEach(function(c
 
 <script>
 (function(){
-  const nav = document.querySelector('.chapter-index');
-  const scroller = document.querySelector('.story-pages');
-  if (!nav || !scroller) return;
-
-  const links = [...nav.querySelectorAll('a')];
-  const pages = links
-    .map(a => document.getElementById(a.getAttribute('href').slice(1)))
-    .filter(Boolean);
-
-  function updateChapter(){
-    const marker = scroller.getBoundingClientRect().top + scroller.clientHeight * 0.32;
-    let active = 0;
-    pages.forEach((page, i) => {
-      if (page.getBoundingClientRect().top <= marker) active = i;
-    });
-    links.forEach((a,i) => a.classList.toggle('active', i === active));
-  }
-
-  scroller.addEventListener('scroll', updateChapter, {passive:true});
-  window.addEventListener('resize', updateChapter);
-  updateChapter();
-
-  links.forEach(a => {
-    a.addEventListener('click', function(e){
+  const nav=document.querySelector('.chapter-index');
+  const scroller=document.querySelector('.story-pages');
+  if(!nav||!scroller)return;
+  const links=[...nav.querySelectorAll('a')];
+  links.forEach(link=>{
+    link.addEventListener('click',function(e){
       e.preventDefault();
-      const target = document.getElementById(this.getAttribute('href').slice(1));
-      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+      const target=document.getElementById(this.getAttribute('href').slice(1));
+      if(target){target.scrollIntoView({behavior:'smooth',block:'start'});}
     });
   });
+  let ticking=false;
+  scroller.addEventListener('scroll',function(){
+    if(ticking)return;
+    ticking=true;
+    requestAnimationFrame(function(){updateChapterIndex();ticking=false;});
+  },{passive:true});
+  window.addEventListener('resize',updateChapterIndex);
+  setTimeout(updateChapterIndex,200);
 })();
 </script>
 
-<script>
-(function(){const c=document.querySelector(".story-pages");if(!c)return;let t=false;c.addEventListener("scroll",()=>{if(t)return;t=true;requestAnimationFrame(()=>{updateStoryProgress();t=false;});},{passive:true});setTimeout(updateStoryProgress,150);document.querySelectorAll(".chapter-index a").forEach(a=>a.addEventListener("click",()=>setTimeout(updateStoryProgress,120)));})();
-</script>
 </body>
 </html>
