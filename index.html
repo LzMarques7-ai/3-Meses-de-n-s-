@@ -1455,50 +1455,9 @@ h1 .script{
 }
 
 
-/* ---------- MUSIC GATE ---------- */
-.music-gate{
-  position:fixed; inset:0; z-index:100;
-  display:none; align-items:center; justify-content:center;
-  padding:28px 24px; box-sizing:border-box;
-  background:var(--ivory); text-align:center;
-}
-.music-gate.is-open{display:flex;animation:musicGateIn .55s ease both;}
-.music-gate-inner{width:min(100%,620px);display:flex;flex-direction:column;align-items:center;}
-.music-gate-kicker{color:var(--wine);font:600 11px/1.2 "DM Sans",sans-serif;letter-spacing:.28em;text-transform:uppercase;}
-.music-gate-rule{width:88px;height:1px;margin:25px 0 34px;background:rgba(137,77,86,.25);position:relative;}
-.music-gate-rule span{position:absolute;left:50%;top:50%;width:7px;height:7px;border-radius:50%;transform:translate(-50%,-50%);background:var(--wine);}
-.music-gate h2{margin:0;color:var(--wine);font:500 clamp(40px,8vw,72px)/.98 "Cormorant Garamond",Georgia,serif;letter-spacing:-.025em;}
-.music-gate p{margin:30px auto 34px;max-width:510px;color:var(--wine2);font:400 clamp(18px,3vw,24px)/1.45 "Cormorant Garamond",Georgia,serif;}
-.spotify-button{
-  display:inline-flex;align-items:center;gap:14px;min-height:50px;padding:0 27px;
-  box-sizing:border-box;border:1px solid rgba(137,77,86,.45);border-radius:999px;
-  color:var(--wine);background:transparent;text-decoration:none;
-  font:600 11px/1 "DM Sans",sans-serif;letter-spacing:.22em;text-transform:uppercase;
-  transition:background .25s ease,transform .25s ease;
-}
-.spotify-button:hover{background:rgba(137,77,86,.06);transform:translateY(-1px);}
-.spotify-button span{font-size:17px;line-height:1;letter-spacing:0;}
-.music-gate-note{margin-top:17px;color:rgba(137,77,86,.62);font:400 13px/1.4 "DM Sans",sans-serif;letter-spacing:.06em;}
-.music-continue{
-  margin-top:52px;border:0;background:none;color:var(--wine);
-  font:600 11px/1 "DM Sans",sans-serif;letter-spacing:.24em;text-transform:uppercase;
-  cursor:pointer;padding:12px;transition:opacity .25s ease,transform .25s ease;
-}
-.music-continue span{margin-left:10px;font-size:20px;vertical-align:-2px;letter-spacing:0;}
-.music-continue:disabled{opacity:.22;cursor:not-allowed;}
-.music-continue:not(:disabled):hover{transform:translateY(2px);}
-body.music-gate-open{overflow:hidden;}
-@keyframes musicGateIn{from{opacity:0}to{opacity:1}}
-@media(max-width:430px){
-  .music-gate{padding:24px 22px;}
-  .music-gate-rule{margin:21px 0 29px;}
-  .music-gate h2{font-size:48px;}
-  .music-gate p{font-size:19px;margin:25px auto 29px;}
-  .spotify-button{min-height:48px;padding:0 20px;font-size:10px;letter-spacing:.17em;}
-  .music-gate-note{font-size:11px;}
-  .music-continue{margin-top:42px;}
-}
-
+/* ---------- MUSIC GATE / SPOTIFY ---------- */
+.music-gate{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:28px 24px;box-sizing:border-box;background:#0b0b0b;color:#fff;text-align:center;}
+.music-gate.is-open{display:flex;animation:musicGateIn .55s ease both}.music-gate-inner{width:min(100%,620px);display:flex;flex-direction:column;align-items:center}.music-gate-kicker{color:#b8b8b8;font:600 10px/1.2 "DM Sans",sans-serif;letter-spacing:.28em;text-transform:uppercase}.music-gate-rule{width:76px;height:1px;margin:24px 0 32px;background:#292929;position:relative}.music-gate-rule span{position:absolute;left:50%;top:50%;width:6px;height:6px;border-radius:50%;transform:translate(-50%,-50%);background:#1ed760}.music-gate h2{margin:0;color:#fff;font:500 clamp(42px,8vw,70px)/.98 "Cormorant Garamond",Georgia,serif;letter-spacing:-.025em}.music-gate-intro{margin:25px auto 31px;max-width:480px;color:#bdbdbd;font:400 clamp(18px,3vw,23px)/1.45 "Cormorant Garamond",Georgia,serif}.spotify-button{display:inline-flex;align-items:center;gap:11px;min-height:50px;padding:0 23px;border:0;border-radius:999px;color:#0b0b0b;background:#1ed760;text-decoration:none;font:700 10px/1 "DM Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;transition:transform .22s ease,filter .22s ease}.spotify-button:hover{transform:translateY(-1px);filter:brightness(1.05)}.spotify-logo{font-size:18px;line-height:1}.spotify-arrow{font-size:16px;line-height:1}.dedications-toggle{margin-top:28px;border:0;background:none;color:#fff;padding:10px 12px;cursor:pointer;font:600 10px/1 "DM Sans",sans-serif;letter-spacing:.22em;text-transform:uppercase}.dedications-toggle span{color:#1ed760;margin-right:7px;font-size:15px}.dedications-toggle:hover{color:#1ed760}.dedications-panel{width:min(100%,500px);display:none;text-align:left;margin-top:12px;padding:4px 0 2px;max-height:min(45vh,420px);overflow:auto}.dedications-panel.is-open{display:block;animation:dedicationsIn .32s ease both}.dedications-heading{color:#fff;text-align:center;font:600 10px/1 "DM Sans",sans-serif;letter-spacing:.25em}.dedications-subtitle{margin:14px auto 23px;text-align:center;color:#8f8f8f;font:400 16px/1.4 "Cormorant Garamond",Georgia,serif}.song-list{border-top:1px solid #242424}.song-row{width:100%;min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 2px;border:0;border-bottom:1px solid #242424;background:none;color:#fff;text-align:left;cursor:pointer}.song-row span{display:flex;flex-direction:column;gap:5px}.song-row strong{font:600 10px/1.2 "DM Sans",sans-serif;letter-spacing:.13em}.song-row small{color:#777;font:400 12px/1.2 "DM Sans",sans-serif}.song-row b{color:#777;font:300 24px/1 "DM Sans",sans-serif;transition:transform .25s ease,color .25s ease}.song-row[aria-expanded="true"] b{transform:rotate(90deg);color:#1ed760}.song-quote{padding:0 25px 18px 2px;color:#d0d0d0;font:400 19px/1.45 "Cormorant Garamond",Georgia,serif;animation:quoteIn .3s ease both}.music-gate-note{margin-top:22px;color:#666;font:400 11px/1.4 "DM Sans",sans-serif;letter-spacing:.05em}.music-continue{margin-top:34px;border:0;background:none;color:#fff;padding:12px;font:600 10px/1 "DM Sans",sans-serif;letter-spacing:.24em;text-transform:uppercase;cursor:pointer}.music-continue span{margin-left:9px;color:#1ed760;font-size:18px}.music-continue:disabled{opacity:.22;cursor:not-allowed}.music-continue:not(:disabled):hover{transform:translateY(2px)}body.music-gate-open{overflow:hidden}@keyframes musicGateIn{from{opacity:0}to{opacity:1}}@keyframes dedicationsIn{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}@keyframes quoteIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}@media(max-width:430px){.music-gate{padding:22px 20px}.music-gate h2{font-size:48px}.music-gate-intro{font-size:19px}.spotify-button{min-height:48px;padding:0 19px;font-size:9px}.dedications-panel{max-height:42vh}.song-quote{font-size:17px}.music-continue{margin-top:27px}}
 </style>
 </head>
 
@@ -1563,16 +1522,23 @@ body.music-gate-open{overflow:hidden;}
     <div class="music-gate-kicker">ANTES DE CONTINUAR</div>
     <div class="music-gate-rule"><span></span></div>
     <h2>coloque seus fones.</h2>
-    <p>eu fiz isso para você ler com uma música tocando.<br>talvez essa história fique um pouco diferente assim.</p>
-    <a class="spotify-button"
-       href="https://open.spotify.com/playlist/3pvzmyTvK2EJVKcSrQpVzT"
-       target="_blank"
-       rel="noopener noreferrer"
-       onclick="unlockMusicGate()">ouvir a playlist <span>↗</span></a>
+    <p class="music-gate-intro">nossa história merece uma trilha sonora só nossa, minha princesa.</p>
+    <a class="spotify-button" id="spotifyButton" href="https://open.spotify.com/playlist/3pvzmyTvK2EJVKcSrQpVzT" target="_blank" rel="noopener noreferrer" onclick="unlockMusicGate()"><span class="spotify-logo" aria-hidden="true">●</span><span>ouvir a playlist</span><span class="spotify-arrow">↗</span></a>
+    <button class="dedications-toggle" id="dedicationsToggle" type="button" aria-expanded="false" aria-controls="dedicationsPanel"><span>♫</span> dedicacões</button>
+    <div class="dedications-panel" id="dedicationsPanel" aria-hidden="true">
+      <div class="dedications-heading">DEDICAÇÕES</div>
+      <p class="dedications-subtitle">algumas músicas dizem coisas que eu queria dizer.</p>
+      <div class="song-list">
+        <button class="song-row" type="button" data-song="1" aria-expanded="false"><span><strong>MÚSICA 01</strong><small>ARTISTA</small></span><b>›</b></button><div class="song-quote" data-quote="1" hidden>“trecho da música que eu escolhi para você.”</div>
+        <button class="song-row" type="button" data-song="2" aria-expanded="false"><span><strong>MÚSICA 02</strong><small>ARTISTA</small></span><b>›</b></button><div class="song-quote" data-quote="2" hidden>“trecho da música que eu escolhi para você.”</div>
+        <button class="song-row" type="button" data-song="3" aria-expanded="false"><span><strong>MÚSICA 03</strong><small>ARTISTA</small></span><b>›</b></button><div class="song-quote" data-quote="3" hidden>“trecho da música que eu escolhi para você.”</div>
+        <button class="song-row" type="button" data-song="4" aria-expanded="false"><span><strong>MÚSICA 04</strong><small>ARTISTA</small></span><b>›</b></button><div class="song-quote" data-quote="4" hidden>“trecho da música que eu escolhi para você.”</div>
+        <button class="song-row" type="button" data-song="5" aria-expanded="false"><span><strong>MÚSICA 05</strong><small>ARTISTA</small></span><b>›</b></button><div class="song-quote" data-quote="5" hidden>“trecho da música que eu escolhi para você.”</div>
+        
+      </div>
+    </div>
     <div class="music-gate-note">quando estiver ouvindo, volte para cá.</div>
-    <button class="music-continue" id="musicContinue" type="button" disabled onclick="enterStory()">
-      continuar <span>↓</span>
-    </button>
+    <button class="music-continue" id="musicContinue" type="button" disabled onclick="enterStory()">continuar <span>↓</span></button>
   </div>
 </section>
 
@@ -2199,5 +2165,8 @@ function enterStory(){
 }
 </script>
 
+<script>
+(function(){const t=document.getElementById('dedicationsToggle'),p=document.getElementById('dedicationsPanel');if(!t||!p)return;t.addEventListener('click',()=>{const o=p.classList.toggle('is-open');t.setAttribute('aria-expanded',o);p.setAttribute('aria-hidden',!o)});document.querySelectorAll('.song-row').forEach(r=>r.addEventListener('click',()=>{const id=r.dataset.song,q=document.querySelector('.song-quote[data-quote="'+id+'"]'),open=r.getAttribute('aria-expanded')==='true';document.querySelectorAll('.song-row').forEach(x=>x.setAttribute('aria-expanded','false'));document.querySelectorAll('.song-quote').forEach(x=>x.hidden=true);if(!open){r.setAttribute('aria-expanded','true');q.hidden=false}}));})();
+</script>
 </body>
 </html>
