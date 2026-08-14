@@ -2263,6 +2263,333 @@ h1 .script{
 }
 
 </style>
+
+<!-- =========================================================
+     DESIGN SYSTEM — DIÁRIO
+     Aplicado sobre a estrutura/conteúdo existente.
+     Não substitui páginas, textos, imagens ou JavaScript.
+     ========================================================= -->
+<style id="namoro-design-system">
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Reenie+Beanie&display=swap');
+
+:root{
+  --paper:#F8E9C5 !important;
+  --ink:#315A9E !important;
+  --love:#FCB9EE !important;
+  --feeling:#D1AAF9 !important;
+  --memory:#A8D7FF !important;
+  --spontaneous:#ADFFA5 !important;
+
+  --ivory:var(--paper) !important;
+  --cream:#F3E2B9 !important;
+  --wine:var(--ink) !important;
+  --wine2:var(--ink) !important;
+  --red:var(--ink) !important;
+  --rose:var(--love) !important;
+  --muted:var(--ink) !important;
+
+  --font-display:"Fredoka",sans-serif;
+  --font-body:"Lora",Georgia,serif;
+  --font-hand:"Reenie Beanie",cursive;
+  --font-ui:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+/* PAPEL LISO */
+html,body{
+  background:var(--paper)!important;
+  color:var(--ink)!important;
+}
+body{
+  font-family:var(--font-body)!important;
+  background:var(--paper)!important;
+}
+body::before{display:none!important}
+
+/* A história continua sendo uma sequência de rolagem. */
+.story{
+  background:var(--paper)!important;
+}
+.story-pages{
+  scroll-snap-type:y proximity!important;
+}
+.story-page{
+  background:var(--paper)!important;
+  padding-left:clamp(24px,6vw,44px)!important;
+  padding-right:clamp(24px,6vw,44px)!important;
+  justify-content:center!important;
+}
+
+/* TÍTULOS — Fredoka, cheio e cartoon */
+.cover h1,
+.story-page h2,
+.password-card h2,
+.music-gate h2{
+  font-family:var(--font-display)!important;
+  color:var(--ink)!important;
+  font-weight:600!important;
+  letter-spacing:-.035em!important;
+}
+.cover h1{
+  font-size:clamp(62px,17vw,118px)!important;
+  line-height:.9!important;
+  white-space:normal!important;
+}
+.cover h1 em{
+  font-family:var(--font-display)!important;
+  color:var(--ink)!important;
+  font-weight:600!important;
+  font-style:normal!important;
+  letter-spacing:-.04em!important;
+}
+.cover h1 .script{
+  font-family:var(--font-display)!important;
+  color:var(--ink)!important;
+  font-weight:600!important;
+  font-style:normal!important;
+  text-decoration-line:underline!important;
+  text-decoration-style:wavy!important;
+  text-decoration-color:var(--love)!important;
+  text-decoration-thickness:3px!important;
+  text-underline-offset:7px!important;
+}
+
+/* Corpo — Lora e prosa, não poema */
+.story-page p,
+.story-page .letter p,
+.story-page .final-copy p,
+.story-page .memory-note p,
+.story-page .page-intro,
+.story-page .closing-note{
+  font-family:var(--font-body)!important;
+  color:var(--ink)!important;
+  font-size:17px!important;
+  line-height:1.68!important;
+}
+.story-page .letter{
+  width:min(100%,680px)!important;
+  text-align:left!important;
+}
+.story-page .letter p{
+  margin-bottom:.78em!important;
+  text-indent:0!important;
+}
+.story-page .letter p:first-of-type{
+  text-indent:0!important;
+}
+.story-page .letter-final{
+  font-family:var(--font-body)!important;
+  color:var(--ink)!important;
+  font-weight:600!important;
+  font-size:18px!important;
+}
+
+/* Etiquetas / datas — manuscrito */
+.story-label,
+.eyebrow,
+.bottom,
+.kicker,
+.date,
+.memory-card-caption,
+.memory-polaroid-caption,
+.memory-note,
+.music-scene-kicker,
+.music-scene-artist,
+.music-kicker,
+.music-artist{
+  font-family:var(--font-hand)!important;
+  color:var(--ink)!important;
+  text-transform:none!important;
+  letter-spacing:.01em!important;
+}
+.story-label{
+  font-size:23px!important;
+  margin-bottom:22px!important;
+}
+.eyebrow{font-size:22px!important;letter-spacing:.02em!important}
+.bottom{font-size:22px!important}
+
+/* Data da capa circulada, como anotação real */
+.kicker{
+  width:auto!important;
+  min-height:auto!important;
+  padding:8px 17px!important;
+  border:1.5px solid var(--ink)!important;
+  border-radius:50%!important;
+  transform:rotate(-2deg)!important;
+  font-size:20px!important;
+  letter-spacing:.04em!important;
+  position:relative!important;
+  box-shadow:1px 1px 0 rgba(49,90,158,.12)!important;
+}
+.kicker::before,.kicker::after{display:none!important}
+
+/* Linhas irregulares */
+.rule{
+  width:86px!important;
+  height:2px!important;
+  margin:22px 0 19px!important;
+  background:var(--ink)!important;
+  opacity:.55!important;
+  transform:rotate(-1.3deg) skewX(-9deg)!important;
+  border-radius:50%!important;
+}
+.music-scene-line,
+.music-rule{
+  border-color:rgba(49,90,158,.28)!important;
+}
+.music-scene-line i,
+.music-rule i{
+  background:rgba(49,90,158,.28)!important;
+}
+
+/* Pequenos detalhes pastel, distribuídos por emoção */
+.story-page:nth-child(1) .story-label{color:var(--love)!important}
+.story-page:nth-child(2) .story-label{color:var(--feeling)!important}
+.story-page:nth-child(3) .story-label{color:var(--memory)!important}
+.story-page:nth-child(4) .story-label{color:var(--spontaneous)!important}
+.story-page:nth-child(5) .story-label{color:var(--love)!important}
+.story-page:nth-child(6) .story-label{color:var(--feeling)!important}
+.story-page:nth-child(7) .story-label{color:var(--memory)!important}
+.story-page:nth-child(8) .story-label{color:var(--spontaneous)!important}
+.story-page:nth-child(9) .story-label{color:var(--love)!important}
+.story-page:nth-child(10) .story-label{color:var(--feeling)!important}
+
+/* Títulos com pequenos acentos pastel, sem transformar a página em arco-íris */
+.story-page:nth-child(3n+1) h2{
+  text-decoration:underline;
+  text-decoration-color:rgba(252,185,238,.75);
+  text-decoration-thickness:4px;
+  text-underline-offset:8px;
+}
+.story-page:nth-child(3n+2) h2{
+  text-decoration:underline;
+  text-decoration-color:rgba(209,170,249,.72);
+  text-decoration-thickness:4px;
+  text-underline-offset:8px;
+}
+.story-page:nth-child(3n) h2{
+  text-decoration:underline;
+  text-decoration-color:rgba(168,215,255,.78);
+  text-decoration-thickness:4px;
+  text-underline-offset:8px;
+}
+
+/* Rabisco de “correção” — detalhe pequeno e propositalmente imperfeito */
+.cover .bottom{
+  position:relative!important;
+}
+.cover .bottom::after{
+  content:"não, espera...";
+  display:block;
+  margin:2px 0 0 38px;
+  font-family:var(--font-hand);
+  font-size:17px;
+  color:var(--ink);
+  opacity:.58;
+  text-decoration:line-through;
+  transform:rotate(-4deg);
+}
+
+/* Os botões internos “continuar” deixam de ocupar espaço.
+   A rolagem é a continuidade. */
+.story-next{
+  display:none!important;
+}
+
+/* Ações reais continuam existindo */
+.enter,
+.close,
+.password-button{
+  font-family:var(--font-ui)!important;
+}
+
+/* Botão da capa: discreto, mas com área de toque confortável */
+.enter{
+  border:1.5px solid var(--ink)!important;
+  border-radius:12px!important;
+  background:transparent!important;
+  color:var(--ink)!important;
+  padding:13px 22px!important;
+  font-size:12px!important;
+  letter-spacing:.08em!important;
+  transition:transform .18s ease,background .18s ease!important;
+}
+.enter:active{transform:scale(.98)!important;background:rgba(252,185,238,.25)!important}
+
+/* Fotos: objetos físicos sobre o papel */
+.memory-polaroid,
+.memory-card-front,
+.memory-card-back{
+  box-shadow:0 7px 18px rgba(49,90,158,.12)!important;
+}
+.memory-polaroid{
+  background:#fff!important;
+}
+.memory-card{
+  border-color:rgba(49,90,158,.20)!important;
+}
+
+/* Anotações das memórias */
+.memory-note{
+  font-size:21px!important;
+  line-height:1.25!important;
+}
+
+/* Spotify continua sendo outro universo */
+.music-gate,
+.music-gate *{
+  font-family:inherit;
+}
+.music-gate{
+  background:#050505!important;
+  color:#fff!important;
+}
+.music-gate h2,
+.music-gate .music-gate-intro,
+.music-gate .dedications-subtitle,
+.music-gate .song-quote{
+  color:inherit!important;
+}
+
+/* Não aplicar pastel ao Spotify */
+.music-gate .music-gate-kicker,
+.music-gate .spotify-button,
+.music-gate .dedications-toggle,
+.music-gate .music-continue{
+  /* identidade Spotify original preservada */
+}
+
+/* Acessibilidade */
+button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
+
+@media(max-width:600px){
+  .cover h1{
+    font-size:clamp(54px,16vw,86px)!important;
+  }
+  .story-page h2{
+    font-size:clamp(35px,9.5vw,58px)!important;
+  }
+  .story-page .letter p,
+  .story-page .final-copy p,
+  .story-page .memory-note p{
+    font-size:16.5px!important;
+    line-height:1.66!important;
+  }
+  .story-page{
+    padding-left:24px!important;
+    padding-right:24px!important;
+  }
+}
+</style>
+
 </head>
 
 <body>
