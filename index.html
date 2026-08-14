@@ -1730,6 +1730,76 @@ h1 .script{
   }
 }
 
+
+/* ---------- ICON REFINEMENT ---------- */
+.music-gate-lock,
+.continue-lock{
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  background:transparent;
+  box-sizing:border-box;
+}
+.music-gate-lock{
+  width:30px !important;
+  height:30px !important;
+  border:0 !important;
+  border-radius:0 !important;
+  color:#1ed760;
+}
+.continue-lock{
+  width:29px !important;
+  height:29px !important;
+  border:0 !important;
+  border-radius:0 !important;
+  color:#666;
+}
+.music-gate-lock svg,
+.continue-lock svg{
+  width:100%;
+  height:100%;
+  overflow:visible;
+}
+.music-gate-lock svg rect,
+.music-gate-lock svg path,
+.continue-lock svg rect,
+.continue-lock svg path{
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.65;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.music-gate-lock svg circle{
+  fill:currentColor;
+  stroke:none;
+}
+.music-gate-lock:before,
+.music-gate-lock:after,
+.continue-lock:before,
+.continue-lock:after{
+  content:none !important;
+}
+
+@media(max-width:600px){
+  .music-gate-rule .spotify-mark-top{
+    width:36px !important;
+    height:36px !important;
+  }
+  .music-gate-rule{
+    margin:18px 0 29px;
+  }
+  .music-gate-lock{
+    width:23px !important;
+    height:23px !important;
+  }
+  .continue-lock{
+    width:22px !important;
+    height:22px !important;
+  }
+}
+
 </style>
 </head>
 
@@ -1846,13 +1916,24 @@ h1 .script{
     </div>
 
     <div class="music-gate-note">
-      <span class="music-gate-lock" aria-hidden="true"></span>
+      <span class="music-gate-lock" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <rect x="5" y="10" width="14" height="11" rx="2.2"></rect>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+          <circle cx="12" cy="15.5" r="1"></circle>
+        </svg>
+      </span>
       <span>ouça a playlist para <em>desbloquear</em> o próximo passo.</span>
     </div>
 
     <button class="music-continue" id="musicContinue" type="button" disabled onclick="enterStory()">
       <span>CONTINUAR</span>
-      <span class="continue-lock" aria-hidden="true"></span>
+      <span class="continue-lock" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <rect x="5" y="10" width="14" height="11" rx="2.2"></rect>
+          <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+        </svg>
+      </span>
     </button>
   </div>
 </section>
