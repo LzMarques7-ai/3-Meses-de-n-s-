@@ -2708,25 +2708,41 @@ document.querySelectorAll(".memory-card").forEach(function(card){
 function openMusicGate(){
   const gate=document.getElementById("musicGate");
   if(!gate)return;
+
+  // Every new entry into this page starts locked.
+  const button=document.getElementById("musicContinue");
+  if(button){
+    button.disabled=true;
+    button.classList.remove("is-unlocked","unlock-pop");
+    button.setAttribute("aria-disabled","true");
+  }
+
   gate.classList.add("is-open");
   gate.setAttribute("aria-hidden","false");
   document.body.classList.add("music-gate-open");
-
-  // Once she has opened the playlist, remember it for this device.
-  // Returning to the site therefore keeps the next step unlocked.
-  let unlocked=false;
-  try{ unlocked=localStorage.getItem("namoroPlaylistUnlocked")==="true"; }catch(e){}
-  if(unlocked){
-    unlockMusicGate(true);
-  }
 }
+
+function unlockMusicGate(){
+  const button=document.getElementById("musicContinue");
+  if(!button)return;
+
+  // The playlist button is the only thing that unlocks the next step.
+  button.disabled=false;
+  button.classList.add("is-unlocked");
+  button.setAttribute("aria-disabled","false");
+
+  button.classList.remove("unlock-pop");
+  void button.offsetWidth;
+  button.classList.add("unlock-pop");
+}
+
 function unlockMusicGate(fromReturn){
   const button=document.getElementById("musicContinue");
   if(!button)return;
   button.disabled=false;
   button.classList.add("is-unlocked");
   button.setAttribute("aria-disabled","false");
-  try{ localStorage.setItem("namoroPlaylistUnlocked","true"); }catch(e){}
+  try{  }catch(e){}
   if(!fromReturn){
     button.classList.remove("unlock-pop");
     void button.offsetWidth;
