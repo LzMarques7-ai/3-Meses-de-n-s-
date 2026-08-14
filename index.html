@@ -1852,6 +1852,119 @@ h1 .script{
   100%{transform:scale(1)}
 }
 
+
+/* ---------- FINAL DETAIL: TOP MARK + MATCHED LOCKS ---------- */
+.music-gate-rule{
+  background:transparent !important;
+  position:relative;
+}
+.music-gate-rule::before,
+.music-gate-rule::after{
+  content:"";
+  position:absolute;
+  top:0;
+  width:58px;
+  height:1px;
+  background:#135b2c;
+}
+.music-gate-rule::before{left:0}
+.music-gate-rule::after{right:0}
+
+.music-gate-rule .spotify-mark-top{
+  width:27px !important;
+  height:27px !important;
+  z-index:2;
+}
+
+/* Both locks share the exact same SVG geometry. Only their state/color differs. */
+.music-gate-lock,
+.continue-lock{
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  width:27px !important;
+  height:27px !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-sizing:border-box;
+}
+.music-gate-lock svg,
+.continue-lock svg{
+  width:100%;
+  height:100%;
+  overflow:visible;
+}
+.music-gate-lock svg rect,
+.music-gate-lock svg path,
+.music-gate-lock svg circle,
+.continue-lock svg rect,
+.continue-lock svg path,
+.continue-lock svg circle{
+  vector-effect:non-scaling-stroke;
+}
+.music-gate-lock svg rect,
+.continue-lock svg rect{
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linejoin:round;
+}
+.music-gate-lock svg path,
+.continue-lock svg path{
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.music-gate-lock svg circle,
+.continue-lock svg circle{
+  fill:currentColor;
+  stroke:none;
+}
+
+/* The shackle is the only moving part: it swings sideways to unlock. */
+.music-gate-lock .lock-shackle,
+.continue-lock .lock-shackle{
+  transform-box:fill-box;
+  transform-origin:100% 100%;
+  transition:transform .48s cubic-bezier(.22,1,.36,1);
+}
+
+.music-continue.is-unlocked .continue-lock .lock-shackle{
+  transform:rotate(28deg) translate(1px,-1px);
+}
+
+.music-gate-lock:before,
+.music-gate-lock:after,
+.continue-lock:before,
+.continue-lock:after{
+  content:none !important;
+}
+
+@media(max-width:600px){
+  .music-gate-rule{
+    width:150px !important;
+    margin-top:18px !important;
+    margin-bottom:30px !important;
+  }
+  .music-gate-rule::before,
+  .music-gate-rule::after{
+    width:58px;
+  }
+  .music-gate-rule .spotify-mark-top{
+    width:25px !important;
+    height:25px !important;
+  }
+  .music-gate-lock,
+  .continue-lock{
+    width:25px !important;
+    height:25px !important;
+  }
+}
+
 </style>
 </head>
 
