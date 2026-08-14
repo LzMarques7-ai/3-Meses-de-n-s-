@@ -1800,6 +1800,58 @@ h1 .script{
   }
 }
 
+
+/* ---------- SPOTIFY MARK + LOCK FINAL PASS ---------- */
+@media(max-width:600px){
+  .music-gate-rule .spotify-mark-top{
+    width:30px !important;
+    height:30px !important;
+  }
+  .music-gate-rule{
+    margin-top:18px;
+    margin-bottom:30px;
+  }
+}
+
+.music-gate-lock svg,
+.continue-lock svg{
+  overflow:visible;
+}
+.music-gate-lock .lock-shackle,
+.continue-lock .lock-shackle{
+  transform-box:fill-box;
+  transform-origin:center bottom;
+  transition:transform .42s cubic-bezier(.22,1,.36,1), opacity .28s ease;
+}
+.music-gate-lock .lock-keyhole,
+.continue-lock .lock-keyhole{
+  transition:opacity .2s ease;
+}
+.music-continue.is-unlocked{
+  color:#1ed760 !important;
+  border-color:#1ed760 !important;
+  cursor:pointer;
+  box-shadow:0 0 24px rgba(30,215,96,.09);
+}
+.music-continue.is-unlocked .continue-lock{
+  color:#1ed760;
+}
+.music-continue.is-unlocked .continue-lock .lock-shackle{
+  transform:translateY(-2px) rotate(-22deg);
+  opacity:.95;
+}
+.music-continue.is-unlocked .continue-lock .lock-keyhole{
+  opacity:.85;
+}
+.music-continue.unlock-pop{
+  animation:unlockPop .6s cubic-bezier(.22,1,.36,1);
+}
+@keyframes unlockPop{
+  0%{transform:scale(1)}
+  45%{transform:scale(1.025)}
+  100%{transform:scale(1)}
+}
+
 </style>
 </head>
 
@@ -1918,9 +1970,9 @@ h1 .script{
     <div class="music-gate-note">
       <span class="music-gate-lock" aria-hidden="true">
         <svg viewBox="0 0 24 24" focusable="false">
-          <rect x="5" y="10" width="14" height="11" rx="2.2"></rect>
-          <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
-          <circle cx="12" cy="15.5" r="1"></circle>
+          <rect class="lock-body" x="5" y="10" width="14" height="11" rx="2.2"></rect>
+          <path class="lock-shackle" d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+          <circle class="lock-keyhole" cx="12" cy="15.5" r="1"></circle>
         </svg>
       </span>
       <span>ouça a playlist para <em>desbloquear</em> o próximo passo.</span>
@@ -1930,8 +1982,9 @@ h1 .script{
       <span>CONTINUAR</span>
       <span class="continue-lock" aria-hidden="true">
         <svg viewBox="0 0 24 24" focusable="false">
-          <rect x="5" y="10" width="14" height="11" rx="2.2"></rect>
-          <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+          <rect class="lock-body" x="5" y="10" width="14" height="11" rx="2.2"></rect>
+          <path class="lock-shackle" d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+          <circle class="lock-keyhole" cx="12" cy="15.5" r="1"></circle>
         </svg>
       </span>
     </button>
@@ -2545,10 +2598,27 @@ function openMusicGate(){
   gate.classList.add("is-open");
   gate.setAttribute("aria-hidden","false");
   document.body.classList.add("music-gate-open");
+
+  // Once she has opened the playlist, remember it for this device.
+  // Returning to the site therefore keeps the next step unlocked.
+  let unlocked=false;
+  try{ unlocked=localStorage.getItem("namoroPlaylistUnlocked")==="true"; }catch(e){}
+  if(unlocked){
+    unlockMusicGate(true);
+  }
 }
-function unlockMusicGate(){
+function unlockMusicGate(fromReturn){
   const button=document.getElementById("musicContinue");
-  if(button)button.disabled=false;
+  if(!button)return;
+  button.disabled=false;
+  button.classList.add("is-unlocked");
+  button.setAttribute("aria-disabled","false");
+  try{ localStorage.setItem("namoroPlaylistUnlocked","true"); }catch(e){}
+  if(!fromReturn){
+    button.classList.remove("unlock-pop");
+    void button.offsetWidth;
+    button.classList.add("unlock-pop");
+  }
 }
 function enterStory(){
   const gate=document.getElementById("musicGate");
