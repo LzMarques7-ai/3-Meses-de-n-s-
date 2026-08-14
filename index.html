@@ -1584,6 +1584,33 @@ h1 .script{
   .music-continue{margin-top:38px;font-size:13px}
 }
 
+
+/* ---------- MOBILE PROPORTION PASS ---------- */
+@media(max-width:600px){
+  .music-gate{align-items:flex-start;padding:0;overflow-y:auto}
+  .music-gate-inner{min-height:0;width:100%;padding:92px 28px 70px;box-sizing:border-box}
+  .music-gate-kicker{font-size:9px;letter-spacing:.27em}
+  .music-gate-rule{width:150px;margin:19px 0 28px}
+  .music-gate-rule .spotify-mark-top{width:48px;height:48px}
+  .music-gate h2{font-size:43px;line-height:.98}
+  .music-gate h2::after{width:10px;height:10px;margin:0 0 6px 5px}
+  .music-gate-intro{width:100%;max-width:360px;margin:20px auto 25px;font-size:18px;line-height:1.4}
+  .spotify-button,.dedications-toggle,.music-continue{
+    width:100%;max-width:360px;height:60px;min-height:60px;border-radius:32px
+  }
+  .spotify-button{gap:16px;font-size:9px;letter-spacing:.15em}
+  .spotify-mark-button{width:38px;height:38px;flex-basis:38px}
+  .dedications-toggle{margin-top:18px;gap:14px;border-width:2px;font-size:9px;letter-spacing:.17em}
+  .dedications-icon{font-size:29px}
+  .music-gate-note{margin-top:30px;gap:12px;font-size:12px;line-height:1.35}
+  .music-gate-lock{width:25px;height:21px;border:2px solid #1ed760;border-radius:4px}
+  .music-gate-lock:before{left:5px;top:-13px;width:11px;height:13px;border:2px solid #1ed760;border-bottom:0;border-radius:8px 8px 0 0}
+  .music-gate-lock:after{left:50%;top:8px;width:3px;height:6px;transform:translateX(-50%);border-radius:3px;background:#1ed760}
+  .music-continue{margin-top:30px;border-width:2px;font-size:9px;letter-spacing:.23em;gap:15px}
+  .continue-lock{width:23px;height:18px;border-width:2px;border-radius:4px}
+  .continue-lock:before{left:5px;top:-11px;width:9px;height:11px;border-width:2px;border-bottom:0;border-radius:7px 7px 0 0}
+}
+
 </style>
 </head>
 
