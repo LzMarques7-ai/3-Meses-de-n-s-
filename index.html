@@ -2771,7 +2771,6 @@ function openMusicGate(){
   const gate=document.getElementById("musicGate");
   if(!gate)return;
 
-  // Every entry starts locked. Only the playlist click unlocks it.
   const button=document.getElementById("musicContinue");
   if(button){
     button.disabled=true;
@@ -2779,10 +2778,17 @@ function openMusicGate(){
     button.setAttribute("aria-disabled","true");
   }
 
+  // Re-trigger the entrance animation every time this screen is opened.
+  gate.classList.remove("is-open");
+  void gate.offsetWidth;
   gate.classList.add("is-open");
   gate.setAttribute("aria-hidden","false");
   document.body.classList.add("music-gate-open");
+
+  // Remember only the current screen, never the unlock state.
+  try{ sessionStorage.setItem("namoroMusicGateOpen","true"); }catch(e){}
 }
+
 
 function unlockMusicGate(){
   const button=document.getElementById("musicContinue");
@@ -2798,19 +2804,7 @@ function unlockMusicGate(){
   button.classList.add("unlock-pop");
 }
 
-function unlockMusicGate(fromReturn){
-  const button=document.getElementById("musicContinue");
-  if(!button)return;
-  button.disabled=false;
-  button.classList.add("is-unlocked");
-  button.setAttribute("aria-disabled","false");
-  try{  }catch(e){}
-  if(!fromReturn){
-    button.classList.remove("unlock-pop");
-    void button.offsetWidth;
-    button.classList.add("unlock-pop");
-  }
-}
+
 function enterStory(){
   const gate=document.getElementById("musicGate");
   if(gate){
@@ -2818,6 +2812,7 @@ function enterStory(){
     gate.setAttribute("aria-hidden","true");
   }
   document.body.classList.remove("music-gate-open");
+  try{ sessionStorage.removeItem("namoroMusicGateOpen"); }catch(e){}
   openReveal();
 }
 </script>
@@ -2825,5 +2820,16 @@ function enterStory(){
 <script>
 (function(){const t=document.getElementById('dedicationsToggle'),p=document.getElementById('dedicationsPanel');if(!t||!p)return;t.addEventListener('click',()=>{const o=p.classList.toggle('is-open');t.setAttribute('aria-expanded',o);p.setAttribute('aria-hidden',!o)});document.querySelectorAll('.song-row').forEach(r=>r.addEventListener('click',()=>{const id=r.dataset.song,q=document.querySelector('.song-quote[data-quote="'+id+'"]'),open=r.getAttribute('aria-expanded')==='true';document.querySelectorAll('.song-row').forEach(x=>x.setAttribute('aria-expanded','false'));document.querySelectorAll('.song-quote').forEach(x=>x.hidden=true);if(!open){r.setAttribute('aria-expanded','true');q.hidden=false}}));})();
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  let restore=false;
+  try{ restore=sessionStorage.getItem("namoroMusicGateOpen")==="true"; }catch(e){}
+  if(restore){
+    setTimeout(function(){ openMusicGate(); }, 0);
+  }
+});
+</script>
+
 </body>
 </html>
