@@ -2027,6 +2027,33 @@ h1 .script{
   }
 }
 
+
+/* ---------- MYSTERY DEDICATIONS ---------- */
+.dedications-toggle.mystery-toggle:disabled{
+  opacity:1;
+  cursor:not-allowed;
+  background:transparent;
+  border-color:#1ed760;
+  color:#1ed760;
+}
+.dedications-toggle.mystery-toggle .dedications-icon{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:30px;
+  line-height:1;
+  margin:0;
+}
+.dedications-toggle.mystery-toggle span:last-child{
+  font-size:0;
+}
+.dedications-toggle.mystery-toggle span:last-child::after{
+  content:"?";
+  font:600 11px/1 "DM Sans",sans-serif;
+  letter-spacing:.18em;
+}
+@media(max-width:600px){
+  .dedications-toggle.mystery-toggle .dedications-icon{font-size:27px}
+}
+
 </style>
 </head>
 
@@ -2119,15 +2146,15 @@ h1 .script{
       <span>OUVIR A PLAYLIST</span>
     </a>
 
-    <button class="dedications-toggle" id="dedicationsToggle" type="button"
-            aria-expanded="false" aria-controls="dedicationsPanel">
-      <span class="dedications-icon" aria-hidden="true">♫</span>
-      <span>DEDICAÇÕES</span>
+    <button class="dedications-toggle mystery-toggle" id="dedicationsToggle"
+            type="button" aria-expanded="false" aria-controls="dedicationsPanel" disabled>
+      <span class="dedications-icon" aria-hidden="true">?</span>
+      <span>?</span>
     </button>
 
     <div class="dedications-panel" id="dedicationsPanel" aria-hidden="true">
       <div class="dedications-heading">DEDICAÇÕES</div>
-      <p class="dedications-subtitle">algumas músicas dizem coisas que eu queria dizer.</p>
+      <p class="dedications-subtitle" data-final-copy="agora saiba que cada música me faz lembrar de ti, meu amor.">antes de descobrir o que preparei, sinta o amor que existe em cada detalhe.</p>
       <div class="song-list">
         <button class="song-row" type="button" data-song="1" aria-expanded="false"><span><strong>MÚSICA 01</strong><small>ARTISTA</small></span><b>›</b></button>
         <div class="song-quote" data-quote="1" hidden>“trecho da música que eu escolhi para você.”</div>
