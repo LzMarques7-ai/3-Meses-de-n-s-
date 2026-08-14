@@ -1965,6 +1965,68 @@ h1 .script{
   }
 }
 
+
+/* ---------- TOP SPOTIFY LINE REFINEMENT ---------- */
+.music-gate-rule{
+  width:260px !important;
+  height:1px !important;
+  background:transparent !important;
+  position:relative;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.music-gate-rule::before,
+.music-gate-rule::after{
+  content:"";
+  position:absolute;
+  top:0;
+  height:1px;
+  background:#1b6335;
+}
+.music-gate-rule::before{
+  left:0;
+  width:108px;
+}
+.music-gate-rule::after{
+  right:0;
+  width:108px;
+}
+.music-gate-rule .spotify-mark-top{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:25px !important;
+  height:25px !important;
+  z-index:2;
+}
+
+@media(max-width:600px){
+  .music-gate-rule{
+    width:230px !important;
+    margin-top:18px !important;
+    margin-bottom:31px !important;
+  }
+  .music-gate-rule::before,
+  .music-gate-rule::after{
+    width:96px;
+  }
+  .music-gate-rule .spotify-mark-top{
+    width:25px !important;
+    height:25px !important;
+  }
+
+  /* Always enter this gate visually locked. */
+  .music-continue{
+    color:#777 !important;
+    border-color:#0c5b2d !important;
+    box-shadow:none !important;
+  }
+  .music-continue:not(.is-unlocked){
+    pointer-events:none;
+  }
+}
+
 </style>
 </head>
 
@@ -2709,7 +2771,7 @@ function openMusicGate(){
   const gate=document.getElementById("musicGate");
   if(!gate)return;
 
-  // Every new entry into this page starts locked.
+  // Every entry starts locked. Only the playlist click unlocks it.
   const button=document.getElementById("musicContinue");
   if(button){
     button.disabled=true;
