@@ -2141,6 +2141,79 @@ h1 .script{
   display:none !important;
 }
 
+
+/* ---------- MYSTERY HINT ---------- */
+.mystery-hint{
+  margin:10px auto 0;
+  max-width:350px;
+  text-align:center;
+  color:rgba(255,255,255,.38);
+  font:400 10px/1.55 "DM Sans",sans-serif;
+  letter-spacing:.08em;
+  text-transform:lowercase;
+}
+
+/* ---------- FINAL RETURN ---------- */
+.final-return{
+  position:relative;
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  width:min(350px,100%);
+  min-height:58px;
+  margin:34px auto 0;
+  padding:0 24px;
+  border:1px solid rgba(30,215,96,.42);
+  border-radius:32px;
+  background:rgba(30,215,96,.035);
+  color:#1ed760;
+  cursor:pointer;
+  font:600 10px/1 "DM Sans",sans-serif;
+  letter-spacing:.20em;
+  text-transform:uppercase;
+  transition:
+    transform .28s cubic-bezier(.22,1,.36,1),
+    border-color .28s ease,
+    background .28s ease,
+    box-shadow .28s ease;
+}
+.final-return:hover{
+  transform:translateY(-2px);
+  border-color:#1ed760;
+  background:rgba(30,215,96,.075);
+  box-shadow:0 8px 28px rgba(30,215,96,.08);
+}
+.final-return:active{
+  transform:scale(.985);
+}
+.final-return-arrow{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:25px;
+  height:25px;
+  border:1px solid rgba(30,215,96,.55);
+  border-radius:50%;
+  font-size:14px;
+  letter-spacing:0;
+  line-height:1;
+  transition:transform .28s ease,background .28s ease;
+}
+.final-return:hover .final-return-arrow{
+  transform:translate(2px,-2px);
+  background:rgba(30,215,96,.10);
+}
+
+/* Once unlocked, the mystery hint disappears because its purpose is complete. */
+.dedications-toggle.is-revealed + .mystery-hint{
+  opacity:0;
+  height:0;
+  margin:0;
+  overflow:hidden;
+  transition:opacity .25s ease,height .25s ease,margin .25s ease;
+}
+
 </style>
 </head>
 
@@ -2237,6 +2310,9 @@ h1 .script{
             type="button" aria-expanded="false" aria-controls="dedicationsPanel" disabled>
       <span class="dedications-icon" aria-hidden="true">?</span>
     </button>
+    <p class="mystery-hint" id="mysteryHint">
+      reveja a história para liberar. depois, volte aqui.
+    </p>
 
     <div class="dedications-panel" id="dedicationsPanel" aria-hidden="true">
       <div class="dedications-heading">DEDICAÇÕES</div>
@@ -2717,7 +2793,10 @@ h1 .script{
         <span>— Léo</span>
       </div>
 
-      <button class="close" onclick="closeReveal()">voltar para a capa</button>
+      <button class="close final-return" onclick="closeReveal()" type="button">
+  <span>VOLTAR À CAPA</span>
+  <span class="final-return-arrow" aria-hidden="true">↗</span>
+</button>
     </article>
 
 </div>
@@ -2742,7 +2821,6 @@ function closeReveal(){
   document.body.style.overflow="";
 
   // Reaching the end and returning to the cover reveals the dedication.
-  try{ sessionStorage.setItem("namoroStoryCompleted","true"); }catch(e){}
   unlockLobbyDedications();
 }
 
@@ -2879,14 +2957,6 @@ function openMusicGate(){
   gate.classList.add("is-open");
   gate.setAttribute("aria-hidden","false");
   document.body.classList.add("music-gate-open");
-  try{
-    if(sessionStorage.getItem("namoroStoryCompleted")==="true"){
-      unlockLobbyDedications();
-    }
-  }catch(e){}
-
-  // Remember only the current screen, never the unlock state.
-  try{ sessionStorage.setItem("namoroMusicGateOpen","true"); }catch(e){}
 }
 
 
@@ -2944,16 +3014,6 @@ function unlockLobbyDedications(){
 
 <script>
 (function(){const t=document.getElementById('dedicationsToggle'),p=document.getElementById('dedicationsPanel');if(!t||!p)return;t.addEventListener('click',()=>{const o=p.classList.toggle('is-open');t.setAttribute('aria-expanded',o);p.setAttribute('aria-hidden',!o)});document.querySelectorAll('.song-row').forEach(r=>r.addEventListener('click',()=>{const id=r.dataset.song,q=document.querySelector('.song-quote[data-quote="'+id+'"]'),open=r.getAttribute('aria-expanded')==='true';document.querySelectorAll('.song-row').forEach(x=>x.setAttribute('aria-expanded','false'));document.querySelectorAll('.song-quote').forEach(x=>x.hidden=true);if(!open){r.setAttribute('aria-expanded','true');q.hidden=false}}));})();
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded",function(){
-  let restore=false;
-  try{ restore=sessionStorage.getItem("namoroMusicGateOpen")==="true"; }catch(e){}
-  if(restore){
-    setTimeout(function(){ openMusicGate(); }, 0);
-  }
-});
 </script>
 
 </body>
