@@ -1545,7 +1545,7 @@ h1 .script{
   cursor:not-allowed;font:600 10px/1 "DM Sans",sans-serif;letter-spacing:.30em;text-transform:uppercase;
   transition:all .25s ease;
 }
-.music-continue:disabled{opacity:.9}
+.music-continue:{opacity:.9}
 .continue-lock{
   width:39px;height:31px;display:block;position:relative;border:3px solid #666;border-radius:6px;box-sizing:border-box;
 }
@@ -2082,6 +2082,65 @@ h1 .script{
   pointer-events:auto;
 }
 
+
+/* ---------- NORMAL CONTINUE BUTTON ---------- */
+.music-continue{
+  color:#1ed760 !important;
+  border-color:#1ed760 !important;
+  opacity:1 !important;
+  cursor:pointer !important;
+  pointer-events:auto !important;
+  box-shadow:0 0 20px rgba(30,215,96,.08) !important;
+}
+.music-continue .continue-lock{
+  display:none !important;
+}
+
+/* Keep the mystery button intentionally subdued while locked. */
+.dedications-toggle.mystery-toggle:disabled{
+  opacity:1 !important;
+  background:rgba(255,255,255,.008) !important;
+  border-color:rgba(30,215,96,.18) !important;
+  color:rgba(30,215,96,.28) !important;
+  box-shadow:none !important;
+}
+
+
+.dedications-toggle.is-revealed{
+  color:#1ed760 !important;
+  border-color:#1ed760 !important;
+  opacity:1 !important;
+  cursor:pointer !important;
+  box-shadow:0 0 20px rgba(30,215,96,.08) !important;
+}
+.dedications-toggle.is-revealed .dedications-icon{
+  font-family:inherit;
+  font-size:25px;
+}
+.dedications-toggle.reveal-pop{
+  animation:dedicationReveal .65s cubic-bezier(.22,1,.36,1);
+}
+@keyframes dedicationReveal{
+  0%{transform:scale(.98);opacity:.55}
+  55%{transform:scale(1.025);opacity:1}
+  100%{transform:scale(1);opacity:1}
+}
+
+
+/* ---------- CLEAN NORMAL CONTINUE ---------- */
+.music-continue{
+  color:#1ed760 !important;
+  border-color:#1ed760 !important;
+  opacity:1 !important;
+  cursor:pointer !important;
+  pointer-events:auto !important;
+  box-shadow:0 0 20px rgba(30,215,96,.08) !important;
+}
+.music-continue .continue-lock,
+.music-gate-note{
+  display:none !important;
+}
+
 </style>
 </head>
 
@@ -2195,19 +2254,7 @@ h1 .script{
         <div class="song-quote" data-quote="5" hidden>“trecho da música que eu escolhi para você.”</div>
       </div>
     </div>
-
-    <div class="music-gate-note">
-      <span class="music-gate-lock" aria-hidden="true">
-        <svg viewBox="0 0 24 24" focusable="false">
-          <rect class="lock-body" x="5" y="10" width="14" height="11" rx="2.2"></rect>
-          <path class="lock-shackle" d="M8 10V7a4 4 0 0 1 8 0v3"></path>
-          <circle class="lock-keyhole" cx="12" cy="15.5" r="1"></circle>
-        </svg>
-      </span>
-      <span>ouça a playlist para <em>desbloquear</em> o próximo passo.</span>
-    </div>
-
-    <button class="music-continue" id="musicContinue" type="button" disabled onclick="enterStory()"><span>CONTINUAR</span></button>
+<button class="music-continue" id="musicContinue" type="button" onclick="enterStory()"><span>CONTINUAR</span></button>
   </div>
 </section>
 
@@ -2693,6 +2740,10 @@ function closeReveal(){
   story.classList.remove("open");
   story.setAttribute("aria-hidden","true");
   document.body.style.overflow="";
+
+  // Reaching the end and returning to the cover reveals the dedication.
+  try{ sessionStorage.setItem("namoroStoryCompleted","true"); }catch(e){}
+  unlockLobbyDedications();
 }
 
 function storyNext(){
@@ -2819,7 +2870,6 @@ function openMusicGate(){
   const button=document.getElementById("musicContinue");
   if(button){
     button.disabled=false;
-    button.classList.remove("is-unlocked","unlock-pop");
     button.setAttribute("aria-disabled","false");
   }
 
@@ -2829,6 +2879,11 @@ function openMusicGate(){
   gate.classList.add("is-open");
   gate.setAttribute("aria-hidden","false");
   document.body.classList.add("music-gate-open");
+  try{
+    if(sessionStorage.getItem("namoroStoryCompleted")==="true"){
+      unlockLobbyDedications();
+    }
+  }catch(e){}
 
   // Remember only the current screen, never the unlock state.
   try{ sessionStorage.setItem("namoroMusicGateOpen","true"); }catch(e){}
@@ -2859,6 +2914,31 @@ function enterStory(){
   document.body.classList.remove("music-gate-open");
   try{ sessionStorage.removeItem("namoroMusicGateOpen"); }catch(e){}
   openReveal();
+}
+
+function unlockLobbyDedications(){
+  const button=document.getElementById("dedicationsToggle");
+  if(!button)return;
+  button.disabled=false;
+  button.classList.remove("mystery-toggle");
+  button.classList.add("is-revealed");
+  button.setAttribute("aria-disabled","false");
+
+  const icon=button.querySelector(".dedications-icon");
+  if(icon) icon.textContent="♫";
+
+  const label=button.querySelector("span:last-child");
+  if(label) label.textContent="DEDICAÇÕES";
+
+  const subtitle=document.querySelector(".dedications-subtitle");
+  if(subtitle){
+    const finalCopy=subtitle.getAttribute("data-final-copy");
+    if(finalCopy) subtitle.textContent=finalCopy;
+  }
+
+  button.classList.remove("reveal-pop");
+  void button.offsetWidth;
+  button.classList.add("reveal-pop");
 }
 </script>
 
