@@ -2214,6 +2214,54 @@ h1 .script{
   transition:opacity .25s ease,height .25s ease,margin .25s ease;
 }
 
+
+/* ---------- RETURN TO SOUNDTRACK ---------- */
+.final-return{
+  position:relative;
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  gap:13px;
+  width:min(350px,100%);
+  min-height:58px;
+  margin:34px auto 0;
+  padding:0 24px;
+  border:1px solid rgba(30,215,96,.42);
+  border-radius:32px;
+  background:rgba(30,215,96,.035);
+  color:#1ed760;
+  cursor:pointer;
+  font:600 10px/1 "DM Sans",sans-serif;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  transition:
+    transform .28s cubic-bezier(.22,1,.36,1),
+    border-color .28s ease,
+    background .28s ease,
+    box-shadow .28s ease;
+}
+.final-return:hover{
+  transform:translateY(-2px);
+  border-color:#1ed760;
+  background:rgba(30,215,96,.075);
+  box-shadow:0 8px 28px rgba(30,215,96,.08);
+}
+.final-return:active{
+  transform:scale(.985);
+}
+.final-return-spotify{
+  width:23px;
+  height:23px;
+  flex:0 0 23px;
+  display:inline-flex;
+  color:#1ed760;
+}
+.final-return-spotify svg{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
 </style>
 </head>
 
@@ -2794,8 +2842,14 @@ h1 .script{
       </div>
 
       <button class="close final-return" onclick="closeReveal()" type="button">
-  <span>VOLTAR À CAPA</span>
-  <span class="final-return-arrow" aria-hidden="true">↗</span>
+  <span class="final-return-spotify" aria-hidden="true">
+    <svg viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="12" fill="currentColor"/>
+      <path d="M7 9.2c3.3-1 6.9-.7 9.9.8M7.7 12.1c2.7-.8 5.7-.5 8.1.7M8.5 14.9c2.1-.5 4.3-.3 6 .4"
+            fill="none" stroke="#050505" stroke-width="1.55" stroke-linecap="round"/>
+    </svg>
+  </span>
+  <span>VOLTAR À TRILHA SONORA</span>
 </button>
     </article>
 
@@ -2820,8 +2874,13 @@ function closeReveal(){
   story.setAttribute("aria-hidden","true");
   document.body.style.overflow="";
 
-  // Reaching the end and returning to the cover reveals the dedication.
+  // Ao terminar a história, as dedicatórias são liberadas
+  // e a pessoa volta para a tela da trilha sonora.
   unlockLobbyDedications();
+
+  window.setTimeout(function(){
+    openMusicGate();
+  }, 80);
 }
 
 function storyNext(){
