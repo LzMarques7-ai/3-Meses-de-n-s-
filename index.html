@@ -2054,6 +2054,34 @@ h1 .script{
   .dedications-toggle.mystery-toggle .dedications-icon{font-size:27px}
 }
 
+
+/* FINAL LOBBY FLOW */
+.dedications-toggle.mystery-toggle:disabled{
+  opacity:1 !important;
+  cursor:not-allowed;
+  background:rgba(255,255,255,.008) !important;
+  border-color:rgba(30,215,96,.18) !important;
+  color:rgba(30,215,96,.28) !important;
+  box-shadow:none !important;
+}
+.dedications-toggle.mystery-toggle .dedications-icon{
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:28px;
+  line-height:1;
+  margin:0;
+}
+.music-continue{
+  color:#777 !important;
+  border-color:rgba(30,215,96,.25) !important;
+  box-shadow:none !important;
+}
+.music-continue .continue-lock{
+  display:none !important;
+}
+.music-continue:not(.is-unlocked){
+  pointer-events:auto;
+}
+
 </style>
 </head>
 
@@ -2149,7 +2177,6 @@ h1 .script{
     <button class="dedications-toggle mystery-toggle" id="dedicationsToggle"
             type="button" aria-expanded="false" aria-controls="dedicationsPanel" disabled>
       <span class="dedications-icon" aria-hidden="true">?</span>
-      <span>?</span>
     </button>
 
     <div class="dedications-panel" id="dedicationsPanel" aria-hidden="true">
@@ -2180,16 +2207,7 @@ h1 .script{
       <span>ouça a playlist para <em>desbloquear</em> o próximo passo.</span>
     </div>
 
-    <button class="music-continue" id="musicContinue" type="button" disabled onclick="enterStory()">
-      <span>CONTINUAR</span>
-      <span class="continue-lock" aria-hidden="true">
-        <svg viewBox="0 0 24 24" focusable="false">
-          <rect class="lock-body" x="5" y="10" width="14" height="11" rx="2.2"></rect>
-          <path class="lock-shackle" d="M8 10V7a4 4 0 0 1 8 0v3"></path>
-          <circle class="lock-keyhole" cx="12" cy="15.5" r="1"></circle>
-        </svg>
-      </span>
-    </button>
+    <button class="music-continue" id="musicContinue" type="button" disabled onclick="enterStory()"><span>CONTINUAR</span></button>
   </div>
 </section>
 
@@ -2800,9 +2818,9 @@ function openMusicGate(){
 
   const button=document.getElementById("musicContinue");
   if(button){
-    button.disabled=true;
+    button.disabled=false;
     button.classList.remove("is-unlocked","unlock-pop");
-    button.setAttribute("aria-disabled","true");
+    button.setAttribute("aria-disabled","false");
   }
 
   // Re-trigger the entrance animation every time this screen is opened.
