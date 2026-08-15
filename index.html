@@ -5253,3 +5253,230 @@ textarea{
   }
 }
 </style>
+
+<style id="capa-final-composicao-real">
+/* =========================================================
+   CAPA — ESTADO VISUAL CORRETO
+   Baseado no código atual + referência visual do usuário.
+   Não alterar outras páginas.
+   ========================================================= */
+
+/* 1. A capa deve começar abaixo da área do sistema.
+   O problema das últimas versões era o kicker ficar atrás
+   da Dynamic Island. Não mexer em scroll/JS: apenas compor
+   a seção corretamente. */
+.story-page-02{
+  position:relative!important;
+  min-height:100svh!important;
+  height:auto!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  overflow:visible!important;
+  padding:145px 20px 28px!important;
+  background:#FAFAFA!important;
+}
+
+/* 2. Manuscrito: exatamente a linguagem delicada da assinatura. */
+.story-page-02 .story-kicker{
+  order:1!important;
+  position:relative!important;
+  margin:0!important;
+  padding:0!important;
+  color:#111111!important;
+  font-family:"Reenie Beanie",cursive!important;
+  font-size:21px!important;
+  font-weight:400!important;
+  line-height:1.05!important;
+  letter-spacing:.005em!important;
+  text-transform:none!important;
+  white-space:nowrap!important;
+}
+
+/* Sem linhas laterais no manuscrito: deixa a capa limpa. */
+.story-page-02 .story-kicker::before,
+.story-page-02 .story-kicker::after{
+  display:none!important;
+}
+
+/* 3. Título continua grande e pesado.
+   Preto, com apenas “sim” em vinho. */
+.story-page-02 .story-chapter-title{
+  order:2!important;
+  width:100%!important;
+  margin:18px 0 0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+}
+
+.story-page-02 .story-title-main{
+  color:#111111!important;
+  font-family:"Fredoka",sans-serif!important;
+  font-size:17.5vw!important;
+  line-height:.84!important;
+  font-weight:700!important;
+  letter-spacing:-.035em!important;
+}
+
+.story-page-02 .story-title-sub{
+  color:#111111!important;
+  font-family:"Fredoka",sans-serif!important;
+  font-size:10vw!important;
+  line-height:.90!important;
+  font-weight:700!important;
+  letter-spacing:-.025em!important;
+  white-space:nowrap!important;
+}
+
+.story-page-02 .story-sim{
+  color:#A51A41!important;
+  font-weight:700!important;
+}
+
+.story-page-02 .story-sim::after{
+  background:#A51A41!important;
+  height:3px!important;
+}
+
+/* 4. Ilustração: mesma composição já aprovada. */
+.story-page-02 .story-illustration-wrap{
+  order:3!important;
+  width:min(82vw,500px)!important;
+  height:min(41svh,410px)!important;
+  margin:18px auto 0!important;
+  transform:translateX(1.5%)!important;
+  overflow:visible!important;
+}
+
+.story-page-02 .story-illustration-wrap #couple{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+
+/* Sol e lua permanecem na diagonal aprovada. */
+.story-page-02 .story-sun{
+  left:-7%!important;
+  top:70%!important;
+  right:auto!important;
+  bottom:auto!important;
+}
+
+.story-page-02 .story-moon{
+  right:4%!important;
+  top:7%!important;
+  left:auto!important;
+  bottom:auto!important;
+}
+
+/* 5. Data. */
+.story-page-02 .story-date{
+  order:4!important;
+  margin:10px 0 0!important;
+  color:#A51A41!important;
+}
+
+/* 6. Texto: UM único parágrafo, sem decoração e sem
+   espaçamento de “dois blocos”. */
+.story-page-02 .story-body{
+  order:5!important;
+  width:min(84vw,560px)!important;
+  margin:30px auto 0!important;
+  padding:0!important;
+  text-align:center!important;
+}
+
+.story-page-02 .story-body::before,
+.story-page-02 .story-body::after{
+  display:none!important;
+}
+
+.story-page-02 .story-body p{
+  margin:0 auto!important;
+  max-width:520px!important;
+  color:#111111!important;
+  font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+  font-size:18px!important;
+  font-weight:400!important;
+  line-height:1.48!important;
+  letter-spacing:.005em!important;
+  text-align:center!important;
+}
+
+.story-page-02 .story-body p + p{
+  margin-top:0!important;
+}
+
+/* 7. Botão mantém exatamente o padrão de interface já definido. */
+.story-page-02 .story-next,
+.story-page-02 .enter{
+  order:6!important;
+  margin-top:32px!important;
+}
+
+/* 8. Assinatura: delicada e mais abaixo do botão, aproveitando
+   o espaço inferior sem empurrar a capa inteira. */
+.story-page-02 .story-signature{
+  order:7!important;
+  margin:48px 0 28px!important;
+  color:#111111!important;
+  font-family:"Reenie Beanie",cursive!important;
+  font-size:30px!important;
+  font-weight:400!important;
+  line-height:1!important;
+  letter-spacing:.01em!important;
+}
+
+.story-page-02 .story-signature span{
+  color:#111111!important;
+  font-family:"Reenie Beanie",cursive!important;
+  font-size:.68em!important;
+}
+
+/* Mobile */
+@media(max-width:430px){
+  .story-page-02{
+    padding:145px 20px 28px!important;
+  }
+
+  .story-page-02 .story-kicker{
+    font-size:21px!important;
+  }
+
+  .story-page-02 .story-chapter-title{
+    margin-top:18px!important;
+  }
+
+  .story-page-02 .story-illustration-wrap{
+    width:min(82vw,500px)!important;
+    height:min(41svh,410px)!important;
+    margin-top:18px!important;
+  }
+
+  .story-page-02 .story-body{
+    width:84vw!important;
+    margin-top:30px!important;
+  }
+
+  .story-page-02 .story-body p{
+    font-size:18px!important;
+    line-height:1.48!important;
+  }
+
+  .story-page-02 .story-next,
+  .story-page-02 .enter{
+    margin-top:32px!important;
+  }
+
+  .story-page-02 .story-signature{
+    margin-top:48px!important;
+    margin-bottom:28px!important;
+    font-size:30px!important;
+  }
+}
+</style>
+
