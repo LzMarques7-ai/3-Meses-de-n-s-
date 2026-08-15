@@ -4400,83 +4400,62 @@ function unlockLobbyDedications(){
 }
 </style>
 
-<style id="paleta-vinho-completa">
+<style id="paleta-vinho-corrigida">
 /* =========================================================
-   PALETA GLOBAL — TODAS AS PÁGINAS, EXCETO A IDENTIDADE SPOTIFY
+   PALETA FINAL — TODAS AS PÁGINAS, EXCETO SPOTIFY
+   Fundo: #FAFAFA
+   Identidade: vinhos/vermelhos
+   Textos de entrada: pretos, sem arco-íris
    ========================================================= */
 
 :root{
-  --ivory:#FAFAFA!important;
-  --cream:#FAFAFA!important;
-  --bg:#FAFAFA!important;
-
-  --wine:#A51A41!important;
-  --wine2:#8D2036!important;
-  --wine-dark:#8A0015!important;
-  --red:#B9113F!important;
-  --red-bright:#C3062C!important;
-  --wine-soft:#8D2036!important;
-  --wine-deep:#951F2B!important;
-
-  --rose:#951F2B!important;
-  --muted:#8D2036!important;
-  --ink:#8A0015!important;
+  --new-bg:#FAFAFA!important;
+  --new-wine:#A51A41!important;
+  --new-wine-dark:#8A0015!important;
+  --new-red:#B9113F!important;
+  --new-red-bright:#C3062C!important;
+  --new-wine-soft:#8D2036!important;
+  --new-wine-deep:#951F2B!important;
 }
 
 /* ---------- FUNDO GLOBAL ---------- */
+html,
 body{
   background:#FAFAFA!important;
-  color:#8D2036!important;
 }
 
-.cover,
-.story,
-.story-page,
-.story-page-02,
-.memory-page,
-.letter,
-.final-page,
+body{
+  color:#111!important;
+}
+
+/* ---------- TELA INICIAL / ENTRADA ----------
+   O texto deixa de ser azul/rosa/verde e fica preto normal.
+*/
 .password-gate{
-  background-color:#FAFAFA!important;
+  background:#FAFAFA!important;
+  color:#111!important;
 }
 
-/* ---------- PRIMEIRA TELA / SENHA ---------- */
-.password-gate{
-  background:
-    radial-gradient(circle at 50% 28%, rgba(165,26,65,.08), transparent 34%),
-    linear-gradient(180deg,#FAFAFA 0%,#FAFAFA 100%)!important;
-  color:#8A0015!important;
-}
-
-.password-kicker{
-  color:#8D2036!important;
+.password-card h2,
+.password-card h2 .title-blue,
+.password-card h2 .title-pink,
+.password-card h2 .title-green{
+  color:#111!important;
 }
 
 .password-card h2{
-  color:#A51A41!important;
-}
-
-.password-card .title-blue{
-  color:#A51A41!important;
-}
-
-.password-card .title-pink{
-  color:#B9113F!important;
-}
-
-.password-card .title-green{
-  color:#8D2036!important;
+  font-weight:600!important;
 }
 
 .password-hint{
-  color:#951F2B!important;
+  color:#111!important;
 }
 
 .password-input,
 .password-wrap .password-input{
-  color:#8A0015!important;
+  color:#111!important;
   caret-color:#A51A41!important;
-  border-bottom-color:rgba(138,0,21,.38)!important;
+  border-bottom-color:rgba(17,17,17,.35)!important;
 }
 
 .password-input:focus{
@@ -4487,68 +4466,100 @@ body{
   color:#B9113F!important;
 }
 
-.password-button{
-  background:#A51A41!important;
-  color:#FAFAFA!important;
-  border-color:#A51A41!important;
-}
-
 .password-error{
-  color:#B9113F!important;
+  color:#111!important;
 }
 
-/* ---------- CAPA / PRIMEIRA PÁGINA ---------- */
-.cover h1,
-.cover h2,
-.cover .title,
-.cover .copy,
-.cover .copy-stack{
+/* ---------- BOTÕES
+   Recupera o design padronizado: contorno, fundo transparente,
+   Manrope, cantos arredondados. Só troca a cor para vinho.
+*/
+.enter,
+.password-button,
+.story-next{
+  box-sizing:border-box!important;
+  min-height:48px!important;
+  border:1.5px solid #A51A41!important;
+  border-radius:18px!important;
+  background:transparent!important;
   color:#A51A41!important;
+  font-family:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif!important;
+  font-size:13px!important;
+  font-weight:600!important;
+  line-height:1!important;
+  letter-spacing:.07em!important;
+  text-transform:lowercase!important;
+  text-shadow:none!important;
+  box-shadow:none!important;
 }
 
-.cover .bottom,
-.cover .signature,
-.cover .date,
-.cover .subtitle{
-  color:#8D2036!important;
+.enter,
+.password-button{
+  min-width:160px!important;
+  padding:14px 30px!important;
 }
 
-.cover .rule,
-.cover hr{
-  border-color:#951F2B!important;
-  background-color:#951F2B!important;
+.story-next{
+  padding:14px 30px!important;
 }
 
-.enter{
-  color:#A51A41!important;
+.enter:hover,
+.password-button:hover,
+.story-next:hover{
   border-color:#A51A41!important;
-  background:#FAFAFA!important;
+  color:#A51A41!important;
+  background:rgba(165,26,65,.045)!important;
 }
 
 .enter:active,
+.password-button:active,
+.story-next:active{
+  transform:scale(.98)!important;
+  background:rgba(165,26,65,.10)!important;
+  border-color:#A51A41!important;
+}
+
 .enter.is-pressed{
-  color:#FAFAFA!important;
+  transform:translateY(2px) scale(.975)!important;
   background:#8A0015!important;
   border-color:#8A0015!important;
+  color:#FAFAFA!important;
+  box-shadow:inset 0 2px 5px rgba(0,0,0,.20)!important;
 }
 
-/* ---------- HISTÓRIA ---------- */
-.story{
-  background:
-    radial-gradient(ellipse 80% 45% at 50% 15%, rgba(165,26,65,.055), transparent 72%),
-    #FAFAFA!important;
+@media(max-width:430px){
+  .enter,
+  .password-button{
+    min-width:160px!important;
+    min-height:48px!important;
+    padding:14px 28px!important;
+    font-size:13px!important;
+  }
+
+  .story-next{
+    min-height:48px!important;
+    padding:14px 28px!important;
+    font-size:13px!important;
+  }
 }
 
-.story-label,
-.story-page .story-label,
+/* ---------- CAPA / PRIMEIRA PÁGINA ----------
+   Toda a identidade editorial sai do azul/rosa e vai para vinho.
+*/
+.story-page-02,
+.story-page-02 .story-illustration-wrap{
+  background:#FAFAFA!important;
+}
+
 .story-page-02 .story-kicker,
 .story-page-02 .story-date{
   color:#8D2036!important;
 }
 
-.story-page h2,
 .story-page-02 .story-title-main,
 .story-page-02 .story-title-sub,
+.story-page-02 .story-copy,
+.story-page-02 .story-body,
 .story-page-02 .story-signature{
   color:#A51A41!important;
 }
@@ -4557,137 +4568,97 @@ body{
   color:#B9113F!important;
 }
 
-.story-page-02 .story-body,
-.story-page p,
-.story-page .letter p,
-.letter p,
-.letter-emphasis{
-  color:#8D2036!important;
+.story-page-02 .story-sim::after{
+  background:#B9113F!important;
 }
 
-.letter-final,
-.letter-section-title,
-.music-scene-title,
-.music-title,
-.music-ornament,
-.music-scene-note,
-.music-rule,
-.quote,
-.yes,
-.timeline-item strong,
-.memory-card-back,
-.memory-back-title,
-.see-lines p,
-.final-signature strong{
-  color:#A51A41!important;
-}
-
-.music-scene-kicker,
-.music-kicker,
-.music-scene-artist,
-.music-artist,
-.memory-front-text,
-.memory-card-front,
-.memory-card-caption,
-.closing-note,
-.final-signature,
-.small-note{
-  color:#951F2B!important;
-}
-
-.music-scene,
-.music-reference{
-  border-top-color:rgba(141,32,54,.25)!important;
-  border-bottom-color:rgba(141,32,54,.25)!important;
-}
-
-.music-scene-line i,
-.music-rule i{
+.story-page-02 .story-date::before,
+.story-page-02 .story-date::after{
   background:#8D2036!important;
 }
 
-.timeline-item,
-.timeline-item:last-child,
-.see-lines p{
-  border-color:rgba(141,32,54,.18)!important;
+.story-page-02 .story-rule,
+.story-page-02 .rule{
+  background:#8D2036!important;
+  border-color:#8D2036!important;
 }
 
-.memory-card-face{
-  border-color:rgba(141,32,54,.20)!important;
-  background:rgba(165,26,65,.025)!important;
+/* Desenho do casal: preserva a arte e apenas muda sua tonalidade
+   para a família vinho. */
+.story-page-02 .story-illustration-wrap #couple,
+.story-page-02 .mark.story-illustration-wrap #couple{
+  filter:
+    grayscale(1)
+    sepia(1)
+    saturate(5)
+    hue-rotate(300deg)
+    brightness(.72)
+    contrast(1.12)!important;
 }
 
-.memory-card:focus-visible{
-  box-shadow:0 0 0 2px rgba(165,26,65,.22)!important;
+/* Sol e lua continuam sendo exatamente as artes pretas enviadas.
+   Nenhum filtro/colorização é aplicado a eles. */
+.story-page-02 .story-sun,
+.story-page-02 .story-moon{
+  filter:none!important;
 }
 
-.story-next{
+/* ---------- PÁGINAS DA HISTÓRIA ---------- */
+.story,
+.story-pages,
+.story-page,
+.letter-page,
+.memory-page,
+.final-page{
+  background:#FAFAFA!important;
+}
+
+.story-page .story-label,
+.story-page .story-kicker,
+.story-page .story-date,
+.story-page .story-caption,
+.story-page .small-note{
+  color:#8D2036!important;
+}
+
+.story-page h2,
+.story-page h3,
+.story-page .letter-section-title,
+.story-page .music-scene-title,
+.story-page .quote,
+.story-page .yes,
+.story-page .final-signature strong{
   color:#A51A41!important;
 }
 
-/* ---------- ELEMENTOS DE DESTAQUE ---------- */
+.story-page p,
+.story-page .letter p,
+.story-page .story-body{
+  color:#111!important;
+}
+
 .story-page .accent,
-.letter-page .accent,
-.heart,
-.heart-icon,
-.proposal-date{
+.story-page .heart,
+.story-page .heart-icon{
   color:#B9113F!important;
 }
 
 .story-page .divider,
-.letter-page .divider{
+.story-page .rule{
   border-color:#8D2036!important;
-}
-
-/* ---------- MEMÓRIAS / POLAROIDS ---------- */
-.memory-polaroid,
-.memory-photo-card{
-  border-color:rgba(141,32,54,.20)!important;
-}
-
-.memory-polaroid-caption,
-.memory-note{
-  color:#951F2B!important;
-}
-
-/* ---------- GATE MUSICAL / PÁGINAS DE TRANSIÇÃO ----------
-   A interface Spotify continua verde e não é sobrescrita.
-   Apenas a moldura editorial ao redor dela usa a nova paleta.
-*/
-.music-gate{
-  background:
-    radial-gradient(circle at 50% 25%, rgba(165,26,65,.07), transparent 40%),
-    #FAFAFA!important;
-  color:#8D2036!important;
-}
-
-.music-gate-kicker,
-.music-gate-intro,
-.music-gate-note,
-.music-gate-lock{
-  color:#8D2036!important;
-}
-
-.music-gate-rule{
   background:#8D2036!important;
 }
 
-/* Spotify — preservado intencionalmente */
-.spotify-button,
-.spotify-mark-button,
-.final-return-spotify{
-  /* sem sobrescrever cores da marca */
+.timeline-item,
+.see-lines p{
+  border-color:rgba(141,32,54,.20)!important;
 }
 
-/* ---------- ESTADOS E PEQUENOS DETALHES ---------- */
-.password-button:hover,
-.enter:hover{
-  border-color:#A51A41!important;
+.memory-card-face,
+.memory-polaroid,
+.memory-photo-card{
+  border-color:rgba(141,32,54,.20)!important;
+  background:#FAFAFA!important;
 }
 
-.password-button:active{
-  background:#8A0015!important;
-  border-color:#8A0015!important;
-  color:#FAFAFA!important;
-}
 </style>
