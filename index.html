@@ -5838,3 +5838,49 @@ textarea{
   }
 }
 </style>
+
+<style id="spotify-refinement-v4">
+/* =========================================================
+   SPOTIFY — CORREÇÃO V4
+   1) Remove o ponto verde automático do título.
+   2) Deixa o botão ? realmente bloqueado/escuro.
+   ========================================================= */
+
+/* O ponto verde NÃO está no HTML:
+   ele era criado pelo ::after do h2. Removemos aqui. */
+#musicGate h2::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* Estado bloqueado: sem verde, sem hover e visualmente inativo. */
+#musicGate .dedications-toggle,
+#musicGate .dedications-toggle:disabled,
+#musicGate .dedications-toggle[disabled]{
+  border-color:#292929 !important;
+  background:#0d0d0d !important;
+  color:#3a3a3a !important;
+  box-shadow:none !important;
+  cursor:not-allowed !important;
+  opacity:1 !important;
+  transform:none !important;
+}
+
+#musicGate .dedications-toggle:hover,
+#musicGate .dedications-toggle:disabled:hover,
+#musicGate .dedications-toggle[disabled]:hover{
+  background:#0d0d0d !important;
+  border-color:#292929 !important;
+  transform:none !important;
+}
+
+#musicGate .dedications-icon{
+  color:#3a3a3a !important;
+  opacity:.72 !important;
+}
+
+/* A mensagem de bloqueio também fica mais discreta. */
+#musicGate .mystery-hint{
+  color:#666666 !important;
+}
+</style>
