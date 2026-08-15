@@ -3108,6 +3108,90 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   box-shadow:inset 0 2px 5px rgba(0,0,0,.20)!important;
 }
 </style>
+
+<style id="ajuste-capa-scroll-real">
+/* =========================================================
+   CAPA — CORREÇÃO DA POSIÇÃO DE ABERTURA
+   =========================================================
+   A capa NÃO está dentro de #reveal/.story-pages.
+   Ela é a section .story-page-02 dentro do <main>.
+   Portanto, o problema visto no iPhone é a restauração do
+   scroll da PÁGINA/viewport, e não o scroll interno da história.
+   ========================================================= */
+
+html{
+  scroll-behavior:auto!important;
+  overflow-x:hidden!important;
+}
+
+.story-page-02{
+  justify-content:flex-start!important;
+  min-height:100svh!important;
+  height:auto!important;
+  box-sizing:border-box!important;
+  overflow:visible!important;
+
+  /* posição natural da capa; sem empurrar conteúdo artificialmente */
+  padding-top:72px!important;
+  padding-bottom:24px!important;
+}
+
+.story-page-02 .story-kicker{
+  margin-top:0!important;
+}
+
+.story-page-02 .story-chapter-title{
+  margin-top:18px!important;
+}
+
+.story-page-02 .story-illustration-wrap{
+  margin-top:18px!important;
+}
+
+.story-page-02 .story-body{
+  width:min(86vw,590px)!important;
+  margin:30px auto 0!important;
+}
+
+.story-page-02 .story-body p{
+  margin:0 auto!important;
+}
+
+/* A assinatura deve ficar próxima do botão, mas com respiro. */
+.story-page-02 .story-signature{
+  margin-top:48px!important;
+  margin-bottom:28px!important;
+}
+
+@media(max-width:430px){
+  .story-page-02{
+    padding-top:72px!important;
+    padding-bottom:24px!important;
+  }
+
+  .story-page-02 .story-kicker{
+    margin-top:0!important;
+  }
+
+  .story-page-02 .story-chapter-title{
+    margin-top:18px!important;
+  }
+
+  .story-page-02 .story-illustration-wrap{
+    margin-top:18px!important;
+  }
+
+  .story-page-02 .story-body{
+    margin-top:30px!important;
+  }
+
+  .story-page-02 .story-signature{
+    margin-top:48px!important;
+    margin-bottom:28px!important;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -3963,6 +4047,41 @@ function unlockLobbyDedications(){
 <script>
 (function(){const t=document.getElementById('dedicationsToggle'),p=document.getElementById('dedicationsPanel');if(!t||!p)return;t.addEventListener('click',()=>{const o=p.classList.toggle('is-open');t.setAttribute('aria-expanded',o);p.setAttribute('aria-hidden',!o)});document.querySelectorAll('.song-row').forEach(r=>r.addEventListener('click',()=>{const id=r.dataset.song,q=document.querySelector('.song-quote[data-quote="'+id+'"]'),open=r.getAttribute('aria-expanded')==='true';document.querySelectorAll('.song-row').forEach(x=>x.setAttribute('aria-expanded','false'));document.querySelectorAll('.song-quote').forEach(x=>x.hidden=true);if(!open){r.setAttribute('aria-expanded','true');q.hidden=false}}));})();
 </script>
+
+<script id="reset-document-scroll-on-open">
+(function(){
+  /* iOS Safari/WebKit may restore the last document scroll position.
+     The cover is the standalone first section, so it must always open
+     from the top of the document. */
+  try {
+    if("scrollRestoration" in history){
+      history.scrollRestoration = "manual";
+    }
+  } catch(e){}
+
+  function resetDocumentScroll(){
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", function(){
+      resetDocumentScroll();
+      requestAnimationFrame(resetDocumentScroll);
+    }, {once:true});
+  } else {
+    resetDocumentScroll();
+    requestAnimationFrame(resetDocumentScroll);
+  }
+
+  window.addEventListener("pageshow", function(){
+    resetDocumentScroll();
+    requestAnimationFrame(resetDocumentScroll);
+  }, {passive:true});
+})();
+</script>
+
 </body>
 </html>
 
@@ -5206,108 +5325,3 @@ textarea{
   }
 }
 </style>
-
-<style id="ajuste-capa-definitivo">
-/* =========================================================
-   CAPA — COMPOSIÇÃO DEFINITIVA
-   ========================================================= */
-
-/* A capa precisa começar realmente no topo do conteúdo,
-   sem esconder o manuscrito atrás da Dynamic Island. */
-.story-page-02{
-  justify-content:flex-start!important;
-  min-height:100svh!important;
-  height:auto!important;
-  box-sizing:border-box!important;
-  overflow:visible!important;
-  padding-top:145px!important;
-  padding-bottom:24px!important;
-}
-
-/* Manuscrito delicado, alinhado com a assinatura. */
-.story-page-02 .story-kicker{
-  margin-top:0!important;
-}
-
-/* Título e ilustração seguem a mesma sequência vertical. */
-.story-page-02 .story-chapter-title{
-  margin-top:18px!important;
-}
-
-.story-page-02 .story-illustration-wrap{
-  margin-top:18px!important;
-}
-
-/* Texto em um único bloco, como definido anteriormente. */
-.story-page-02 .story-body{
-  width:min(86vw,590px)!important;
-  margin:30px auto 0!important;
-}
-
-.story-page-02 .story-body p{
-  margin:0 auto!important;
-}
-
-/* Assinatura: um pouco mais abaixo do botão, sem exagerar. */
-.story-page-02 .story-signature{
-  margin-top:48px!important;
-  margin-bottom:42px!important;
-}
-
-@media(max-width:430px){
-  .story-page-02{
-    padding-top:145px!important;
-    padding-bottom:24px!important;
-  }
-
-  .story-page-02 .story-kicker{
-    margin-top:0!important;
-  }
-
-  .story-page-02 .story-chapter-title{
-    margin-top:18px!important;
-  }
-
-  .story-page-02 .story-illustration-wrap{
-    margin-top:18px!important;
-  }
-
-  .story-page-02 .story-body{
-    margin-top:30px!important;
-  }
-
-  .story-page-02 .story-signature{
-    margin-top:48px!important;
-    margin-bottom:42px!important;
-  }
-}
-</style>
-
-<script id="fix-capa-scroll-inicial">
-(function(){
-  function resetStoryPosition(){
-    const story = document.getElementById("reveal");
-    const container = story && story.querySelector(".story-pages");
-    if(!story || !container) return;
-
-    if(story.classList.contains("open")){
-      container.scrollTo({top:0,left:0,behavior:"auto"});
-    }
-  }
-
-  if(document.readyState === "loading"){
-    document.addEventListener("DOMContentLoaded", resetStoryPosition, {once:true});
-  } else {
-    resetStoryPosition();
-  }
-
-  const story = document.getElementById("reveal");
-  if(story){
-    new MutationObserver(resetStoryPosition).observe(story, {
-      attributes:true,
-      attributeFilter:["class"]
-    });
-  }
-})();
-</script>
-
