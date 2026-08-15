@@ -3155,6 +3155,11 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   }
 }
 </style>
+<script id="cover-scroll-restoration">
+(function(){
+  try { history.scrollRestoration = "manual"; } catch(e) {}
+})();
+</script>
 </head>
 
 <body>
@@ -3751,62 +3756,19 @@ let storyIndex = 0;
 
 function openReveal(){
   const story = document.getElementById("reveal");
-  if(!story) return;
-
   story.classList.add("open");
   story.setAttribute("aria-hidden","false");
   document.body.style.overflow="hidden";
+  storyIndex = 0;
 
   const container = story.querySelector(".story-pages");
-  const cover = story.querySelector(".story-page-02");
-
-  /*
-   * A abertura NÃO deve usar scrollTop = 0.
-   * O primeiro artigo da história fica antes da capa. A capa (.story-page-02)
-   * é a tela que deve aparecer quando a história é aberta.
-   *
-   * O bug das últimas versões vinha de tentar zerar o scroll do container:
-   * isso fazia o iOS abrir/retomar uma posição intermediária da capa.
-   */
-  storyIndex = cover ? 1 : 0;
-
-  const resetToCover = () => {
-    if(!container) return;
-
-    const target = cover ? cover.offsetTop : 0;
-
-    // Desliga o smooth somente durante o posicionamento inicial.
-    const previousBehavior = container.style.scrollBehavior;
-    container.style.scrollBehavior = "auto";
-
-    if(typeof container.scrollTo === "function"){
-      container.scrollTo({top: target, left: 0, behavior:"auto"});
-    }else{
-      container.scrollTop = target;
-      container.scrollLeft = 0;
-    }
-
-    // Evita o WebKit reaplicar a posição anterior.
-    container.scrollTop = target;
-    container.scrollLeft = 0;
-
+  if(container){
+    container.scrollTo({top:0, left:0, behavior:"auto"});
     requestAnimationFrame(() => {
-      container.scrollTop = target;
-      container.scrollLeft = 0;
-      container.style.scrollBehavior = previousBehavior || "smooth";
+      container.scrollTo({top:0, left:0, behavior:"auto"});
       updateStoryProgress();
     });
-  };
-
-  if(container){
-    resetToCover();
-
-    // O .story muda de visibility/transform durante a abertura.
-    // Reposicionamos após a transição para impedir restauração de scroll no iOS.
-    window.setTimeout(resetToCover, 100);
-    window.setTimeout(resetToCover, 500);
-    window.setTimeout(resetToCover, 900);
-  }else{
+  } else {
     requestAnimationFrame(updateStoryProgress);
   }
 }
@@ -3891,8 +3853,31 @@ function updateStoryProgress(){
     event.preventDefault();
 
     if(input.value === "230526"){
+      /*
+       * IMPORTANTE: a capa é a página principal, não .story-pages.
+       * No iPhone, ao fechar o teclado/foco do campo de senha, o WebKit
+       * pode preservar a posição vertical que ficou registrada durante a
+       * entrada. Isso fazia a capa abrir já rolada, cortando o kicker.
+       *
+       * Corrigimos somente a posição da página, sem alterar o layout da capa.
+       */
+      const resetCoverScroll = function(){
+        window.scrollTo({top:0, left:0, behavior:"auto"});
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      };
+
+      resetCoverScroll();
       gate.classList.add("is-hidden");
       document.body.classList.remove("locked");
+
+      // Depois que o teclado/foco desaparece, o iOS pode tentar restaurar
+      // novamente a posição. Reforçamos o topo em alguns frames.
+      requestAnimationFrame(resetCoverScroll);
+      setTimeout(resetCoverScroll, 80);
+      setTimeout(resetCoverScroll, 300);
+      setTimeout(resetCoverScroll, 800);
+
       setTimeout(function(){
         gate.remove();
       }, 750);
