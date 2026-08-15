@@ -3756,46 +3756,57 @@ function openReveal(){
   story.classList.add("open");
   story.setAttribute("aria-hidden","false");
   document.body.style.overflow="hidden";
-  storyIndex = 0;
 
   const container = story.querySelector(".story-pages");
+  const cover = story.querySelector(".story-page-02");
 
-  // A capa precisa SEMPRE abrir no topo.
-  // O problema estava no scroll interno da história, não no layout.
-  const resetStoryScroll = () => {
+  /*
+   * A abertura NÃO deve usar scrollTop = 0.
+   * O primeiro artigo da história fica antes da capa. A capa (.story-page-02)
+   * é a tela que deve aparecer quando a história é aberta.
+   *
+   * O bug das últimas versões vinha de tentar zerar o scroll do container:
+   * isso fazia o iOS abrir/retomar uma posição intermediária da capa.
+   */
+  storyIndex = cover ? 1 : 0;
+
+  const resetToCover = () => {
     if(!container) return;
+
+    const target = cover ? cover.offsetTop : 0;
+
+    // Desliga o smooth somente durante o posicionamento inicial.
+    const previousBehavior = container.style.scrollBehavior;
     container.style.scrollBehavior = "auto";
-    container.scrollTop = 0;
-    container.scrollLeft = 0;
+
     if(typeof container.scrollTo === "function"){
-      container.scrollTo(0, 0);
+      container.scrollTo({top: target, left: 0, behavior:"auto"});
+    }else{
+      container.scrollTop = target;
+      container.scrollLeft = 0;
     }
+
+    // Evita o WebKit reaplicar a posição anterior.
+    container.scrollTop = target;
+    container.scrollLeft = 0;
+
+    requestAnimationFrame(() => {
+      container.scrollTop = target;
+      container.scrollLeft = 0;
+      container.style.scrollBehavior = previousBehavior || "smooth";
+      updateStoryProgress();
+    });
   };
 
   if(container){
-    resetStoryScroll();
+    resetToCover();
 
-    // O .story passa de hidden -> visible por transition.
-    // Alguns WebKit/iOS podem restaurar o scroll depois do primeiro frame,
-    // então confirmamos o topo durante a abertura, sem alterar o layout.
-    requestAnimationFrame(() => {
-      resetStoryScroll();
-      requestAnimationFrame(() => {
-        resetStoryScroll();
-        updateStoryProgress();
-      });
-    });
-
-    window.setTimeout(() => {
-      resetStoryScroll();
-      updateStoryProgress();
-    }, 120);
-
-    window.setTimeout(() => {
-      resetStoryScroll();
-      updateStoryProgress();
-    }, 700);
-  } else {
+    // O .story muda de visibility/transform durante a abertura.
+    // Reposicionamos após a transição para impedir restauração de scroll no iOS.
+    window.setTimeout(resetToCover, 100);
+    window.setTimeout(resetToCover, 500);
+    window.setTimeout(resetToCover, 900);
+  }else{
     requestAnimationFrame(updateStoryProgress);
   }
 }
@@ -4042,28 +4053,6 @@ function unlockLobbyDedications(){
 <script>
 (function(){const t=document.getElementById('dedicationsToggle'),p=document.getElementById('dedicationsPanel');if(!t||!p)return;t.addEventListener('click',()=>{const o=p.classList.toggle('is-open');t.setAttribute('aria-expanded',o);p.setAttribute('aria-hidden',!o)});document.querySelectorAll('.song-row').forEach(r=>r.addEventListener('click',()=>{const id=r.dataset.song,q=document.querySelector('.song-quote[data-quote="'+id+'"]'),open=r.getAttribute('aria-expanded')==='true';document.querySelectorAll('.song-row').forEach(x=>x.setAttribute('aria-expanded','false'));document.querySelectorAll('.song-quote').forEach(x=>x.hidden=true);if(!open){r.setAttribute('aria-expanded','true');q.hidden=false}}));})();
 </script>
-
-<script id="reveal-initial-scroll-guard">
-(function(){
-  function resetRevealScroll(){
-    const story = document.getElementById("reveal");
-    const container = story && story.querySelector(".story-pages");
-    if(container){
-      container.scrollTop = 0;
-      container.scrollLeft = 0;
-    }
-  }
-
-  if(document.readyState === "loading"){
-    document.addEventListener("DOMContentLoaded", resetRevealScroll, {once:true});
-  }else{
-    resetRevealScroll();
-  }
-
-  window.addEventListener("pageshow", resetRevealScroll, {passive:true});
-})();
-</script>
-
 </body>
 </html>
 
