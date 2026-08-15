@@ -3349,7 +3349,15 @@ function updateStoryProgress(){
       return;
     }
 
-    error.textContent = "essa não é a senha.";
+    const funnyErrors = [
+      "tem certeza que quer continuar chutando?",
+      "você sabe essa. pensa um pouquinho.",
+      "essa memória tá meio fraca, hein?",
+      "parabéns, você conseguiu errar.",
+      "vamos fingir que essa tentativa nunca aconteceu."
+    ];
+
+    error.textContent = funnyErrors[Math.floor(Math.random() * funnyErrors.length)];
     input.value = "";
     renderHearts();
     input.focus();
