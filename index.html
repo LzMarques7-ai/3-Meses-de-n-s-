@@ -2262,6 +2262,76 @@ h1 .script{
   display:block;
 }
 
+
+/* ===== PRIMEIRA TELA — AJUSTE ESTÉTICO 01 ===== */
+/* Somente composição do título + paleta + botão. */
+.password-card h2{
+  font-family:var(--font-display)!important;
+  font-size:clamp(37px,10.1vw,50px)!important;
+  line-height:.94!important;
+  font-weight:600!important;
+  letter-spacing:-.045em!important;
+  color:#4D75B8!important;
+}
+.password-card h2 .title-blue{color:#4D75B8!important}
+.password-card h2 .title-pink{color:#E58DB5!important}
+.password-card h2 .title-green{color:#88B66A!important}
+
+/* Paleta aplicada sem deixar o título infantil ou excessivamente colorido. */
+.password-card h2 .title-blue,
+.password-card h2 .title-pink,
+.password-card h2 .title-green{
+  display:inline;
+}
+
+/* Melhor equilíbrio vertical entre título, dica e senha. */
+.password-card h2{
+  max-width:390px;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.password-hint{
+  margin-top:25px!important;
+  margin-bottom:18px!important;
+  color:#A97880!important;
+}
+
+/* Botão entra na mesma identidade pastel. */
+.password-button{
+  margin-top:24px!important;
+  min-width:160px!important;
+  padding:13px 27px!important;
+  background:#D1AAF9!important;
+  color:#fff!important;
+  font-size:10px!important;
+  letter-spacing:.10em!important;
+  border:0!important;
+  box-shadow:0 3px 0 rgba(112,76,155,.12)!important;
+}
+.password-button:active{
+  transform:translateY(1px);
+  box-shadow:0 2px 0 rgba(112,76,155,.10)!important;
+}
+
+/* Mantém o restante do formulário exatamente como estava. */
+.password-input{
+  color:#6D56A6;
+  caret-color:#6D56A6;
+}
+.password-wrap .password-input{
+  caret-color:#6D56A6;
+}
+.password-hearts{color:#8D71C8}
+
+/* No celular, deixa o bloco respirar sem aumentar a página. */
+@media(max-width:430px){
+  .password-card h2{
+    font-size:clamp(37px,10.1vw,50px)!important;
+    line-height:.94!important;
+    letter-spacing:-.045em!important;
+  }
+}
+
 </style>
 
 <!-- =========================================================
@@ -2596,7 +2666,13 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 
 <section id="password-gate" class="password-gate" aria-label="Entrada">
   <div class="password-card">
-      <h2>se eu tentasse te falar tudo isso,<br>provavelmente não conseguiria,<br>então fiz assim.</h2>
+      <h2>
+  <span class="title-blue">se eu tentasse te falar</span><br>
+  <span class="title-blue">tudo isso,</span><br>
+  <span class="title-pink">provavelmente não</span><br>
+  <span class="title-pink">conseguiria,</span><br>
+  <span class="title-green">então fiz assim.</span>
+</h2>
     <p class="password-hint">dica: é a data em que tudo mudou.</p>
     <form id="password-form" autocomplete="off">
       <div class="password-wrap">
