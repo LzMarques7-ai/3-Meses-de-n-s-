@@ -4281,3 +4281,118 @@ function unlockLobbyDedications(){
   }
 }
 </style>
+
+<style id="padronizacao-botoes-narrativos">
+/* =========================================================
+   PADRONIZAÇÃO DOS BOTÕES NARRATIVOS
+   Spotify/música permanece com a identidade própria.
+   ========================================================= */
+
+.enter,
+.password-button,
+.story-next{
+  box-sizing:border-box!important;
+  min-height:48px!important;
+  border:1.5px solid #315A9E!important;
+  border-radius:18px!important;
+  background:transparent!important;
+  color:#315A9E!important;
+  font-family:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif!important;
+  font-size:13px!important;
+  font-weight:600!important;
+  line-height:1!important;
+  letter-spacing:.07em!important;
+  text-transform:lowercase!important;
+  -webkit-tap-highlight-color:transparent!important;
+  box-shadow:none!important;
+  transition:
+    transform .18s ease,
+    background-color .18s ease,
+    border-color .18s ease!important;
+}
+
+/* Mesmo tamanho e presença visual nos botões principais */
+.enter,
+.password-button{
+  min-width:160px!important;
+  padding:14px 30px!important;
+}
+
+/* Os botões internos continuam respeitando o comportamento atual
+   (inclusive o fato de story-next estar oculto pela navegação por rolagem). */
+.story-next{
+  padding:14px 30px!important;
+}
+
+/* Feedback de toque */
+.enter:active,
+.password-button:active,
+.story-next:active{
+  transform:scale(.98)!important;
+  background:rgba(49,90,158,.07)!important;
+  border-color:#315A9E!important;
+}
+
+/* Remove estilos específicos antigos que davam aparência diferente
+   sem alterar a função desses elementos. */
+.enter,
+.password-button,
+.story-next{
+  text-shadow:none!important;
+}
+
+/* Mobile: mesma proporção, sem deixar o botão pesado */
+@media(max-width:430px){
+  .enter,
+  .password-button{
+    min-width:160px!important;
+    min-height:48px!important;
+    padding:14px 28px!important;
+    font-size:13px!important;
+  }
+
+  .story-next{
+    min-height:48px!important;
+    padding:14px 28px!important;
+    font-size:13px!important;
+  }
+}
+</style>
+
+<style id="animacao-botao-pressionado">
+/* =========================================================
+   FEEDBACK DE PRESSÃO — BOTÕES NARRATIVOS
+   Ao tocar, o botão escurece e afunda levemente, como
+   se estivesse sendo realmente pressionado.
+   Spotify permanece intocado.
+   ========================================================= */
+
+.enter,
+.password-button,
+.story-next{
+  transition:
+    transform .12s ease,
+    background-color .12s ease,
+    border-color .12s ease,
+    box-shadow .12s ease!important;
+}
+
+.enter:active,
+.password-button:active,
+.story-next:active{
+  transform:translateY(2px) scale(.985)!important;
+  background:#244779!important;
+  border-color:#244779!important;
+  color:#fff!important;
+  box-shadow:
+    inset 0 2px 4px rgba(0,0,0,.18)!important;
+}
+
+/* Acessibilidade: mantém uma resposta visual no teclado */
+.enter:focus-visible,
+.password-button:focus-visible,
+.story-next:focus-visible{
+  outline:2px solid rgba(49,90,158,.35)!important;
+  outline-offset:3px!important;
+}
+</style>
