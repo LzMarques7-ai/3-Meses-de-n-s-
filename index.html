@@ -2333,31 +2333,308 @@ h1 .script{
 }
 
 
-/* ===== SEGUNDA PÁGINA — COMPOSIÇÃO FINAL ===== */
-.story-page-02{position:relative!important;min-height:100svh!important;box-sizing:border-box!important;padding:24px 22px 42px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;text-align:center!important;overflow:hidden!important;background:#F8E8BF!important}
-.story-page-02 .story-kicker{order:1!important;margin:0 0 10px!important;color:#315A9E!important;font-family:"Reenie Beanie",cursive!important;font-size:clamp(22px,5.8vw,30px)!important;line-height:1!important}
-.story-page-02 .story-chapter-title{order:2!important;width:100%!important;display:flex!important;flex-direction:column!important;align-items:center!important;margin:0!important}
-.story-page-02 .story-title-main{display:block!important;color:#315A9E!important;font-family:var(--font-display)!important;font-size:clamp(55px,14.4vw,80px)!important;line-height:.86!important;font-weight:600!important;letter-spacing:-.055em!important}
-.story-page-02 .story-title-sub{display:block!important;margin-top:6px!important;color:#315A9E!important;font-family:var(--font-display)!important;font-size:clamp(34px,8.9vw,48px)!important;line-height:.94!important;font-weight:500!important;letter-spacing:-.045em!important}
-.story-page-02 .story-sim{position:relative!important;display:inline-block!important;color:#FCB9EE!important}
-.story-page-02 .story-sim::after{content:""!important;position:absolute!important;left:-3px!important;right:-4px!important;bottom:-7px!important;height:4px!important;background:#FCB9EE!important;border-radius:70%!important;transform:rotate(-2deg)!important}
-.story-page-02 .story-illustration-wrap{order:3!important;position:relative!important;width:min(78vw,470px)!important;height:min(39svh,390px)!important;margin:clamp(14px,2.8vh,25px) auto 0!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important}
-.story-page-02 .story-illustration-wrap #couple{display:block!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:contain!important;object-position:center!important}
-.story-page-02 .story-sun,.story-page-02 .story-moon{position:absolute!important;pointer-events:none!important;color:#C99BA6!important;opacity:.88!important}
-.story-page-02 .story-sun{width:29px!important;height:29px!important;left:4%!important;bottom:9%!important;border:2px solid #C99BA6!important;border-radius:50%!important;background:#C99BA6!important}
-.story-page-02 .story-sun::before{content:""!important;position:absolute!important;inset:-8px!important;background:linear-gradient(#C99BA6,#C99BA6) center top/2px 6px no-repeat,linear-gradient(#C99BA6,#C99BA6) center bottom/2px 6px no-repeat,linear-gradient(90deg,#C99BA6,#C99BA6) left center/6px 2px no-repeat,linear-gradient(90deg,#C99BA6,#C99BA6) right center/6px 2px no-repeat!important}
-.story-page-02 .story-moon{width:34px!important;height:34px!important;right:5%!important;top:10%!important;border:2px solid #C99BA6!important;border-radius:50%!important;background:#C99BA6!important}
-.story-page-02 .story-moon::after{content:""!important;position:absolute!important;width:35px!important;height:35px!important;border-radius:50%!important;background:#F8E8BF!important;left:10px!important;top:-6px!important}
-.story-page-02 .story-date{order:4!important;margin-top:clamp(5px,1.4vh,12px)!important;color:#315A9E!important;font-family:"Lora",serif!important;font-size:13px!important;line-height:1.2!important;letter-spacing:.035em!important}
-.story-page-02 .story-body{order:5!important;width:min(84vw,560px)!important;margin:clamp(19px,3vh,30px) auto 0!important}
-.story-page-02 .story-body p{margin:0!important;color:#315A9E!important;font-family:"Lora",serif!important;font-size:clamp(14px,3.7vw,17px)!important;line-height:1.7!important;font-weight:400!important}
-.story-page-02 .story-body p span{display:block!important}
-.story-page-02 .story-body p span+span{margin-top:18px!important}
-.story-page-02 .enter{order:6!important;margin-top:clamp(20px,3vh,28px)!important;min-width:168px!important;padding:12px 30px!important;border:0!important;border-radius:8px!important;background:#D1AAF9!important;color:#FFFFFF!important;box-shadow:0 3px 0 rgba(92,63,133,.12)!important;font-family:"Lora",serif!important;font-size:14px!important;font-weight:500!important;letter-spacing:.04em!important;text-transform:lowercase!important}
-.story-page-02 .story-signature{order:7!important;align-self:flex-end!important;margin-top:clamp(18px,2.5vh,26px)!important;margin-right:10%!important;color:#315A9E!important;font-family:"Reenie Beanie",cursive!important;font-size:clamp(22px,5.8vw,30px)!important;line-height:1!important;transform:rotate(-3deg)!important}
-.story-page-02 .story-signature span{color:#FCB9EE!important;font-family:Arial,sans-serif!important;font-size:.65em!important;vertical-align:middle!important}
-@media(max-width:430px){.story-page-02{padding-top:22px!important;padding-bottom:36px!important}.story-page-02 .story-illustration-wrap{width:76vw!important;height:37svh!important}}
 
+/* ===== SEGUNDA PÁGINA — COMPOSIÇÃO V2 ===== */
+.story-page-02{
+  position:relative!important;
+  min-height:100svh!important;
+  box-sizing:border-box!important;
+  padding:22px 20px 38px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  text-align:center!important;
+  overflow:hidden!important;
+  background:#F8E8BF!important;
+}
+
+/* moldura editorial discreta */
+.story-page-02::before,
+.story-page-02::after{
+  content:""!important;
+  position:absolute!important;
+  left:10%!important;
+  right:10%!important;
+  height:1px!important;
+  background:#C99BA6!important;
+  opacity:.62!important;
+}
+.story-page-02::before{top:18px!important}
+.story-page-02::after{bottom:18px!important}
+
+/* topo */
+.story-page-02 .story-kicker{
+  order:1!important;
+  position:relative!important;
+  margin:3px 0 0!important;
+  padding:0 46px!important;
+  color:#315A9E!important;
+  font-family:"Reenie Beanie",cursive!important;
+  font-size:clamp(21px,5.5vw,29px)!important;
+  line-height:1!important;
+  letter-spacing:.01em!important;
+}
+.story-page-02 .story-kicker::before,
+.story-page-02 .story-kicker::after{
+  content:""!important;
+  position:absolute!important;
+  top:50%!important;
+  width:34px!important;
+  height:1px!important;
+  background:#C99BA6!important;
+  opacity:.75!important;
+}
+.story-page-02 .story-kicker::before{left:0!important}
+.story-page-02 .story-kicker::after{right:0!important}
+
+/* título: dominante, mas com divisão limpa */
+.story-page-02 .story-chapter-title{
+  order:2!important;
+  width:100%!important;
+  margin:clamp(18px,3vh,28px) 0 0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+}
+.story-page-02 .story-title-main{
+  display:block!important;
+  color:#315A9E!important;
+  font-family:var(--font-display)!important;
+  font-size:clamp(57px,14.5vw,79px)!important;
+  line-height:.86!important;
+  font-weight:600!important;
+  letter-spacing:-.055em!important;
+}
+.story-page-02 .story-title-sub{
+  display:block!important;
+  margin-top:5px!important;
+  color:#315A9E!important;
+  font-family:var(--font-display)!important;
+  font-size:clamp(31px,8.1vw,45px)!important;
+  line-height:.98!important;
+  font-weight:500!important;
+  letter-spacing:-.045em!important;
+  white-space:nowrap!important;
+}
+.story-page-02 .story-sim{
+  position:relative!important;
+  display:inline-block!important;
+  color:#FCB9EE!important;
+}
+.story-page-02 .story-sim::after{
+  content:""!important;
+  position:absolute!important;
+  left:-4px!important;
+  right:-5px!important;
+  bottom:-6px!important;
+  height:3px!important;
+  background:#FCB9EE!important;
+  border-radius:80%!important;
+  transform:rotate(-2deg)!important;
+}
+
+/* ilustração: maior, mas ainda com respiro */
+.story-page-02 .story-illustration-wrap{
+  order:3!important;
+  position:relative!important;
+  width:min(82vw,500px)!important;
+  height:min(41svh,410px)!important;
+  margin:clamp(14px,2.4vh,24px) auto 0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  flex:0 0 auto!important;
+}
+.story-page-02 .story-illustration-wrap #couple{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:none!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center!important;
+}
+
+/* linhas laterais que dão estrutura ao desenho */
+.story-page-02 .story-illustration-wrap::before,
+.story-page-02 .story-illustration-wrap::after{
+  content:""!important;
+  position:absolute!important;
+  top:16%!important;
+  bottom:13%!important;
+  width:1px!important;
+  background:#C99BA6!important;
+  opacity:.46!important;
+}
+.story-page-02 .story-illustration-wrap::before{left:1%!important}
+.story-page-02 .story-illustration-wrap::after{right:1%!important}
+
+/* pequenos marcadores decorativos */
+.story-page-02 .story-illustration-wrap::marker{display:none!important}
+
+/* sol e lua: mesma família visual, pequenos, nos lugares já definidos */
+.story-page-02 .story-sun,
+.story-page-02 .story-moon{
+  position:absolute!important;
+  pointer-events:none!important;
+  color:#C99BA6!important;
+  opacity:.9!important;
+  z-index:2!important;
+}
+.story-page-02 .story-sun{
+  width:26px!important;
+  height:26px!important;
+  left:2%!important;
+  bottom:9%!important;
+  border:2px solid #C99BA6!important;
+  border-radius:50%!important;
+  background:transparent!important;
+}
+.story-page-02 .story-sun::before{
+  content:""!important;
+  position:absolute!important;
+  inset:-9px!important;
+  background:
+    linear-gradient(#C99BA6,#C99BA6) center top/2px 7px no-repeat,
+    linear-gradient(#C99BA6,#C99BA6) center bottom/2px 7px no-repeat,
+    linear-gradient(90deg,#C99BA6,#C99BA6) left center/7px 2px no-repeat,
+    linear-gradient(90deg,#C99BA6,#C99BA6) right center/7px 2px no-repeat,
+    linear-gradient(45deg,transparent 45%,#C99BA6 46%,#C99BA6 54%,transparent 55%) left top/7px 7px no-repeat,
+    linear-gradient(-45deg,transparent 45%,#C99BA6 46%,#C99BA6 54%,transparent 55%) right top/7px 7px no-repeat,
+    linear-gradient(-45deg,transparent 45%,#C99BA6 46%,#C99BA6 54%,transparent 55%) left bottom/7px 7px no-repeat,
+    linear-gradient(45deg,transparent 45%,#C99BA6 46%,#C99BA6 54%,transparent 55%) right bottom/7px 7px no-repeat!important;
+}
+.story-page-02 .story-moon{
+  width:31px!important;
+  height:31px!important;
+  right:3%!important;
+  top:9%!important;
+  border:2px solid #C99BA6!important;
+  border-radius:50%!important;
+  background:#C99BA6!important;
+}
+.story-page-02 .story-moon::after{
+  content:""!important;
+  position:absolute!important;
+  width:32px!important;
+  height:32px!important;
+  border-radius:50%!important;
+  background:#F8E8BF!important;
+  left:9px!important;
+  top:-5px!important;
+}
+
+/* data com linhas, recuperando a linguagem da versão antiga */
+.story-page-02 .story-date{
+  order:4!important;
+  position:relative!important;
+  margin-top:clamp(5px,1vh,10px)!important;
+  padding:0 62px!important;
+  color:#315A9E!important;
+  font-family:"Lora",serif!important;
+  font-size:13px!important;
+  line-height:1.2!important;
+  letter-spacing:.12em!important;
+  white-space:nowrap!important;
+}
+.story-page-02 .story-date::before,
+.story-page-02 .story-date::after{
+  content:""!important;
+  position:absolute!important;
+  top:50%!important;
+  width:45px!important;
+  height:1px!important;
+  background:#C99BA6!important;
+  opacity:.75!important;
+}
+.story-page-02 .story-date::before{left:0!important}
+.story-page-02 .story-date::after{right:0!important}
+
+/* divisor antes do texto */
+.story-page-02 .story-body{
+  order:5!important;
+  position:relative!important;
+  width:min(86vw,570px)!important;
+  margin:clamp(18px,2.6vh,27px) auto 0!important;
+  padding-top:22px!important;
+}
+.story-page-02 .story-body::before{
+  content:"✦"!important;
+  position:absolute!important;
+  top:-2px!important;
+  left:50%!important;
+  transform:translateX(-50%)!important;
+  color:#C99BA6!important;
+  font-family:Georgia,serif!important;
+  font-size:14px!important;
+  line-height:1!important;
+}
+.story-page-02 .story-body::after{
+  content:""!important;
+  position:absolute!important;
+  top:6px!important;
+  left:calc(50% - 55px)!important;
+  width:110px!important;
+  height:1px!important;
+  background:#C99BA6!important;
+  opacity:.62!important;
+  z-index:-1!important;
+}
+.story-page-02 .story-body p{
+  margin:0!important;
+  color:#315A9E!important;
+  font-family:"Lora",serif!important;
+  font-size:clamp(14px,3.6vw,17px)!important;
+  line-height:1.62!important;
+  font-weight:400!important;
+}
+.story-page-02 .story-body p span{display:inline!important}
+.story-page-02 .story-body p span+span{margin-left:0!important}
+
+/* botão */
+.story-page-02 .enter{
+  order:6!important;
+  margin-top:clamp(20px,2.8vh,28px)!important;
+  min-width:176px!important;
+  padding:12px 30px!important;
+  border:0!important;
+  border-radius:8px!important;
+  background:#D1AAF9!important;
+  color:#FFFFFF!important;
+  box-shadow:0 3px 0 rgba(92,63,133,.14)!important;
+  font-family:"Lora",serif!important;
+  font-size:14px!important;
+  font-weight:500!important;
+  letter-spacing:.04em!important;
+  text-transform:lowercase!important;
+}
+
+/* assinatura */
+.story-page-02 .story-signature{
+  order:7!important;
+  align-self:center!important;
+  margin:clamp(17px,2.5vh,25px) 0 0!important;
+  color:#315A9E!important;
+  font-family:"Reenie Beanie",cursive!important;
+  font-size:clamp(22px,5.8vw,30px)!important;
+  line-height:1!important;
+  transform:none!important;
+}
+.story-page-02 .story-signature span{
+  color:#315A9E!important;
+  font-family:Arial,sans-serif!important;
+  font-size:.68em!important;
+  vertical-align:middle!important;
+}
+
+@media(max-width:430px){
+  .story-page-02{padding-top:22px!important;padding-bottom:34px!important}
+  .story-page-02 .story-title-main{font-size:14.2vw!important}
+  .story-page-02 .story-title-sub{font-size:8vw!important}
+  .story-page-02 .story-illustration-wrap{width:82vw!important;height:39svh!important}
+  .story-page-02 .story-body{width:87vw!important}
+}
 </style>
 
 <!-- =========================================================
