@@ -5039,3 +5039,69 @@ textarea{
 }
 </style>
 
+<style id="ajuste-titulo-capa-preto">
+/* =========================================================
+   CAPA — NOVA HIERARQUIA DO TÍTULO
+   Título preto, maior e mais pesado.
+   “sim” permanece como único destaque cromático.
+   ========================================================= */
+
+.story-page-02 .story-kicker{
+  color:#111111!important;
+  font-family:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif!important;
+  font-weight:500!important;
+  letter-spacing:.22em!important;
+}
+
+/* Título principal: maior + mais encorpado */
+.story-page-02 .story-title-main{
+  color:#111111!important;
+  font-family:"Fredoka",sans-serif!important;
+  font-size:17.5vw!important;
+  line-height:.84!important;
+  font-weight:700!important;
+  letter-spacing:-.035em!important;
+}
+
+/* Segunda linha acompanha o peso do título */
+.story-page-02 .story-title-sub{
+  color:#111111!important;
+  font-family:"Fredoka",sans-serif!important;
+  font-size:10vw!important;
+  line-height:.90!important;
+  font-weight:700!important;
+  letter-spacing:-.025em!important;
+  white-space:nowrap!important;
+}
+
+/* “sim” é o ponto de cor da composição */
+.story-page-02 .story-sim{
+  color:#A51A41!important;
+  font-weight:700!important;
+}
+
+/* Sublinhado acompanha exatamente a cor do “sim” */
+.story-page-02 .story-sim::after{
+  background:#A51A41!important;
+  height:3px!important;
+}
+
+/* Garante que regras antigas não pintem novamente o título */
+.story-page-02 .story-title-main,
+.story-page-02 .story-title-sub{
+  text-shadow:none!important;
+}
+
+@media(max-width:430px){
+  .story-page-02 .story-title-main{
+    font-size:17.5vw!important;
+    font-weight:700!important;
+  }
+
+  .story-page-02 .story-title-sub{
+    font-size:10vw!important;
+    font-weight:700!important;
+  }
+}
+</style>
+
