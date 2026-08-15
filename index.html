@@ -4274,31 +4274,115 @@ function enterStory(){
 }
 
 function unlockLobbyDedications(){
-  const button=document.getElementById("dedicationsToggle");
-  if(!button)return;
-  button.disabled=false;
+  const button = document.getElementById("dedicationsToggle");
+  if(!button) return;
+
+  // ESTADO DESBLOQUEADO — troca fisicamente o conteúdo do botão.
+  // Não dependemos de pseudo-elementos, spans antigos ou texto herdado.
+  button.disabled = false;
   button.classList.remove("mystery-toggle");
   button.classList.add("is-revealed");
   button.setAttribute("aria-disabled","false");
+  button.setAttribute("data-unlocked","true");
 
-  const icon=button.querySelector(".dedications-icon");
-  if(icon) icon.textContent="ENTRELINHAS";
+  button.innerHTML = '<span class="dedications-icon" aria-hidden="true">ENTRELINHAS</span>';
 
-  const subtitle=document.querySelector(".dedications-subtitle");
+  // Mantém o desbloqueio nesta sessão mesmo se a tela for reaberta.
+  try { localStorage.setItem("namoroEntrelinhasUnlocked","1"); } catch(e) {}
+
+  const subtitle = document.querySelector(".dedications-subtitle");
   if(subtitle){
-    const finalCopy=subtitle.getAttribute("data-final-copy");
-    if(finalCopy) subtitle.textContent=finalCopy;
+    const finalCopy = subtitle.getAttribute("data-final-copy");
+    if(finalCopy) subtitle.textContent = finalCopy;
   }
 
   button.classList.remove("reveal-pop");
   void button.offsetWidth;
   button.classList.add("reveal-pop");
 }
+
+function restoreLobbyDedications(){
+  try{
+    if(localStorage.getItem("namoroEntrelinhasUnlocked") === "1"){
+      unlockLobbyDedications();
+    }
+  }catch(e){}
+}
+
+document.addEventListener("DOMContentLoaded", restoreLobbyDedications);
 </script>
 
 <script>
 (function(){const t=document.getElementById('dedicationsToggle'),p=document.getElementById('dedicationsPanel');if(!t||!p)return;t.addEventListener('click',()=>{const o=p.classList.toggle('is-open');t.setAttribute('aria-expanded',o);p.setAttribute('aria-hidden',!o)});document.querySelectorAll('.song-row').forEach(r=>r.addEventListener('click',()=>{const id=r.dataset.song,q=document.querySelector('.song-quote[data-quote="'+id+'"]'),open=r.getAttribute('aria-expanded')==='true';document.querySelectorAll('.song-row').forEach(x=>x.setAttribute('aria-expanded','false'));document.querySelectorAll('.song-quote').forEach(x=>x.hidden=true);if(!open){r.setAttribute('aria-expanded','true');q.hidden=false}}));})();
 </script>
+
+
+<style id="entrelinhas-authoritative-state">
+/*
+  ESTADO FINAL DO BOTÃO:
+  BLOQUEADO  = ? apagado/escuro
+  DESBLOQUEADO = ENTRELINHAS verde
+*/
+#musicGate #dedicationsToggle{
+  position:relative !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  box-sizing:border-box !important;
+  overflow:hidden !important;
+}
+
+/* BLOQUEADO */
+#musicGate #dedicationsToggle.mystery-toggle{
+  background:#0b0b0b !important;
+  border:2px solid #292929 !important;
+  color:#303030 !important;
+  box-shadow:none !important;
+  opacity:1 !important;
+  cursor:not-allowed !important;
+  pointer-events:none !important;
+}
+#musicGate #dedicationsToggle.mystery-toggle .dedications-icon{
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  margin:0 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+  font-size:18px !important;
+  font-weight:500 !important;
+  line-height:1 !important;
+  letter-spacing:0 !important;
+  color:#303030 !important;
+  opacity:1 !important;
+}
+
+/* DESBLOQUEADO */
+#musicGate #dedicationsToggle.is-revealed{
+  background:#121212 !important;
+  border:2px solid #1ED760 !important;
+  color:#1ED760 !important;
+  box-shadow:none !important;
+  opacity:1 !important;
+  cursor:pointer !important;
+  pointer-events:auto !important;
+  transform:none !important;
+}
+#musicGate #dedicationsToggle.is-revealed .dedications-icon{
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  margin:0 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  line-height:1 !important;
+  letter-spacing:.14em !important;
+  text-transform:uppercase !important;
+  color:#1ED760 !important;
+  opacity:1 !important;
+}
+</style>
+
 </body>
 </html>
 
@@ -5945,23 +6029,7 @@ textarea{
 }
 </style>
 
-<script>
-/* V5 — texto do botão após liberar */
-(function(){
-  const originalUnlock = window.unlockLobbyDedications;
-  if(typeof originalUnlock !== "function") return;
 
-  window.unlockLobbyDedications = function(){
-    originalUnlock();
-
-    const button = document.getElementById("dedicationsToggle");
-    if(!button) return;
-
-    const label = button.querySelector("span:last-child");
-    if(label) label.textContent = "ENTRELINHAS";
-  };
-})();
-</script>
 
 <style id="spotify-entrelINHAS-label">
 #musicGate .dedications-toggle{
