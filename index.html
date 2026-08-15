@@ -5201,72 +5201,58 @@ textarea{
 
 <style id="ajuste-final-capa-posicao">
 /* =========================================================
-   CAPA — POSIÇÃO INICIAL + TEXTO CONTÍNUO
+   CAPA — POSIÇÃO REAL NA ABERTURA
+   O conteúdo estava começando alto demais no iPhone.
+   O espaço livre inferior permite deslocar tudo para baixo
+   sem deixar a capa “apertada”.
    ========================================================= */
 
-/* A capa começa no topo da própria página.
-   Antes, justify-content:center fazia o conteúdo alto demais
-   ultrapassar a viewport para cima no iPhone. */
 .story-page-02{
   justify-content:flex-start!important;
   min-height:100svh!important;
   height:auto!important;
+  box-sizing:border-box!important;
   overflow:visible!important;
-  padding-top:max(86px, env(safe-area-inset-top) + 44px)!important;
-  padding-bottom:max(52px, env(safe-area-inset-bottom) + 42px)!important;
+
+  /* Mais respiro real abaixo do Dynamic Island/status bar. */
+  padding-top:145px!important;
+  padding-bottom:28px!important;
 }
 
-/* O manuscrito superior fica delicado e visível logo ao abrir. */
+/* Mantém o manuscrito inteiro visível antes do título. */
 .story-page-02 .story-kicker{
   margin-top:0!important;
-  font-size:20px!important;
-  line-height:1.05!important;
-  letter-spacing:0!important;
 }
 
-/* O título mantém a hierarquia forte. */
+/* O restante acompanha o kicker naturalmente. */
 .story-page-02 .story-chapter-title{
   margin-top:18px!important;
 }
 
-/* Ilustração vem depois do título, com respiro consistente. */
 .story-page-02 .story-illustration-wrap{
   margin-top:18px!important;
 }
 
-/* Data → texto: uma única leitura contínua, sem segundo bloco. */
+/* Texto continua sendo UM único bloco. */
 .story-page-02 .story-body{
   width:min(86vw,590px)!important;
   margin:30px auto 0!important;
-  padding:0!important;
-  text-align:center!important;
 }
 
 .story-page-02 .story-body p{
-  max-width:590px!important;
   margin:0 auto!important;
-  color:#111111!important;
-  font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
-  font-size:18px!important;
-  font-weight:400!important;
-  line-height:1.52!important;
-  letter-spacing:.005em!important;
-  text-align:center!important;
 }
 
-/* Não existe mais separação entre duas frases/parágrafos. */
-.story-page-02 .story-body p + p{
-  margin-top:0!important;
-}
-
+/* Em iPhones pequenos, mantém uma folga menor sem voltar
+   a esconder o manuscrito. */
 @media(max-width:430px){
   .story-page-02{
-    padding-top:max(86px, env(safe-area-inset-top) + 44px)!important;
-    padding-bottom:max(52px, env(safe-area-inset-bottom) + 42px)!important;
+    padding-top:145px!important;
+    padding-bottom:24px!important;
   }
 
   .story-page-02 .story-kicker{
-    font-size:20px!important;
+    margin-top:0!important;
   }
 
   .story-page-02 .story-chapter-title{
@@ -5278,14 +5264,7 @@ textarea{
   }
 
   .story-page-02 .story-body{
-    width:86vw!important;
     margin-top:30px!important;
-  }
-
-  .story-page-02 .story-body p{
-    max-width:590px!important;
-    font-size:18px!important;
-    line-height:1.52!important;
   }
 }
 </style>
