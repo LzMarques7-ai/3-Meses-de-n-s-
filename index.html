@@ -2511,6 +2511,7 @@ h1 .script{
   pointer-events:none!important;
 }
 .password-gate .cover-password-input{
+  pointer-events:auto!important;
   width:100%!important;
   height:100%!important;
   background:transparent!important;
@@ -2527,6 +2528,90 @@ h1 .script{
     left:21%!important;top:85.0%!important;width:58%!important;height:7.2%!important;
   }
   .password-gate .cover-error{top:88%!important}
+}
+
+
+/* ===== AJUSTE DA CAPA NO IPHONE ===== */
+.password-gate .cover-art img{
+  object-fit:cover!important;
+  object-position:center top!important;
+}
+
+/* campo de senha: agora visível no lugar correto da arte */
+.password-gate .cover-password-hotspot{
+  left:9.5%!important;
+  top:59.2%!important;
+  width:81%!important;
+  height:7.4%!important;
+  z-index:30!important;
+}
+.password-gate .cover-password-hotspot::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:999px;
+  background:rgba(255,252,244,.78);
+  border:2px solid rgba(141,113,200,.38);
+  box-shadow:0 2px 0 rgba(141,113,200,.10), inset 0 0 0 1px rgba(255,255,255,.6);
+  pointer-events:none;
+}
+.password-gate .cover-password-input{
+  position:absolute!important;
+  inset:0!important;
+  z-index:3!important;
+  padding:0 48px 0 54px!important;
+  border:0!important;
+  border-radius:999px!important;
+  background:transparent!important;
+  color:transparent!important;
+  caret-color:#6D56A6!important;
+  font-family:"Reenie Beanie",cursive!important;
+  font-size:25px!important;
+  text-align:left!important;
+  outline:none!important;
+  -webkit-text-fill-color:transparent!important;
+}
+.password-gate .cover-password-input:focus{
+  outline:none!important;
+}
+.password-gate .cover-password-hotspot::after{
+  content:"♡";
+  position:absolute;
+  z-index:4;
+  left:20px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#8D71C8;
+  font-family:Arial,sans-serif;
+  font-size:29px;
+  pointer-events:none;
+}
+.password-gate .password-hearts{
+  z-index:5!important;
+  pointer-events:none!important;
+  padding-left:54px!important;
+}
+
+/* botão exatamente sobre o botão desenhado */
+.password-gate .cover-button-hotspot{
+  left:21%!important;
+  top:70.55%!important;
+  width:58%!important;
+  height:7.3%!important;
+  z-index:31!important;
+}
+.password-gate .cover-error{
+  top:67.0%!important;
+  z-index:32!important;
+}
+@media(max-width:600px){
+  .password-gate .cover-password-hotspot{
+    left:9.5%!important;top:59.2%!important;width:81%!important;height:7.4%!important;
+  }
+  .password-gate .cover-button-hotspot{
+    left:21%!important;top:70.55%!important;width:58%!important;height:7.3%!important;
+  }
+  .password-gate .cover-error{top:67%!important}
 }
 
 </style>
