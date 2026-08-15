@@ -3514,9 +3514,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     </a>
 
     <button class="dedications-toggle mystery-toggle" id="dedicationsToggle"
-            type="button" aria-expanded="false" aria-controls="dedicationsPanel" disabled>
-      <span class="dedications-icon" aria-hidden="true">ENTRELINHAS</span>
-    </button>
+            type="button" aria-expanded="false" aria-controls="dedicationsPanel" disabled>?</button>
     <p class="mystery-hint" id="mysteryHint">
       reveja a história para liberar. depois, volte aqui.
     </p>
@@ -6038,5 +6036,20 @@ textarea{
   background:#121212 !important;
   border-color:#2b2b2b !important;
   transform:none !important;
+}
+</style>
+
+<style id="locked-question-only-v4">
+#musicGate .dedications-toggle:not(.is-revealed){
+  background:#0b0b0b !important;
+  border-color:#292929 !important;
+  color:#303030 !important;
+  box-shadow:none !important;
+}
+#musicGate .dedications-toggle:not(.is-revealed){
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+  font-size:18px !important;
+  font-weight:500 !important;
+  letter-spacing:0 !important;
 }
 </style>
