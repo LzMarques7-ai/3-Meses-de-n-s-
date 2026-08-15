@@ -5971,3 +5971,37 @@ textarea{
   letter-spacing:.14em !important;
 }
 </style>
+
+<style id="entrelINHAS-refinement-v2">
+/* ENTRELINHAS — refinamento do botão desbloqueado */
+#musicGate .dedications-toggle,
+#musicGate .dedications-toggle.is-revealed{
+  background:#121212 !important;
+  color:#1ED760 !important;
+  border-color:#1ED760 !important;
+  box-shadow:none !important;
+}
+
+/* O texto estava herdando a classe visual de "ícone",
+   deixando ENTRELINHAS com uma fonte/tamanho diferentes. */
+#musicGate .dedications-toggle .dedications-icon,
+#musicGate .dedications-toggle.is-revealed .dedications-icon{
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  line-height:1 !important;
+  letter-spacing:.065em !important;
+  text-transform:uppercase !important;
+  margin:0 !important;
+  color:#1ED760 !important;
+  opacity:1 !important;
+}
+
+/* Mesmo comportamento visual do CTA Spotify, sem o fundo verde */
+#musicGate .dedications-toggle.is-revealed:hover{
+  background:#121212 !important;
+  border-color:#1ED760 !important;
+  color:#1ED760 !important;
+  transform:none !important;
+}
+</style>
