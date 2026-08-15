@@ -3515,7 +3515,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 
     <button class="dedications-toggle mystery-toggle" id="dedicationsToggle"
             type="button" aria-expanded="false" aria-controls="dedicationsPanel" disabled>
-      <span class="dedications-icon" aria-hidden="true">?</span>
+      <span class="dedications-icon" aria-hidden="true">ENTRELINHAS</span>
     </button>
     <p class="mystery-hint" id="mysteryHint">
       reveja a história para liberar. depois, volte aqui.
@@ -5882,5 +5882,92 @@ textarea{
 /* A mensagem de bloqueio também fica mais discreta. */
 #musicGate .mystery-hint{
   color:#666666 !important;
+}
+</style>
+
+<style id="spotify-refinement-v5">
+/* =========================================================
+   SPOTIFY — ESTADO BLOQUEADO / DESBLOQUEADO V5
+   O botão fica escuro enquanto bloqueado e volta ao verde
+   automaticamente quando unlockLobbyDedications() é chamado.
+   ========================================================= */
+
+/* BLOQUEADO */
+#musicGate .dedications-toggle.mystery-toggle,
+#musicGate .dedications-toggle.mystery-toggle:disabled,
+#musicGate .dedications-toggle.mystery-toggle[disabled]{
+  border-color:#292929 !important;
+  background:#0d0d0d !important;
+  color:#3a3a3a !important;
+  box-shadow:none !important;
+  cursor:not-allowed !important;
+  opacity:1 !important;
+  transform:none !important;
+}
+
+#musicGate .dedications-toggle.mystery-toggle:hover,
+#musicGate .dedications-toggle.mystery-toggle:disabled:hover{
+  border-color:#292929 !important;
+  background:#0d0d0d !important;
+  color:#3a3a3a !important;
+  transform:none !important;
+}
+
+#musicGate .dedications-toggle.mystery-toggle .dedications-icon{
+  color:#3a3a3a !important;
+  opacity:.72 !important;
+}
+
+/* DESBLOQUEADO — esta regra vem depois do estado bloqueado */
+#musicGate .dedications-toggle.is-revealed{
+  border-color:#1ed760 !important;
+  background:transparent !important;
+  color:#1ed760 !important;
+  box-shadow:0 0 20px rgba(30,215,96,.08) !important;
+  cursor:pointer !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
+}
+
+#musicGate .dedications-toggle.is-revealed:hover{
+  border-color:#1ed760 !important;
+  background:rgba(30,215,96,.06) !important;
+  color:#1ed760 !important;
+  transform:translateY(-2px) !important;
+}
+
+#musicGate .dedications-toggle.is-revealed .dedications-icon{
+  color:#1ed760 !important;
+  opacity:1 !important;
+}
+
+/* O ponto verde do título continua removido. */
+#musicGate h2::after{
+  content:none !important;
+  display:none !important;
+}
+</style>
+
+<script>
+/* V5 — texto do botão após liberar */
+(function(){
+  const originalUnlock = window.unlockLobbyDedications;
+  if(typeof originalUnlock !== "function") return;
+
+  window.unlockLobbyDedications = function(){
+    originalUnlock();
+
+    const button = document.getElementById("dedicationsToggle");
+    if(!button) return;
+
+    const label = button.querySelector("span:last-child");
+    if(label) label.textContent = "ENTRELINHAS";
+  };
+})();
+</script>
+
+<style id="spotify-entrelINHAS-label">
+#musicGate .dedications-toggle{
+  letter-spacing:.14em !important;
 }
 </style>
