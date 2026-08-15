@@ -3160,6 +3160,270 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   try { history.scrollRestoration = "manual"; } catch(e) {}
 })();
 </script>
+
+<style id="spotify-faithful-final">
+/* =========================================================
+   SPOTIFY — FINAL VISUAL PASS
+   Escopo exclusivo: #musicGate
+   Não altera nenhuma outra página do projeto.
+   ========================================================= */
+
+#musicGate{
+  background:#121212 !important;
+  color:#fff !important;
+  text-align:center;
+}
+
+#musicGate .music-gate-inner{
+  width:100%;
+  max-width:853px;
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+}
+
+#musicGate .music-gate-kicker,
+#musicGate .music-gate-intro,
+#musicGate .spotify-button,
+#musicGate .dedications-toggle,
+#musicGate .dedications-heading,
+#musicGate .dedications-subtitle,
+#musicGate .song-row,
+#musicGate .song-row strong,
+#musicGate .song-row small,
+#musicGate .song-row b,
+#musicGate .music-gate-note,
+#musicGate .music-continue,
+#musicGate .mystery-hint,
+#musicGate .final-return{
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+}
+
+/* Spotify Green */
+#musicGate .music-gate-kicker,
+#musicGate .music-gate-rule .spotify-mark-top,
+#musicGate .dedications-toggle,
+#musicGate .music-continue.is-unlocked,
+#musicGate .music-continue:not(:disabled),
+#musicGate .mystery-hint em{
+  color:#1ED760 !important;
+}
+
+#musicGate .music-gate-rule::before,
+#musicGate .music-gate-rule::after{
+  background:#1ED760 !important;
+  opacity:.42;
+}
+
+#musicGate .music-gate-rule .spotify-mark-top{
+  color:#1ED760 !important;
+}
+
+/* Main Spotify-style display heading.
+   Spotify Mix is proprietary; for a web partner page Spotify itself
+   recommends the platform sans-serif stack. On iPhone this resolves
+   to the native system sans, keeping the proportions crisp and close
+   to the current Spotify UI. */
+#musicGate h2{
+  color:#fff !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+  font-weight:800 !important;
+  letter-spacing:-.055em !important;
+  line-height:.92 !important;
+  text-wrap:balance;
+}
+
+#musicGate h2::after{
+  background:#1ED760 !important;
+}
+
+/* Supporting copy */
+#musicGate .music-gate-intro{
+  color:#B3B3B3 !important;
+  font-weight:400 !important;
+  letter-spacing:-.018em !important;
+  line-height:1.35 !important;
+}
+
+/* Primary CTA */
+#musicGate .spotify-button{
+  background:#1ED760 !important;
+  color:#000 !important;
+  font-weight:700 !important;
+  letter-spacing:.055em !important;
+  border-radius:999px !important;
+  box-shadow:none !important;
+  transform:none;
+}
+
+#musicGate .spotify-button:hover{
+  background:#1ED760 !important;
+  filter:brightness(1.06);
+  transform:scale(1.01);
+}
+
+#musicGate .spotify-button:active{
+  transform:scale(.985);
+  filter:brightness(.94);
+}
+
+/* Secondary / mystery control */
+#musicGate .dedications-toggle{
+  border-color:rgba(30,215,96,.30) !important;
+  background:transparent !important;
+  color:#1ED760 !important;
+  border-radius:999px !important;
+  box-shadow:none !important;
+}
+
+#musicGate .dedications-toggle:hover{
+  border-color:#1ED760 !important;
+  background:rgba(30,215,96,.05) !important;
+  transform:none;
+}
+
+/* Disabled state remains intentionally subdued */
+#musicGate .music-continue:disabled{
+  color:#6A6A6A !important;
+  border-color:#2B2B2B !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+
+#musicGate .music-continue:not(:disabled){
+  color:#1ED760 !important;
+  border-color:#1ED760 !important;
+}
+
+/* Spotify-style neutral text */
+#musicGate .mystery-hint{
+  color:#6A6A6A !important;
+  letter-spacing:.01em !important;
+}
+
+#musicGate .dedications-heading{
+  color:#fff !important;
+  font-weight:700 !important;
+}
+
+#musicGate .dedications-subtitle{
+  color:#B3B3B3 !important;
+  font-weight:400 !important;
+}
+
+#musicGate .song-list{
+  border-color:#2A2A2A !important;
+}
+
+#musicGate .song-row{
+  color:#fff !important;
+  border-color:#2A2A2A !important;
+}
+
+#musicGate .song-row small,
+#musicGate .song-row b{
+  color:#6A6A6A !important;
+}
+
+#musicGate .song-row[aria-expanded="true"] b{
+  color:#1ED760 !important;
+}
+
+#musicGate .song-quote{
+  color:#B3B3B3 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+}
+
+#musicGate .final-return{
+  border-color:rgba(30,215,96,.35) !important;
+  color:#1ED760 !important;
+  background:rgba(30,215,96,.025) !important;
+}
+
+/* iPhone/mobile proportions */
+@media(max-width:600px){
+  #musicGate .music-gate-inner{
+    padding-left:24px !important;
+    padding-right:24px !important;
+  }
+
+  #musicGate .music-gate-kicker{
+    font-size:10px !important;
+    font-weight:700 !important;
+    letter-spacing:.24em !important;
+  }
+
+  #musicGate .music-gate-rule{
+    width:150px !important;
+  }
+
+  #musicGate .music-gate-rule::before,
+  #musicGate .music-gate-rule::after{
+    background:#1ED760 !important;
+  }
+
+  #musicGate h2{
+    width:100% !important;
+    max-width:390px !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    font-size:clamp(43px,11.8vw,58px) !important;
+    letter-spacing:-.06em !important;
+    line-height:.94 !important;
+    white-space:normal !important;
+  }
+
+  #musicGate h2::after{
+    width:11px !important;
+    height:11px !important;
+    margin-left:5px !important;
+    margin-bottom:5px !important;
+  }
+
+  #musicGate .music-gate-intro{
+    max-width:360px !important;
+    font-size:18px !important;
+    line-height:1.38 !important;
+    letter-spacing:-.02em !important;
+    margin-top:18px !important;
+  }
+
+  #musicGate .spotify-button,
+  #musicGate .dedications-toggle,
+  #musicGate .music-continue{
+    max-width:360px !important;
+    height:60px !important;
+    min-height:60px !important;
+    border-radius:999px !important;
+  }
+
+  #musicGate .spotify-button{
+    gap:14px !important;
+    font-size:11px !important;
+    font-weight:700 !important;
+    letter-spacing:.065em !important;
+  }
+
+  #musicGate .spotify-mark-button{
+    width:38px !important;
+    height:38px !important;
+    flex-basis:38px !important;
+  }
+
+  #musicGate .dedications-toggle{
+    margin-top:18px !important;
+    border-width:2px !important;
+  }
+
+  #musicGate .music-continue{
+    margin-top:31px !important;
+    border-width:2px !important;
+    font-size:11px !important;
+    font-weight:700 !important;
+    letter-spacing:.16em !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
