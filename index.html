@@ -3514,7 +3514,9 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     </a>
 
     <button class="dedications-toggle mystery-toggle" id="dedicationsToggle"
-            type="button" aria-expanded="false" aria-controls="dedicationsPanel" disabled>?</button>
+            type="button" aria-expanded="false" aria-controls="dedicationsPanel" disabled>
+      <span class="dedications-icon" aria-hidden="true">?</span>
+    </button>
     <p class="mystery-hint" id="mysteryHint">
       reveja a história para liberar. depois, volte aqui.
     </p>
@@ -4280,10 +4282,7 @@ function unlockLobbyDedications(){
   button.setAttribute("aria-disabled","false");
 
   const icon=button.querySelector(".dedications-icon");
-  if(icon) icon.textContent="♫";
-
-  const label=button.querySelector("span:last-child");
-  if(label) label.textContent="DEDICAÇÕES";
+  if(icon) icon.textContent="ENTRELINHAS";
 
   const subtitle=document.querySelector(".dedications-subtitle");
   if(subtitle){
@@ -6051,5 +6050,123 @@ textarea{
   font-size:18px !important;
   font-weight:500 !important;
   letter-spacing:0 !important;
+}
+</style>
+
+<style id="entrelinhas-state-final-v5">
+/* BLOQUEADO = somente ? apagado */
+#musicGate .dedications-toggle.mystery-toggle:disabled{
+  background:#0b0b0b !important;
+  border-color:#292929 !important;
+  color:#303030 !important;
+  box-shadow:none !important;
+  cursor:not-allowed !important;
+  opacity:1 !important;
+  transform:none !important;
+  pointer-events:none !important;
+}
+#musicGate .dedications-toggle.mystery-toggle:disabled .dedications-icon{
+  display:block !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:0 !important;
+  font-weight:600 !important;
+  line-height:1 !important;
+  letter-spacing:0 !important;
+  color:#303030 !important;
+}
+#musicGate .dedications-toggle.mystery-toggle:disabled .dedications-icon::after{
+  content:"?" !important;
+  display:inline-block !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:18px !important;
+  font-weight:500 !important;
+  line-height:1 !important;
+  letter-spacing:0 !important;
+  color:#303030 !important;
+}
+
+/* DESBLOQUEADO = ENTRELINHAS */
+#musicGate .dedications-toggle.mystery-toggle.is-revealed{
+  background:#121212 !important;
+  border-color:#1ED760 !important;
+  color:#1ED760 !important;
+  box-shadow:none !important;
+  cursor:pointer !important;
+  pointer-events:auto !important;
+  opacity:1 !important;
+}
+#musicGate .dedications-toggle.mystery-toggle.is-revealed .dedications-icon{
+  display:block !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  line-height:1 !important;
+  letter-spacing:.065em !important;
+  color:#1ED760 !important;
+}
+#musicGate .dedications-toggle.mystery-toggle.is-revealed .dedications-icon::after{
+  content:none !important;
+}
+</style>
+
+<style id="entrelinhas-final-state-v6">
+/* V6 — ESTADO DEFINITIVO DO BOTÃO ENTRELINHAS
+   BLOQUEADO: somente ? apagado.
+   DESBLOQUEADO: somente ENTRELINHAS em verde.
+*/
+#musicGate .dedications-toggle.mystery-toggle:disabled {
+  background:#0b0b0b !important;
+  border-color:#292929 !important;
+  color:#303030 !important;
+  box-shadow:none !important;
+  opacity:1 !important;
+  cursor:not-allowed !important;
+  pointer-events:none !important;
+}
+
+#musicGate .dedications-toggle.mystery-toggle:disabled .dedications-icon {
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:18px !important;
+  font-weight:500 !important;
+  line-height:1 !important;
+  letter-spacing:0 !important;
+  color:#303030 !important;
+  opacity:1 !important;
+}
+
+#musicGate .dedications-toggle.mystery-toggle:disabled .dedications-icon::after {
+  content:none !important;
+  display:none !important;
+}
+
+#musicGate .dedications-toggle.is-revealed {
+  background:#121212 !important;
+  border-color:#1ED760 !important;
+  color:#1ED760 !important;
+  box-shadow:none !important;
+  opacity:1 !important;
+  cursor:pointer !important;
+  pointer-events:auto !important;
+}
+
+#musicGate .dedications-toggle.is-revealed .dedications-icon {
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  line-height:1 !important;
+  letter-spacing:.14em !important;
+  color:#1ED760 !important;
+  opacity:1 !important;
+}
+
+#musicGate .dedications-toggle.is-revealed .dedications-icon::after {
+  content:none !important;
+  display:none !important;
 }
 </style>
