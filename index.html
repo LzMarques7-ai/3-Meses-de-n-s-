@@ -5728,3 +5728,113 @@ textarea{
   }
 }
 </style>
+
+<style id="spotify-refinement-v3">
+/* =========================================================
+   SPOTIFY — REFINAMENTO VISUAL V3
+   Apenas acabamento: hierarquia, espaçamento e indicador.
+   ========================================================= */
+
+#musicGate .music-gate-inner{
+  padding-top: 72px !important;
+  padding-bottom: 58px !important;
+}
+
+#musicGate .music-gate-rule{
+  margin-bottom: 28px !important;
+}
+
+#musicGate h2{
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  line-height: .90 !important;
+  letter-spacing: -.068em !important;
+}
+
+/* Ponto verde do título: menor, mais integrado e vivo. */
+#musicGate h2 .title-dot,
+#musicGate h2 .green-dot,
+#musicGate h2 .dot,
+#musicGate h2 .accent-dot{
+  width: .24em !important;
+  height: .24em !important;
+  min-width: .24em !important;
+  min-height: .24em !important;
+  display: inline-block !important;
+  border-radius: 50% !important;
+  background: #1ED760 !important;
+  margin-left: .10em !important;
+  vertical-align: .06em !important;
+  animation: spotifyTitleDotPulse 2.8s ease-in-out infinite !important;
+}
+
+/* Caso o ponto esteja diretamente como elemento após o título. */
+#musicGate h2 + .title-dot,
+#musicGate h2 + .green-dot{
+  width: 11px !important;
+  height: 11px !important;
+}
+
+@keyframes spotifyTitleDotPulse{
+  0%, 100% { transform: scale(1); opacity: .92; }
+  50% { transform: scale(1.13); opacity: 1; }
+}
+
+#musicGate .music-gate-intro{
+  margin-top: 21px !important;
+  margin-bottom: 27px !important;
+  color: #B3B3B3 !important;
+  line-height: 1.34 !important;
+}
+
+#musicGate .spotify-button{
+  margin-top: 0 !important;
+}
+
+#musicGate .dedications-toggle{
+  margin-top: 16px !important;
+}
+
+#musicGate .mystery-hint{
+  margin-top: 10px !important;
+  color: #777777 !important;
+}
+
+#musicGate .music-continue{
+  margin-top: 25px !important;
+}
+
+@media (max-width:600px){
+  #musicGate .music-gate-inner{
+    padding-top: 68px !important;
+    padding-bottom: 52px !important;
+  }
+
+  #musicGate .music-gate-rule{
+    margin-bottom: 25px !important;
+  }
+
+  #musicGate h2{
+    line-height: .92 !important;
+    letter-spacing: -.065em !important;
+  }
+
+  #musicGate .music-gate-intro{
+    margin-top: 18px !important;
+    margin-bottom: 24px !important;
+    line-height: 1.36 !important;
+  }
+
+  #musicGate .dedications-toggle{
+    margin-top: 16px !important;
+  }
+
+  #musicGate .mystery-hint{
+    margin-top: 9px !important;
+  }
+
+  #musicGate .music-continue{
+    margin-top: 25px !important;
+  }
+}
+</style>
