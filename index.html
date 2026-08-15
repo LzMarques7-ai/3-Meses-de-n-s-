@@ -3708,9 +3708,17 @@ function openReveal(){
   story.setAttribute("aria-hidden","false");
   document.body.style.overflow="hidden";
   storyIndex = 0;
+
   const container = story.querySelector(".story-pages");
-  if(container) container.scrollTop = 0;
-  requestAnimationFrame(updateStoryProgress);
+  if(container){
+    container.scrollTo({top:0, left:0, behavior:"auto"});
+    requestAnimationFrame(() => {
+      container.scrollTo({top:0, left:0, behavior:"auto"});
+      updateStoryProgress();
+    });
+  } else {
+    requestAnimationFrame(updateStoryProgress);
+  }
 }
 
 function closeReveal(){
@@ -5199,32 +5207,29 @@ textarea{
 }
 </style>
 
-<style id="ajuste-final-capa-posicao">
+<style id="ajuste-capa-definitivo">
 /* =========================================================
-   CAPA — POSIÇÃO REAL NA ABERTURA
-   O conteúdo estava começando alto demais no iPhone.
-   O espaço livre inferior permite deslocar tudo para baixo
-   sem deixar a capa “apertada”.
+   CAPA — COMPOSIÇÃO DEFINITIVA
    ========================================================= */
 
+/* A capa precisa começar realmente no topo do conteúdo,
+   sem esconder o manuscrito atrás da Dynamic Island. */
 .story-page-02{
   justify-content:flex-start!important;
   min-height:100svh!important;
   height:auto!important;
   box-sizing:border-box!important;
   overflow:visible!important;
-
-  /* Mais respiro real abaixo do Dynamic Island/status bar. */
   padding-top:145px!important;
-  padding-bottom:28px!important;
+  padding-bottom:24px!important;
 }
 
-/* Mantém o manuscrito inteiro visível antes do título. */
+/* Manuscrito delicado, alinhado com a assinatura. */
 .story-page-02 .story-kicker{
   margin-top:0!important;
 }
 
-/* O restante acompanha o kicker naturalmente. */
+/* Título e ilustração seguem a mesma sequência vertical. */
 .story-page-02 .story-chapter-title{
   margin-top:18px!important;
 }
@@ -5233,7 +5238,7 @@ textarea{
   margin-top:18px!important;
 }
 
-/* Texto continua sendo UM único bloco. */
+/* Texto em um único bloco, como definido anteriormente. */
 .story-page-02 .story-body{
   width:min(86vw,590px)!important;
   margin:30px auto 0!important;
@@ -5243,8 +5248,12 @@ textarea{
   margin:0 auto!important;
 }
 
-/* Em iPhones pequenos, mantém uma folga menor sem voltar
-   a esconder o manuscrito. */
+/* Assinatura: um pouco mais abaixo do botão, sem exagerar. */
+.story-page-02 .story-signature{
+  margin-top:48px!important;
+  margin-bottom:42px!important;
+}
+
 @media(max-width:430px){
   .story-page-02{
     padding-top:145px!important;
@@ -5266,15 +5275,39 @@ textarea{
   .story-page-02 .story-body{
     margin-top:30px!important;
   }
+
+  .story-page-02 .story-signature{
+    margin-top:48px!important;
+    margin-bottom:42px!important;
+  }
 }
 </style>
 
-<style id="ajuste-feito-para-voce">
-/* Assinatura: manter delicada, mas descer um pouco para respirar
-   melhor em relação ao botão e aproveitar o espaço inferior. */
-.story-page-02 .story-signature{
-  margin-top:34px!important;
-  margin-bottom:18px!important;
-}
-</style>
+<script id="fix-capa-scroll-inicial">
+(function(){
+  function resetStoryPosition(){
+    const story = document.getElementById("reveal");
+    const container = story && story.querySelector(".story-pages");
+    if(!story || !container) return;
+
+    if(story.classList.contains("open")){
+      container.scrollTo({top:0,left:0,behavior:"auto"});
+    }
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", resetStoryPosition, {once:true});
+  } else {
+    resetStoryPosition();
+  }
+
+  const story = document.getElementById("reveal");
+  if(story){
+    new MutationObserver(resetStoryPosition).observe(story, {
+      attributes:true,
+      attributeFilter:["class"]
+    });
+  }
+})();
+</script>
 
