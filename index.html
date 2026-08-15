@@ -3109,6 +3109,65 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 </style>
 
+
+<style id="ilustracao-vinho-centralizada">
+/* =========================================================
+   CAPA — UNIDADE VISUAL DA ILUSTRAÇÃO
+   Casal + sol + lua usam exatamente #A51A41.
+   O sol e a lua mantêm suas artes originais.
+   ========================================================= */
+
+/* Casal: mesma cor dos títulos, sem alterar tamanho.
+   Pequeno deslocamento óptico para a direita porque a massa
+   visual da arte original pesa levemente para a esquerda. */
+.story-page-02 .story-illustration-wrap #couple,
+.story-page-02 .mark.story-illustration-wrap #couple{
+  filter:url(#wineFilter)!important;
+  position:relative!important;
+  left:2%!important;
+}
+
+/* Sol e lua: mesma cor do casal, preservando transparência,
+   desenho e dimensões atuais. */
+.story-page-02 .story-sun,
+.story-page-02 .story-moon{
+  filter:url(#wineFilter)!important;
+}
+
+/* Mantém a posição diagonal já definida. */
+.story-page-02 .story-sun{
+  left:-7%!important;
+  top:70%!important;
+  right:auto!important;
+  bottom:auto!important;
+}
+
+.story-page-02 .story-moon{
+  right:4%!important;
+  top:7%!important;
+  left:auto!important;
+  bottom:auto!important;
+}
+
+/* Em telas pequenas, o deslocamento óptico continua discreto. */
+@media(max-width:430px){
+  .story-page-02 .story-illustration-wrap #couple,
+  .story-page-02 .mark.story-illustration-wrap #couple{
+    left:2%!important;
+  }
+
+  .story-page-02 .story-sun{
+    left:-7%!important;
+    top:70%!important;
+  }
+
+  .story-page-02 .story-moon{
+    right:4%!important;
+    top:7%!important;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -3944,6 +4003,24 @@ function unlockLobbyDedications(){
 <script>
 (function(){const t=document.getElementById('dedicationsToggle'),p=document.getElementById('dedicationsPanel');if(!t||!p)return;t.addEventListener('click',()=>{const o=p.classList.toggle('is-open');t.setAttribute('aria-expanded',o);p.setAttribute('aria-hidden',!o)});document.querySelectorAll('.song-row').forEach(r=>r.addEventListener('click',()=>{const id=r.dataset.song,q=document.querySelector('.song-quote[data-quote="'+id+'"]'),open=r.getAttribute('aria-expanded')==='true';document.querySelectorAll('.song-row').forEach(x=>x.setAttribute('aria-expanded','false'));document.querySelectorAll('.song-quote').forEach(x=>x.hidden=true);if(!open){r.setAttribute('aria-expanded','true');q.hidden=false}}));})();
 </script>
+
+
+<svg id="filtro-cor-vinho" width="0" height="0"
+     viewBox="0 0 1 1"
+     aria-hidden="true"
+     style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <filter id="wineFilter" color-interpolation-filters="sRGB">
+      <!-- #A51A41 -->
+      <feColorMatrix type="matrix"
+        values="
+          0 0 0 0 0.6470588
+          0 0 0 0 0.1019608
+          0 0 0 0 0.2549020
+          0 0 0 1 0"/>
+    </filter>
+  </defs>
+</svg>
 
 </body>
 </html>
