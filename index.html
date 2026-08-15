@@ -3086,6 +3086,29 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 
 </style>
 
+
+<style id="botao-pressionado-corrigido">
+/* Feedback físico do botão CONTINUAR */
+.enter{
+  transform:translateY(0) scale(1)!important;
+  transition:
+    transform .14s cubic-bezier(.2,.8,.2,1),
+    background-color .14s ease,
+    border-color .14s ease,
+    color .14s ease,
+    box-shadow .14s ease!important;
+  will-change:transform,background-color,box-shadow;
+}
+
+.enter.is-pressed{
+  transform:translateY(2px) scale(.975)!important;
+  background:#244779!important;
+  border-color:#244779!important;
+  color:#fff!important;
+  box-shadow:inset 0 2px 5px rgba(0,0,0,.20)!important;
+}
+</style>
+
 </head>
 
 <body>
@@ -3136,7 +3159,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   <div class="story-body">
     <p><span>eu poderia simplesmente contar que estamos juntos há três meses.</span><span>mas você sabe que não foi assim que começou.</span></p>
   </div>
-  <button class="enter" type="button" onclick="openMusicGate()">continuar</button>
+  <button class="enter" type="button" onclick="pressContinue(this)">continuar</button>
   <div class="story-signature">feito para você <span>♡</span></div>
 </section>
 </main>
@@ -3828,6 +3851,24 @@ document.querySelectorAll(".memory-card").forEach(function(card){
 });
 </script>
 
+
+<script id="botao-continuar-handler">
+/* Microinteração do CONTINUAR: primeiro mostra o pressionamento,
+   depois abre a próxima tela. Não altera o Spotify. */
+function pressContinue(button){
+  if (!button || button.dataset.busy === "1") return;
+
+  button.dataset.busy = "1";
+  button.classList.add("is-pressed");
+
+  window.setTimeout(function(){
+    button.classList.remove("is-pressed");
+    button.dataset.busy = "0";
+    openMusicGate();
+  }, 150);
+}
+</script>
+
 <script>
 function openMusicGate(){
   const gate=document.getElementById("musicGate");
@@ -4356,43 +4397,5 @@ function unlockLobbyDedications(){
     padding:14px 28px!important;
     font-size:13px!important;
   }
-}
-</style>
-
-<style id="animacao-botao-pressionado">
-/* =========================================================
-   FEEDBACK DE PRESSÃO — BOTÕES NARRATIVOS
-   Ao tocar, o botão escurece e afunda levemente, como
-   se estivesse sendo realmente pressionado.
-   Spotify permanece intocado.
-   ========================================================= */
-
-.enter,
-.password-button,
-.story-next{
-  transition:
-    transform .12s ease,
-    background-color .12s ease,
-    border-color .12s ease,
-    box-shadow .12s ease!important;
-}
-
-.enter:active,
-.password-button:active,
-.story-next:active{
-  transform:translateY(2px) scale(.985)!important;
-  background:#244779!important;
-  border-color:#244779!important;
-  color:#fff!important;
-  box-shadow:
-    inset 0 2px 4px rgba(0,0,0,.18)!important;
-}
-
-/* Acessibilidade: mantém uma resposta visual no teclado */
-.enter:focus-visible,
-.password-button:focus-visible,
-.story-next:focus-visible{
-  outline:2px solid rgba(49,90,158,.35)!important;
-  outline-offset:3px!important;
 }
 </style>
