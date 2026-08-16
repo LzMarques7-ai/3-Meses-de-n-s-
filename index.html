@@ -3940,6 +3940,44 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 </style>
 
+
+<style id="entrelinhas-main-layout-fix-v7">
+/*
+  CORREÇÃO DEFINITIVA DO ESPAÇO ENTRE A DIVISÓRIA E AS MÚSICAS.
+
+  O problema não estava no .el-divider nem no .el-tracks.
+  A página usa <main class="el-content"> e o CSS global do site
+  aplica "main { min-height:100svh; display:grid; place-items:center; }".
+  Isso transformava o conteúdo das Entrelinhas em uma área de tela inteira
+  e empurrava a lista para baixo.
+
+  Aqui o <main> das Entrelinhas volta a ser apenas um container normal.
+*/
+#entrelinhasPage .el-content{
+  display:block !important;
+  min-height:0 !important;
+  height:auto !important;
+  place-items:initial !important;
+  padding:0 !important;
+  margin:0 !important;
+  width:100% !important;
+}
+
+#entrelinhasPage .el-divider{
+  margin:0 0 0 !important;
+}
+
+#entrelinhasPage .el-tracks{
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+#entrelinhasPage .el-track:first-child{
+  margin-top:0 !important;
+}
+</style>
+
 </head>
 
 <body>
