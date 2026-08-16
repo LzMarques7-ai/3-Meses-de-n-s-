@@ -3528,6 +3528,196 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 </style>
 
+
+<style id="entrelinhas-design-refined-v3">
+/* =========================================================
+   ENTRELINHAS — REFINAMENTO VISUAL V3
+   Apenas a página Entrelinhas.
+   ========================================================= */
+
+#entrelinhasPage .el-shell{
+  width:min(100%, 820px);
+  padding:48px 28px 42px;
+}
+
+#entrelinhasPage .el-head{
+  margin-top:62px;
+}
+
+#entrelinhasPage .el-kicker{
+  margin-bottom:20px;
+  font-size:10px;
+  letter-spacing:.28em;
+}
+
+#entrelinhasPage h1{
+  font-size:clamp(44px, 8.2vw, 70px);
+  line-height:.91;
+  letter-spacing:-.068em;
+}
+
+#entrelinhasPage .el-head > .el-intro{
+  max-width:650px;
+  margin:25px 0 42px;
+  font-size:clamp(18px, 2.7vw, 21px);
+  line-height:1.42;
+  color:#B3B3B3;
+}
+
+#entrelinhasPage .el-list{
+  border-top:1px solid #2A2A2A;
+}
+
+/* A frase de introdução da lista fica integrada, sem o antigo
+   espaçamento excessivo. */
+#entrelinhasPage .el-list > .el-intro{
+  max-width:650px;
+  margin:30px 0 25px;
+  padding:0;
+  color:#8A8A8A;
+  font-size:16px;
+  line-height:1.48;
+}
+
+/* A lista ocupa quase toda a largura útil. */
+#entrelinhasPage .el-list > .el-list{
+  width:100%;
+  border-top:0;
+}
+
+#entrelinhasPage .el-track{
+  width:100%;
+  min-height:72px;
+  padding:18px 4px;
+  grid-template-columns:46px minmax(0,1fr) 28px;
+  gap:16px;
+  border-bottom:1px solid #2A2A2A;
+}
+
+#entrelinhasPage .el-track::before{
+  color:#666;
+  font-size:11px;
+  align-self:center;
+}
+
+#entrelinhasPage .el-info{
+  gap:6px;
+}
+
+#entrelinhasPage .el-title{
+  font-size:13px;
+  letter-spacing:.075em;
+}
+
+#entrelinhasPage .el-artist{
+  font-size:13px;
+  color:#777;
+}
+
+#entrelinhasPage .el-arrow{
+  color:#666;
+  font-size:27px;
+  justify-self:end;
+}
+
+#entrelinhasPage .el-track.is-open .el-title{
+  color:#1ED760;
+}
+
+#entrelinhasPage .el-detail{
+  padding:2px 34px 24px 62px;
+}
+
+#entrelinhasPage .el-quote{
+  margin:0;
+  max-width:620px;
+  color:#D0D0D0;
+  font-size:20px;
+  line-height:1.48;
+}
+
+/* Rodapé mais simples: só o botão VOLTAR. */
+#entrelinhasPage .el-footer{
+  margin-top:42px;
+  padding-top:22px;
+  border-top:1px solid #2A2A2A;
+}
+
+#entrelinhasPage .el-footer p{
+  display:none;
+}
+
+#entrelinhasPage .el-return{
+  width:100%;
+  height:58px;
+  border:2px solid #2A2A2A;
+  background:#121212;
+  color:#B3B3B3;
+  font-size:10px;
+  letter-spacing:.18em;
+  transition:border-color .2s ease,color .2s ease,background .2s ease;
+}
+
+#entrelinhasPage .el-return:hover{
+  border-color:#1ED760;
+  color:#1ED760;
+  background:#151515;
+}
+
+@media(max-width:600px){
+  #entrelinhasPage .el-shell{
+    padding:44px 24px 34px;
+  }
+
+  #entrelinhasPage .el-head{
+    margin-top:48px;
+  }
+
+  #entrelinhasPage h1{
+    font-size:46px;
+    line-height:.92;
+  }
+
+  #entrelinhasPage .el-head > .el-intro{
+    margin:20px 0 36px;
+    font-size:18px;
+  }
+
+  #entrelinhasPage .el-list > .el-intro{
+    margin:26px 0 19px;
+    font-size:15px;
+  }
+
+  #entrelinhasPage .el-track{
+    min-height:68px;
+    padding:17px 2px;
+    grid-template-columns:34px minmax(0,1fr) 22px;
+    gap:11px;
+  }
+
+  #entrelinhasPage .el-title{
+    font-size:12px;
+  }
+
+  #entrelinhasPage .el-artist{
+    font-size:12px;
+  }
+
+  #entrelinhasPage .el-detail{
+    padding:0 18px 21px 45px;
+  }
+
+  #entrelinhasPage .el-quote{
+    font-size:19px;
+  }
+
+  #entrelinhasPage .el-footer{
+    margin-top:34px;
+    padding-top:20px;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -3646,16 +3836,13 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 </section>
 <section id="entrelinhasPage" aria-hidden="true">
   <div class="el-shell">
-    <button class="el-back" type="button" onclick="closeEntrelinhasPage()">← &nbsp; VOLTAR</button>
-    <header class="el-head">
+<header class="el-head">
       <p class="el-kicker">ENTRELINHAS</p>
       <h1>algumas coisas<br>estão nas músicas.</h1>
       <p class="el-intro">porque nem tudo o que eu sinto conseguiu virar palavra. algumas coisas ficaram nas entrelinhas.</p>
     </header>
     <main class="el-list" aria-label="Músicas da playlist">
-      
-      <div class="el-kicker">DEDICAÇÕES</div>
-      <p class="el-intro" data-final-copy="agora saiba que cada música me faz lembrar de ti, meu amor.">antes de descobrir o que preparei, sinta o amor que existe em cada detalhe.</p>
+<p class="el-intro" data-final-copy="agora saiba que cada música me faz lembrar de ti, meu amor.">antes de descobrir o que preparei, sinta o amor que existe em cada detalhe.</p>
       <div class="el-list">
         <button class="el-track" type="button" data-song="1" aria-expanded="false"><span class="el-info"><strong class="el-title">MÚSICA 01</strong><small class="el-artist">ARTISTA</small></span><b class="el-arrow">›</b></button>
         <div class="el-detail" data-quote="1" hidden>“trecho da música que eu escolhi para você.”</div>
@@ -3672,7 +3859,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     </main>
     <footer class="el-footer">
       <p>cada música tem um motivo para estar aqui.</p>
-      <button class="el-return" type="button" onclick="closeEntrelinhasPage()">VOLTAR PARA A PLAYLIST</button>
+      <button class="el-return" type="button" onclick="closeEntrelinhasPage()">VOLTAR</button>
     </footer>
   </div>
 </section>
