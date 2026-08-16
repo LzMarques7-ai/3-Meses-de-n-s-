@@ -3914,6 +3914,32 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 </style>
 
+
+<style id="entrelinhas-design-v6">
+/* Remove the residual empty band between the intro and tracklist.
+   The divider stays, but the tracklist follows it immediately. */
+#entrelinhasPage .el-content{
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
+
+#entrelinhasPage .el-divider{
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+
+#entrelinhasPage .el-tracks{
+  margin-top:0 !important;
+}
+
+/* The first track should begin right after the divider,
+   while retaining a small amount of breathing room inside the row. */
+#entrelinhasPage .el-track:first-child{
+  margin-top:0 !important;
+  padding-top:20px !important;
+}
+</style>
+
 </head>
 
 <body>
