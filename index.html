@@ -3813,6 +3813,107 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 </style>
 
+
+<style id="entrelinhas-design-v5">
+/* ===== FINAL REFINEMENT V5 ===== */
+
+/* Kicker centered, as requested. */
+#entrelinhasPage .el-kicker{
+  width:100% !important;
+  text-align:center !important;
+}
+
+/* No prelude here: this page starts directly with the music list. */
+#entrelinhasPage .el-prelude{
+  display:none !important;
+}
+
+/* Kill the old automatic counter pseudo-element.
+   The actual .el-num is the ONLY track number. */
+#entrelinhasPage .el-track::before{
+  content:none !important;
+  display:none !important;
+}
+
+/* Keep every track entirely inside the viewport. */
+#entrelinhasPage .el-tracks{
+  width:100% !important;
+  max-width:100% !important;
+  overflow:hidden !important;
+}
+
+#entrelinhasPage .el-track{
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+  display:grid !important;
+  grid-template-columns:38px minmax(0,1fr) 24px !important;
+  gap:14px !important;
+  padding:20px 4px !important;
+  overflow:hidden !important;
+}
+
+#entrelinhasPage .el-num,
+#entrelinhasPage .el-info,
+#entrelinhasPage .el-arrow{
+  min-width:0 !important;
+}
+
+#entrelinhasPage .el-info{
+  overflow:hidden !important;
+}
+
+#entrelinhasPage .el-title,
+#entrelinhasPage .el-artist{
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  white-space:nowrap !important;
+}
+
+/* Track details: correct styling for the actual .el-detail markup. */
+#entrelinhasPage .el-detail{
+  width:100% !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+  padding:18px 28px 24px 52px !important;
+  color:#B3B3B3 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:15px !important;
+  line-height:1.5 !important;
+  overflow-wrap:anywhere !important;
+}
+
+/* The quote class is used if/when the real song text is inserted. */
+#entrelinhasPage .el-detail .el-quote{
+  margin:0 !important;
+  color:#B3B3B3 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:15px !important;
+  line-height:1.5 !important;
+}
+
+/* On small screens, don't let the arrow or title escape. */
+@media(max-width:600px){
+  #entrelinhasPage .el-shell{
+    padding-left:24px !important;
+    padding-right:24px !important;
+  }
+
+  #entrelinhasPage .el-track{
+    grid-template-columns:34px minmax(0,1fr) 22px !important;
+    gap:11px !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+
+  #entrelinhasPage .el-detail{
+    padding-left:45px !important;
+    padding-right:12px !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -3945,10 +4046,6 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 
     <main class="el-content" aria-label="Músicas da playlist">
       <div class="el-divider" aria-hidden="true"></div>
-
-      <p class="el-prelude">
-        antes de descobrir o que preparei, sinta o amor que existe em cada detalhe.
-      </p>
 
       <div class="el-tracks">
         <button class="el-track" type="button" data-song="1" aria-expanded="false">
