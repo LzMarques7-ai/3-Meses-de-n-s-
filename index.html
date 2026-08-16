@@ -3529,191 +3529,286 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 </style>
 
 
-<style id="entrelinhas-design-refined-v3">
+<style id="entrelinhas-design-v4">
 /* =========================================================
-   ENTRELINHAS — REFINAMENTO VISUAL V3
-   Apenas a página Entrelinhas.
+   ENTRELINHAS V4
+   Baseado no V2 funcional.
+   Sem persistência do desbloqueio.
+   Sem o espaçamento exagerado da V3.
    ========================================================= */
 
+#entrelinhasPage{
+  background:#121212 !important;
+  color:#fff !important;
+}
+
 #entrelinhasPage .el-shell{
-  width:min(100%, 820px);
-  padding:48px 28px 42px;
+  width:min(100%,760px) !important;
+  min-height:100% !important;
+  margin:0 auto !important;
+  padding:48px 24px 42px !important;
+  box-sizing:border-box !important;
 }
 
 #entrelinhasPage .el-head{
-  margin-top:62px;
+  margin:58px 0 0 !important;
 }
 
 #entrelinhasPage .el-kicker{
-  margin-bottom:20px;
-  font-size:10px;
-  letter-spacing:.28em;
+  margin:0 0 20px !important;
+  color:#1ED760 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:10px !important;
+  font-weight:700 !important;
+  line-height:1 !important;
+  letter-spacing:.27em !important;
 }
 
 #entrelinhasPage h1{
-  font-size:clamp(44px, 8.2vw, 70px);
-  line-height:.91;
-  letter-spacing:-.068em;
+  margin:0 !important;
+  color:#fff !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:clamp(45px,8.7vw,70px) !important;
+  font-weight:800 !important;
+  line-height:.91 !important;
+  letter-spacing:-.068em !important;
 }
 
 #entrelinhasPage .el-head > .el-intro{
-  max-width:650px;
-  margin:25px 0 42px;
-  font-size:clamp(18px, 2.7vw, 21px);
-  line-height:1.42;
-  color:#B3B3B3;
+  max-width:650px !important;
+  margin:24px 0 42px !important;
+  color:#B3B3B3 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:clamp(18px,2.7vw,21px) !important;
+  font-weight:400 !important;
+  line-height:1.43 !important;
+  letter-spacing:-.018em !important;
 }
 
-#entrelinhasPage .el-list{
-  border-top:1px solid #2A2A2A;
+/* Conteúdo: fluxo vertical normal, sem listas aninhadas. */
+#entrelinhasPage .el-content{
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
 }
 
-/* A frase de introdução da lista fica integrada, sem o antigo
-   espaçamento excessivo. */
-#entrelinhasPage .el-list > .el-intro{
-  max-width:650px;
-  margin:30px 0 25px;
-  padding:0;
-  color:#8A8A8A;
-  font-size:16px;
-  line-height:1.48;
+#entrelinhasPage .el-divider{
+  width:100% !important;
+  height:1px !important;
+  margin:0 0 30px !important;
+  background:#2A2A2A !important;
 }
 
-/* A lista ocupa quase toda a largura útil. */
-#entrelinhasPage .el-list > .el-list{
-  width:100%;
-  border-top:0;
+#entrelinhasPage .el-prelude{
+  max-width:650px !important;
+  margin:0 0 30px !important;
+  color:#858585 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:15px !important;
+  font-weight:400 !important;
+  line-height:1.5 !important;
+}
+
+/* Tracklist */
+#entrelinhasPage .el-tracks{
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
 }
 
 #entrelinhasPage .el-track{
-  width:100%;
-  min-height:72px;
-  padding:18px 4px;
-  grid-template-columns:46px minmax(0,1fr) 28px;
-  gap:16px;
-  border-bottom:1px solid #2A2A2A;
+  width:100% !important;
+  min-height:76px !important;
+  margin:0 !important;
+  padding:18px 4px !important;
+  display:grid !important;
+  grid-template-columns:42px minmax(0,1fr) 26px !important;
+  gap:15px !important;
+  align-items:center !important;
+  box-sizing:border-box !important;
+
+  border:0 !important;
+  border-top:1px solid #2A2A2A !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  color:#fff !important;
+  text-align:left !important;
+  cursor:pointer !important;
 }
 
-#entrelinhasPage .el-track::before{
-  color:#666;
-  font-size:11px;
-  align-self:center;
+#entrelinhasPage .el-track:last-of-type{
+  border-bottom:1px solid #2A2A2A !important;
+}
+
+#entrelinhasPage .el-num{
+  color:#666 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:11px !important;
+  font-weight:500 !important;
 }
 
 #entrelinhasPage .el-info{
-  gap:6px;
+  min-width:0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:6px !important;
 }
 
 #entrelinhasPage .el-title{
-  font-size:13px;
-  letter-spacing:.075em;
+  color:#F5F5F5 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:13px !important;
+  font-weight:700 !important;
+  line-height:1.15 !important;
+  letter-spacing:.075em !important;
 }
 
 #entrelinhasPage .el-artist{
-  font-size:13px;
-  color:#777;
+  color:#777 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:13px !important;
+  line-height:1 !important;
 }
 
 #entrelinhasPage .el-arrow{
-  color:#666;
-  font-size:27px;
-  justify-self:end;
+  color:#666 !important;
+  font-family:Arial,sans-serif !important;
+  font-size:29px !important;
+  font-weight:400 !important;
+  line-height:1 !important;
+  justify-self:end !important;
+  transition:color .2s ease,transform .2s ease !important;
 }
 
 #entrelinhasPage .el-track.is-open .el-title{
-  color:#1ED760;
+  color:#1ED760 !important;
 }
 
+#entrelinhasPage .el-track.is-open .el-arrow{
+  color:#1ED760 !important;
+  transform:rotate(90deg) !important;
+}
+
+/* Detalhes */
 #entrelinhasPage .el-detail{
-  padding:2px 34px 24px 62px;
+  display:none;
+  margin:0 !important;
+  padding:18px 30px 24px 61px !important;
+  border-top:0 !important;
+  border-bottom:1px solid #2A2A2A !important;
+  box-sizing:border-box !important;
+}
+
+#entrelinhasPage .el-detail[hidden]{
+  display:none !important;
+}
+
+#entrelinhasPage .el-track.is-open + .el-detail{
+  display:block !important;
+  animation:elDetailV4 .2s ease both !important;
 }
 
 #entrelinhasPage .el-quote{
-  margin:0;
-  max-width:620px;
-  color:#D0D0D0;
-  font-size:20px;
-  line-height:1.48;
+  margin:0 !important;
+  color:#B3B3B3 !important;
+  font-family:"Cormorant Garamond",Georgia,serif !important;
+  font-size:20px !important;
+  font-weight:400 !important;
+  line-height:1.48 !important;
 }
 
-/* Rodapé mais simples: só o botão VOLTAR. */
+@keyframes elDetailV4{
+  from{opacity:0;transform:translateY(-4px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Só o botão VOLTAR no final. */
 #entrelinhasPage .el-footer{
-  margin-top:42px;
-  padding-top:22px;
-  border-top:1px solid #2A2A2A;
-}
-
-#entrelinhasPage .el-footer p{
-  display:none;
+  margin:36px 0 0 !important;
+  padding:0 !important;
+  border:0 !important;
 }
 
 #entrelinhasPage .el-return{
-  width:100%;
-  height:58px;
-  border:2px solid #2A2A2A;
-  background:#121212;
-  color:#B3B3B3;
-  font-size:10px;
-  letter-spacing:.18em;
-  transition:border-color .2s ease,color .2s ease,background .2s ease;
+  width:100% !important;
+  height:58px !important;
+  border:2px solid #2A2A2A !important;
+  border-radius:999px !important;
+  background:#121212 !important;
+  color:#B3B3B3 !important;
+  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
+  font-size:10px !important;
+  font-weight:700 !important;
+  line-height:1 !important;
+  letter-spacing:.18em !important;
+  cursor:pointer !important;
+  transition:border-color .2s ease,color .2s ease !important;
 }
 
 #entrelinhasPage .el-return:hover{
-  border-color:#1ED760;
-  color:#1ED760;
-  background:#151515;
+  border-color:#1ED760 !important;
+  color:#1ED760 !important;
 }
 
 @media(max-width:600px){
   #entrelinhasPage .el-shell{
-    padding:44px 24px 34px;
+    padding:44px 24px 34px !important;
   }
 
   #entrelinhasPage .el-head{
-    margin-top:48px;
+    margin-top:48px !important;
   }
 
   #entrelinhasPage h1{
-    font-size:46px;
-    line-height:.92;
+    font-size:46px !important;
+    line-height:.92 !important;
   }
 
   #entrelinhasPage .el-head > .el-intro{
-    margin:20px 0 36px;
-    font-size:18px;
+    margin:20px 0 36px !important;
+    font-size:18px !important;
+    line-height:1.42 !important;
   }
 
-  #entrelinhasPage .el-list > .el-intro{
-    margin:26px 0 19px;
-    font-size:15px;
+  #entrelinhasPage .el-divider{
+    margin-bottom:27px !important;
+  }
+
+  #entrelinhasPage .el-prelude{
+    margin-bottom:27px !important;
+    font-size:15px !important;
+    line-height:1.48 !important;
   }
 
   #entrelinhasPage .el-track{
-    min-height:68px;
-    padding:17px 2px;
-    grid-template-columns:34px minmax(0,1fr) 22px;
-    gap:11px;
+    min-height:70px !important;
+    padding:17px 2px !important;
+    grid-template-columns:34px minmax(0,1fr) 22px !important;
+    gap:11px !important;
   }
 
   #entrelinhasPage .el-title{
-    font-size:12px;
+    font-size:12px !important;
   }
 
   #entrelinhasPage .el-artist{
-    font-size:12px;
+    font-size:12px !important;
+  }
+
+  #entrelinhasPage .el-arrow{
+    font-size:27px !important;
   }
 
   #entrelinhasPage .el-detail{
-    padding:0 18px 21px 45px;
+    padding:16px 18px 21px 45px !important;
   }
 
   #entrelinhasPage .el-quote{
-    font-size:19px;
+    font-size:19px !important;
   }
 
   #entrelinhasPage .el-footer{
-    margin-top:34px;
-    padding-top:20px;
+    margin-top:32px !important;
   }
 }
 </style>
@@ -3836,36 +3931,98 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 </section>
 <section id="entrelinhasPage" aria-hidden="true">
   <div class="el-shell">
-<header class="el-head">
+
+    <header class="el-head">
       <p class="el-kicker">ENTRELINHAS</p>
+
       <h1>algumas coisas<br>estão nas músicas.</h1>
-      <p class="el-intro">porque nem tudo o que eu sinto conseguiu virar palavra. algumas coisas ficaram nas entrelinhas.</p>
+
+      <p class="el-intro">
+        porque nem tudo o que eu sinto conseguiu virar palavra.
+        algumas coisas ficaram nas entrelinhas.
+      </p>
     </header>
-    <main class="el-list" aria-label="Músicas da playlist">
-<p class="el-intro" data-final-copy="agora saiba que cada música me faz lembrar de ti, meu amor.">antes de descobrir o que preparei, sinta o amor que existe em cada detalhe.</p>
-      <div class="el-list">
-        <button class="el-track" type="button" data-song="1" aria-expanded="false"><span class="el-info"><strong class="el-title">MÚSICA 01</strong><small class="el-artist">ARTISTA</small></span><b class="el-arrow">›</b></button>
-        <div class="el-detail" data-quote="1" hidden>“trecho da música que eu escolhi para você.”</div>
-        <button class="el-track" type="button" data-song="2" aria-expanded="false"><span class="el-info"><strong class="el-title">MÚSICA 02</strong><small class="el-artist">ARTISTA</small></span><b class="el-arrow">›</b></button>
-        <div class="el-detail" data-quote="2" hidden>“trecho da música que eu escolhi para você.”</div>
-        <button class="el-track" type="button" data-song="3" aria-expanded="false"><span class="el-info"><strong class="el-title">MÚSICA 03</strong><small class="el-artist">ARTISTA</small></span><b class="el-arrow">›</b></button>
-        <div class="el-detail" data-quote="3" hidden>“trecho da música que eu escolhi para você.”</div>
-        <button class="el-track" type="button" data-song="4" aria-expanded="false"><span class="el-info"><strong class="el-title">MÚSICA 04</strong><small class="el-artist">ARTISTA</small></span><b class="el-arrow">›</b></button>
-        <div class="el-detail" data-quote="4" hidden>“trecho da música que eu escolhi para você.”</div>
-        <button class="el-track" type="button" data-song="5" aria-expanded="false"><span class="el-info"><strong class="el-title">MÚSICA 05</strong><small class="el-artist">ARTISTA</small></span><b class="el-arrow">›</b></button>
-        <div class="el-detail" data-quote="5" hidden>“trecho da música que eu escolhi para você.”</div>
+
+    <main class="el-content" aria-label="Músicas da playlist">
+      <div class="el-divider" aria-hidden="true"></div>
+
+      <p class="el-prelude">
+        antes de descobrir o que preparei, sinta o amor que existe em cada detalhe.
+      </p>
+
+      <div class="el-tracks">
+        <button class="el-track" type="button" data-song="1" aria-expanded="false">
+          <span class="el-num">01</span>
+          <span class="el-info">
+            <strong class="el-title">MÚSICA 01</strong>
+            <small class="el-artist">ARTISTA</small>
+          </span>
+          <b class="el-arrow" aria-hidden="true">›</b>
+        </button>
+        <div class="el-detail" data-quote="1" hidden>
+          “trecho da música que eu escolhi para você.”
+        </div>
+
+        <button class="el-track" type="button" data-song="2" aria-expanded="false">
+          <span class="el-num">02</span>
+          <span class="el-info">
+            <strong class="el-title">MÚSICA 02</strong>
+            <small class="el-artist">ARTISTA</small>
+          </span>
+          <b class="el-arrow" aria-hidden="true">›</b>
+        </button>
+        <div class="el-detail" data-quote="2" hidden>
+          “trecho da música que eu escolhi para você.”
+        </div>
+
+        <button class="el-track" type="button" data-song="3" aria-expanded="false">
+          <span class="el-num">03</span>
+          <span class="el-info">
+            <strong class="el-title">MÚSICA 03</strong>
+            <small class="el-artist">ARTISTA</small>
+          </span>
+          <b class="el-arrow" aria-hidden="true">›</b>
+        </button>
+        <div class="el-detail" data-quote="3" hidden>
+          “trecho da música que eu escolhi para você.”
+        </div>
+
+        <button class="el-track" type="button" data-song="4" aria-expanded="false">
+          <span class="el-num">04</span>
+          <span class="el-info">
+            <strong class="el-title">MÚSICA 04</strong>
+            <small class="el-artist">ARTISTA</small>
+          </span>
+          <b class="el-arrow" aria-hidden="true">›</b>
+        </button>
+        <div class="el-detail" data-quote="4" hidden>
+          “trecho da música que eu escolhi para você.”
+        </div>
+
+        <button class="el-track" type="button" data-song="5" aria-expanded="false">
+          <span class="el-num">05</span>
+          <span class="el-info">
+            <strong class="el-title">MÚSICA 05</strong>
+            <small class="el-artist">ARTISTA</small>
+          </span>
+          <b class="el-arrow" aria-hidden="true">›</b>
+        </button>
+        <div class="el-detail" data-quote="5" hidden>
+          “trecho da música que eu escolhi para você.”
+        </div>
       </div>
-    
     </main>
+
     <footer class="el-footer">
-      <p>cada música tem um motivo para estar aqui.</p>
-      <button class="el-return" type="button" onclick="closeEntrelinhasPage()">VOLTAR</button>
+      <button class="el-return" type="button" onclick="closeEntrelinhasPage()">
+        VOLTAR
+      </button>
     </footer>
+
   </div>
 </section>
 
-
-<section class="story" id="reveal" aria-hidden="true">
+<section class="story"<section class="story" id="reveal" aria-hidden="true">
   <div class="story-progress-bar" aria-hidden="true"></div>
 
   <div class="story-pages">
@@ -4597,12 +4754,32 @@ function enterStory(){
   openReveal();
 }
 
+function lockLobbyDedications(){
+  const button = document.getElementById("dedicationsToggle");
+  if(!button) return;
+
+  button.disabled = true;
+  button.classList.remove("is-revealed", "reveal-pop");
+  button.classList.add("mystery-toggle");
+  button.setAttribute("aria-disabled","true");
+  button.setAttribute("data-unlocked","false");
+  button.setAttribute("aria-expanded","false");
+  button.innerHTML = '<span class="dedications-icon" aria-hidden="true">?</span>';
+
+  const subtitle = document.querySelector(".dedications-subtitle");
+  if(subtitle){
+    subtitle.textContent = "antes de descobrir o que preparei, sinta o amor que existe em cada detalhe.";
+  }
+
+  // Remove qualquer estado antigo criado por versões anteriores.
+  try { localStorage.removeItem("namoroEntrelinhasUnlockedV2"); } catch(e) {}
+  try { sessionStorage.removeItem("namoroEntrelinhasUnlockedV2"); } catch(e) {}
+}
+
 function unlockLobbyDedications(){
   const button = document.getElementById("dedicationsToggle");
   if(!button) return;
 
-  // ESTADO DESBLOQUEADO — troca fisicamente o conteúdo do botão.
-  // Não dependemos de pseudo-elementos, spans antigos ou texto herdado.
   button.disabled = false;
   button.classList.remove("mystery-toggle");
   button.classList.add("is-revealed");
@@ -4610,9 +4787,6 @@ function unlockLobbyDedications(){
   button.setAttribute("data-unlocked","true");
 
   button.innerHTML = '<span class="dedications-icon" aria-hidden="true">ENTRELINHAS</span>';
-
-  // Mantém o desbloqueio nesta sessão mesmo se a tela for reaberta.
-  try { localStorage.setItem("namoroEntrelinhasUnlockedV2","1"); } catch(e) {}
 
   const subtitle = document.querySelector(".dedications-subtitle");
   if(subtitle){
@@ -4625,30 +4799,29 @@ function unlockLobbyDedications(){
   button.classList.add("reveal-pop");
 }
 
-function restoreLobbyDedications(){
-  try{
-    if(localStorage.getItem("namoroEntrelinhasUnlockedV2") === "1"){
-      unlockLobbyDedications();
-    }
-  }catch(e){}
-}
-
-document.addEventListener("DOMContentLoaded", restoreLobbyDedications);
+// Toda nova abertura do site começa bloqueada.
+// O desbloqueio só acontece quando closeReveal() chama
+// unlockLobbyDedications() ao terminar a história.
+document.addEventListener("DOMContentLoaded", function(){
+  lockLobbyDedications();
+});
 </script>
 
 
-<script id="entrelinhas-page-behavior-v2">
+<script id="entrelinhas-page-behavior-v4">
 (function(){
   const toggle = document.getElementById("dedicationsToggle");
   const page = document.getElementById("entrelinhasPage");
 
   function openPage(){
     if(!page || !toggle || !toggle.classList.contains("is-revealed")) return;
+
     const gate=document.getElementById("musicGate");
     if(gate){
       gate.classList.remove("is-open");
       gate.setAttribute("aria-hidden","true");
     }
+
     page.classList.add("is-open");
     page.setAttribute("aria-hidden","false");
     page.scrollTop=0;
@@ -4657,9 +4830,11 @@ document.addEventListener("DOMContentLoaded", restoreLobbyDedications);
 
   window.closeEntrelinhasPage=function(){
     if(!page) return;
+
     page.classList.remove("is-open");
     page.setAttribute("aria-hidden","true");
     document.body.style.overflow="";
+
     window.setTimeout(function(){
       openMusicGate();
     },80);
@@ -4667,6 +4842,7 @@ document.addEventListener("DOMContentLoaded", restoreLobbyDedications);
 
   if(toggle){
     toggle.setAttribute("aria-controls","entrelinhasPage");
+
     toggle.addEventListener("click",function(e){
       e.preventDefault();
       if(toggle.classList.contains("is-revealed")) openPage();
@@ -4676,17 +4852,27 @@ document.addEventListener("DOMContentLoaded", restoreLobbyDedications);
   if(page){
     page.querySelectorAll(".el-track").forEach(function(row){
       row.addEventListener("click",function(){
-        const open=row.classList.contains("is-open");
-        page.querySelectorAll(".el-track").forEach(r=>{
+        const wasOpen=row.classList.contains("is-open");
+
+        page.querySelectorAll(".el-track").forEach(function(r){
           r.classList.remove("is-open");
           r.setAttribute("aria-expanded","false");
         });
-        page.querySelectorAll(".el-detail").forEach(d=>d.style.display="none");
-        if(!open){
+
+        page.querySelectorAll(".el-detail").forEach(function(d){
+          d.hidden=true;
+          d.style.display="none";
+        });
+
+        if(!wasOpen){
           row.classList.add("is-open");
           row.setAttribute("aria-expanded","true");
+
           const detail=row.nextElementSibling;
-          if(detail) detail.style.display="block";
+          if(detail){
+            detail.hidden=false;
+            detail.style.display="block";
+          }
         }
       });
     });
@@ -4761,6 +4947,32 @@ document.addEventListener("DOMContentLoaded", restoreLobbyDedications);
   opacity:1 !important;
 }
 </style>
+
+
+<script id="entrelinhas-state-v4">
+(function(){
+  function forceLockedAtStartup(){
+    const button=document.getElementById("dedicationsToggle");
+    if(!button) return;
+
+    button.disabled=true;
+    button.classList.remove("is-revealed","reveal-pop");
+    button.classList.add("mystery-toggle");
+    button.setAttribute("aria-disabled","true");
+    button.setAttribute("data-unlocked","false");
+    button.innerHTML='<span class="dedications-icon" aria-hidden="true">?</span>';
+
+    try{ localStorage.removeItem("namoroEntrelinhasUnlockedV2"); }catch(e){}
+    try{ sessionStorage.removeItem("namoroEntrelinhasUnlockedV2"); }catch(e){}
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded",forceLockedAtStartup,{once:true});
+  }else{
+    forceLockedAtStartup();
+  }
+})();
+</script>
 
 </body>
 </html>
