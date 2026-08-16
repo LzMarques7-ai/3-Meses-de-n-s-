@@ -4426,6 +4426,108 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 </style>
 
+
+<style id="story-spacing-v5">
+/* =========================================================
+   HISTÓRIA — ESPAÇAMENTO V5
+   Uniformiza margens verticais e dá um pouco mais de respiro
+   horizontal para a barra de progresso do navegador.
+   ========================================================= */
+
+#reveal .story-page{
+  box-sizing:border-box!important;
+  padding-left:28px!important;
+  padding-right:28px!important;
+}
+
+/* Container interno consistente em todas as páginas */
+#reveal .story-page > *{
+  box-sizing:border-box!important;
+}
+
+/* Prosa: uma única regra de ritmo vertical */
+#reveal .story-page .letter p,
+#reveal .story-page .story-body p,
+#reveal .story-page .memory-note p,
+#reveal .story-page .final-copy p{
+  margin-top:0!important;
+  margin-bottom:1.15em!important;
+}
+
+/* Evita regras antigas criando espaços diferentes entre blocos */
+#reveal .story-page .letter p + p,
+#reveal .story-page .story-body p + p,
+#reveal .story-page .memory-note p + p,
+#reveal .story-page .final-copy p + p{
+  margin-top:0!important;
+}
+
+/* Último parágrafo não cria espaço fantasma antes do próximo elemento */
+#reveal .story-page .letter p:last-child,
+#reveal .story-page .story-body p:last-child,
+#reveal .story-page .memory-note p:last-child,
+#reveal .story-page .final-copy p:last-child{
+  margin-bottom:0!important;
+}
+
+/* Frases de impacto continuam separadas, mas com ritmo uniforme */
+#reveal .story-page .letter-final{
+  margin-top:1.65em!important;
+  margin-bottom:1.65em!important;
+}
+
+/* Títulos/labels: distância previsível */
+#reveal .story-page .story-label,
+#reveal .story-page .story-eyebrow,
+#reveal .story-page .eyebrow{
+  margin-bottom:20px!important;
+}
+
+#reveal .story-page h1,
+#reveal .story-page h2,
+#reveal .story-page h3{
+  margin-top:0!important;
+  margin-bottom:28px!important;
+}
+
+/* Divisores sem margens herdadas diferentes */
+#reveal .story-page hr,
+#reveal .story-page .divider,
+#reveal .story-page .story-divider,
+#reveal .story-page .rule{
+  margin-top:32px!important;
+  margin-bottom:32px!important;
+}
+
+/* Mantém o texto confortável e longe da borda/scrollbar */
+#reveal .story-page .letter,
+#reveal .story-page .final-copy,
+#reveal .story-page .story-body{
+  width:100%!important;
+  max-width:680px!important;
+  margin-left:0!important;
+  margin-right:auto!important;
+}
+
+/* A barra de progresso não pode encostar no conteúdo */
+#reveal .story-page{
+  padding-right:32px!important;
+}
+
+@media(max-width:600px){
+  #reveal .story-page{
+    padding-left:24px!important;
+    padding-right:32px!important;
+  }
+
+  #reveal .story-page .letter,
+  #reveal .story-page .final-copy,
+  #reveal .story-page .story-body{
+    max-width:100%!important;
+  }
+}
+</style>
+
 </head>
 
 <body>
