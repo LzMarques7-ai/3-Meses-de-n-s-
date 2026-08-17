@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="light-content">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#FAFAFA" id="theme-color-meta">
 <title>3 meses depois do “sim”</title>
 
@@ -37,9 +37,9 @@ body{
 
 body{
   background:
-    radial-gradient(ellipse 80% 42% at 50% 25%, light-dark(rgba(231,205,194,.24),rgb(133, 76, 52, .24)), transparent 72%),
-    radial-gradient(ellipse 55% 38% at 8% 78%, light-dark(rgba(211,174,166,.11),rgb(145, 85, 72, .11)), transparent 72%),
-    radial-gradient(ellipse 55% 38% at 92% 78%, light-dark(rgba(211,174,166,.11),rgb(145, 85, 72, .11)), transparent 72%),
+    radial-gradient(ellipse 80% 42% at 50% 25%, light-dark(rgba(231,205,194,.24),rgba(196, 71, 104, .10)), transparent 72%),
+    radial-gradient(ellipse 55% 38% at 8% 78%, light-dark(rgba(211,174,166,.11),rgba(196, 71, 104, .05)), transparent 72%),
+    radial-gradient(ellipse 55% 38% at 92% 78%, light-dark(rgba(211,174,166,.11),rgba(196, 71, 104, .05)), transparent 72%),
     var(--ivory);
 }
 
@@ -529,7 +529,7 @@ h1 .script{
   box-sizing:border-box;
   background:
     radial-gradient(circle at 50% 28%, light-dark(rgba(183,123,130,.10),rgb(168, 95, 103, .10)), transparent 34%),
-    linear-gradient(180deg,light-dark(#f8f0e5,#775320) 0%,light-dark(#f4e9dd,#785127) 100%);
+    linear-gradient(180deg,light-dark(#FAFAFA,#0D0A0B) 0%,light-dark(#FAFAFA,#0D0A0B) 100%);
   color:light-dark(#6e2434,#DC93A3);
   transition:opacity .7s ease, visibility .7s ease;
 }
@@ -620,7 +620,7 @@ h1 .script{
   border:0;
   border-radius:999px;
   background:light-dark(#6e2434,#DC93A3);
-  color:light-dark(#f8f0e5,#775320);
+  color:light-dark(#FAFAFA,#0D0A0B);
   font-family:"Montserrat",Arial,sans-serif;
   font-size:10px;
   font-weight:700;
@@ -7773,664 +7773,365 @@ textarea{
   color:light-dark(#666666,#939393) !important;
 }
 
-/* =========================================================
-   SPOTIFY — ESTADO BLOQUEADO / DESBLOQUEADO V5
-   O botão fica escuro enquanto bloqueado e volta ao verde
-   automaticamente quando unlockLobbyDedications() é chamado.
-   ========================================================= */
-
-/* BLOQUEADO */
-#musicGate .dedications-toggle.mystery-toggle,
-#musicGate .dedications-toggle.mystery-toggle:disabled,
-#musicGate .dedications-toggle.mystery-toggle[disabled]{
-  border-color:light-dark(#292929,#C1C1C1) !important;
-  background:light-dark(#0d0d0d,#D7D7D7) !important;
-  color:light-dark(#3a3a3a,#B4B4B4) !important;
-  box-shadow:none !important;
-  cursor:not-allowed !important;
-  opacity:1 !important;
-  transform:none !important;
-}
-
-#musicGate .dedications-toggle.mystery-toggle:hover,
-#musicGate .dedications-toggle.mystery-toggle:disabled:hover{
-  border-color:light-dark(#292929,#C1C1C1) !important;
-  background:light-dark(#0d0d0d,#D7D7D7) !important;
-  color:light-dark(#3a3a3a,#B4B4B4) !important;
-  transform:none !important;
-}
-
-#musicGate .dedications-toggle.mystery-toggle .dedications-icon{
-  color:light-dark(#3a3a3a,#B4B4B4) !important;
-  opacity:.72 !important;
-}
-
-/* DESBLOQUEADO — esta regra vem depois do estado bloqueado */
-#musicGate .dedications-toggle.is-revealed{
-  border-color:light-dark(#1ed760,#1ed760) !important;
-  background:transparent !important;
-  color:light-dark(#1ed760,#1ed760) !important;
-  box-shadow:0 0 20px light-dark(rgba(30,215,96,.08),rgb(73, 230, 129, .08)) !important;
-  cursor:pointer !important;
-  opacity:1 !important;
-  pointer-events:auto !important;
-}
-
-#musicGate .dedications-toggle.is-revealed:hover{
-  border-color:light-dark(#1ed760,#1ed760) !important;
-  background:light-dark(rgba(30,215,96,.06),rgb(73, 230, 129, .06)) !important;
-  color:light-dark(#1ed760,#1ed760) !important;
-  transform:translateY(-2px) !important;
-}
-
-#musicGate .dedications-toggle.is-revealed .dedications-icon{
-  color:light-dark(#1ed760,#1ed760) !important;
-  opacity:1 !important;
-}
-
-/* O ponto verde do título continua removido. */
 
 
-#musicGate .dedications-toggle{
-  letter-spacing:.14em !important;
-}
-
-/* ENTRELINHAS — refinamento do botão desbloqueado */
-#musicGate .dedications-toggle,
-#musicGate .dedications-toggle.is-revealed{
-  background:light-dark(#121212,#0D0A0B) !important;
-  color:light-dark(#1ED760,#1ed760) !important;
-  border-color:light-dark(#1ED760,#1ed760) !important;
-  box-shadow:none !important;
-}
-
-/* O texto estava herdando a classe visual de "ícone",
-   deixando ENTRELINHAS com uma fonte/tamanho diferentes. */
-#musicGate .dedications-toggle .dedications-icon,
-#musicGate .dedications-toggle.is-revealed .dedications-icon{
-  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
-  font-size:11px !important;
-  font-weight:700 !important;
-  line-height:1 !important;
-  letter-spacing:.065em !important;
-  text-transform:uppercase !important;
-  margin:0 !important;
-  color:light-dark(#1ED760,#1ed760) !important;
-  opacity:1 !important;
-}
-
-/* Mesmo comportamento visual do CTA Spotify, sem o fundo verde */
-#musicGate .dedications-toggle.is-revealed:hover{
-  background:light-dark(#121212,#0D0A0B) !important;
-  border-color:light-dark(#1ED760,#1ed760) !important;
-  color:light-dark(#1ED760,#1ed760) !important;
-  transform:none !important;
-}
-
-/* Estado bloqueado: apenas o ? apagado, sem verde */
-#musicGate .dedications-toggle.mystery-toggle:disabled{
-  background:light-dark(#121212,#0D0A0B) !important;
-  border-color:light-dark(#2b2b2b,#C0C0C0) !important;
-  color:light-dark(#3a3a3a,#B4B4B4) !important;
-  opacity:1 !important;
-  box-shadow:none !important;
-}
-#musicGate .dedications-toggle.mystery-toggle .dedications-icon{
-  display:none !important;
-}
-#musicGate .dedications-toggle.mystery-toggle span:last-child{
-  display:block !important;
-  font-family:"DM Sans",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
-  font-size:11px !important;
-  font-weight:600 !important;
-  line-height:1 !important;
-  letter-spacing:0 !important;
-  color:light-dark(#3a3a3a,#B4B4B4) !important;
-  opacity:1 !important;
-}
-#musicGate .dedications-toggle.mystery-toggle span:last-child::after{
-  content:"?" !important;
-  font:600 11px/1 "DM Sans",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
-  color:light-dark(#3a3a3a,#B4B4B4) !important;
-  letter-spacing:0 !important;
-}
-#musicGate .dedications-toggle.mystery-toggle:disabled:hover{
-  background:light-dark(#121212,#0D0A0B) !important;
-  border-color:light-dark(#2b2b2b,#C0C0C0) !important;
-  transform:none !important;
-}
-
-#musicGate .dedications-toggle:not(.is-revealed){
-  background:light-dark(#0b0b0b,#D8D8D8) !important;
-  border-color:light-dark(#292929,#C1C1C1) !important;
-  color:light-dark(#303030,#BCBCBC) !important;
-  box-shadow:none !important;
-}
-#musicGate .dedications-toggle:not(.is-revealed){
-  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
-  font-size:18px !important;
-  font-weight:500 !important;
-  letter-spacing:0 !important;
-}
-
-/* BLOQUEADO = somente ? apagado */
-#musicGate .dedications-toggle.mystery-toggle:disabled{
-  background:light-dark(#0b0b0b,#D8D8D8) !important;
-  border-color:light-dark(#292929,#C1C1C1) !important;
-  color:light-dark(#303030,#BCBCBC) !important;
-  box-shadow:none !important;
-  cursor:not-allowed !important;
-  opacity:1 !important;
-  transform:none !important;
-  pointer-events:none !important;
-}
-#musicGate .dedications-toggle.mystery-toggle:disabled .dedications-icon{
-  display:block !important;
-  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
-  font-size:0 !important;
-  font-weight:600 !important;
-  line-height:1 !important;
-  letter-spacing:0 !important;
-  color:light-dark(#303030,#BCBCBC) !important;
-}
-#musicGate .dedications-toggle.mystery-toggle:disabled .dedications-icon::after{
-  content:"?" !important;
-  display:inline-block !important;
-  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
-  font-size:18px !important;
-  font-weight:500 !important;
-  line-height:1 !important;
-  letter-spacing:0 !important;
-  color:light-dark(#303030,#BCBCBC) !important;
-}
-
-/* DESBLOQUEADO = ENTRELINHAS */
-#musicGate .dedications-toggle.mystery-toggle.is-revealed{
-  background:light-dark(#121212,#0D0A0B) !important;
-  border-color:light-dark(#1ED760,#1ed760) !important;
-  color:light-dark(#1ED760,#1ed760) !important;
-  box-shadow:none !important;
-  cursor:pointer !important;
-  pointer-events:auto !important;
-  opacity:1 !important;
-}
-#musicGate .dedications-toggle.mystery-toggle.is-revealed .dedications-icon{
-  display:block !important;
-  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
-  font-size:11px !important;
-  font-weight:700 !important;
-  line-height:1 !important;
-  letter-spacing:.065em !important;
-  color:light-dark(#1ED760,#1ed760) !important;
-}
-#musicGate .dedications-toggle.mystery-toggle.is-revealed .dedications-icon::after{
-  content:none !important;
-}
-
-/* V6 — ESTADO DEFINITIVO DO BOTÃO ENTRELINHAS
-   BLOQUEADO: somente ? apagado.
-   DESBLOQUEADO: somente ENTRELINHAS em verde.
-*/
-#musicGate .dedications-toggle.mystery-toggle:disabled {
-  background:light-dark(#0b0b0b,#D8D8D8) !important;
-  border-color:light-dark(#292929,#C1C1C1) !important;
-  color:light-dark(#303030,#BCBCBC) !important;
-  box-shadow:none !important;
-  opacity:1 !important;
-  cursor:not-allowed !important;
-  pointer-events:none !important;
-}
-
-#musicGate .dedications-toggle.mystery-toggle:disabled .dedications-icon {
-  display:block !important;
-  width:auto !important;
-  height:auto !important;
-  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
-  font-size:18px !important;
-  font-weight:500 !important;
-  line-height:1 !important;
-  letter-spacing:0 !important;
-  color:light-dark(#303030,#BCBCBC) !important;
-  opacity:1 !important;
-}
-
-#musicGate .dedications-toggle.mystery-toggle:disabled .dedications-icon::after {
-  content:none !important;
-  display:none !important;
-}
-
-#musicGate .dedications-toggle.is-revealed {
-  background:light-dark(#121212,#0D0A0B) !important;
-  border-color:light-dark(#1ED760,#1ed760) !important;
-  color:light-dark(#1ED760,#1ed760) !important;
-  box-shadow:none !important;
-  opacity:1 !important;
-  cursor:pointer !important;
-  pointer-events:auto !important;
-}
-
-#musicGate .dedications-toggle.is-revealed .dedications-icon {
-  display:block !important;
-  width:auto !important;
-  height:auto !important;
-  font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
-  font-size:11px !important;
-  font-weight:700 !important;
-  line-height:1 !important;
-  letter-spacing:.14em !important;
-  color:light-dark(#1ED760,#1ed760) !important;
-  opacity:1 !important;
-}
-
-#musicGate .dedications-toggle.is-revealed .dedications-icon::after {
-  content:none !important;
-  display:none !important;
-}</style>
 
 
-<style id="authoritative-device-theme-final">
+<style id="namoro-theme-canonical">
 /*
-  ================================================================
-  NAMORO — CAMADA AUTORITATIVA DE TEMA DO DISPOSITIVO
-  ================================================================
-  Esta é a ÚLTIMA camada visual do arquivo.
-  Regra: prefers-color-scheme decide SOMENTE a paleta.
-  Não altera estrutura, dimensões, posicionamento, animações,
-  fotos, textos ou JavaScript.
+  NAMORO — TEMA CANÔNICO DO DISPOSITIVO
+  ------------------------------------------------------------
+  Uma única fonte de verdade para Claro/Escuro.
+  NÃO altera layout, dimensões, animações, fotos, textos ou fluxo JS.
+  O tema é decidido exclusivamente por prefers-color-scheme.
 */
 
-/* O navegador pode usar controles nativos coerentes com o tema. */
-html {
-  color-scheme: light dark;
+html{
+  color-scheme:light dark;
 }
 
-/* ------------------------------------------------
-   PALETA BASE — CLARO
-   ------------------------------------------------ */
-@media (prefers-color-scheme: light) {
-  :root {
-    --ivory: #FAFAFA !important;
-    --cream: #FAFAFA !important;
-    --paper: #FAFAFA !important;
+/* ============================================================
+   CLARO
+   ============================================================ */
+@media (prefers-color-scheme: light){
 
-    --ink: #111111 !important;
-    --wine: #A51A41 !important;
-    --wine2: #8D2036 !important;
-    --red: #B9113F !important;
-    --rose: #C98F87 !important;
-    --muted: #777777 !important;
+  :root{
+    --ivory:#FAFAFA !important;
+    --cream:#FAFAFA !important;
+    --paper:#FAFAFA !important;
+    --ink:#111111 !important;
+    --wine:#A51A41 !important;
+    --wine2:#8D2036 !important;
+    --red:#B9113F !important;
+    --rose:#C98F87 !important;
+    --muted:#777777 !important;
   }
 
   html,
-  body {
-    background-color: #FAFAFA !important;
-    color: #111111 !important;
+  body,
+  main{
+    background-color:#FAFAFA !important;
+    color:#111111 !important;
   }
 
-  body {
-    background-image:
-      radial-gradient(
-        ellipse 80% 42% at 50% 25%,
-        rgba(231,205,194,.16),
-        transparent 72%
-      ),
-      radial-gradient(
-        ellipse 55% 38% at 8% 78%,
-        rgba(211,174,166,.07),
-        transparent 72%
-      ),
-      radial-gradient(
-        ellipse 55% 38% at 92% 78%,
-        rgba(211,174,166,.07),
-        transparent 72%
-      ) !important;
+  body{
+    background-image:none !important;
   }
 
-  /* Telas integrais */
+  /* Telas de fundo integral */
   .password-gate,
   .story,
   .story-pages,
   .story-page,
   .story-page-02,
-  .memory-page {
-    background-color: #FAFAFA !important;
+  .memory-page,
+  .music-gate,
+  #musicGate{
+    background:#FAFAFA !important;
+    background-color:#FAFAFA !important;
+    background-image:none !important;
+    color:#111111 !important;
   }
 
-  /* Remove gradientes antigos de tela integral que podiam introduzir
-     marrom/bege onde a intenção é o fundo claro neutro. */
-  .password-gate {
-    background-image: none !important;
-    color: #A51A41 !important;
-  }
-
-  .story {
-    background-image: none !important;
-  }
-
-  /* Superfícies que tinham uma variante marrom antiga */
   .memory-polaroid,
-  .memory-photo-card {
-    background-color: #FAFAFA !important;
+  .memory-photo-card{
+    background-color:#FAFAFA !important;
   }
 
-  /* Segunda página: mantém a identidade vinho, mas o fundo segue
-     a mesma base clara do restante do projeto. */
-  .story-page-02 {
-    background: #FAFAFA !important;
+  .story-page-02 .story-moon::before{
+    background:#FAFAFA !important;
   }
 
-  .story-page-02 .story-moon::before {
-    background: #FAFAFA !important;
+  /* ---- Spotify ---- */
+  #musicGate h2{
+    color:#000000 !important;
   }
 
-  /* ------------------------------------------------
-     SPOTIFY — CLARO
-     ------------------------------------------------ */
-  #musicGate,
-  .music-gate {
-    background: #FAFAFA !important;
-    background-color: #FAFAFA !important;
-    background-image: none !important;
-    color: #111111 !important;
-  }
-
-  #musicGate .music-gate-inner {
-    background: transparent !important;
-  }
-
-  #musicGate h2 {
-    color: #111111 !important;
-  }
-
-  #musicGate .music-gate-intro {
-    color: #B3B3B3 !important;
+  #musicGate .music-gate-intro{
+    color:#B3B3B3 !important;
   }
 
   #musicGate .music-gate-kicker,
   #musicGate .music-gate-rule .spotify-mark-top,
   #musicGate .dedications-toggle.is-revealed,
   #musicGate .music-continue:not(:disabled),
-  #musicGate .mystery-hint em {
-    color: #1ED760 !important;
+  #musicGate .mystery-hint em{
+    color:#1ED760 !important;
   }
 
   #musicGate .music-gate-rule::before,
   #musicGate .music-gate-rule::after,
-  #musicGate h2::after {
-    background: #1ED760 !important;
+  #musicGate h2::after{
+    background:#1ED760 !important;
   }
 
-  #musicGate .spotify-button {
-    background: #1ED760 !important;
-    color: #000000 !important;
+  #musicGate .spotify-button{
+    background:#1ED760 !important;
+    background-color:#1ED760 !important;
+    color:#000000 !important;
   }
 
-  /* Estado bloqueado */
-  #musicGate .dedications-toggle.mystery-toggle,
-  #musicGate .dedications-toggle.mystery-toggle:disabled,
-  #musicGate .dedications-toggle.mystery-toggle[disabled] {
-    background: #F1F1F1 !important;
-    border-color: #D2D2D2 !important;
-    color: #8A8A8A !important;
-    box-shadow: none !important;
+  /* ENTRELINHAS BLOQUEADO — ? escuro */
+  html body #musicGate button.dedications-toggle.mystery-toggle,
+  html body #musicGate button.dedications-toggle.mystery-toggle:disabled,
+  html body #musicGate button.dedications-toggle.mystery-toggle[disabled]{
+    background:#0B0B0B !important;
+    background-color:#0B0B0B !important;
+    background-image:none !important;
+    border-color:#292929 !important;
+    color:#777777 !important;
+    box-shadow:none !important;
+    opacity:1 !important;
+    cursor:not-allowed !important;
   }
 
-  #musicGate .dedications-toggle.mystery-toggle .dedications-icon,
-  #musicGate .dedications-toggle.mystery-toggle:disabled .dedications-icon,
-  #musicGate .dedications-toggle.mystery-toggle span:last-child,
-  #musicGate .dedications-toggle.mystery-toggle span:last-child::after {
-    color: #8A8A8A !important;
+  html body #musicGate button.dedications-toggle.mystery-toggle .dedications-icon,
+  html body #musicGate button.dedications-toggle.mystery-toggle:disabled .dedications-icon,
+  html body #musicGate button.dedications-toggle.mystery-toggle span:last-child,
+  html body #musicGate button.dedications-toggle.mystery-toggle span:last-child::after{
+    color:#777777 !important;
   }
 
-  /* Estado desbloqueado */
-  #musicGate .dedications-toggle.is-revealed,
-  #musicGate .dedications-toggle.mystery-toggle.is-revealed {
-    background: transparent !important;
-    border-color: #1ED760 !important;
-    color: #1ED760 !important;
+  /* ENTRELINHAS DESBLOQUEADO */
+  html body #musicGate button.dedications-toggle.is-revealed,
+  html body #musicGate button.dedications-toggle.mystery-toggle.is-revealed{
+    background:transparent !important;
+    background-color:transparent !important;
+    border-color:#1ED760 !important;
+    color:#1ED760 !important;
+    box-shadow:none !important;
+    opacity:1 !important;
+    cursor:pointer !important;
+    pointer-events:auto !important;
   }
 
-  #musicGate .music-continue:disabled {
-    background: transparent !important;
-    border-color: #D2D2D2 !important;
-    color: #8A8A8A !important;
+  html body #musicGate button.dedications-toggle.is-revealed .dedications-icon{
+    color:#1ED760 !important;
   }
 
-  #musicGate .music-continue:not(:disabled) {
-    background: transparent !important;
-    border-color: #1ED760 !important;
-    color: #1ED760 !important;
+  #musicGate .music-continue:disabled{
+    background:transparent !important;
+    background-color:transparent !important;
+    border-color:#292929 !important;
+    color:#777777 !important;
+  }
+
+  #musicGate .music-continue:not(:disabled){
+    background:transparent !important;
+    background-color:transparent !important;
+    border-color:#1ED760 !important;
+    color:#1ED760 !important;
   }
 
   #musicGate .song-list,
-  #musicGate .song-row {
-    border-color: #D8D8D8 !important;
+  #musicGate .song-row{
+    border-color:#D8D8D8 !important;
   }
 
-  #musicGate .song-row {
-    color: #111111 !important;
+  #musicGate .song-row{
+    color:#111111 !important;
   }
 
   #musicGate .song-row small,
   #musicGate .song-row b,
-  #musicGate .mystery-hint {
-    color: #777777 !important;
+  #musicGate .mystery-hint{
+    color:#777777 !important;
   }
 
-  #musicGate .song-quote {
-    color: #555555 !important;
+  #musicGate .song-quote{
+    color:#555555 !important;
   }
 
-  #musicGate .final-return {
-    color: #1ED760 !important;
-    border-color: rgba(30,215,96,.35) !important;
-    background: rgba(30,215,96,.025) !important;
+  #musicGate .final-return{
+    color:#1ED760 !important;
+    border-color:rgba(30,215,96,.35) !important;
+    background:rgba(30,215,96,.025) !important;
   }
 }
 
-/* ------------------------------------------------
-   PALETA BASE — ESCURO
-   ------------------------------------------------ */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ivory: #0D0A0B !important;
-    --cream: #151011 !important;
-    --paper: #0D0A0B !important;
+/* ============================================================
+   ESCURO
+   ============================================================ */
+@media (prefers-color-scheme: dark){
 
-    --ink: #F1E6E1 !important;
-    --wine: #C44768 !important;
-    --wine2: #B85A72 !important;
-    --red: #D46A6A !important;
-    --rose: #D8A3A3 !important;
-    --muted: #B7A5A0 !important;
+  :root{
+    --ivory:#0D0A0B !important;
+    --cream:#151011 !important;
+    --paper:#0D0A0B !important;
+    --ink:#F4E9E3 !important;
+    --wine:#C44768 !important;
+    --wine2:#B85A72 !important;
+    --red:#D46A6A !important;
+    --rose:#D8A3A3 !important;
+    --muted:#A8A0A0 !important;
   }
 
   html,
-  body {
-    background-color: #0D0A0B !important;
-    color: #F1E6E1 !important;
+  body,
+  main{
+    background-color:#0D0A0B !important;
+    color:#F4E9E3 !important;
   }
 
-  body {
-    background-image:
-      radial-gradient(
-        ellipse 80% 42% at 50% 25%,
-        rgba(133,76,52,.07),
-        transparent 72%
-      ),
-      radial-gradient(
-        ellipse 55% 38% at 8% 78%,
-        rgba(145,85,72,.035),
-        transparent 72%
-      ),
-      radial-gradient(
-        ellipse 55% 38% at 92% 78%,
-        rgba(145,85,72,.035),
-        transparent 72%
-      ) !important;
+  body{
+    background-image:none !important;
   }
 
-  /* Telas integrais */
+  /* Mata de uma vez os gradientes/cores antigas de fundo. */
   .password-gate,
   .story,
   .story-pages,
   .story-page,
   .story-page-02,
-  .memory-page {
-    background-color: #0D0A0B !important;
-  }
-
-  /* Aqui estava o principal resíduo marrom/bege. */
-  .password-gate {
-    background: #0D0A0B !important;
-    background-image: none !important;
-    color: #C44768 !important;
-  }
-
-  .story {
-    background: #0D0A0B !important;
-    background-image: none !important;
+  .memory-page,
+  .music-gate,
+  #musicGate{
+    background:#0D0A0B !important;
+    background-color:#0D0A0B !important;
+    background-image:none !important;
+    color:#F4E9E3 !important;
   }
 
   .memory-polaroid,
-  .memory-photo-card {
-    background-color: #151011 !important;
+  .memory-photo-card{
+    background-color:#151011 !important;
   }
 
-  .story-page-02 {
-    background: #0D0A0B !important;
+  .story-page-02 .story-moon::before{
+    background:#151011 !important;
   }
 
-  .story-page-02 .story-moon::before {
-    background: #151011 !important;
-  }
-
-  /* ------------------------------------------------
-     SPOTIFY — ESCURO
-     ------------------------------------------------ */
+  /* Spotify mantém a identidade própria: preto + verde. */
   #musicGate,
-  .music-gate {
-    background: #000000 !important;
-    background-color: #000000 !important;
-    background-image: none !important;
-    color: #F4E9E3 !important;
+  #musicGate .music-gate-inner{
+    background-color:#000000 !important;
   }
 
-  #musicGate .music-gate-inner {
-    background: transparent !important;
+  #musicGate h2{
+    color:#F4E9E3 !important;
   }
 
-  #musicGate h2 {
-    color: #F4E9E3 !important;
-  }
-
-  #musicGate .music-gate-intro {
-    color: #777777 !important;
+  #musicGate .music-gate-intro{
+    color:#777777 !important;
   }
 
   #musicGate .music-gate-kicker,
   #musicGate .music-gate-rule .spotify-mark-top,
   #musicGate .dedications-toggle.is-revealed,
   #musicGate .music-continue:not(:disabled),
-  #musicGate .mystery-hint em {
-    color: #1ED760 !important;
+  #musicGate .mystery-hint em{
+    color:#1ED760 !important;
   }
 
   #musicGate .music-gate-rule::before,
   #musicGate .music-gate-rule::after,
-  #musicGate h2::after {
-    background: #1ED760 !important;
+  #musicGate h2::after{
+    background:#1ED760 !important;
   }
 
-  #musicGate .spotify-button {
-    background: #1ED760 !important;
-    color: #000000 !important;
+  #musicGate .spotify-button{
+    background:#1ED760 !important;
+    background-color:#1ED760 !important;
+    color:#000000 !important;
   }
 
-  /* Estado bloqueado */
-  #musicGate .dedications-toggle.mystery-toggle,
-  #musicGate .dedications-toggle.mystery-toggle:disabled,
-  #musicGate .dedications-toggle.mystery-toggle[disabled] {
-    background: #171717 !important;
-    border-color: #3A3A3A !important;
-    color: #8A8A8A !important;
-    box-shadow: none !important;
+  /* ENTRELINHAS BLOQUEADO — escuro de verdade.
+     Esta regra tem DOIS IDs para vencer qualquer legado específico. */
+  html body #musicGate button.dedications-toggle.mystery-toggle,
+  html body #musicGate button.dedications-toggle.mystery-toggle:disabled,
+  html body #musicGate button.dedications-toggle.mystery-toggle[disabled]{
+    background:#171011 !important;
+    background-color:#171011 !important;
+    background-image:none !important;
+    border-color:#3A3033 !important;
+    color:#777074 !important;
+    box-shadow:none !important;
+    opacity:1 !important;
+    cursor:not-allowed !important;
   }
 
-  #musicGate .dedications-toggle.mystery-toggle .dedications-icon,
-  #musicGate .dedications-toggle.mystery-toggle:disabled .dedications-icon,
-  #musicGate .dedications-toggle.mystery-toggle span:last-child,
-  #musicGate .dedications-toggle.mystery-toggle span:last-child::after {
-    color: #8A8A8A !important;
+  html body #musicGate button.dedications-toggle.mystery-toggle .dedications-icon,
+  html body #musicGate button.dedications-toggle.mystery-toggle:disabled .dedications-icon,
+  html body #musicGate button.dedications-toggle.mystery-toggle span:last-child,
+  html body #musicGate button.dedications-toggle.mystery-toggle span:last-child::after{
+    color:#777074 !important;
   }
 
-  /* Estado desbloqueado */
-  #musicGate .dedications-toggle.is-revealed,
-  #musicGate .dedications-toggle.mystery-toggle.is-revealed {
-    background: transparent !important;
-    border-color: #1ED760 !important;
-    color: #1ED760 !important;
+  /* ENTRELINHAS DESBLOQUEADO */
+  html body #musicGate button.dedications-toggle.is-revealed,
+  html body #musicGate button.dedications-toggle.mystery-toggle.is-revealed{
+    background:transparent !important;
+    background-color:transparent !important;
+    border-color:#1ED760 !important;
+    color:#1ED760 !important;
+    box-shadow:none !important;
+    opacity:1 !important;
+    cursor:pointer !important;
+    pointer-events:auto !important;
   }
 
-  #musicGate .music-continue:disabled {
-    background: transparent !important;
-    border-color: #3A3A3A !important;
-    color: #8A8A8A !important;
+  html body #musicGate button.dedications-toggle.is-revealed .dedications-icon{
+    color:#1ED760 !important;
   }
 
-  #musicGate .music-continue:not(:disabled) {
-    background: transparent !important;
-    border-color: #1ED760 !important;
-    color: #1ED760 !important;
+  #musicGate .music-continue:disabled{
+    background:transparent !important;
+    background-color:transparent !important;
+    border-color:#3A3033 !important;
+    color:#777074 !important;
+  }
+
+  #musicGate .music-continue:not(:disabled){
+    background:transparent !important;
+    background-color:transparent !important;
+    border-color:#1ED760 !important;
+    color:#1ED760 !important;
   }
 
   #musicGate .song-list,
-  #musicGate .song-row {
-    border-color: #2A2A2A !important;
+  #musicGate .song-row{
+    border-color:#2A2527 !important;
   }
 
-  #musicGate .song-row {
-    color: #F4E9E3 !important;
+  #musicGate .song-row{
+    color:#F4E9E3 !important;
   }
 
   #musicGate .song-row small,
   #musicGate .song-row b,
-  #musicGate .mystery-hint {
-    color: #A8A8A8 !important;
+  #musicGate .mystery-hint{
+    color:#A8A8A8 !important;
   }
 
-  #musicGate .song-quote {
-    color: #D0D0D0 !important;
+  #musicGate .song-quote{
+    color:#D0D0D0 !important;
   }
 
-  #musicGate .final-return {
-    color: #1ED760 !important;
-    border-color: rgba(30,215,96,.35) !important;
-    background: rgba(30,215,96,.025) !important;
+  #musicGate .final-return{
+    color:#1ED760 !important;
+    border-color:rgba(30,215,96,.35) !important;
+    background:rgba(30,215,96,.025) !important;
   }
 }
-
-/* ------------------------------------------------
-   META THEME-COLOR — acompanha o dispositivo
-   ------------------------------------------------ */
 </style>
-<script id="authoritative-device-theme-meta">
+
+<script id="namoro-theme-color-sync">
 (function () {
   var meta = document.getElementById("theme-color-meta");
-  if (!meta) return;
+  if (!meta || !window.matchMedia) return;
 
   var media = window.matchMedia("(prefers-color-scheme: dark)");
 
-  function syncThemeColor() {
+  function sync() {
     meta.setAttribute("content", media.matches ? "#0D0A0B" : "#FAFAFA");
   }
 
-  syncThemeColor();
+  sync();
 
   if (media.addEventListener) {
-    media.addEventListener("change", syncThemeColor);
+    media.addEventListener("change", sync);
   } else if (media.addListener) {
-    media.addListener(syncThemeColor);
+    media.addListener(sync);
   }
 })();
 </script>
