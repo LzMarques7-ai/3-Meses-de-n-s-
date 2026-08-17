@@ -16,14 +16,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Ballet&family=Parisienne&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap");
 
 :root{
-  --ivory:#F7F1E8;
-  --cream:#EFE3D3;
-  --wine:#641F2D;
-  --wine2:#8A3040;
-  --red:#B84A4A;
-  --rose:#C98F87;
-  --muted:#806D68;
-  --ink:#3A2928;
+  --ivory:light-dark(#F7F1E8,#151011);
+  --cream:light-dark(#EFE3D3,#151011);
+  --wine:light-dark(#641F2D,#C44768);
+  --wine2:light-dark(#8A3040,#B85A72);
+  --red:light-dark(#B84A4A,#D46A6A);
+  --rose:light-dark(#C98F87,#D8A3A3);
+  --muted:light-dark(#806D68,#B7A5A0);
+  --ink:light-dark(#3A2928,#F1E6E1);
 }
 
 *{box-sizing:border-box}
@@ -37,9 +37,9 @@ body{
 
 body{
   background:
-    radial-gradient(ellipse 80% 42% at 50% 25%, rgba(231,205,194,.24), transparent 72%),
-    radial-gradient(ellipse 55% 38% at 8% 78%, rgba(211,174,166,.11), transparent 72%),
-    radial-gradient(ellipse 55% 38% at 92% 78%, rgba(211,174,166,.11), transparent 72%),
+    radial-gradient(ellipse 80% 42% at 50% 25%, light-dark(rgba(231,205,194,.24),rgb(133, 76, 52, .24)), transparent 72%),
+    radial-gradient(ellipse 55% 38% at 8% 78%, light-dark(rgba(211,174,166,.11),rgb(145, 85, 72, .11)), transparent 72%),
+    radial-gradient(ellipse 55% 38% at 92% 78%, light-dark(rgba(211,174,166,.11),rgb(145, 85, 72, .11)), transparent 72%),
     var(--ivory);
 }
 
@@ -175,7 +175,7 @@ h1{
   font-weight:700;
   line-height:.82;
   letter-spacing:-.05em;
-  white-space:nowrap;
+  light-dark(white, light-dark(black, white))-space:nowrap;
   text-align:center;
   text-rendering:geometricPrecision;
   font-kerning:normal;
@@ -196,7 +196,7 @@ h1 em{
   font-style:normal;
   line-height:.86;
   letter-spacing:-.045em;
-  white-space:nowrap;
+  light-dark(white, light-dark(black, white))-space:nowrap;
 }
 
 /* “sim”: manuscrita, mais cheia e opticamente alinhada ao segundo verso. */
@@ -208,7 +208,7 @@ h1 .script{
   font-style:normal;
   letter-spacing:-.02em;
   display:inline-block;
-  white-space:nowrap;
+  light-dark(white, light-dark(black, white))-space:nowrap;
   margin:0;
   transform:translateY(-.035em);
 }
@@ -234,10 +234,10 @@ h1 .script{
 
 .enter{
   margin-top:25px;
-  border:1px solid rgba(100,31,45,.42);
+  border:1px solid light-dark(rgba(100,31,45,.42),rgb(223, 153, 167, .42));
   border-radius:999px;
   padding:13px 24px;
-  background:rgba(255,255,255,.30);
+  background:light-dark(rgba(255,255,255,.30),rgb(31, 31, 31, .30));
   color:var(--wine);
   font:500 10px/1 "DM Sans",sans-serif;
   letter-spacing:.2em;
@@ -392,9 +392,9 @@ html,body{
 
 body{
   background:
-    radial-gradient(ellipse 82% 38% at 50% 22%, rgba(232,207,197,.32), transparent 72%),
-    radial-gradient(ellipse 48% 34% at 8% 78%, rgba(214,180,171,.14), transparent 74%),
-    radial-gradient(ellipse 48% 34% at 92% 78%, rgba(214,180,171,.14), transparent 74%),
+    radial-gradient(ellipse 82% 38% at 50% 22%, light-dark(rgba(232,207,197,.32),rgb(131, 74, 52, .32)), transparent 72%),
+    radial-gradient(ellipse 48% 34% at 8% 78%, light-dark(rgba(214,180,171,.14),rgb(142, 85, 69, .14)), transparent 74%),
+    radial-gradient(ellipse 48% 34% at 92% 78%, light-dark(rgba(214,180,171,.14),rgb(142, 85, 69, .14)), transparent 74%),
     var(--ivory);
 }
 
@@ -425,13 +425,13 @@ h1{
   font-weight:800;
   line-height:.84;
   letter-spacing:-.065em;
-  color:#8F5A5F;
+  color:light-dark(#8F5A5F,#B28489);
 }
 
 /* Segundo verso continua visualmente integrado ao primeiro. */
 h1 em{
   margin-top:.025em;
-  color:#8F5A5F;
+  color:light-dark(#8F5A5F,#B28489);
   font-family:"Bodoni Moda","Cormorant Garamond",Georgia,serif,Georgia,serif;
   font-size:.67em;
   font-weight:800;
@@ -456,7 +456,7 @@ h1 .script{
 .rule{
   width:58px;
   margin:31px 0 20px;
-  background:linear-gradient(90deg,transparent,#A9636B,transparent);
+  background:linear-gradient(90deg,transparent,light-dark(#A9636B,#B06F77),transparent);
 }
 
 /* Sol e Lua com presença suficiente para não desaparecerem no bege. */
@@ -528,9 +528,9 @@ h1 .script{
   padding:24px;
   box-sizing:border-box;
   background:
-    radial-gradient(circle at 50% 28%, rgba(183,123,130,.10), transparent 34%),
-    linear-gradient(180deg,#f8f0e5 0%,#f4e9dd 100%);
-  color:#6e2434;
+    radial-gradient(circle at 50% 28%, light-dark(rgba(183,123,130,.10),rgb(168, 95, 103, .10)), transparent 34%),
+    linear-gradient(180deg,light-dark(#f8f0e5,#775320) 0%,light-dark(#f4e9dd,#785127) 100%);
+  color:light-dark(#6e2434,#DC93A3);
   transition:opacity .7s ease, visibility .7s ease;
 }
 .password-gate.is-hidden{
@@ -549,14 +549,14 @@ h1 .script{
   line-height:.96;
   font-weight:700;
   letter-spacing:-.025em;
-  color:#7f4a52;
+  color:light-dark(#7f4a52,#BD8E95);
 }
 .password-hint{
   margin:22px 0 18px;
   font-family:"Montserrat",Arial,sans-serif;
   font-size:11px;
   letter-spacing:.08em;
-  color:#a2767b;
+  color:light-dark(#a2767b,#A2767B);
 }
 #password-form{
   display:flex;
@@ -568,7 +568,7 @@ h1 .script{
   height:48px;
   box-sizing:border-box;
   border:0;
-  border-bottom:1px solid rgba(110,36,52,.38);
+  border-bottom:1px solid light-dark(rgba(110,36,52,.38),rgb(220, 147, 163, .38));
   outline:none;
   background:transparent;
   text-align:center;
@@ -576,10 +576,10 @@ h1 .script{
   font-size:20px;
   font-weight:600;
   letter-spacing:.28em;
-  color:#6e2434;
+  color:light-dark(#6e2434,#DC93A3);
 }
 .password-input:focus{
-  border-bottom-color:#6e2434;
+  border-bottom-color:light-dark(#6e2434,#DC93A3);
 }
 .password-wrap{
   position:relative;
@@ -591,7 +591,7 @@ h1 .script{
   height:100%;
   padding:0;
   color:transparent;
-  caret-color:#6e2434;
+  caret-color:light-dark(#6e2434,#DC93A3);
   -webkit-text-fill-color:transparent;
 }
 .password-hearts{
@@ -602,7 +602,7 @@ h1 .script{
   justify-content:center;
   gap:5px;
   pointer-events:none;
-  color:#6e2434;
+  color:light-dark(#6e2434,#DC93A3);
   font-family:Arial,sans-serif;
   font-size:17px;
   line-height:1;
@@ -619,8 +619,8 @@ h1 .script{
   padding:13px 24px;
   border:0;
   border-radius:999px;
-  background:#6e2434;
-  color:#f8f0e5;
+  background:light-dark(#6e2434,#DC93A3);
+  color:light-dark(#f8f0e5,#775320);
   font-family:"Montserrat",Arial,sans-serif;
   font-size:10px;
   font-weight:700;
@@ -633,7 +633,7 @@ h1 .script{
   margin:10px 0 0;
   font-family:"Montserrat",Arial,sans-serif;
   font-size:10px;
-  color:#9b4f5b;
+  color:light-dark(#9b4f5b,#BB7A84);
 }
 @media(max-width:430px){
   .password-gate{padding:20px}
@@ -647,7 +647,7 @@ h1 .script{
   inset:0;
   z-index:9000;
   background:
-    radial-gradient(ellipse 80% 45% at 50% 15%, rgba(231,205,194,.25), transparent 72%),
+    radial-gradient(ellipse 80% 45% at 50% 15%, light-dark(rgba(231,205,194,.25),rgb(133, 76, 52, .25)), transparent 72%),
     var(--ivory);
   opacity:0;
   visibility:hidden;
@@ -745,8 +745,8 @@ h1 .script{
   width:min(100%,500px);
   margin:34px auto 30px;
   padding:25px 20px 24px;
-  border-top:1px solid rgba(111,36,52,.25);
-  border-bottom:1px solid rgba(111,36,52,.25);
+  border-top:1px solid light-dark(rgba(111,36,52,.25),rgb(220, 146, 162, .25));
+  border-bottom:1px solid light-dark(rgba(111,36,52,.25),rgb(220, 146, 162, .25));
   text-align:center;
 }
 .music-scene-note{
@@ -783,7 +783,7 @@ h1 .script{
 .music-scene-line i{
   flex:1;
   height:1px;
-  background:rgba(111,36,52,.25);
+  background:light-dark(rgba(111,36,52,.25),rgb(220, 146, 162, .25));
 }
 .music-scene-line span{
   font:12px/1 "Cormorant Garamond",Georgia,serif;
@@ -800,8 +800,8 @@ h1 .script{
   width:min(100%,560px);
   margin:38px auto 8px;
   padding:30px 24px 27px;
-  border-top:1px solid rgba(111,36,52,.28);
-  border-bottom:1px solid rgba(111,36,52,.28);
+  border-top:1px solid light-dark(rgba(111,36,52,.28),rgb(220, 146, 162, .28));
+  border-bottom:1px solid light-dark(rgba(111,36,52,.28),rgb(220, 146, 162, .28));
   text-align:center;
 }
 .music-ornament{
@@ -845,7 +845,7 @@ h1 .script{
 .music-rule i{
   flex:1;
   height:1px;
-  background:rgba(111,36,52,.28);
+  background:light-dark(rgba(111,36,52,.28),rgb(220, 146, 162, .28));
 }
 .music-rule span{
   font:14px/1 "Cormorant Garamond",Georgia,serif;
@@ -885,7 +885,7 @@ h1 .script{
   display:grid;
   place-items:center;
   padding:20px;
-  border:1px solid rgba(137,77,86,.22);
+  border:1px solid light-dark(rgba(137,77,86,.22),rgb(188, 135, 143, .22));
   border-radius:18px;
   color:var(--rose);
   font:500 9px/1.5 "DM Sans",sans-serif;
@@ -906,10 +906,10 @@ h1 .script{
   grid-template-columns:72px 1fr;
   gap:18px;
   padding:17px 0;
-  border-top:1px solid rgba(137,77,86,.18);
+  border-top:1px solid light-dark(rgba(137,77,86,.18),rgb(188, 135, 143, .18));
 }
 .timeline-item:last-child{
-  border-bottom:1px solid rgba(137,77,86,.18);
+  border-bottom:1px solid light-dark(rgba(137,77,86,.18),rgb(188, 135, 143, .18));
 }
 .timeline-item > span{
   padding-top:4px;
@@ -981,9 +981,9 @@ h1 .script{
   width:100%;
   height:100%;
   padding:12px;
-  border:1px solid rgba(137,77,86,.2);
+  border:1px solid light-dark(rgba(137,77,86,.2),rgb(188, 135, 143, .2));
   border-radius:14px;
-  background:rgba(255,255,255,.18);
+  background:light-dark(rgba(255,255,255,.18),rgb(31, 31, 31, .18));
   overflow:hidden;
   backface-visibility:hidden;
   -webkit-backface-visibility:hidden;
@@ -1032,7 +1032,7 @@ h1 .script{
   font:400 10.5px/1.30 "Cormorant Garamond",Georgia,serif !important;
   text-indent:0 !important;
 }
-.memory-card:focus-visible{box-shadow:0 0 0 2px rgba(137,77,86,.22);border-radius:14px;}
+.memory-card:focus-visible{box-shadow:0 0 0 2px light-dark(rgba(137,77,86,.22),rgb(188, 135, 143, .22));border-radius:14px;}
 .see-lines{
   width:min(100%,500px);
   margin-top:30px;
@@ -1040,7 +1040,7 @@ h1 .script{
 .see-lines p{
   margin:0;
   padding:14px 0;
-  border-bottom:1px solid rgba(137,77,86,.16);
+  border-bottom:1px solid light-dark(rgba(137,77,86,.16),rgb(188, 135, 143, .16));
   color:var(--wine);
   font-size:22px;
 }
@@ -1096,7 +1096,7 @@ h1 .script{
   bottom:3px;
   width:1px;
   transform:translateX(-50%);
-  background:rgba(100,31,45,.18);
+  background:light-dark(rgba(100,31,45,.18),rgb(223, 153, 167, .18));
 }
 .story-progress-bar::after{
   content:"";
@@ -1108,7 +1108,7 @@ h1 .script{
   border-radius:50%;
   transform:translate(-50%,-50%);
   background:var(--wine);
-  box-shadow:0 0 0 3px rgba(100,31,45,.07);
+  box-shadow:0 0 0 3px light-dark(rgba(100,31,45,.07),rgb(223, 153, 167, .07));
   transition:top .16s linear;
   will-change:top;
 }
@@ -1180,8 +1180,8 @@ h1 .script{
 .memory-polaroid{
   width:min(82vw, 360px);
   padding:12px 12px 0;
-  background:#fbfaf7;
-  box-shadow:0 18px 40px rgba(60,35,35,.12);
+  background:light-dark(#fbfaf7,#5C502E);
+  box-shadow:0 18px 40px light-dark(rgba(60,35,35,.12),rgb(214, 185, 185, .12));
   transform:rotate(-1deg);
 }
 .memory-polaroid img{
@@ -1245,7 +1245,7 @@ h1 .script{
 
 .memory-card-caption{
   padding:11px 4px 3px;
-  color:#B87979;
+  color:light-dark(#B87979,#AA5E5E);
   font:500 9px/1.3 "DM Sans",sans-serif;
   letter-spacing:.07em;
   text-transform:uppercase;
@@ -1325,7 +1325,7 @@ h1 .script{
 /* ---------- MUSIC GATE / SPOTIFY — APPROVED VISUAL ---------- */
 .music-gate{
   position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;
-  box-sizing:border-box;padding:18px 0;background:#050505;color:#fff;text-align:center;overflow:auto;
+  box-sizing:border-box;padding:18px 0;background:light-dark(#050505,#000000);color:light-dark(#fff,#1F1F1F);text-align:center;overflow:auto;
 }
 .music-gate.is-open{display:flex;animation:musicGateIn .55s ease both}
 .music-gate-inner{
@@ -1333,32 +1333,32 @@ h1 .script{
   display:flex;flex-direction:column;align-items:center;padding:115px 28px 90px;
 }
 .music-gate-kicker{
-  color:#1ed760;font:600 11px/1 "DM Sans",sans-serif;letter-spacing:.30em;text-transform:uppercase;
+  color:light-dark(#1ed760,#1ed760);font:600 11px/1 "DM Sans",sans-serif;letter-spacing:.30em;text-transform:uppercase;
 }
 .music-gate-rule{
-  width:190px;height:1px;margin:22px 0 30px;background:#135b2c;position:relative;
+  width:190px;height:1px;margin:22px 0 30px;background:light-dark(#135b2c,#9CEAB7);position:relative;
 }
 .music-gate-rule .spotify-mark-top{
   position:absolute;left:50%;top:50%;width:52px;height:52px;transform:translate(-50%,-50%);
-  color:#1ed760;display:block;
+  color:light-dark(#1ed760,#1ed760);display:block;
 }
 .spotify-mark svg{width:100%;height:100%;display:block}
 .music-gate h2{
-  margin:0;color:#fff;font:500 78px/.94 "Cormorant Garamond",Georgia,serif;
-  letter-spacing:-.035em;white-space:nowrap;
+  margin:0;color:light-dark(#fff,#1F1F1F);font:500 78px/.94 "Cormorant Garamond",Georgia,serif;
+  letter-spacing:-.035em;light-dark(white, light-dark(black, white))-space:nowrap;
 }
 .music-gate h2::after{
   content:"";display:inline-block;width:14px;height:14px;border-radius:50%;
-  background:#1ed760;margin:0 0 9px 7px;
+  background:light-dark(#1ed760,#1ed760);margin:0 0 9px 7px;
 }
 .music-gate-intro{
-  width:min(100%,560px);margin:22px auto 25px;color:#b9b9b9;
+  width:min(100%,560px);margin:22px auto 25px;color:light-dark(#b9b9b9,#545454);
   font:400 19px/1.43 "Cormorant Garamond",Georgia,serif;
 }
 .spotify-button{
   width:100%;max-width:520px;height:82px;box-sizing:border-box;
   display:flex;align-items:center;justify-content:center;gap:18px;
-  border:0;border-radius:45px;background:#1ed760;color:#050505;text-decoration:none;
+  border:0;border-radius:45px;background:light-dark(#1ed760,#1ed760);color:light-dark(#050505,#000000);text-decoration:none;
   font:700 10px/1 "DM Sans",sans-serif;letter-spacing:.20em;text-transform:uppercase;
   transition:transform .22s ease,filter .22s ease;
 }
@@ -1367,64 +1367,64 @@ h1 .script{
 .dedications-toggle{
   width:100%;max-width:520px;height:82px;margin-top:24px;box-sizing:border-box;
   display:flex;align-items:center;justify-content:center;gap:18px;
-  border:3px solid #1ed760;border-radius:45px;background:transparent;color:#1ed760;
+  border:3px solid light-dark(#1ed760,#1ed760);border-radius:45px;background:transparent;color:light-dark(#1ed760,#1ed760);
   cursor:pointer;font:600 10px/1 "DM Sans",sans-serif;letter-spacing:.22em;text-transform:uppercase;
   transition:background .22s ease,transform .22s ease;
 }
-.dedications-toggle:hover{background:rgba(30,215,96,.06);transform:translateY(-2px)}
+.dedications-toggle:hover{background:light-dark(rgba(30,215,96,.06),rgb(73, 230, 129, .06));transform:translateY(-2px)}
 .dedications-icon{font-size:36px;line-height:1;letter-spacing:-.12em}
 .dedications-panel{
   width:100%;max-width:760px;display:none;text-align:left;margin-top:22px;
-  max-height:360px;overflow:auto;scrollbar-width:thin;scrollbar-color:#2d2d2d transparent;
+  max-height:360px;overflow:auto;scrollbar-width:thin;scrollbar-color:light-dark(#2d2d2d,#BEBEBE) transparent;
 }
 .dedications-panel.is-open{display:block;animation:dedicationsIn .32s ease both}
-.dedications-heading{color:#fff;text-align:center;font:600 10px/1 "DM Sans",sans-serif;letter-spacing:.25em}
-.dedications-subtitle{margin:14px auto 23px;text-align:center;color:#8f8f8f;font:400 18px/1.4 "Cormorant Garamond",Georgia,serif}
-.song-list{border-top:1px solid #242424}
-.song-row{width:100%;min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 2px;border:0;border-bottom:1px solid #242424;background:none;color:#fff;text-align:left;cursor:pointer}
+.dedications-heading{color:light-dark(#fff,#1F1F1F);text-align:center;font:600 10px/1 "DM Sans",sans-serif;letter-spacing:.25em}
+.dedications-subtitle{margin:14px auto 23px;text-align:center;color:light-dark(#8f8f8f,#747474);font:400 18px/1.4 "Cormorant Garamond",Georgia,serif}
+.song-list{border-top:1px solid light-dark(#242424,#C5C5C5)}
+.song-row{width:100%;min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 2px;border:0;border-bottom:1px solid light-dark(#242424,#C5C5C5);background:none;color:light-dark(#fff,#1F1F1F);text-align:left;cursor:pointer}
 .song-row span{display:flex;flex-direction:column;gap:5px}
 .song-row strong{font:600 10px/1.2 "DM Sans",sans-serif;letter-spacing:.13em}
-.song-row small{color:#777;font:400 12px/1.2 "DM Sans",sans-serif}
-.song-row b{color:#777;font:300 24px/1 "DM Sans",sans-serif;transition:transform .25s ease,color .25s ease}
-.song-row[aria-expanded="true"] b{transform:rotate(90deg);color:#1ed760}
-.song-quote{padding:0 25px 18px 2px;color:#d0d0d0;font:400 20px/1.45 "Cormorant Garamond",Georgia,serif;animation:quoteIn .3s ease both}
+.song-row small{color:light-dark(#777,#868686);font:400 12px/1.2 "DM Sans",sans-serif}
+.song-row b{color:light-dark(#777,#868686);font:300 24px/1 "DM Sans",sans-serif;transition:transform .25s ease,color .25s ease}
+.song-row[aria-expanded="true"] b{transform:rotate(90deg);color:light-dark(#1ed760,#1ed760)}
+.song-quote{padding:0 25px 18px 2px;color:light-dark(#d0d0d0,#424242);font:400 20px/1.45 "Cormorant Garamond",Georgia,serif;animation:quoteIn .3s ease both}
 .music-gate-note{
   margin-top:38px;display:flex;flex-direction:column;align-items:center;gap:12px;
-  color:#a6a6a6;font:400 19px/1.3 "DM Sans",sans-serif;letter-spacing:.005em;
+  color:light-dark(#a6a6a6,#626262);font:400 19px/1.3 "DM Sans",sans-serif;letter-spacing:.005em;
 }
-.music-gate-note em{font-style:normal;color:#1ed760}
+.music-gate-note em{font-style:normal;color:light-dark(#1ed760,#1ed760)}
 .music-gate-lock{
   width:34px;height:34px;display:block;position:relative;
-  border:3px solid #1ed760;border-radius:8px;box-sizing:border-box;
+  border:3px solid light-dark(#1ed760,#1ed760);border-radius:8px;box-sizing:border-box;
 }
 .music-gate-lock:before{
   content:"";position:absolute;left:7px;top:-16px;width:17px;height:18px;
-  border:3px solid #1ed760;border-bottom:0;border-radius:17px 17px 0 0;
+  border:3px solid light-dark(#1ed760,#1ed760);border-bottom:0;border-radius:17px 17px 0 0;
 }
 .music-gate-lock:after{
   content:"";position:absolute;left:50%;top:14px;width:3px;height:7px;
-  transform:translateX(-50%);border-radius:4px;background:#1ed760;
+  transform:translateX(-50%);border-radius:4px;background:light-dark(#1ed760,#1ed760);
 }
 .music-continue{
   width:100%;max-width:520px;height:82px;margin-top:38px;box-sizing:border-box;
   display:flex;align-items:center;justify-content:center;gap:18px;
-  border:3px solid #0e612e;border-radius:45px;background:transparent;color:#8b8b8b;
+  border:3px solid light-dark(#0e612e,#96F0B8);border-radius:45px;background:transparent;color:light-dark(#8b8b8b,#777777);
   cursor:not-allowed;font:600 10px/1 "DM Sans",sans-serif;letter-spacing:.30em;text-transform:uppercase;
   transition:all .25s ease;
 }
 .music-continue:{opacity:.9}
 .continue-lock{
-  width:39px;height:31px;display:block;position:relative;border:3px solid #666;border-radius:6px;box-sizing:border-box;
+  width:39px;height:31px;display:block;position:relative;border:3px solid light-dark(#666,#939393);border-radius:6px;box-sizing:border-box;
 }
 .continue-lock:before{
   content:"";position:absolute;left:7px;top:-18px;width:19px;height:18px;
-  border:3px solid #666;border-bottom:0;border-radius:11px 11px 0 0;
+  border:3px solid light-dark(#666,#939393);border-bottom:0;border-radius:11px 11px 0 0;
 }
 .music-continue:not(:disabled){
-  color:#1ed760;border-color:#1ed760;cursor:pointer;box-shadow:0 0 24px rgba(30,215,96,.08);
+  color:light-dark(#1ed760,#1ed760);border-color:light-dark(#1ed760,#1ed760);cursor:pointer;box-shadow:0 0 24px light-dark(rgba(30,215,96,.08),rgb(73, 230, 129, .08));
 }
 .music-continue:not(:disabled) .continue-lock,
-.music-continue:not(:disabled) .continue-lock:before{border-color:#1ed760}
+.music-continue:not(:disabled) .continue-lock:before{border-color:light-dark(#1ed760,#1ed760)}
 @keyframes musicGateIn{from{opacity:0}to{opacity:1}}
 @keyframes dedicationsIn{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
 @keyframes quoteIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
@@ -1470,9 +1470,9 @@ h1 .script{
   .dedications-toggle{margin-top:18px;gap:14px;border-width:2px;font-size:9px;letter-spacing:.17em}
   .dedications-icon{font-size:29px}
   .music-gate-note{margin-top:30px;gap:12px;font-size:12px;line-height:1.35}
-  .music-gate-lock{width:25px;height:21px;border:2px solid #1ed760;border-radius:4px}
-  .music-gate-lock:before{left:5px;top:-13px;width:11px;height:13px;border:2px solid #1ed760;border-bottom:0;border-radius:8px 8px 0 0}
-  .music-gate-lock:after{left:50%;top:8px;width:3px;height:6px;transform:translateX(-50%);border-radius:3px;background:#1ed760}
+  .music-gate-lock{width:25px;height:21px;border:2px solid light-dark(#1ed760,#1ed760);border-radius:4px}
+  .music-gate-lock:before{left:5px;top:-13px;width:11px;height:13px;border:2px solid light-dark(#1ed760,#1ed760);border-bottom:0;border-radius:8px 8px 0 0}
+  .music-gate-lock:after{left:50%;top:8px;width:3px;height:6px;transform:translateX(-50%);border-radius:3px;background:light-dark(#1ed760,#1ed760)}
   .music-continue{margin-top:30px;border-width:2px;font-size:9px;letter-spacing:.23em;gap:15px}
   .continue-lock{width:23px;height:18px;border-width:2px;border-radius:4px}
   .continue-lock:before{left:5px;top:-11px;width:9px;height:11px;border-width:2px;border-bottom:0;border-radius:7px 7px 0 0}
@@ -1547,7 +1547,7 @@ h1 .script{
   .music-gate-lock{
     width: 24px;
     height: 20px;
-    border: 2px solid #1ed760;
+    border: 2px solid light-dark(#1ed760,#1ed760);
     border-radius: 4px;
     box-sizing: border-box;
   }
@@ -1556,7 +1556,7 @@ h1 .script{
     top: -12px;
     width: 10px;
     height: 12px;
-    border: 2px solid #1ed760;
+    border: 2px solid light-dark(#1ed760,#1ed760);
     border-bottom: 0;
     border-radius: 7px 7px 0 0;
   }
@@ -1567,7 +1567,7 @@ h1 .script{
     height: 6px;
     transform: translateX(-50%);
     border-radius: 3px;
-    background: #1ed760;
+    background: light-dark(#1ed760,#1ed760);
   }
 
   .music-continue{
@@ -1582,7 +1582,7 @@ h1 .script{
   .continue-lock{
     width: 22px;
     height: 17px;
-    border: 2px solid #666;
+    border: 2px solid light-dark(#666,#939393);
     border-radius: 4px;
     box-sizing: border-box;
   }
@@ -1591,7 +1591,7 @@ h1 .script{
     top: -10px;
     width: 10px;
     height: 10px;
-    border: 2px solid #666;
+    border: 2px solid light-dark(#666,#939393);
     border-bottom: 0;
     border-radius: 7px 7px 0 0;
   }
@@ -1613,14 +1613,14 @@ h1 .script{
   height:30px !important;
   border:0 !important;
   border-radius:0 !important;
-  color:#1ed760;
+  color:light-dark(#1ed760,#1ed760);
 }
 .continue-lock{
   width:29px !important;
   height:29px !important;
   border:0 !important;
   border-radius:0 !important;
-  color:#666;
+  color:light-dark(#666,#939393);
 }
 .music-gate-lock svg,
 .continue-lock svg{
@@ -1695,13 +1695,13 @@ h1 .script{
   transition:opacity .2s ease;
 }
 .music-continue.is-unlocked{
-  color:#1ed760 !important;
-  border-color:#1ed760 !important;
+  color:light-dark(#1ed760,#1ed760) !important;
+  border-color:light-dark(#1ed760,#1ed760) !important;
   cursor:pointer;
-  box-shadow:0 0 24px rgba(30,215,96,.09);
+  box-shadow:0 0 24px light-dark(rgba(30,215,96,.09),rgb(73, 230, 129, .09));
 }
 .music-continue.is-unlocked .continue-lock{
-  color:#1ed760;
+  color:light-dark(#1ed760,#1ed760);
 }
 .music-continue.is-unlocked .continue-lock .lock-shackle{
   transform:translateY(-2px) rotate(-22deg);
@@ -1732,7 +1732,7 @@ h1 .script{
   top:0;
   width:58px;
   height:1px;
-  background:#135b2c;
+  background:light-dark(#135b2c,#9CEAB7);
 }
 .music-gate-rule::before{left:0}
 .music-gate-rule::after{right:0}
@@ -1838,7 +1838,7 @@ h1 .script{
   position:absolute;
   top:0;
   height:1px;
-  background:#1b6335;
+  background:light-dark(#1b6335,#99E3B3);
 }
 .music-gate-rule::before{
   left:0;
@@ -1875,8 +1875,8 @@ h1 .script{
 
   /* Always enter this gate visually locked. */
   .music-continue{
-    color:#777 !important;
-    border-color:#0c5b2d !important;
+    color:light-dark(#777,#868686) !important;
+    border-color:light-dark(#0c5b2d,#99F2BE) !important;
     box-shadow:none !important;
   }
   .music-continue:not(.is-unlocked){
@@ -1890,8 +1890,8 @@ h1 .script{
   opacity:1;
   cursor:not-allowed;
   background:transparent;
-  border-color:#1ed760;
-  color:#1ed760;
+  border-color:light-dark(#1ed760,#1ed760);
+  color:light-dark(#1ed760,#1ed760);
 }
 .dedications-toggle.mystery-toggle .dedications-icon{
   font-family:"Cormorant Garamond",Georgia,serif;
@@ -1916,9 +1916,9 @@ h1 .script{
 .dedications-toggle.mystery-toggle:disabled{
   opacity:1 !important;
   cursor:not-allowed;
-  background:rgba(255,255,255,.008) !important;
-  border-color:rgba(30,215,96,.18) !important;
-  color:rgba(30,215,96,.28) !important;
+  background:light-dark(rgba(255,255,255,.008),rgb(31, 31, 31, .008)) !important;
+  border-color:light-dark(rgba(30,215,96,.18),rgb(73, 230, 129, .18)) !important;
+  color:light-dark(rgba(30,215,96,.28),rgb(73, 230, 129, .28)) !important;
   box-shadow:none !important;
 }
 .dedications-toggle.mystery-toggle .dedications-icon{
@@ -1928,8 +1928,8 @@ h1 .script{
   margin:0;
 }
 .music-continue{
-  color:#777 !important;
-  border-color:rgba(30,215,96,.25) !important;
+  color:light-dark(#777,#868686) !important;
+  border-color:light-dark(rgba(30,215,96,.25),rgb(73, 230, 129, .25)) !important;
   box-shadow:none !important;
 }
 .music-continue .continue-lock{
@@ -1942,31 +1942,31 @@ h1 .script{
 
 /* ---------- NORMAL CONTINUE BUTTON ---------- */
 .music-continue{
-  color:#1ed760 !important;
-  border-color:#1ed760 !important;
+  color:light-dark(#1ed760,#1ed760) !important;
+  border-color:light-dark(#1ed760,#1ed760) !important;
   opacity:1 !important;
   cursor:pointer !important;
   pointer-events:auto !important;
-  box-shadow:0 0 20px rgba(30,215,96,.08) !important;
+  box-shadow:0 0 20px light-dark(rgba(30,215,96,.08),rgb(73, 230, 129, .08)) !important;
 }
 
 
 /* Keep the mystery button intentionally subdued while locked. */
 .dedications-toggle.mystery-toggle:disabled{
   opacity:1 !important;
-  background:rgba(255,255,255,.008) !important;
-  border-color:rgba(30,215,96,.18) !important;
-  color:rgba(30,215,96,.28) !important;
+  background:light-dark(rgba(255,255,255,.008),rgb(31, 31, 31, .008)) !important;
+  border-color:light-dark(rgba(30,215,96,.18),rgb(73, 230, 129, .18)) !important;
+  color:light-dark(rgba(30,215,96,.28),rgb(73, 230, 129, .28)) !important;
   box-shadow:none !important;
 }
 
 
 .dedications-toggle.is-revealed{
-  color:#1ed760 !important;
-  border-color:#1ed760 !important;
+  color:light-dark(#1ed760,#1ed760) !important;
+  border-color:light-dark(#1ed760,#1ed760) !important;
   opacity:1 !important;
   cursor:pointer !important;
-  box-shadow:0 0 20px rgba(30,215,96,.08) !important;
+  box-shadow:0 0 20px light-dark(rgba(30,215,96,.08),rgb(73, 230, 129, .08)) !important;
 }
 .dedications-toggle.is-revealed .dedications-icon{
   font-family:inherit;
@@ -1995,7 +1995,7 @@ h1 .script{
   margin:10px auto 0;
   max-width:350px;
   text-align:center;
-  color:rgba(255,255,255,.38);
+  color:light-dark(rgba(255,255,255,.38),rgb(31, 31, 31, .38));
   font:400 10px/1.55 "DM Sans",sans-serif;
   letter-spacing:.08em;
   text-transform:lowercase;
@@ -2012,10 +2012,10 @@ h1 .script{
   min-height:58px;
   margin:34px auto 0;
   padding:0 24px;
-  border:1px solid rgba(30,215,96,.42);
+  border:1px solid light-dark(rgba(30,215,96,.42),rgb(73, 230, 129, .42));
   border-radius:32px;
-  background:rgba(30,215,96,.035);
-  color:#1ed760;
+  background:light-dark(rgba(30,215,96,.035),rgb(73, 230, 129, .035));
+  color:light-dark(#1ed760,#1ed760);
   cursor:pointer;
   font:600 10px/1 "DM Sans",sans-serif;
   letter-spacing:.20em;
@@ -2028,9 +2028,9 @@ h1 .script{
 }
 .final-return:hover{
   transform:translateY(-2px);
-  border-color:#1ed760;
-  background:rgba(30,215,96,.075);
-  box-shadow:0 8px 28px rgba(30,215,96,.08);
+  border-color:light-dark(#1ed760,#1ed760);
+  background:light-dark(rgba(30,215,96,.075),rgb(73, 230, 129, .075));
+  box-shadow:0 8px 28px light-dark(rgba(30,215,96,.08),rgb(73, 230, 129, .08));
 }
 .final-return:active{
   transform:scale(.985);
@@ -2041,7 +2041,7 @@ h1 .script{
   justify-content:center;
   width:25px;
   height:25px;
-  border:1px solid rgba(30,215,96,.55);
+  border:1px solid light-dark(rgba(30,215,96,.55),rgb(73, 230, 129, .55));
   border-radius:50%;
   font-size:14px;
   letter-spacing:0;
@@ -2050,7 +2050,7 @@ h1 .script{
 }
 .final-return:hover .final-return-arrow{
   transform:translate(2px,-2px);
-  background:rgba(30,215,96,.10);
+  background:light-dark(rgba(30,215,96,.10),rgb(73, 230, 129, .10));
 }
 
 /* Once unlocked, the mystery hint disappears because its purpose is complete. */
@@ -2074,10 +2074,10 @@ h1 .script{
   min-height:58px;
   margin:34px auto 0;
   padding:0 24px;
-  border:1px solid rgba(30,215,96,.42);
+  border:1px solid light-dark(rgba(30,215,96,.42),rgb(73, 230, 129, .42));
   border-radius:32px;
-  background:rgba(30,215,96,.035);
-  color:#1ed760;
+  background:light-dark(rgba(30,215,96,.035),rgb(73, 230, 129, .035));
+  color:light-dark(#1ed760,#1ed760);
   cursor:pointer;
   font:600 10px/1 "DM Sans",sans-serif;
   letter-spacing:.17em;
@@ -2095,7 +2095,7 @@ h1 .script{
   height:23px;
   flex:0 0 23px;
   display:inline-flex;
-  color:#1ed760;
+  color:light-dark(#1ed760,#1ed760);
 }
 .final-return-spotify svg{
   width:100%;
@@ -2112,11 +2112,11 @@ h1 .script{
   line-height:.94!important;
   font-weight:600!important;
   letter-spacing:-.045em!important;
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
 }
-.password-card h2 .title-blue{color:#111111!important}
-.password-card h2 .title-pink{color:#111111!important}
-.password-card h2 .title-green{color:#111111!important}
+.password-card h2 .title-blue{color:light-dark(#111111,#F4E9E3)!important}
+.password-card h2 .title-pink{color:light-dark(#111111,#F4E9E3)!important}
+.password-card h2 .title-green{color:light-dark(#111111,#F4E9E3)!important}
 
 /* Paleta aplicada sem deixar o título infantil ou excessivamente colorido. */
 .password-card h2 .title-blue,
@@ -2134,7 +2134,7 @@ h1 .script{
 .password-hint{
   margin-top:25px!important;
   margin-bottom:18px!important;
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
 }
 
 /* Botão entra na mesma identidade pastel. */
@@ -2142,27 +2142,27 @@ h1 .script{
   margin-top:24px!important;
   min-width:160px!important;
   padding:13px 27px!important;
-  background:#A51A41!important;
-  color:#fff!important;
+  background:light-dark(#A51A41,#C44768)!important;
+  color:light-dark(#fff,#1F1F1F)!important;
   font-size:10px!important;
   letter-spacing:.10em!important;
   border:0!important;
-  box-shadow:0 3px 0 rgba(112,76,155,.12)!important;
+  box-shadow:0 3px 0 light-dark(rgba(112,76,155,.12),rgb(153, 122, 190, .12))!important;
 }
 .password-button:active{
   transform:translateY(1px);
-  box-shadow:0 2px 0 rgba(112,76,155,.10)!important;
+  box-shadow:0 2px 0 light-dark(rgba(112,76,155,.10),rgb(153, 122, 190, .10))!important;
 }
 
 /* Mantém o restante do formulário exatamente como estava. */
 .password-input{
-  color:#6D56A6;
-  caret-color:#6D56A6;
+  color:light-dark(#6D56A6,#8773B7);
+  caret-color:light-dark(#6D56A6,#8773B7);
 }
 .password-wrap .password-input{
-  caret-color:#6D56A6;
+  caret-color:light-dark(#6D56A6,#8773B7);
 }
-.password-hearts{color:#8D71C8}
+.password-hearts{color:light-dark(#8D71C8,#6D49B9)}
 
 /* No celular, deixa o bloco respirar sem aumentar a página. */
 @media(max-width:430px){
@@ -2187,7 +2187,7 @@ h1 .script{
   justify-content:flex-start!important;
   text-align:center!important;
   overflow:hidden!important;
-  background:#F8E8BF!important;
+  background:light-dark(#F8E8BF,#9F7711)!important;
 }
 
 /* moldura editorial discreta */
@@ -2198,7 +2198,7 @@ h1 .script{
   position:relative!important;
   margin:3px 0 0!important;
   padding:0 46px!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Reenie Beanie",cursive!important;
   font-size:clamp(21px,5.5vw,29px)!important;
   line-height:1!important;
@@ -2211,7 +2211,7 @@ h1 .script{
   top:50%!important;
   width:34px!important;
   height:1px!important;
-  background:#8D2036!important;
+  background:light-dark(#8D2036,#B85A72)!important;
   opacity:.75!important;
 }
 .story-page-02 .story-kicker::before{left:0!important}
@@ -2228,7 +2228,7 @@ h1 .script{
 }
 .story-page-02 .story-title-main{
   display:block!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:var(--font-display)!important;
   font-size:clamp(52px,13.1vw,72px)!important;
   line-height:.88!important;
@@ -2238,18 +2238,18 @@ h1 .script{
 .story-page-02 .story-title-sub{
   display:block!important;
   margin-top:4px!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:var(--font-display)!important;
   font-size:clamp(29px,7.5vw,41px)!important;
   line-height:1!important;
   font-weight:500!important;
   letter-spacing:-.042em!important;
-  white-space:nowrap!important;
+  light-dark(white, light-dark(black, white))-space:nowrap!important;
 }
 .story-page-02 .story-sim{
   position:relative!important;
   display:inline-block!important;
-  color:#B9113F!important;
+  color:light-dark(#B9113F,#F05A83)!important;
 }
 .story-page-02 .story-sim::after{
   content:""!important;
@@ -2258,7 +2258,7 @@ h1 .script{
   right:-5px!important;
   bottom:-6px!important;
   height:3px!important;
-  background:#B9113F!important;
+  background:light-dark(#B9113F,#F05A83)!important;
   border-radius:80%!important;
   transform:rotate(-2deg)!important;
 }
@@ -2299,7 +2299,7 @@ h1 .script{
   top:6%!important;
   display:block!important;
   position:absolute!important;
-  background:#8D2036!important;
+  background:light-dark(#8D2036,#B85A72)!important;
   border:0!important;
   border-radius:50%!important;
   box-shadow:none!important;
@@ -2312,7 +2312,7 @@ h1 .script{
   width:55px!important;
   height:55px!important;
   border-radius:50%!important;
-  background:#F9E8C2!important;
+  background:light-dark(#F9E8C2,#9E7210)!important;
   left:24px!important;
   top:-4px!important;
   display:block!important;
@@ -2349,12 +2349,12 @@ h1 .script{
   position:relative!important;
   margin-top:clamp(5px,1vh,10px)!important;
   padding:0 62px!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Lora",serif!important;
   font-size:13px!important;
   line-height:1.2!important;
   letter-spacing:.12em!important;
-  white-space:nowrap!important;
+  light-dark(white, light-dark(black, white))-space:nowrap!important;
 }
 .story-page-02 .story-date::before,
 .story-page-02 .story-date::after{
@@ -2363,7 +2363,7 @@ h1 .script{
   top:50%!important;
   width:45px!important;
   height:1px!important;
-  background:#8D2036!important;
+  background:light-dark(#8D2036,#B85A72)!important;
   opacity:.75!important;
 }
 .story-page-02 .story-date::before{left:0!important}
@@ -2383,7 +2383,7 @@ h1 .script{
   top:-2px!important;
   left:50%!important;
   transform:translateX(-50%)!important;
-  color:#8D2036!important;
+  color:light-dark(#8D2036,#B85A72)!important;
   font-family:Georgia,serif!important;
   font-size:14px!important;
   line-height:1!important;
@@ -2395,13 +2395,13 @@ h1 .script{
   left:calc(50% - 55px)!important;
   width:110px!important;
   height:1px!important;
-  background:#8D2036!important;
+  background:light-dark(#8D2036,#B85A72)!important;
   opacity:.62!important;
   z-index:-1!important;
 }
 .story-page-02 .story-body p{
   margin:0!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Lora",serif!important;
   font-size:clamp(14px,3.6vw,17px)!important;
   line-height:1.62!important;
@@ -2418,9 +2418,9 @@ h1 .script{
   padding:12px 30px!important;
   border:0!important;
   border-radius:8px!important;
-  background:#A51A41!important;
-  color:#FFFFFF!important;
-  box-shadow:0 3px 0 rgba(92,63,133,.14)!important;
+  background:light-dark(#A51A41,#C44768)!important;
+  color:light-dark(#FFFFFF,#000000)!important;
+  box-shadow:0 3px 0 light-dark(rgba(92,63,133,.14),rgb(162, 136, 198, .14))!important;
   font-family:"Lora",serif!important;
   font-size:14px!important;
   font-weight:500!important;
@@ -2433,14 +2433,14 @@ h1 .script{
   order:7!important;
   align-self:center!important;
   margin:clamp(17px,2.5vh,25px) 0 0!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Reenie Beanie",cursive!important;
   font-size:clamp(22px,5.8vw,30px)!important;
   line-height:1!important;
   transform:none!important;
 }
 .story-page-02 .story-signature span{
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:Arial,sans-serif!important;
   font-size:.68em!important;
   vertical-align:middle!important;
@@ -2467,15 +2467,15 @@ h1 .script{
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Reenie+Beanie&display=swap");
 
 :root{
-  --paper:#F8E9C5 !important;
-  --ink:#A51A41 !important;
-  --love:#B9113F !important;
-  --feeling:#A51A41 !important;
-  --memory:#A8D7FF !important;
-  --spontaneous:#ADFFA5 !important;
+  --paper:light-dark(#F8E9C5,#9A7213) !important;
+  --ink:light-dark(#A51A41,#C44768) !important;
+  --love:light-dark(#B9113F,#F05A83) !important;
+  --feeling:light-dark(#A51A41,#C44768) !important;
+  --memory:light-dark(#A8D7FF,#0065BB) !important;
+  --spontaneous:light-dark(#ADFFA5,#11BD00) !important;
 
   --ivory:var(--paper) !important;
-  --cream:#F3E2B9 !important;
+  --cream:light-dark(#F3E2B9,#9D771B) !important;
   --wine:var(--ink) !important;
   --wine2:var(--ink) !important;
   --red:var(--ink) !important;
@@ -2526,7 +2526,7 @@ body::before{display:none!important}
 .cover h1{
   font-size:clamp(62px,17vw,118px)!important;
   line-height:.9!important;
-  white-space:normal!important;
+  light-dark(white, light-dark(black, white))-space:normal!important;
 }
 .cover h1 em{
   font-family:var(--font-display)!important;
@@ -2613,7 +2613,7 @@ body::before{display:none!important}
   font-size:20px!important;
   letter-spacing:.04em!important;
   position:relative!important;
-  box-shadow:1px 1px 0 rgba(49,90,158,.12)!important;
+  box-shadow:1px 1px 0 light-dark(rgba(49,90,158,.12),rgb(115, 152, 212, .12))!important;
 }
 .kicker::before,.kicker::after{display:none!important}
 
@@ -2629,11 +2629,11 @@ body::before{display:none!important}
 }
 .music-scene-line,
 .music-rule{
-  border-color:rgba(49,90,158,.28)!important;
+  border-color:light-dark(rgba(49,90,158,.28),rgb(115, 152, 212, .28))!important;
 }
 .music-scene-line i,
 .music-rule i{
-  background:rgba(49,90,158,.28)!important;
+  background:light-dark(rgba(49,90,158,.28),rgb(115, 152, 212, .28))!important;
 }
 
 /* Pequenos detalhes pastel, distribuídos por emoção */
@@ -2651,19 +2651,19 @@ body::before{display:none!important}
 /* Títulos com pequenos acentos pastel, sem transformar a página em arco-íris */
 .story-page:nth-child(3n/**/+1) h2{
   text-decoration:underline;
-  text-decoration-color:rgba(252,185,238,.75);
+  text-decoration-color:light-dark(rgba(252,185,238,.75),rgb(170, 7, 136, .75));
   text-decoration-thickness:4px;
   text-underline-offset:8px;
 }
 .story-page:nth-child(3n/**/+2) h2{
   text-decoration:underline;
-  text-decoration-color:rgba(209,170,249,.72);
+  text-decoration-color:light-dark(rgba(209,170,249,.72),rgb(94, 12, 177, .72));
   text-decoration-thickness:4px;
   text-underline-offset:8px;
 }
 .story-page:nth-child(3n) h2{
   text-decoration:underline;
-  text-decoration-color:rgba(168,215,255,.78);
+  text-decoration-color:light-dark(rgba(168,215,255,.78),rgb(0, 101, 187, .78));
   text-decoration-thickness:4px;
   text-underline-offset:8px;
 }
@@ -2708,19 +2708,19 @@ body::before{display:none!important}
   letter-spacing:.08em!important;
   transition:transform .18s ease,background .18s ease!important;
 }
-.enter:active{transform:scale(.98)!important;background:rgba(252,185,238,.25)!important}
+.enter:active{transform:scale(.98)!important;background:light-dark(rgba(252,185,238,.25),rgb(170, 7, 136, .25))!important}
 
 /* Fotos: objetos físicos sobre o papel */
 .memory-polaroid,
 .memory-card-front,
 .memory-card-back{
-  box-shadow:0 7px 18px rgba(49,90,158,.12)!important;
+  box-shadow:0 7px 18px light-dark(rgba(49,90,158,.12),rgb(115, 152, 212, .12))!important;
 }
 .memory-polaroid{
-  background:#fff!important;
+  background:light-dark(#fff,#1F1F1F)!important;
 }
 .memory-card{
-  border-color:rgba(49,90,158,.20)!important;
+  border-color:light-dark(rgba(49,90,158,.20),rgb(115, 152, 212, .20))!important;
 }
 
 /* Anotações das memórias */
@@ -2735,8 +2735,8 @@ body::before{display:none!important}
   font-family:inherit;
 }
 .music-gate{
-  background:#050505!important;
-  color:#fff!important;
+  background:light-dark(#050505,#000000)!important;
+  color:light-dark(#fff,#1F1F1F)!important;
 }
 .music-gate h2,
 .music-gate .music-gate-intro,
@@ -2789,7 +2789,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 .story-page-02 .story-kicker{
   margin-top:8px!important;
   padding:0!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Bodoni Moda","Cormorant Garamond",Georgia,serif!important;
   font-size:clamp(10px,2.8vw,14px)!important;
   line-height:1.2!important;
@@ -2805,7 +2805,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   margin:clamp(20px,3.2vh,31px) 0 0!important;
 }
 .story-page-02 .story-title-main{
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Bodoni Moda","Cormorant Garamond",Georgia,serif!important;
   font-size:clamp(61px,17vw,88px)!important;
   line-height:.82!important;
@@ -2814,7 +2814,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 .story-page-02 .story-title-sub{
   margin-top:3px!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Bodoni Moda","Cormorant Garamond",Georgia,serif!important;
   font-size:clamp(35px,9.5vw,49px)!important;
   line-height:.95!important;
@@ -2822,10 +2822,10 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   letter-spacing:-.055em!important;
 }
 .story-page-02 .story-sim{
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
 }
 .story-page-02 .story-sim::after{
-  background:#B9113F!important;
+  background:light-dark(#B9113F,#F05A83)!important;
   height:3px!important;
   bottom:-7px!important;
 }
@@ -2850,7 +2850,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 .story-page-02 .story-date{
   margin-top:clamp(7px,1.2vh,12px)!important;
   padding:0 58px!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Cormorant Garamond",Georgia,serif!important;
   font-size:clamp(15px,4vw,19px)!important;
   font-weight:500!important;
@@ -2859,7 +2859,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 .story-page-02 .story-date::before,
 .story-page-02 .story-date::after{
   width:42px!important;
-  background:#8D2036!important;
+  background:light-dark(#8D2036,#B85A72)!important;
   opacity:.75!important;
 }
 
@@ -2873,7 +2873,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   display:none!important;
 }
 .story-page-02 .story-body p{
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Lora",Georgia,serif!important;
   font-size:clamp(15px,4vw,19px)!important;
   line-height:1.55!important;
@@ -2889,10 +2889,10 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   margin-top:clamp(20px,3vh,29px)!important;
   min-width:175px!important;
   padding:13px 31px!important;
-  border:1.5px solid #A51A41!important;
+  border:1.5px solid light-dark(#A51A41,#C44768)!important;
   border-radius:5px!important;
   background:transparent!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   box-shadow:none!important;
   font-family:"Lora",Georgia,serif!important;
   font-size:15px!important;
@@ -2903,13 +2903,13 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 
 .story-page-02 .story-signature{
   margin-top:clamp(17px,2.6vh,25px)!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Reenie Beanie",cursive!important;
   font-size:clamp(24px,6.2vw,32px)!important;
   text-align:center!important;
 }
 .story-page-02 .story-signature span{
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
 }
 
 @media(max-width:430px){
@@ -2942,10 +2942,10 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 
 .enter.is-pressed{
   transform:translateY(2px) scale(.975)!important;
-  background:#244779!important;
-  border-color:#244779!important;
-  color:#fff!important;
-  box-shadow:inset 0 2px 5px rgba(0,0,0,.20)!important;
+  background:light-dark(#244779,#8BADDC)!important;
+  border-color:light-dark(#244779,#8BADDC)!important;
+  color:light-dark(#fff,#1F1F1F)!important;
+  box-shadow:inset 0 2px 5px light-dark(rgba(0,0,0,.20),rgb(224, 224, 224, .20))!important;
 }
 
 /* CAPA: posição visual correta na abertura.
@@ -3011,8 +3011,8 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
    ========================================================= */
 
 #musicGate{
-  background:#121212 !important;
-  color:#fff !important;
+  background:light-dark(#121212,#0D0A0B) !important;
+  color:light-dark(#fff,#1F1F1F) !important;
   text-align:center;
 }
 
@@ -3047,17 +3047,17 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 #musicGate .music-continue.is-unlocked,
 #musicGate .music-continue:not(:disabled),
 #musicGate .mystery-hint em{
-  color:#1ED760 !important;
+  color:light-dark(#1ED760,#1ed760) !important;
 }
 
 #musicGate .music-gate-rule::before,
 #musicGate .music-gate-rule::after{
-  background:#1ED760 !important;
+  background:light-dark(#1ED760,#1ed760) !important;
   opacity:.42;
 }
 
 #musicGate .music-gate-rule .spotify-mark-top{
-  color:#1ED760 !important;
+  color:light-dark(#1ED760,#1ed760) !important;
 }
 
 /* Main Spotify-style display heading.
@@ -3066,7 +3066,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
    to the native system sans, keeping the proportions crisp and close
    to the current Spotify UI. */
 #musicGate h2{
-  color:#fff !important;
+  color:light-dark(#fff,#1F1F1F) !important;
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
   font-weight:800 !important;
   letter-spacing:-.055em !important;
@@ -3075,12 +3075,12 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 
 #musicGate h2::after{
-  background:#1ED760 !important;
+  background:light-dark(#1ED760,#1ed760) !important;
 }
 
 /* Supporting copy */
 #musicGate .music-gate-intro{
-  color:#B3B3B3 !important;
+  color:light-dark(#B3B3B3,#585858) !important;
   font-weight:400 !important;
   letter-spacing:-.018em !important;
   line-height:1.35 !important;
@@ -3088,8 +3088,8 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 
 /* Primary CTA */
 #musicGate .spotify-button{
-  background:#1ED760 !important;
-  color:#000 !important;
+  background:light-dark(#1ED760,#1ed760) !important;
+  color:light-dark(#000,#FFFFFF) !important;
   font-weight:700 !important;
   letter-spacing:.055em !important;
   border-radius:999px !important;
@@ -3098,7 +3098,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 
 #musicGate .spotify-button:hover{
-  background:#1ED760 !important;
+  background:light-dark(#1ED760,#1ed760) !important;
   filter:brightness(1.06);
   transform:scale(1.01);
 }
@@ -3110,75 +3110,75 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 
 /* Secondary / mystery control */
 #musicGate .dedications-toggle{
-  border-color:rgba(30,215,96,.30) !important;
+  border-color:light-dark(rgba(30,215,96,.30),rgb(73, 230, 129, .30)) !important;
   background:transparent !important;
-  color:#1ED760 !important;
+  color:light-dark(#1ED760,#1ed760) !important;
   border-radius:999px !important;
   box-shadow:none !important;
 }
 
 #musicGate .dedications-toggle:hover{
-  border-color:#1ED760 !important;
-  background:rgba(30,215,96,.05) !important;
+  border-color:light-dark(#1ED760,#1ed760) !important;
+  background:light-dark(rgba(30,215,96,.05),rgb(73, 230, 129, .05)) !important;
   transform:none;
 }
 
 /* Disabled state remains intentionally subdued */
 #musicGate .music-continue:disabled{
-  color:#6A6A6A !important;
-  border-color:#2B2B2B !important;
+  color:light-dark(#6A6A6A,#909090) !important;
+  border-color:light-dark(#2B2B2B,#C0C0C0) !important;
   background:transparent !important;
   box-shadow:none !important;
 }
 
 #musicGate .music-continue:not(:disabled){
-  color:#1ED760 !important;
-  border-color:#1ED760 !important;
+  color:light-dark(#1ED760,#1ed760) !important;
+  border-color:light-dark(#1ED760,#1ed760) !important;
 }
 
 /* Spotify-style neutral text */
 #musicGate .mystery-hint{
-  color:#6A6A6A !important;
+  color:light-dark(#6A6A6A,#909090) !important;
   letter-spacing:.01em !important;
 }
 
 #musicGate .dedications-heading{
-  color:#fff !important;
+  color:light-dark(#fff,#1F1F1F) !important;
   font-weight:700 !important;
 }
 
 #musicGate .dedications-subtitle{
-  color:#B3B3B3 !important;
+  color:light-dark(#B3B3B3,#585858) !important;
   font-weight:400 !important;
 }
 
 #musicGate .song-list{
-  border-color:#2A2A2A !important;
+  border-color:light-dark(#2A2A2A,#C0C0C0) !important;
 }
 
 #musicGate .song-row{
-  color:#fff !important;
-  border-color:#2A2A2A !important;
+  color:light-dark(#fff,#1F1F1F) !important;
+  border-color:light-dark(#2A2A2A,#C0C0C0) !important;
 }
 
 #musicGate .song-row small,
 #musicGate .song-row b{
-  color:#6A6A6A !important;
+  color:light-dark(#6A6A6A,#909090) !important;
 }
 
 #musicGate .song-row[aria-expanded="true"] b{
-  color:#1ED760 !important;
+  color:light-dark(#1ED760,#1ed760) !important;
 }
 
 #musicGate .song-quote{
-  color:#B3B3B3 !important;
+  color:light-dark(#B3B3B3,#585858) !important;
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
 }
 
 #musicGate .final-return{
-  border-color:rgba(30,215,96,.35) !important;
-  color:#1ED760 !important;
-  background:rgba(30,215,96,.025) !important;
+  border-color:light-dark(rgba(30,215,96,.35),rgb(73, 230, 129, .35)) !important;
+  color:light-dark(#1ED760,#1ed760) !important;
+  background:light-dark(rgba(30,215,96,.025),rgb(73, 230, 129, .025)) !important;
 }
 
 /* iPhone/mobile proportions */
@@ -3200,7 +3200,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 
   #musicGate .music-gate-rule::before,
   #musicGate .music-gate-rule::after{
-    background:#1ED760 !important;
+    background:light-dark(#1ED760,#1ed760) !important;
   }
 
   #musicGate h2{
@@ -3211,7 +3211,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     font-size:clamp(43px,11.8vw,58px) !important;
     letter-spacing:-.06em !important;
     line-height:.94 !important;
-    white-space:normal !important;
+    light-dark(white, light-dark(black, white))-space:normal !important;
   }
 
   #musicGate h2::after{
@@ -3273,8 +3273,8 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   display:none;
   overflow-y:auto;
   overflow-x:hidden;
-  background:#121212;
-  color:#fff;
+  background:light-dark(#121212,#0D0A0B);
+  color:light-dark(#fff,#1F1F1F);
   -webkit-overflow-scrolling:touch;
 }
 #entrelinhasPage.is-open{display:block;animation:entrelinhasIn .28s ease both}
@@ -3289,56 +3289,56 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
 }
 #entrelinhasPage .el-back{
-  border:0;background:none;color:#777;padding:6px 0;
+  border:0;background:none;color:light-dark(#777,#868686);padding:6px 0;
   font:700 10px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
   letter-spacing:.15em;text-transform:uppercase;cursor:pointer;
 }
-#entrelinhasPage .el-back:hover{color:#fff}
+#entrelinhasPage .el-back:hover{color:light-dark(#fff,#1F1F1F)}
 #entrelinhasPage .el-head{margin-top:56px}
 #entrelinhasPage .el-kicker{
-  margin:0 0 18px;color:#1ED760;
+  margin:0 0 18px;color:light-dark(#1ED760,#1ed760);
   font:700 10px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
   letter-spacing:.25em;
 }
 #entrelinhasPage h1{
-  margin:0;color:#fff;
+  margin:0;color:light-dark(#fff,#1F1F1F);
   font:800 clamp(48px,9vw,76px)/.9 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
   letter-spacing:-.065em;
 }
 #entrelinhasPage .el-intro{
-  max-width:580px;margin:22px 0 46px;color:#B3B3B3;
+  max-width:580px;margin:22px 0 46px;color:light-dark(#B3B3B3,#585858);
   font:400 clamp(18px,3vw,22px)/1.4 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
   letter-spacing:-.018em;
 }
-#entrelinhasPage .el-list{border-top:1px solid #2A2A2A}
+#entrelinhasPage .el-list{border-top:1px solid light-dark(#2A2A2A,#C0C0C0)}
 #entrelinhasPage .el-track{
   width:100%;display:grid;grid-template-columns:38px 1fr 24px;gap:14px;
-  align-items:center;padding:22px 0;border:0;border-bottom:1px solid #2A2A2A;
-  background:none;color:#fff;text-align:left;cursor:pointer;
+  align-items:center;padding:22px 0;border:0;border-bottom:1px solid light-dark(#2A2A2A,#C0C0C0);
+  background:none;color:light-dark(#fff,#1F1F1F);text-align:left;cursor:pointer;
 }
-#entrelinhasPage .el-num{color:#666;font-size:11px}
+#entrelinhasPage .el-num{color:light-dark(#666,#939393);font-size:11px}
 #entrelinhasPage .el-info{display:flex;flex-direction:column;gap:7px}
-#entrelinhasPage .el-title{color:#fff;font-size:12px;font-weight:700;letter-spacing:.08em}
-#entrelinhasPage .el-artist{color:#777;font-size:13px}
-#entrelinhasPage .el-arrow{color:#666;font-size:25px;line-height:1;transition:.2s}
-#entrelinhasPage .el-track.is-open .el-arrow{color:#1ED760;transform:rotate(90deg)}
+#entrelinhasPage .el-title{color:light-dark(#fff,#1F1F1F);font-size:12px;font-weight:700;letter-spacing:.08em}
+#entrelinhasPage .el-artist{color:light-dark(#777,#868686);font-size:13px}
+#entrelinhasPage .el-arrow{color:light-dark(#666,#939393);font-size:25px;line-height:1;transition:.2s}
+#entrelinhasPage .el-track.is-open .el-arrow{color:light-dark(#1ED760,#1ed760);transform:rotate(90deg)}
 #entrelinhasPage .el-detail{
-  display:none;padding:0 22px 24px 52px;border-bottom:1px solid #2A2A2A;
+  display:none;padding:0 22px 24px 52px;border-bottom:1px solid light-dark(#2A2A2A,#C0C0C0);
 }
 #entrelinhasPage .el-track.is-open + .el-detail{display:block;animation:elDetail .2s ease both}
 @keyframes elDetail{from{opacity:0}to{opacity:1}}
 #entrelinhasPage .el-quote{
-  margin:0;color:#D0D0D0;
+  margin:0;color:light-dark(#D0D0D0,#424242);
   font:400 20px/1.45 "Cormorant Garamond",Georgia,serif;
 }
-#entrelinhasPage .el-footer{margin-top:54px;padding-top:26px;border-top:1px solid #2A2A2A}
-#entrelinhasPage .el-footer p{margin:0 0 22px;color:#777;font-size:13px;line-height:1.5}
+#entrelinhasPage .el-footer{margin-top:54px;padding-top:26px;border-top:1px solid light-dark(#2A2A2A,#C0C0C0)}
+#entrelinhasPage .el-footer p{margin:0 0 22px;color:light-dark(#777,#868686);font-size:13px;line-height:1.5}
 #entrelinhasPage .el-return{
-  width:100%;height:60px;border:2px solid #2A2A2A;border-radius:999px;
-  background:#121212;color:#B3B3B3;font:700 10px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  width:100%;height:60px;border:2px solid light-dark(#2A2A2A,#C0C0C0);border-radius:999px;
+  background:light-dark(#121212,#0D0A0B);color:light-dark(#B3B3B3,#585858);font:700 10px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
   letter-spacing:.16em;cursor:pointer;
 }
-#entrelinhasPage .el-return:hover{border-color:#1ED760;color:#1ED760}
+#entrelinhasPage .el-return:hover{border-color:light-dark(#1ED760,#1ed760);color:light-dark(#1ED760,#1ed760)}
 
 #musicGate #dedicationsPanel{display:none!important}
 
@@ -3356,7 +3356,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 #entrelinhasPage .el-num-auto::before{content:counter(track, decimal-leading-zero)}
 #entrelinhasPage .el-track::before{
   content:counter(track, decimal-leading-zero);
-  color:#666;
+  color:light-dark(#666,#939393);
   font:500 11px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
 }
 #entrelinhasPage .el-track{
@@ -3371,8 +3371,8 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
    ========================================================= */
 
 #entrelinhasPage{
-  background:#121212 !important;
-  color:#fff !important;
+  background:light-dark(#121212,#0D0A0B) !important;
+  color:light-dark(#fff,#1F1F1F) !important;
 }
 
 #entrelinhasPage .el-shell{
@@ -3389,7 +3389,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 
 #entrelinhasPage .el-kicker{
   margin:0 0 20px !important;
-  color:#1ED760 !important;
+  color:light-dark(#1ED760,#1ed760) !important;
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
   font-size:10px !important;
   font-weight:700 !important;
@@ -3399,7 +3399,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 
 #entrelinhasPage h1{
   margin:0 !important;
-  color:#fff !important;
+  color:light-dark(#fff,#1F1F1F) !important;
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
   font-size:clamp(45px,8.7vw,70px) !important;
   font-weight:800 !important;
@@ -3410,7 +3410,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 #entrelinhasPage .el-head > .el-intro{
   max-width:650px !important;
   margin:24px 0 42px !important;
-  color:#B3B3B3 !important;
+  color:light-dark(#B3B3B3,#585858) !important;
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
   font-size:clamp(18px,2.7vw,21px) !important;
   font-weight:400 !important;
@@ -3429,13 +3429,13 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   width:100% !important;
   height:1px !important;
   margin:0 0 30px !important;
-  background:#2A2A2A !important;
+  background:light-dark(#2A2A2A,#C0C0C0) !important;
 }
 
 #entrelinhasPage .el-prelude{
   max-width:650px !important;
   margin:0 0 30px !important;
-  color:#858585 !important;
+  color:light-dark(#858585,#7B7B7B) !important;
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
   font-size:15px !important;
   font-weight:400 !important;
@@ -3461,20 +3461,20 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   box-sizing:border-box !important;
 
   border:0 !important;
-  border-top:1px solid #2A2A2A !important;
+  border-top:1px solid light-dark(#2A2A2A,#C0C0C0) !important;
   border-radius:0 !important;
   background:transparent !important;
-  color:#fff !important;
+  color:light-dark(#fff,#1F1F1F) !important;
   text-align:left !important;
   cursor:pointer !important;
 }
 
 #entrelinhasPage .el-track:last-of-type{
-  border-bottom:1px solid #2A2A2A !important;
+  border-bottom:1px solid light-dark(#2A2A2A,#C0C0C0) !important;
 }
 
 #entrelinhasPage .el-num{
-  color:#666 !important;
+  color:light-dark(#666,#939393) !important;
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
   font-size:11px !important;
   font-weight:500 !important;
@@ -3488,7 +3488,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 
 #entrelinhasPage .el-title{
-  color:#F5F5F5 !important;
+  color:light-dark(#F5F5F5,#262626) !important;
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
   font-size:13px !important;
   font-weight:700 !important;
@@ -3497,14 +3497,14 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 
 #entrelinhasPage .el-artist{
-  color:#777 !important;
+  color:light-dark(#777,#868686) !important;
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
   font-size:13px !important;
   line-height:1 !important;
 }
 
 #entrelinhasPage .el-arrow{
-  color:#666 !important;
+  color:light-dark(#666,#939393) !important;
   font-family:Arial,sans-serif !important;
   font-size:29px !important;
   font-weight:400 !important;
@@ -3514,11 +3514,11 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 
 #entrelinhasPage .el-track.is-open .el-title{
-  color:#1ED760 !important;
+  color:light-dark(#1ED760,#1ed760) !important;
 }
 
 #entrelinhasPage .el-track.is-open .el-arrow{
-  color:#1ED760 !important;
+  color:light-dark(#1ED760,#1ed760) !important;
   transform:rotate(90deg) !important;
 }
 
@@ -3528,7 +3528,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   margin:0 !important;
   padding:18px 30px 24px 61px !important;
   border-top:0 !important;
-  border-bottom:1px solid #2A2A2A !important;
+  border-bottom:1px solid light-dark(#2A2A2A,#C0C0C0) !important;
   box-sizing:border-box !important;
 }
 
@@ -3543,7 +3543,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 
 #entrelinhasPage .el-quote{
   margin:0 !important;
-  color:#B3B3B3 !important;
+  color:light-dark(#B3B3B3,#585858) !important;
   font-family:"Cormorant Garamond",Georgia,serif !important;
   font-size:20px !important;
   font-weight:400 !important;
@@ -3565,10 +3565,10 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 #entrelinhasPage .el-return{
   width:100% !important;
   height:58px !important;
-  border:2px solid #2A2A2A !important;
+  border:2px solid light-dark(#2A2A2A,#C0C0C0) !important;
   border-radius:999px !important;
-  background:#121212 !important;
-  color:#B3B3B3 !important;
+  background:light-dark(#121212,#0D0A0B) !important;
+  color:light-dark(#B3B3B3,#585858) !important;
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
   font-size:10px !important;
   font-weight:700 !important;
@@ -3579,8 +3579,8 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 
 #entrelinhasPage .el-return:hover{
-  border-color:#1ED760 !important;
-  color:#1ED760 !important;
+  border-color:light-dark(#1ED760,#1ed760) !important;
+  color:light-dark(#1ED760,#1ed760) !important;
 }
 
 @media(max-width:600px){
@@ -3698,7 +3698,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 #entrelinhasPage .el-artist{
   overflow:hidden !important;
   text-overflow:ellipsis !important;
-  white-space:nowrap !important;
+  light-dark(white, light-dark(black, white))-space:nowrap !important;
 }
 
 /* Track details: correct styling for the actual .el-detail markup. */
@@ -3707,7 +3707,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   max-width:100% !important;
   box-sizing:border-box !important;
   padding:18px 28px 24px 52px !important;
-  color:#B3B3B3 !important;
+  color:light-dark(#B3B3B3,#585858) !important;
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
   font-size:15px !important;
   line-height:1.5 !important;
@@ -3717,7 +3717,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 /* The quote class is used if/when the real song text is inserted. */
 #entrelinhasPage .el-detail .el-quote{
   margin:0 !important;
-  color:#B3B3B3 !important;
+  color:light-dark(#B3B3B3,#585858) !important;
   font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
   font-size:15px !important;
   line-height:1.5 !important;
@@ -3809,14 +3809,14 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
    ========================================================= */
 
 :root{
-  --story-paper:#FAFAFA;
-  --story-paper-soft:#F6F4F1;
-  --story-ink:#171313;
-  --story-muted:#6D6465;
-  --story-wine:#8A0015;
-  --story-red:#A51A41;
-  --story-soft-red:#B9113F;
-  --story-line:rgba(138,0,21,.16);
+  --story-paper:light-dark(#FAFAFA,#0D0A0B);
+  --story-paper-soft:light-dark(#F6F4F1,#584C39);
+  --story-ink:light-dark(#171313,#D5CCCC);
+  --story-muted:light-dark(#6D6465,#968C8D);
+  --story-wine:light-dark(#8A0015,#F4E9E3);
+  --story-red:light-dark(#A51A41,#C44768);
+  --story-soft-red:light-dark(#B9113F,#F05A83);
+  --story-line:light-dark(rgba(138,0,21,.16),rgb(255, 117, 138, .16));
 }
 
 /* Base da história */
@@ -3925,16 +3925,16 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 #reveal .story-page .memory-card,
 #reveal .story-page .text-card,
 #reveal .story-page .letter-card{
-  background:rgba(255,255,255,.72) !important;
+  background:light-dark(rgba(255,255,255,.72),rgb(31, 31, 31, .72)) !important;
   border-color:var(--story-line) !important;
-  box-shadow:0 8px 30px rgba(40,15,20,.06) !important;
+  box-shadow:0 8px 30px light-dark(rgba(40,15,20,.06),rgb(232, 194, 201, .06)) !important;
   border-radius:14px !important;
 }
 
 /* Fotos/ilustrações continuam sendo protagonistas,
    mas com moldura mais editorial. */
 #reveal .story-page img{
-  box-shadow:0 10px 30px rgba(40,15,20,.10) !important;
+  box-shadow:0 10px 30px light-dark(rgba(40,15,20,.10),rgb(232, 194, 201, .10)) !important;
 }
 
 /* Botões da história: mesma família visual da capa,
@@ -3993,11 +3993,11 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
    ========================================================= */
 
 #reveal{
-  --story-bg:#FAFAFA;
-  --story-ink:#171313;
-  --story-muted:#6E6768;
-  --story-wine:#8D2036;
-  --story-line:rgba(141,32,54,.16);
+  --story-bg:light-dark(#FAFAFA,#0D0A0B);
+  --story-ink:light-dark(#171313,#D5CCCC);
+  --story-muted:light-dark(#6E6768,#938C8D);
+  --story-wine:light-dark(#8D2036,#B85A72);
+  --story-line:light-dark(rgba(141,32,54,.16),rgb(225, 124, 144, .16));
 
   background:var(--story-bg)!important;
   color:var(--story-ink)!important;
@@ -4145,10 +4145,10 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 #reveal .story-page .memory-card,
 #reveal .story-page .text-card,
 #reveal .story-page .letter-card{
-  background:rgba(255,255,255,.78)!important;
+  background:light-dark(rgba(255,255,255,.78),rgb(31, 31, 31, .78))!important;
   color:var(--story-ink)!important;
   border-color:var(--story-line)!important;
-  box-shadow:0 8px 28px rgba(35,15,20,.06)!important;
+  box-shadow:0 8px 28px light-dark(rgba(35,15,20,.06),rgb(231, 198, 206, .06))!important;
 }
 
 /* Música dentro da história segue a mesma paleta editorial */
@@ -4233,7 +4233,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 #reveal .final-page .final-copy p.letter-final{
   margin:1.7em 0!important;
   text-align:center!important;
-  color:var(--story-wine,#8D2036)!important;
+  color:var(--story-wine,light-dark(#8D2036,#B85A72))!important;
   font-weight:700!important;
 }
 
@@ -4382,12 +4382,12 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   padding:0!important;
   border:0!important;
   border-radius:2px!important;
-  background:#fbfaf7!important;
+  background:light-dark(#fbfaf7,#5C502E)!important;
   overflow:hidden!important;
   backface-visibility:hidden!important;
   -webkit-backface-visibility:hidden!important;
   box-sizing:border-box!important;
-  box-shadow:0 12px 26px rgba(30,20,18,.13)!important;
+  box-shadow:0 12px 26px light-dark(rgba(30,20,18,.13),rgb(224, 207, 204, .13))!important;
 }
 
 #reveal .memories-page .memory-polaroid-card .memory-card-front{
@@ -4404,8 +4404,8 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   align-items:center!important;
   text-align:center!important;
   padding:42px 30px!important;
-  color:#111!important;
-  background:#fbfaf7!important;
+  color:light-dark(#111,#F4E9E3)!important;
+  background:light-dark(#fbfaf7,#5C502E)!important;
 }
 
 #reveal .memories-page .polaroid-photo{
@@ -4415,7 +4415,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   right:14px!important;
   height:348px!important;
   overflow:hidden!important;
-  background:#eee!important;
+  background:light-dark(#eee,#2C2C2C)!important;
 }
 
 #reveal .memories-page .polaroid-photo img{
@@ -4432,7 +4432,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   right:0!important;
   bottom:22px!important;
   text-align:center!important;
-  color:rgba(35,28,27,.48)!important;
+  color:light-dark(rgba(35,28,27,.48),rgb(208, 196, 194, .48))!important;
   font-family:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif!important;
   font-size:10px!important;
   font-weight:500!important;
@@ -4442,7 +4442,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 
 #reveal .memories-page .memory-back-title{
   margin:0 0 15px!important;
-  color:#8d2036!important;
+  color:light-dark(#8d2036,#B85A72)!important;
   font-family:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif!important;
   font-size:14px!important;
   font-weight:700!important;
@@ -4454,7 +4454,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 #reveal .memories-page .memory-card-back p{
   margin:0!important;
   max-width:270px!important;
-  color:#222!important;
+  color:light-dark(#222,#C7C7C7)!important;
   font-family:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif!important;
   font-size:15px!important;
   font-weight:400!important;
@@ -4464,7 +4464,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 }
 
 #reveal .memories-page .memory-polaroid-card:focus-visible{
-  outline:2px solid rgba(141,32,54,.35)!important;
+  outline:2px solid light-dark(rgba(141,32,54,.35),rgb(225, 124, 144, .35))!important;
   outline-offset:5px!important;
   border-radius:3px!important;
 }
@@ -4536,29 +4536,29 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
    ========================================================= */
 
 html{
-  background-color:#FAFAFA !important;
+  background-color:light-dark(#FAFAFA,#0D0A0B) !important;
   background-image:none !important;
 }
 
 body{
-  background-color:#FAFAFA !important;
+  background-color:light-dark(#FAFAFA,#0D0A0B) !important;
   background-image:none !important;
 }
 
 /* A superfície principal da capa permanece sólida.
    Pseudo-elementos decorativos continuam podendo aparecer por cima. */
 #reveal{
-  background-color:#FAFAFA !important;
+  background-color:light-dark(#FAFAFA,#0D0A0B) !important;
 }
 
 /* O Spotify continua sendo preto, como definido pelo design aprovado. */
 #musicGate{
-  background-color:#050505 !important;
+  background-color:light-dark(#050505,#000000) !important;
 }
 
 /* A página Entrelinhas continua com seu fundo escuro próprio. */
 #entrelinhasPage{
-  background-color:#121212 !important;
+  background-color:light-dark(#121212,#0D0A0B) !important;
 }
 </style>
 
@@ -4570,206 +4570,103 @@ body{
 @media (prefers-color-scheme: light) {
   #musicGate,
   #musicGate .music-gate-inner {
-    background-color:#fff !important;
-    color:#000 !important;
+    background-color:light-dark(#fff,#1F1F1F) !important;
+    color:light-dark(#000,#FFFFFF) !important;
   }
 
   #musicGate h2,
   #musicGate .dedications-heading,
   #musicGate .song-row {
-    color:#000 !important;
+    color:light-dark(#000,#FFFFFF) !important;
   }
 
   #musicGate .music-gate-intro,
   #musicGate .dedications-subtitle,
   #musicGate .song-quote {
-    color:#4a4a4a !important;
+    color:light-dark(#4a4a4a,#A8A8A8) !important;
   }
 
   #musicGate .mystery-hint,
   #musicGate .song-row small,
   #musicGate .song-row b {
-    color:#6a6a6a !important;
+    color:light-dark(#6a6a6a,#909090) !important;
   }
 
   #musicGate .song-list,
   #musicGate .song-row {
-    border-color:#d5d5d5 !important;
+    border-color:light-dark(#d5d5d5,#3F3F3F) !important;
   }
 
   #musicGate .music-continue:disabled {
-    color:#8a8a8a !important;
-    border-color:#cfcfcf !important;
-    background:#fff !important;
+    color:light-dark(#8a8a8a,#787878) !important;
+    border-color:light-dark(#cfcfcf,#434343) !important;
+    background:light-dark(#fff,#1F1F1F) !important;
   }
 
   /* SVGs: only the neutral parts invert. Spotify green stays green. */
   #musicGate .spotify-mark-button svg circle {
-    fill:#fff !important;
+    fill:light-dark(#fff,#1F1F1F) !important;
   }
   #musicGate .spotify-mark-button svg path {
-    stroke:#1ed760 !important;
+    stroke:light-dark(#1ed760,#1ed760) !important;
   }
   #musicGate .spotify-mark-top svg path {
-    stroke:#fff !important;
+    stroke:light-dark(#fff,#1F1F1F) !important;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   #musicGate,
   #musicGate .music-gate-inner {
-    background-color:#050505 !important;
-    color:#fff !important;
+    background-color:light-dark(#050505,#000000) !important;
+    color:light-dark(#fff,#1F1F1F) !important;
   }
 
   #musicGate h2,
   #musicGate .dedications-heading,
   #musicGate .song-row {
-    color:#fff !important;
+    color:light-dark(#fff,#1F1F1F) !important;
   }
 
   #musicGate .music-gate-intro,
   #musicGate .dedications-subtitle,
   #musicGate .song-quote {
-    color:#b3b3b3 !important;
+    color:light-dark(#b3b3b3,#585858) !important;
   }
 
   #musicGate .mystery-hint,
   #musicGate .song-row small,
   #musicGate .song-row b {
-    color:#6a6a6a !important;
+    color:light-dark(#6a6a6a,#909090) !important;
   }
 
   #musicGate .song-list,
   #musicGate .song-row {
-    border-color:#2a2a2a !important;
+    border-color:light-dark(#2a2a2a,#C0C0C0) !important;
   }
 
   #musicGate .music-continue:disabled {
-    color:#6a6a6a !important;
-    border-color:#2b2b2b !important;
-    background:#050505 !important;
+    color:light-dark(#6a6a6a,#909090) !important;
+    border-color:light-dark(#2b2b2b,#C0C0C0) !important;
+    background:light-dark(#050505,#000000) !important;
   }
 
   #musicGate .spotify-mark-button svg circle {
-    fill:#050505 !important;
+    fill:light-dark(#050505,#000000) !important;
   }
   #musicGate .spotify-mark-button svg path {
-    stroke:#1ed760 !important;
+    stroke:light-dark(#1ed760,#1ed760) !important;
   }
   #musicGate .spotify-mark-top svg path {
-    stroke:#050505 !important;
+    stroke:light-dark(#050505,#000000) !important;
   }
 }
 </style>
 
 
-<style id="global-device-theme-v16">
-/* ============================================================
-   V16 — TEMA GLOBAL DO DISPOSITIVO
-   Claro: identidade original creme + vinho.
-   Escuro: mesma identidade adaptada para uma leitura noturna.
-   Layout, fotos, animações e funcionalidades permanecem iguais.
-   ============================================================ */
 
-:root {
-  color-scheme: light dark;
-
-  --theme-bg: #FAFAFA;
-  --theme-surface: #FAFAFA;
-  --theme-wine: #A51A41;
-  --theme-wine-secondary: #8D2036;
-  --theme-text: #8A0015;
-  --theme-text-secondary: #8D2036;
-  --theme-border: rgba(165, 26, 65, 0.20);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --theme-bg: #0D0A0B;
-    --theme-surface: #151011;
-    --theme-wine: #C44768;
-    --theme-wine-secondary: #B85A72;
-    --theme-text: #F4E9E3;
-    --theme-text-secondary: #CBB9B5;
-    --theme-border: rgba(196, 71, 104, 0.25);
-  }
-
-  html,
-  body {
-    background-color: var(--theme-bg) !important;
-    color: var(--theme-text);
-  }
-
-  /*
-   * Só neutralizamos superfícies neutras do projeto.
-   * A cor vinho continua sendo a identidade e não é convertida em branco.
-   */
-  #reveal,
-  .story-page,
-  .story-page-02,
-  .memories-page {
-    background-color: var(--theme-bg) !important;
-    color: var(--theme-text);
-  }
-
-  /*
-   * Elementos que usam a superfície do fundo.
-   * Fotos, capas, SVGs e elementos decorativos não são alterados aqui.
-   */
-  .story-card,
-  .memory-card,
-  .memory-polaroid-card {
-    background-color: var(--theme-surface);
-  }
-
-  /*
-   * Texto: só os tons textuais principais/secundários.
-   * Não tocamos em imagens nem na identidade vinho.
-   */
-  .story-page,
-  .story-page p,
-  .story-page .story-copy,
-  .story-page .final-copy,
-  .story-page-02,
-  .story-page-02 p,
-  .story-page-02 .story-copy,
-  .memories-page,
-  .memories-page p {
-    color: var(--theme-text);
-  }
-
-  /*
-   * Spotify segue a mesma identidade global, mas conserva sua lógica
-   * própria de preto/branco já existente na V15.
-   */
-  #musicGate {
-    background-color: #000000 !important;
-  }
-
-  /*
-   * Entrelinhas continua sendo uma página escura própria.
-   * Apenas sua superfície acompanha o modo noturno sem alterar o layout.
-   */
-  #entrelinhasPage {
-    background-color: #0D0A0B !important;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  html,
-  body {
-    background-color: #FAFAFA !important;
-  }
-
-  #musicGate {
-    background-color: #FFFFFF !important;
-  }
-
-  #entrelinhasPage {
-    background-color: #121212 !important;
-  }
-}
+<style id="device-theme-v17">
+:root { color-scheme: light dark; }
 </style>
 
 </head>
@@ -5752,9 +5649,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 /* BLOQUEADO */
 #musicGate #dedicationsToggle.mystery-toggle{
-  background:#0b0b0b !important;
-  border:2px solid #292929 !important;
-  color:#303030 !important;
+  background:light-dark(#0b0b0b,#D8D8D8) !important;
+  border:2px solid light-dark(#292929,#C1C1C1) !important;
+  color:light-dark(#303030,#BCBCBC) !important;
   box-shadow:none !important;
   opacity:1 !important;
   cursor:not-allowed !important;
@@ -5770,15 +5667,15 @@ document.addEventListener("DOMContentLoaded", function(){
   font-weight:500 !important;
   line-height:1 !important;
   letter-spacing:0 !important;
-  color:#303030 !important;
+  color:light-dark(#303030,#BCBCBC) !important;
   opacity:1 !important;
 }
 
 /* DESBLOQUEADO */
 #musicGate #dedicationsToggle.is-revealed{
-  background:#121212 !important;
-  border:2px solid #1ED760 !important;
-  color:#1ED760 !important;
+  background:light-dark(#121212,#0D0A0B) !important;
+  border:2px solid light-dark(#1ED760,#1ed760) !important;
+  color:light-dark(#1ED760,#1ed760) !important;
   box-shadow:none !important;
   opacity:1 !important;
   cursor:pointer !important;
@@ -5796,7 +5693,7 @@ document.addEventListener("DOMContentLoaded", function(){
   line-height:1 !important;
   letter-spacing:.14em !important;
   text-transform:uppercase !important;
-  color:#1ED760 !important;
+  color:light-dark(#1ED760,#1ed760) !important;
   opacity:1 !important;
 }</style>
 
@@ -5928,7 +5825,7 @@ document.addEventListener("DOMContentLoaded", function(){
   font-size:13px!important;
   line-height:1.2!important;
   letter-spacing:.12em!important;
-  white-space:nowrap!important;
+  light-dark(white, light-dark(black, white))-space:nowrap!important;
 }
 
 .story-page-02 .kicker.story-date::before,
@@ -5967,7 +5864,7 @@ document.addEventListener("DOMContentLoaded", function(){
   font-weight:700!important;
   line-height:.82!important;
   letter-spacing:-.05em!important;
-  white-space:nowrap!important;
+  light-dark(white, light-dark(black, white))-space:nowrap!important;
   text-align:center!important;
   text-rendering:geometricPrecision!important;
 }
@@ -5989,7 +5886,7 @@ document.addEventListener("DOMContentLoaded", function(){
   font-style:normal!important;
   line-height:.86!important;
   letter-spacing:-.045em!important;
-  white-space:nowrap!important;
+  light-dark(white, light-dark(black, white))-space:nowrap!important;
 }
 
 .story-page-02 .copy-stack h1 .script{
@@ -6000,7 +5897,7 @@ document.addEventListener("DOMContentLoaded", function(){
   font-style:normal!important;
   letter-spacing:-.02em!important;
   display:inline-block!important;
-  white-space:nowrap!important;
+  light-dark(white, light-dark(black, white))-space:nowrap!important;
   margin:0!important;
   transform:translateY(-.035em)!important;
 }
@@ -6213,10 +6110,10 @@ document.addEventListener("DOMContentLoaded", function(){
 .story-next{
   box-sizing:border-box!important;
   min-height:48px!important;
-  border:1.5px solid #A51A41!important;
+  border:1.5px solid light-dark(#A51A41,#C44768)!important;
   border-radius:18px!important;
   background:transparent!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif!important;
   font-size:13px!important;
   font-weight:600!important;
@@ -6249,8 +6146,8 @@ document.addEventListener("DOMContentLoaded", function(){
 .password-button:active,
 .story-next:active{
   transform:scale(.98)!important;
-  background:rgba(49,90,158,.07)!important;
-  border-color:#A51A41!important;
+  background:light-dark(rgba(49,90,158,.07),rgb(115, 152, 212, .07))!important;
+  border-color:light-dark(#A51A41,#C44768)!important;
 }
 
 /* Remove estilos específicos antigos que davam aparência diferente
@@ -6280,44 +6177,44 @@ document.addEventListener("DOMContentLoaded", function(){
 
 /* =========================================================
    PALETA FINAL — TODAS AS PÁGINAS, EXCETO SPOTIFY
-   Fundo: #FAFAFA
+   Fundo: light-dark(#FAFAFA,#0D0A0B)
    Identidade: vinhos/vermelhos
    Textos de entrada: pretos, sem arco-íris
    ========================================================= */
 
 :root{
-  --new-bg:#FAFAFA!important;
-  --new-wine:#A51A41!important;
-  --new-wine-dark:#8A0015!important;
-  --new-red:#B9113F!important;
-  --new-red-bright:#C3062C!important;
-  --new-wine-soft:#8D2036!important;
-  --new-wine-deep:#951F2B!important;
+  --new-bg:light-dark(#FAFAFA,#0D0A0B)!important;
+  --new-wine:light-dark(#A51A41,#C44768)!important;
+  --new-wine-dark:light-dark(#8A0015,#F4E9E3)!important;
+  --new-red:light-dark(#B9113F,#F05A83)!important;
+  --new-red-bright:light-dark(#C3062C,#FA5173)!important;
+  --new-wine-soft:light-dark(#8D2036,#B85A72)!important;
+  --new-wine-deep:light-dark(#951F2B,#E37681)!important;
 }
 
 /* ---------- FUNDO GLOBAL ---------- */
 html,
 body{
-  background:#FAFAFA!important;
+  background:light-dark(#FAFAFA,#0D0A0B)!important;
 }
 
 body{
-  color:#111!important;
+  color:light-dark(#111,#F4E9E3)!important;
 }
 
 /* ---------- TELA INICIAL / ENTRADA ----------
    O texto deixa de ser azul/rosa/verde e fica preto normal.
 */
 .password-gate{
-  background:#FAFAFA!important;
-  color:#111!important;
+  background:light-dark(#FAFAFA,#0D0A0B)!important;
+  color:light-dark(#111,#F4E9E3)!important;
 }
 
 .password-card h2,
 .password-card h2 .title-blue,
 .password-card h2 .title-pink,
 .password-card h2 .title-green{
-  color:#111!important;
+  color:light-dark(#111,#F4E9E3)!important;
 }
 
 .password-card h2{
@@ -6325,26 +6222,26 @@ body{
 }
 
 .password-hint{
-  color:#111!important;
+  color:light-dark(#111,#F4E9E3)!important;
 }
 
 .password-input,
 .password-wrap .password-input{
-  color:#111!important;
-  caret-color:#A51A41!important;
-  border-bottom-color:rgba(17,17,17,.35)!important;
+  color:light-dark(#111,#F4E9E3)!important;
+  caret-color:light-dark(#A51A41,#C44768)!important;
+  border-bottom-color:light-dark(rgba(17,17,17,.35),rgb(211, 211, 211, .35))!important;
 }
 
 .password-input:focus{
-  border-bottom-color:#A51A41!important;
+  border-bottom-color:light-dark(#A51A41,#C44768)!important;
 }
 
 .password-hearts{
-  color:#B9113F!important;
+  color:light-dark(#B9113F,#F05A83)!important;
 }
 
 .password-error{
-  color:#111!important;
+  color:light-dark(#111,#F4E9E3)!important;
 }
 
 /* ---------- BOTÕES
@@ -6356,10 +6253,10 @@ body{
 .story-next{
   box-sizing:border-box!important;
   min-height:48px!important;
-  border:1.5px solid #A51A41!important;
+  border:1.5px solid light-dark(#A51A41,#C44768)!important;
   border-radius:18px!important;
   background:transparent!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif!important;
   font-size:13px!important;
   font-weight:600!important;
@@ -6377,25 +6274,25 @@ body{
 .enter:hover,
 .password-button:hover,
 .story-next:hover{
-  border-color:#A51A41!important;
-  color:#A51A41!important;
-  background:rgba(165,26,65,.045)!important;
+  border-color:light-dark(#A51A41,#C44768)!important;
+  color:light-dark(#A51A41,#C44768)!important;
+  background:light-dark(rgba(165,26,65,.045),rgb(232, 106, 141, .045))!important;
 }
 
 .enter:active,
 .password-button:active,
 .story-next:active{
   transform:scale(.98)!important;
-  background:rgba(165,26,65,.10)!important;
-  border-color:#A51A41!important;
+  background:light-dark(rgba(165,26,65,.10),rgb(232, 106, 141, .10))!important;
+  border-color:light-dark(#A51A41,#C44768)!important;
 }
 
 .enter.is-pressed{
   transform:translateY(2px) scale(.975)!important;
-  background:#8A0015!important;
-  border-color:#8A0015!important;
-  color:#FAFAFA!important;
-  box-shadow:inset 0 2px 5px rgba(0,0,0,.20)!important;
+  background:light-dark(#8A0015,#F4E9E3)!important;
+  border-color:light-dark(#8A0015,#F4E9E3)!important;
+  color:light-dark(#FAFAFA,#0D0A0B)!important;
+  box-shadow:inset 0 2px 5px light-dark(rgba(0,0,0,.20),rgb(224, 224, 224, .20))!important;
 }
 
 
@@ -6405,12 +6302,12 @@ body{
 */
 .story-page-02,
 .story-page-02 .story-illustration-wrap{
-  background:#FAFAFA!important;
+  background:light-dark(#FAFAFA,#0D0A0B)!important;
 }
 
 .story-page-02 .story-kicker,
 .story-page-02 .story-date{
-  color:#8D2036!important;
+  color:light-dark(#8D2036,#B85A72)!important;
 }
 
 .story-page-02 .story-title-main,
@@ -6418,26 +6315,26 @@ body{
 .story-page-02 .story-copy,
 .story-page-02 .story-body,
 .story-page-02 .story-signature{
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
 }
 
 .story-page-02 .story-sim{
-  color:#B9113F!important;
+  color:light-dark(#B9113F,#F05A83)!important;
 }
 
 .story-page-02 .story-sim::after{
-  background:#B9113F!important;
+  background:light-dark(#B9113F,#F05A83)!important;
 }
 
 .story-page-02 .story-date::before,
 .story-page-02 .story-date::after{
-  background:#8D2036!important;
+  background:light-dark(#8D2036,#B85A72)!important;
 }
 
 .story-page-02 .story-rule,
 .story-page-02 .rule{
-  background:#8D2036!important;
-  border-color:#8D2036!important;
+  background:light-dark(#8D2036,#B85A72)!important;
+  border-color:light-dark(#8D2036,#B85A72)!important;
 }
 
 /* Desenho do casal: preserva a arte e apenas muda sua tonalidade
@@ -6467,7 +6364,7 @@ body{
 .letter-page,
 .memory-page,
 .final-page{
-  background:#FAFAFA!important;
+  background:light-dark(#FAFAFA,#0D0A0B)!important;
 }
 
 .story-page .story-label,
@@ -6475,7 +6372,7 @@ body{
 .story-page .story-date,
 .story-page .story-caption,
 .story-page .small-note{
-  color:#8D2036!important;
+  color:light-dark(#8D2036,#B85A72)!important;
 }
 
 .story-page h2,
@@ -6485,37 +6382,37 @@ body{
 .story-page .quote,
 .story-page .yes,
 .story-page .final-signature strong{
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
 }
 
 .story-page p,
 .story-page .letter p,
 .story-page .story-body{
-  color:#111!important;
+  color:light-dark(#111,#F4E9E3)!important;
 }
 
 .story-page .accent,
 .story-page .heart,
 .story-page .heart-icon{
-  color:#B9113F!important;
+  color:light-dark(#B9113F,#F05A83)!important;
 }
 
 .story-page .divider,
 .story-page .rule{
-  border-color:#8D2036!important;
-  background:#8D2036!important;
+  border-color:light-dark(#8D2036,#B85A72)!important;
+  background:light-dark(#8D2036,#B85A72)!important;
 }
 
 .timeline-item,
 .see-lines p{
-  border-color:rgba(141,32,54,.20)!important;
+  border-color:light-dark(rgba(141,32,54,.20),rgb(225, 124, 144, .20))!important;
 }
 
 .memory-card-face,
 .memory-polaroid,
 .memory-photo-card{
-  border-color:rgba(141,32,54,.20)!important;
-  background:#FAFAFA!important;
+  border-color:light-dark(rgba(141,32,54,.20),rgb(225, 124, 144, .20))!important;
+  background:light-dark(#FAFAFA,#0D0A0B)!important;
 }
 
 /* =========================================================
@@ -6529,11 +6426,11 @@ body{
 .password-card h2 .title-blue,
 .password-card h2 .title-pink,
 .password-card h2 .title-green{
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
 }
 
 .password-hint{
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
 }
 
 /* O botão mantém o design de contorno padronizado. */
@@ -6541,10 +6438,10 @@ body{
   min-width:160px!important;
   min-height:48px!important;
   padding:14px 30px!important;
-  border:1.5px solid #A51A41!important;
+  border:1.5px solid light-dark(#A51A41,#C44768)!important;
   border-radius:18px!important;
   background:transparent!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif!important;
   font-size:13px!important;
   font-weight:600!important;
@@ -6555,9 +6452,9 @@ body{
 }
 
 .password-button:active{
-  background:#8A0015!important;
-  border-color:#8A0015!important;
-  color:#FAFAFA!important;
+  background:light-dark(#8A0015,#F4E9E3)!important;
+  border-color:light-dark(#8A0015,#F4E9E3)!important;
+  color:light-dark(#FAFAFA,#0D0A0B)!important;
 }
 
 /* ---------- CAPA ---------- */
@@ -6568,19 +6465,19 @@ body{
 .story-page-02 .story-body p,
 .story-page-02 .story-signature,
 .story-page-02 .story-signature span{
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
 }
 
 /* Título: vinho, sem nenhuma cor pastel residual. */
 .story-page-02 .story-title-main,
 .story-page-02 .story-title-sub,
 .story-page-02 .story-sim{
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
 }
 
 /* Sublinhado de “sim”: vinho, não rosa. */
 .story-page-02 .story-sim::after{
-  background:#8A0015!important;
+  background:light-dark(#8A0015,#F4E9E3)!important;
 }
 
 /* Linhas decorativas da data e divisores. */
@@ -6588,18 +6485,18 @@ body{
 .story-page-02 .story-date::after,
 .story-page-02 .story-rule,
 .story-page-02 .rule{
-  background:#8D2036!important;
-  border-color:#8D2036!important;
+  background:light-dark(#8D2036,#B85A72)!important;
+  border-color:light-dark(#8D2036,#B85A72)!important;
 }
 
 /* Texto da capa em preto normal. */
 .story-page-02 .story-body{
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
 }
 
 /* Assinatura continua discreta, mas sem o azul antigo. */
 .story-page-02 .story-signature{
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
 }
 
 /* O desenho do casal permanece vinho; sol e lua permanecem pretos. */
@@ -6612,10 +6509,10 @@ body{
   min-width:160px!important;
   min-height:48px!important;
   padding:14px 30px!important;
-  border:1.5px solid #A51A41!important;
+  border:1.5px solid light-dark(#A51A41,#C44768)!important;
   border-radius:18px!important;
   background:transparent!important;
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-family:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif!important;
   font-size:13px!important;
   font-weight:600!important;
@@ -6627,9 +6524,9 @@ body{
 
 .story-page-02 .enter.is-pressed,
 .story-page-02 .enter:active{
-  background:#8A0015!important;
-  border-color:#8A0015!important;
-  color:#FAFAFA!important;
+  background:light-dark(#8A0015,#F4E9E3)!important;
+  border-color:light-dark(#8A0015,#F4E9E3)!important;
+  color:light-dark(#FAFAFA,#0D0A0B)!important;
 }
 
 /* ---------- PÁGINAS EDITORIAIS ----------
@@ -6640,7 +6537,7 @@ body{
 .memory-copy p,
 .final-copy p,
 .letter p{
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
 }
 
 .story-page h2,
@@ -6650,7 +6547,7 @@ body{
 .story-page .yes,
 .story-page .final-signature strong,
 .letter-final{
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
 }
 
 
@@ -6820,7 +6717,7 @@ textarea{
 */
 /* =========================================================
    CAPA — FINAL
-   Casal + sol + lua = #A51A41.
+   Casal + sol + lua = light-dark(#A51A41,#C44768).
    O conjunto recebe apenas um pequeno ajuste óptico de posição.
    ========================================================= */
 
@@ -6884,7 +6781,7 @@ textarea{
    ========================================================= */
 
 .story-page-02 .story-kicker{
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
   font-family:"Manrope",-apple-system,BlinkMacSystemFont,sans-serif!important;
   font-weight:500!important;
   letter-spacing:.22em!important;
@@ -6892,7 +6789,7 @@ textarea{
 
 /* Título principal: maior + mais encorpado */
 .story-page-02 .story-title-main{
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
   font-family:"Fredoka",sans-serif!important;
   font-size:17.5vw!important;
   line-height:.84!important;
@@ -6902,24 +6799,24 @@ textarea{
 
 /* Segunda linha acompanha o peso do título */
 .story-page-02 .story-title-sub{
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
   font-family:"Fredoka",sans-serif!important;
   font-size:10vw!important;
   line-height:.90!important;
   font-weight:700!important;
   letter-spacing:-.025em!important;
-  white-space:nowrap!important;
+  light-dark(white, light-dark(black, white))-space:nowrap!important;
 }
 
 /* “sim” é o ponto de cor da composição */
 .story-page-02 .story-sim{
-  color:#A51A41!important;
+  color:light-dark(#A51A41,#C44768)!important;
   font-weight:700!important;
 }
 
 /* Sublinhado acompanha exatamente a cor do “sim” */
 .story-page-02 .story-sim::after{
-  background:#A51A41!important;
+  background:light-dark(#A51A41,#C44768)!important;
   height:3px!important;
 }
 
@@ -6949,7 +6846,7 @@ textarea{
   font-weight:400!important;
   line-height:1.1!important;
   letter-spacing:.01em!important;
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
 }
 
 /* =========================================================
@@ -6963,9 +6860,9 @@ textarea{
   font-weight:400!important;
   line-height:1.05!important;
   letter-spacing:.005em!important;
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
   text-transform:none!important;
-  white-space:nowrap!important;
+  light-dark(white, light-dark(black, white))-space:nowrap!important;
 }
 
 /* Texto da história: dois blocos equilibrados, com largura
@@ -6980,7 +6877,7 @@ textarea{
 .story-page-02 .story-body p{
   margin:0 auto!important;
   max-width:520px!important;
-  color:#111111!important;
+  color:light-dark(#111111,#F4E9E3)!important;
   font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
   font-size:clamp(16px,4.1vw,19px)!important;
   font-weight:400!important;
@@ -7027,8 +6924,8 @@ textarea{
    ========================================================= */
 
 #musicGate{
-  background:#121212 !important;
-  color:#fff !important;
+  background:light-dark(#121212,#0D0A0B) !important;
+  color:light-dark(#fff,#1F1F1F) !important;
 }
 
 #musicGate .music-gate-inner{
@@ -7050,7 +6947,7 @@ textarea{
 #musicGate .music-gate-rule::before,
 #musicGate .music-gate-rule::after{
   width:96px !important;
-  background:#1ED760 !important;
+  background:light-dark(#1ED760,#1ed760) !important;
   opacity:.42 !important;
 }
 
@@ -7232,7 +7129,7 @@ textarea{
   min-height: .24em !important;
   display: inline-block !important;
   border-radius: 50% !important;
-  background: #1ED760 !important;
+  background: light-dark(#1ED760,#1ed760) !important;
   margin-left: .10em !important;
   vertical-align: .06em !important;
   animation: spotifyTitleDotPulse 2.8s ease-in-out infinite !important;
@@ -7253,7 +7150,7 @@ textarea{
 #musicGate .music-gate-intro{
   margin-top: 21px !important;
   margin-bottom: 27px !important;
-  color: #B3B3B3 !important;
+  color: light-dark(#B3B3B3,#585858) !important;
   line-height: 1.34 !important;
 }
 
@@ -7267,7 +7164,7 @@ textarea{
 
 #musicGate .mystery-hint{
   margin-top: 10px !important;
-  color: #777777 !important;
+  color: light-dark(#777777,#868686) !important;
 }
 
 #musicGate .music-continue{
@@ -7325,9 +7222,9 @@ textarea{
 #musicGate .dedications-toggle,
 #musicGate .dedications-toggle:disabled,
 #musicGate .dedications-toggle[disabled]{
-  border-color:#292929 !important;
-  background:#0d0d0d !important;
-  color:#3a3a3a !important;
+  border-color:light-dark(#292929,#C1C1C1) !important;
+  background:light-dark(#0d0d0d,#D7D7D7) !important;
+  color:light-dark(#3a3a3a,#B4B4B4) !important;
   box-shadow:none !important;
   cursor:not-allowed !important;
   opacity:1 !important;
@@ -7337,19 +7234,19 @@ textarea{
 #musicGate .dedications-toggle:hover,
 #musicGate .dedications-toggle:disabled:hover,
 #musicGate .dedications-toggle[disabled]:hover{
-  background:#0d0d0d !important;
-  border-color:#292929 !important;
+  background:light-dark(#0d0d0d,#D7D7D7) !important;
+  border-color:light-dark(#292929,#C1C1C1) !important;
   transform:none !important;
 }
 
 #musicGate .dedications-icon{
-  color:#3a3a3a !important;
+  color:light-dark(#3a3a3a,#B4B4B4) !important;
   opacity:.72 !important;
 }
 
 /* A mensagem de bloqueio também fica mais discreta. */
 #musicGate .mystery-hint{
-  color:#666666 !important;
+  color:light-dark(#666666,#939393) !important;
 }
 
 /* =========================================================
@@ -7362,9 +7259,9 @@ textarea{
 #musicGate .dedications-toggle.mystery-toggle,
 #musicGate .dedications-toggle.mystery-toggle:disabled,
 #musicGate .dedications-toggle.mystery-toggle[disabled]{
-  border-color:#292929 !important;
-  background:#0d0d0d !important;
-  color:#3a3a3a !important;
+  border-color:light-dark(#292929,#C1C1C1) !important;
+  background:light-dark(#0d0d0d,#D7D7D7) !important;
+  color:light-dark(#3a3a3a,#B4B4B4) !important;
   box-shadow:none !important;
   cursor:not-allowed !important;
   opacity:1 !important;
@@ -7373,37 +7270,37 @@ textarea{
 
 #musicGate .dedications-toggle.mystery-toggle:hover,
 #musicGate .dedications-toggle.mystery-toggle:disabled:hover{
-  border-color:#292929 !important;
-  background:#0d0d0d !important;
-  color:#3a3a3a !important;
+  border-color:light-dark(#292929,#C1C1C1) !important;
+  background:light-dark(#0d0d0d,#D7D7D7) !important;
+  color:light-dark(#3a3a3a,#B4B4B4) !important;
   transform:none !important;
 }
 
 #musicGate .dedications-toggle.mystery-toggle .dedications-icon{
-  color:#3a3a3a !important;
+  color:light-dark(#3a3a3a,#B4B4B4) !important;
   opacity:.72 !important;
 }
 
 /* DESBLOQUEADO — esta regra vem depois do estado bloqueado */
 #musicGate .dedications-toggle.is-revealed{
-  border-color:#1ed760 !important;
+  border-color:light-dark(#1ed760,#1ed760) !important;
   background:transparent !important;
-  color:#1ed760 !important;
-  box-shadow:0 0 20px rgba(30,215,96,.08) !important;
+  color:light-dark(#1ed760,#1ed760) !important;
+  box-shadow:0 0 20px light-dark(rgba(30,215,96,.08),rgb(73, 230, 129, .08)) !important;
   cursor:pointer !important;
   opacity:1 !important;
   pointer-events:auto !important;
 }
 
 #musicGate .dedications-toggle.is-revealed:hover{
-  border-color:#1ed760 !important;
-  background:rgba(30,215,96,.06) !important;
-  color:#1ed760 !important;
+  border-color:light-dark(#1ed760,#1ed760) !important;
+  background:light-dark(rgba(30,215,96,.06),rgb(73, 230, 129, .06)) !important;
+  color:light-dark(#1ed760,#1ed760) !important;
   transform:translateY(-2px) !important;
 }
 
 #musicGate .dedications-toggle.is-revealed .dedications-icon{
-  color:#1ed760 !important;
+  color:light-dark(#1ed760,#1ed760) !important;
   opacity:1 !important;
 }
 
@@ -7417,9 +7314,9 @@ textarea{
 /* ENTRELINHAS — refinamento do botão desbloqueado */
 #musicGate .dedications-toggle,
 #musicGate .dedications-toggle.is-revealed{
-  background:#121212 !important;
-  color:#1ED760 !important;
-  border-color:#1ED760 !important;
+  background:light-dark(#121212,#0D0A0B) !important;
+  color:light-dark(#1ED760,#1ed760) !important;
+  border-color:light-dark(#1ED760,#1ed760) !important;
   box-shadow:none !important;
 }
 
@@ -7434,23 +7331,23 @@ textarea{
   letter-spacing:.065em !important;
   text-transform:uppercase !important;
   margin:0 !important;
-  color:#1ED760 !important;
+  color:light-dark(#1ED760,#1ed760) !important;
   opacity:1 !important;
 }
 
 /* Mesmo comportamento visual do CTA Spotify, sem o fundo verde */
 #musicGate .dedications-toggle.is-revealed:hover{
-  background:#121212 !important;
-  border-color:#1ED760 !important;
-  color:#1ED760 !important;
+  background:light-dark(#121212,#0D0A0B) !important;
+  border-color:light-dark(#1ED760,#1ed760) !important;
+  color:light-dark(#1ED760,#1ed760) !important;
   transform:none !important;
 }
 
 /* Estado bloqueado: apenas o ? apagado, sem verde */
 #musicGate .dedications-toggle.mystery-toggle:disabled{
-  background:#121212 !important;
-  border-color:#2b2b2b !important;
-  color:#3a3a3a !important;
+  background:light-dark(#121212,#0D0A0B) !important;
+  border-color:light-dark(#2b2b2b,#C0C0C0) !important;
+  color:light-dark(#3a3a3a,#B4B4B4) !important;
   opacity:1 !important;
   box-shadow:none !important;
 }
@@ -7464,25 +7361,25 @@ textarea{
   font-weight:600 !important;
   line-height:1 !important;
   letter-spacing:0 !important;
-  color:#3a3a3a !important;
+  color:light-dark(#3a3a3a,#B4B4B4) !important;
   opacity:1 !important;
 }
 #musicGate .dedications-toggle.mystery-toggle span:last-child::after{
   content:"?" !important;
   font:600 11px/1 "DM Sans",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif !important;
-  color:#3a3a3a !important;
+  color:light-dark(#3a3a3a,#B4B4B4) !important;
   letter-spacing:0 !important;
 }
 #musicGate .dedications-toggle.mystery-toggle:disabled:hover{
-  background:#121212 !important;
-  border-color:#2b2b2b !important;
+  background:light-dark(#121212,#0D0A0B) !important;
+  border-color:light-dark(#2b2b2b,#C0C0C0) !important;
   transform:none !important;
 }
 
 #musicGate .dedications-toggle:not(.is-revealed){
-  background:#0b0b0b !important;
-  border-color:#292929 !important;
-  color:#303030 !important;
+  background:light-dark(#0b0b0b,#D8D8D8) !important;
+  border-color:light-dark(#292929,#C1C1C1) !important;
+  color:light-dark(#303030,#BCBCBC) !important;
   box-shadow:none !important;
 }
 #musicGate .dedications-toggle:not(.is-revealed){
@@ -7494,9 +7391,9 @@ textarea{
 
 /* BLOQUEADO = somente ? apagado */
 #musicGate .dedications-toggle.mystery-toggle:disabled{
-  background:#0b0b0b !important;
-  border-color:#292929 !important;
-  color:#303030 !important;
+  background:light-dark(#0b0b0b,#D8D8D8) !important;
+  border-color:light-dark(#292929,#C1C1C1) !important;
+  color:light-dark(#303030,#BCBCBC) !important;
   box-shadow:none !important;
   cursor:not-allowed !important;
   opacity:1 !important;
@@ -7510,7 +7407,7 @@ textarea{
   font-weight:600 !important;
   line-height:1 !important;
   letter-spacing:0 !important;
-  color:#303030 !important;
+  color:light-dark(#303030,#BCBCBC) !important;
 }
 #musicGate .dedications-toggle.mystery-toggle:disabled .dedications-icon::after{
   content:"?" !important;
@@ -7520,14 +7417,14 @@ textarea{
   font-weight:500 !important;
   line-height:1 !important;
   letter-spacing:0 !important;
-  color:#303030 !important;
+  color:light-dark(#303030,#BCBCBC) !important;
 }
 
 /* DESBLOQUEADO = ENTRELINHAS */
 #musicGate .dedications-toggle.mystery-toggle.is-revealed{
-  background:#121212 !important;
-  border-color:#1ED760 !important;
-  color:#1ED760 !important;
+  background:light-dark(#121212,#0D0A0B) !important;
+  border-color:light-dark(#1ED760,#1ed760) !important;
+  color:light-dark(#1ED760,#1ed760) !important;
   box-shadow:none !important;
   cursor:pointer !important;
   pointer-events:auto !important;
@@ -7540,7 +7437,7 @@ textarea{
   font-weight:700 !important;
   line-height:1 !important;
   letter-spacing:.065em !important;
-  color:#1ED760 !important;
+  color:light-dark(#1ED760,#1ed760) !important;
 }
 #musicGate .dedications-toggle.mystery-toggle.is-revealed .dedications-icon::after{
   content:none !important;
@@ -7551,9 +7448,9 @@ textarea{
    DESBLOQUEADO: somente ENTRELINHAS em verde.
 */
 #musicGate .dedications-toggle.mystery-toggle:disabled {
-  background:#0b0b0b !important;
-  border-color:#292929 !important;
-  color:#303030 !important;
+  background:light-dark(#0b0b0b,#D8D8D8) !important;
+  border-color:light-dark(#292929,#C1C1C1) !important;
+  color:light-dark(#303030,#BCBCBC) !important;
   box-shadow:none !important;
   opacity:1 !important;
   cursor:not-allowed !important;
@@ -7569,7 +7466,7 @@ textarea{
   font-weight:500 !important;
   line-height:1 !important;
   letter-spacing:0 !important;
-  color:#303030 !important;
+  color:light-dark(#303030,#BCBCBC) !important;
   opacity:1 !important;
 }
 
@@ -7579,9 +7476,9 @@ textarea{
 }
 
 #musicGate .dedications-toggle.is-revealed {
-  background:#121212 !important;
-  border-color:#1ED760 !important;
-  color:#1ED760 !important;
+  background:light-dark(#121212,#0D0A0B) !important;
+  border-color:light-dark(#1ED760,#1ed760) !important;
+  color:light-dark(#1ED760,#1ed760) !important;
   box-shadow:none !important;
   opacity:1 !important;
   cursor:pointer !important;
@@ -7597,7 +7494,7 @@ textarea{
   font-weight:700 !important;
   line-height:1 !important;
   letter-spacing:.14em !important;
-  color:#1ED760 !important;
+  color:light-dark(#1ED760,#1ed760) !important;
   opacity:1 !important;
 }
 
