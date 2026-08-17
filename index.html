@@ -8136,3 +8136,95 @@ html{
 })();
 </script>
 
+<style id="entrelinhas-single-question-final">
+/*
+ * CORREÇÃO FINAL — ENTRELINHAS BLOQUEADO
+ * O botão possui um único <span> com "?".
+ * Regras antigas adicionavam outro "?" via ::after no mesmo span,
+ * por isso apareciam "??". O ::after fica explicitamente desativado.
+ */
+#musicGate #dedicationsToggle.mystery-toggle span.dedications-icon::after,
+#musicGate #dedicationsToggle.mystery-toggle span:last-child::after{
+  content:none !important;
+  display:none !important;
+}
+
+#musicGate #dedicationsToggle.mystery-toggle{
+  background:#0B0B0B !important;
+  background-color:#0B0B0B !important;
+  background-image:none !important;
+  border:2px solid #292929 !important;
+  color:#777777 !important;
+  box-shadow:none !important;
+  opacity:1 !important;
+}
+
+#musicGate #dedicationsToggle.mystery-toggle .dedications-icon,
+#musicGate #dedicationsToggle.mystery-toggle span:last-child{
+  color:#777777 !important;
+  opacity:1 !important;
+}
+
+/* No escuro: continua escuro, apenas com a superfície ligeiramente mais quente. */
+@media (prefers-color-scheme:dark){
+  #musicGate #dedicationsToggle.mystery-toggle{
+    background:#171011 !important;
+    background-color:#171011 !important;
+    background-image:none !important;
+    border-color:#3A3033 !important;
+    color:#777074 !important;
+  }
+
+  #musicGate #dedicationsToggle.mystery-toggle .dedications-icon,
+  #musicGate #dedicationsToggle.mystery-toggle span:last-child{
+    color:#777074 !important;
+  }
+}
+</style>
+
+
+<style id="entrelinhas-light-dark-final-v6">
+/* V6 — paleta definitiva do botão ENTRELINHAS bloqueado.
+   Claro = superfície clara; Escuro = superfície escura.
+   Mantém somente um ? e não altera o estado desbloqueado. */
+html body #musicGate #dedicationsToggle.mystery-toggle,
+html body #musicGate #dedicationsToggle.mystery-toggle:disabled,
+html body #musicGate #dedicationsToggle.mystery-toggle[disabled]{
+  background:#FAFAFA !important;
+  background-color:#FAFAFA !important;
+  background-image:none !important;
+  border:2px solid #D8D8D8 !important;
+  color:#777777 !important;
+  box-shadow:none !important;
+  opacity:1 !important;
+}
+
+html body #musicGate #dedicationsToggle.mystery-toggle .dedications-icon,
+html body #musicGate #dedicationsToggle.mystery-toggle span:last-child,
+html body #musicGate #dedicationsToggle.mystery-toggle span:last-child::after{
+  color:#777777 !important;
+}
+
+html body #musicGate #dedicationsToggle.mystery-toggle span:last-child::after{
+  content:none !important;
+  display:none !important;
+}
+
+@media (prefers-color-scheme:dark){
+  html body #musicGate #dedicationsToggle.mystery-toggle,
+  html body #musicGate #dedicationsToggle.mystery-toggle:disabled,
+  html body #musicGate #dedicationsToggle.mystery-toggle[disabled]{
+    background:#171011 !important;
+    background-color:#171011 !important;
+    background-image:none !important;
+    border:2px solid #3A3033 !important;
+    color:#777074 !important;
+  }
+
+  html body #musicGate #dedicationsToggle.mystery-toggle .dedications-icon,
+  html body #musicGate #dedicationsToggle.mystery-toggle span:last-child,
+  html body #musicGate #dedicationsToggle.mystery-toggle span:last-child::after{
+    color:#777074 !important;
+  }
+}
+</style>
