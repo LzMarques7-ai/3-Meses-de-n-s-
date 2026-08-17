@@ -8,8 +8,12 @@
 <meta name="theme-color" content="#F7F1E8">
 <title>3 meses depois do “sim”</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Ballet&family=Parisienne&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap');
+<style>/*
+   NAMORO — CSS CONSOLIDADO
+   Blocos originais consolidados nesta posição, preservando a ordem da cascata.
+   Blocos consolidados: sem id
+*/
+@import url("https://fonts.googleapis.com/css2?family=Ballet&family=Parisienne&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap");
 
 :root{
   --ivory:#F7F1E8;
@@ -1245,18 +1249,8 @@ h1 .script{
   transform:scale(.98);
 }
 
-.memory-photo-card{
-  padding:10px !important;
-  overflow:hidden;
-  cursor:pointer;
-}
-.memory-photo-card img{
-  display:block;
-  width:100%;
-  aspect-ratio:1 / 1.08;
-  object-fit:cover;
-  border-radius:9px;
-}
+
+
 .memory-card-caption{
   padding:11px 4px 3px;
   color:#B87979;
@@ -1264,7 +1258,7 @@ h1 .script{
   letter-spacing:.07em;
   text-transform:uppercase;
 }
-.memory-photo-card:active{transform:scale(.98);}
+
 
 .memory-photo-card{
   padding:10px !important;
@@ -1274,20 +1268,8 @@ h1 .script{
   flex-direction:column;
   justify-content:flex-start !important;
 }
-.memory-photo-card img{
-  display:block;
-  width:100%;
-  aspect-ratio:1 / 1.08;
-  object-fit:cover;
-  border-radius:9px;
-}
-.memory-card-caption{
-  padding:11px 4px 3px;
-  color:#B87979;
-  font:500 9px/1.3 "DM Sans",sans-serif;
-  letter-spacing:.07em;
-  text-transform:uppercase;
-}
+
+
 
 /* 08 · OS PRIMEIROS MESES — cartões frente/verso */
 .memories-page .memory-flip-grid{
@@ -1890,12 +1872,7 @@ h1 .script{
   background:transparent !important;
   box-sizing:border-box;
 }
-.music-gate-lock svg,
-.continue-lock svg{
-  width:100%;
-  height:100%;
-  overflow:visible;
-}
+
 .music-gate-lock svg rect,
 .music-gate-lock svg path,
 .music-gate-lock svg circle,
@@ -1937,12 +1914,7 @@ h1 .script{
   transform:rotate(28deg) translate(1px,-1px);
 }
 
-.music-gate-lock:before,
-.music-gate-lock:after,
-.continue-lock:before,
-.continue-lock:after{
-  content:none !important;
-}
+
 
 @media(max-width:600px){
   .music-gate-rule{
@@ -2092,9 +2064,7 @@ h1 .script{
   pointer-events:auto !important;
   box-shadow:0 0 20px rgba(30,215,96,.08) !important;
 }
-.music-continue .continue-lock{
-  display:none !important;
-}
+
 
 /* Keep the mystery button intentionally subdued while locked. */
 .dedications-toggle.mystery-toggle:disabled{
@@ -2128,14 +2098,7 @@ h1 .script{
 
 
 /* ---------- CLEAN NORMAL CONTINUE ---------- */
-.music-continue{
-  color:#1ed760 !important;
-  border-color:#1ed760 !important;
-  opacity:1 !important;
-  cursor:pointer !important;
-  pointer-events:auto !important;
-  box-shadow:0 0 20px rgba(30,215,96,.08) !important;
-}
+
 .music-continue .continue-lock,
 .music-gate-note{
   display:none !important;
@@ -2240,15 +2203,8 @@ h1 .script{
     background .28s ease,
     box-shadow .28s ease;
 }
-.final-return:hover{
-  transform:translateY(-2px);
-  border-color:#1ed760;
-  background:rgba(30,215,96,.075);
-  box-shadow:0 8px 28px rgba(30,215,96,.08);
-}
-.final-return:active{
-  transform:scale(.985);
-}
+
+
 .final-return-spotify{
   width:23px;
   height:23px;
@@ -2611,16 +2567,19 @@ h1 .script{
   .story-page-02 .story-title-sub{font-size:7.45vw!important}
   .story-page-02 .story-illustration-wrap{width:82vw!important;height:39svh!important}
   .story-page-02 .story-body{width:87vw!important}
-}
-</style>
+}</style>
 
 <!-- =========================================================
      DESIGN SYSTEM — DIÁRIO
      Aplicado sobre a estrutura/conteúdo existente.
      Não substitui páginas, textos, imagens ou JavaScript.
      ========================================================= -->
-<style id="namoro-design-system">
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Reenie+Beanie&display=swap');
+<style>/*
+   NAMORO — CSS CONSOLIDADO
+   Blocos originais consolidados nesta posição, preservando a ordem da cascata.
+   Blocos consolidados: namoro-design-system, botao-pressionado-corrigido, ajuste-capa-abertura-final
+*/
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Reenie+Beanie&display=swap");
 
 :root{
   --paper:#F8E9C5 !important;
@@ -2805,13 +2764,13 @@ body::before{display:none!important}
 .story-page:nth-child(10) .story-label{color:var(--feeling)!important}
 
 /* Títulos com pequenos acentos pastel, sem transformar a página em arco-íris */
-.story-page:nth-child(3n+1) h2{
+.story-page:nth-child(3n/**/+1) h2{
   text-decoration:underline;
   text-decoration-color:rgba(252,185,238,.75);
   text-decoration-thickness:4px;
   text-underline-offset:8px;
 }
-.story-page:nth-child(3n+2) h2{
+.story-page:nth-child(3n/**/+2) h2{
   text-decoration:underline;
   text-decoration-color:rgba(209,170,249,.72);
   text-decoration-thickness:4px;
@@ -3084,10 +3043,6 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   }
 }
 
-</style>
-
-
-<style id="botao-pressionado-corrigido">
 /* Feedback físico do botão CONTINUAR */
 .enter{
   transform:translateY(0) scale(1)!important;
@@ -3107,8 +3062,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   color:#fff!important;
   box-shadow:inset 0 2px 5px rgba(0,0,0,.20)!important;
 }
-</style>
-<style id="ajuste-capa-abertura-final">
+
 /* CAPA: posição visual correta na abertura.
    O conteúdo anterior estava 72px alto demais no iPhone. */
 .story-page-02{
@@ -3153,15 +3107,18 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     padding-top:145px!important;
     padding-bottom:24px!important;
   }
-}
-</style>
+}</style>
 <script id="cover-scroll-restoration">
 (function(){
   try { history.scrollRestoration = "manual"; } catch(e) {}
 })();
 </script>
 
-<style id="spotify-faithful-final">
+<style>/*
+   NAMORO — CSS CONSOLIDADO
+   Blocos originais consolidados nesta posição, preservando a ordem da cascata.
+   Blocos consolidados: spotify-faithful-final, entrelinhas-page-v2, entrelinhas-counter, entrelinhas-design-v4, entrelinhas-design-v5, entrelinhas-design-v6, entrelinhas-main-layout-fix-v7, story-mature-design-v1, story-mature-clean-v2, story-text-justify-v3, story-final-prose-v4, story-spacing-v5, memorias-polaroides-v6, spotify-continuar-posicao-final
+*/
 /* =========================================================
    SPOTIFY — FINAL VISUAL PASS
    Escopo exclusivo: #musicGate
@@ -3422,10 +3379,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     letter-spacing:.16em !important;
   }
 }
-</style>
 
-
-<style id="entrelinhas-page-v2">
 /* ENTRELINHAS — página independente */
 #entrelinhasPage{
   position:fixed;
@@ -3511,10 +3465,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   #entrelinhasPage .el-track{grid-template-columns:30px 1fr 20px;gap:12px;padding:21px 0}
   #entrelinhasPage .el-detail{padding:0 18px 22px 42px}
 }
-</style>
 
-
-<style id="entrelinhas-counter">
 #entrelinhasPage .el-list{counter-reset:track}
 #entrelinhasPage .el-track{counter-increment:track}
 #entrelinhasPage .el-num-auto::before{content:counter(track, decimal-leading-zero)}
@@ -3526,10 +3477,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 #entrelinhasPage .el-track{
   grid-template-columns:38px 1fr 24px;
 }
-</style>
 
-
-<style id="entrelinhas-design-v4">
 /* =========================================================
    ENTRELINHAS V4
    Baseado no V2 funcional.
@@ -3811,10 +3759,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     margin-top:32px !important;
   }
 }
-</style>
 
-
-<style id="entrelinhas-design-v5">
 /* ===== FINAL REFINEMENT V5 ===== */
 
 /* Kicker centered, as requested. */
@@ -3912,10 +3857,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     padding-right:12px !important;
   }
 }
-</style>
 
-
-<style id="entrelinhas-design-v6">
 /* Remove the residual empty band between the intro and tracklist.
    The divider stays, but the tracklist follows it immediately. */
 #entrelinhasPage .el-content{
@@ -3938,10 +3880,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   margin-top:0 !important;
   padding-top:20px !important;
 }
-</style>
 
-
-<style id="entrelinhas-main-layout-fix-v7">
 /*
   CORREÇÃO DEFINITIVA DO ESPAÇO ENTRE A DIVISÓRIA E AS MÚSICAS.
 
@@ -3976,10 +3915,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
 #entrelinhasPage .el-track:first-child{
   margin-top:0 !important;
 }
-</style>
 
-
-<style id="story-mature-design-v1">
 /* =========================================================
    HISTÓRIA — DESIGN MADURO
    Mantém a linguagem visual da SENHA + CAPA,
@@ -4164,10 +4100,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     line-height:1.65 !important;
   }
 }
-</style>
 
-
-<style id="story-mature-clean-v2">
 /* =========================================================
    HISTÓRIA — LIMPEZA VISUAL V2
    Paleta única + texto com borda direita orgânica.
@@ -4382,10 +4315,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     line-height:1.68!important;
   }
 }
-</style>
 
-
-<style id="story-text-justify-v3">
 /* Texto da história: alinhado nos dois lados, como o usuário pediu. */
 #reveal .story-page .letter p,
 #reveal .story-page .story-body,
@@ -4399,10 +4329,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   word-break:normal!important;
   overflow-wrap:normal!important;
 }
-</style>
 
-
-<style id="story-final-prose-v4">
 /* A página "daqui pra frente" é uma carta contínua.
    Só as frases finais continuam isoladas para criar impacto. */
 #reveal .final-page .final-copy{
@@ -4424,10 +4351,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   color:var(--story-wine,#8D2036)!important;
   font-weight:700!important;
 }
-</style>
 
-
-<style id="story-spacing-v5">
 /* =========================================================
    HISTÓRIA — ESPAÇAMENTO V5
    Uniformiza margens verticais e dá um pouco mais de respiro
@@ -4526,10 +4450,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     max-width:100%!important;
   }
 }
-</style>
 
-
-<style id="memorias-polaroides-v6">
 /* =========================================================
    MEMÓRIAS — POLAROIDS V6
    Frente limpa + toque para virar + verso com texto.
@@ -4697,10 +4618,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     bottom:18px!important;
   }
 }
-</style>
 
-
-<style id="spotify-continuar-posicao-final">
 /* =========================================================
    ÚNICA ALTERAÇÃO DESTA VERSÃO:
    CONTINUAR fica no ponto inferior da tela Spotify.
@@ -4722,8 +4640,7 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     max-width:360px !important;
     margin:0 auto !important;
   }
-}
-</style>
+}</style>
 
 </head>
 
@@ -5717,7 +5634,11 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-<style id="entrelinhas-authoritative-state">
+<style>/*
+   NAMORO — CSS CONSOLIDADO
+   Blocos originais consolidados nesta posição, preservando a ordem da cascata.
+   Blocos consolidados: entrelinhas-authoritative-state
+*/
 /*
   ESTADO FINAL DO BOTÃO:
   BLOQUEADO  = ? apagado/escuro
@@ -5780,8 +5701,7 @@ document.addEventListener("DOMContentLoaded", function(){
   text-transform:uppercase !important;
   color:#1ED760 !important;
   opacity:1 !important;
-}
-</style>
+}</style>
 
 
 <script id="entrelinhas-state-v4">
@@ -5813,7 +5733,11 @@ document.addEventListener("DOMContentLoaded", function(){
 </html>
 
 
-<style id="v11-old-wine-cover-only">
+<style>/*
+   NAMORO — CSS CONSOLIDADO
+   Blocos originais consolidados nesta posição, preservando a ordem da cascata.
+   Blocos consolidados: v11-old-wine-cover-only, capa-sol-lua-final, ajuste-final-sol-lua-diagonal, padronizacao-botoes-narrativos, paleta-vinho-corrigida, limpeza-final-paleta, tipografia-identidade-final
+*/
 /* =========================================================
    V11 — CAPA ANTIGA VINHO, literalmente na composição.
    SOMENTE a capa .story-page-02. Todo o restante permanece V9.
@@ -6086,9 +6010,7 @@ document.addEventListener("DOMContentLoaded", function(){
   .story-page-02 .rule{margin:20px 0 16px!important}
   .story-page-02 .enter{margin-top:24px!important}
 }
-</style>
 
-<style id="capa-sol-lua-final">
 /* =========================================================
    CAPA — SOL + LUA | versão final
    As imagens são as artes enviadas pelo usuário, com o fundo
@@ -6164,9 +6086,7 @@ document.addEventListener("DOMContentLoaded", function(){
     top:7%!important;
   }
 }
-</style>
 
-<style id="ajuste-final-sol-lua-diagonal">
 /* Posição final definida pela referência do usuário:
    sol = extremo inferior esquerdo
    lua = extremo superior direito */
@@ -6185,9 +6105,7 @@ document.addEventListener("DOMContentLoaded", function(){
     bottom:auto!important;
   }
 }
-</style>
 
-<style id="padronizacao-botoes-narrativos">
 /* =========================================================
    PADRONIZAÇÃO DOS BOTÕES NARRATIVOS
    Spotify/música permanece com a identidade própria.
@@ -6262,9 +6180,7 @@ document.addEventListener("DOMContentLoaded", function(){
     font-size:13px!important;
   }
 }
-</style>
 
-<style id="paleta-vinho-corrigida">
 /* =========================================================
    PALETA FINAL — TODAS AS PÁGINAS, EXCETO SPOTIFY
    Fundo: #FAFAFA
@@ -6357,15 +6273,9 @@ body{
   box-shadow:none!important;
 }
 
-.enter,
-.password-button{
-  min-width:160px!important;
-  padding:14px 30px!important;
-}
 
-.story-next{
-  padding:14px 30px!important;
-}
+
+
 
 .enter:hover,
 .password-button:hover,
@@ -6391,21 +6301,7 @@ body{
   box-shadow:inset 0 2px 5px rgba(0,0,0,.20)!important;
 }
 
-@media(max-width:430px){
-  .enter,
-  .password-button{
-    min-width:160px!important;
-    min-height:48px!important;
-    padding:14px 28px!important;
-    font-size:13px!important;
-  }
 
-  .story-next{
-    min-height:48px!important;
-    padding:14px 28px!important;
-    font-size:13px!important;
-  }
-}
 
 /* ---------- CAPA / PRIMEIRA PÁGINA ----------
    Toda a identidade editorial sai do azul/rosa e vai para vinho.
@@ -6525,9 +6421,6 @@ body{
   background:#FAFAFA!important;
 }
 
-</style>
-
-<style id="limpeza-final-paleta">
 /* =========================================================
    LIMPEZA FINAL DA PALETA
    A capa e as páginas editoriais não usam mais a paleta pastel.
@@ -6613,21 +6506,9 @@ body{
 }
 
 /* O desenho do casal permanece vinho; sol e lua permanecem pretos. */
-.story-page-02 .story-illustration-wrap #couple,
-.story-page-02 .mark.story-illustration-wrap #couple{
-  filter:
-    grayscale(1)
-    sepia(1)
-    saturate(5)
-    hue-rotate(300deg)
-    brightness(.72)
-    contrast(1.12)!important;
-}
 
-.story-page-02 .story-sun,
-.story-page-02 .story-moon{
-  filter:none!important;
-}
+
+
 
 /* Botão da capa preserva o padrão que já definimos. */
 .story-page-02 .enter{
@@ -6675,18 +6556,10 @@ body{
   color:#A51A41!important;
 }
 
-.story-page .story-label,
-.story-page .story-kicker,
-.story-page .story-date,
-.story-page .story-caption,
-.story-page .small-note{
-  color:#8D2036!important;
-}
+
 
 /* Spotify: nenhum seletor de cor aqui. */
-</style>
 
-<style id="tipografia-identidade-final">
 /* =========================================================
    IDENTIDADE TIPOGRÁFICA
    1. Fredoka    = títulos / impacto
@@ -6826,8 +6699,7 @@ textarea{
 
 /* ---------- NÃO ALTERAR A IDENTIDADE SPOTIFY ----------
    Os componentes Spotify continuam usando suas próprias fontes
-   e estilos já existentes. */
-</style>
+   e estilos já existentes. */</style>
 
 <svg id="filtro-cor-vinho-final" width="0" height="0" aria-hidden="true"
      style="position:absolute;width:0;height:0;overflow:hidden">
@@ -6844,7 +6716,11 @@ textarea{
 </svg>
 
 
-<style id="ilustracao-vinho-centralizada-final">
+<style>/*
+   NAMORO — CSS CONSOLIDADO
+   Blocos originais consolidados nesta posição, preservando a ordem da cascata.
+   Blocos consolidados: ilustracao-vinho-centralizada-final, ajuste-titulo-capa-preto, ajuste-kicker-capa, refino-tipografico-capa, spotify-refinement-v2, spotify-refinement-v3, spotify-refinement-v4, spotify-refinement-v5, spotify-entrelINHAS-label, entrelINHAS-refinement-v2, mystery-question-final, locked-question-only-v4, entrelinhas-state-final-v5, entrelinhas-final-state-v6
+*/
 /* =========================================================
    CAPA — FINAL
    Casal + sol + lua = #A51A41.
@@ -6903,9 +6779,7 @@ textarea{
     top:7%!important;
   }
 }
-</style>
 
-<style id="ajuste-titulo-capa-preto">
 /* =========================================================
    CAPA — NOVA HIERARQUIA DO TÍTULO
    Título preto, maior e mais pesado.
@@ -6969,9 +6843,7 @@ textarea{
     font-weight:700!important;
   }
 }
-</style>
 
-<style id="ajuste-kicker-capa">
 /* “ANTES DE EXISTIR UM NÓS” usa a MESMA fonte manuscrita
    de “feito para você”, para criar uma ligação visual direta. */
 .story-page-02 .story-kicker{
@@ -6982,9 +6854,7 @@ textarea{
   letter-spacing:.01em!important;
   color:#111111!important;
 }
-</style>
 
-<style id="refino-tipografico-capa">
 /* =========================================================
    CAPA — REFINO DE HIERARQUIA E ESPAÇAMENTO
    ========================================================= */
@@ -7051,9 +6921,7 @@ textarea{
     margin-top:25px!important;
   }
 }
-</style>
 
-<style id="spotify-refinement-v2">
 /* =========================================================
    SPOTIFY — REFINAMENTO FINAL V2
    Escopo exclusivo da tela #musicGate.
@@ -7234,9 +7102,7 @@ textarea{
     letter-spacing:.22em !important;
   }
 }
-</style>
 
-<style id="spotify-refinement-v3">
 /* =========================================================
    SPOTIFY — REFINAMENTO VISUAL V3
    Apenas acabamento: hierarquia, espaçamento e indicador.
@@ -7344,9 +7210,7 @@ textarea{
     margin-top: 25px !important;
   }
 }
-</style>
 
-<style id="spotify-refinement-v4">
 /* =========================================================
    SPOTIFY — CORREÇÃO V4
    1) Remove o ponto verde automático do título.
@@ -7390,9 +7254,7 @@ textarea{
 #musicGate .mystery-hint{
   color:#666666 !important;
 }
-</style>
 
-<style id="spotify-refinement-v5">
 /* =========================================================
    SPOTIFY — ESTADO BLOQUEADO / DESBLOQUEADO V5
    O botão fica escuro enquanto bloqueado e volta ao verde
@@ -7449,21 +7311,12 @@ textarea{
 }
 
 /* O ponto verde do título continua removido. */
-#musicGate h2::after{
-  content:none !important;
-  display:none !important;
-}
-</style>
 
 
-
-<style id="spotify-entrelINHAS-label">
 #musicGate .dedications-toggle{
   letter-spacing:.14em !important;
 }
-</style>
 
-<style id="entrelINHAS-refinement-v2">
 /* ENTRELINHAS — refinamento do botão desbloqueado */
 #musicGate .dedications-toggle,
 #musicGate .dedications-toggle.is-revealed{
@@ -7495,9 +7348,7 @@ textarea{
   color:#1ED760 !important;
   transform:none !important;
 }
-</style>
 
-<style id="mystery-question-final">
 /* Estado bloqueado: apenas o ? apagado, sem verde */
 #musicGate .dedications-toggle.mystery-toggle:disabled{
   background:#121212 !important;
@@ -7530,9 +7381,7 @@ textarea{
   border-color:#2b2b2b !important;
   transform:none !important;
 }
-</style>
 
-<style id="locked-question-only-v4">
 #musicGate .dedications-toggle:not(.is-revealed){
   background:#0b0b0b !important;
   border-color:#292929 !important;
@@ -7545,9 +7394,7 @@ textarea{
   font-weight:500 !important;
   letter-spacing:0 !important;
 }
-</style>
 
-<style id="entrelinhas-state-final-v5">
 /* BLOQUEADO = somente ? apagado */
 #musicGate .dedications-toggle.mystery-toggle:disabled{
   background:#0b0b0b !important;
@@ -7601,9 +7448,7 @@ textarea{
 #musicGate .dedications-toggle.mystery-toggle.is-revealed .dedications-icon::after{
   content:none !important;
 }
-</style>
 
-<style id="entrelinhas-final-state-v6">
 /* V6 — ESTADO DEFINITIVO DO BOTÃO ENTRELINHAS
    BLOQUEADO: somente ? apagado.
    DESBLOQUEADO: somente ENTRELINHAS em verde.
@@ -7662,5 +7507,4 @@ textarea{
 #musicGate .dedications-toggle.is-revealed .dedications-icon::after {
   content:none !important;
   display:none !important;
-}
-</style>
+}</style>
