@@ -5419,6 +5419,28 @@ html, body {
 }
 </style>
 
+<style id="gifts-page-v8">
+.gifts-page{position:fixed;inset:0;z-index:990;display:none;overflow-y:auto;overflow-x:hidden;background:#FAFAFA;color:#211C1D;-webkit-overflow-scrolling:touch}
+.gifts-page.is-open{display:block;animation:giftsIn .45s ease both}
+@keyframes giftsIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.gifts-shell{width:min(100%,760px);min-height:100%;box-sizing:border-box;margin:0 auto;padding:62px 24px 52px;display:flex;flex-direction:column;align-items:center}
+.gifts-head{width:min(100%,600px);text-align:center}.gifts-kicker{margin:0 0 18px;color:#A51A41;font:700 10px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase}
+.gifts-head h1{margin:0;color:#211C1D;font:500 clamp(38px,9vw,64px)/.94 "Cormorant Garamond",Georgia,serif;letter-spacing:-.035em}
+.gifts-intro{max-width:500px;margin:22px auto 0;color:#777;font:400 16px/1.65 "Lora",Georgia,serif}
+.gifts-grid{width:min(100%,620px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:42px;perspective:1200px}
+.gift-card{position:relative;min-height:230px;padding:0;border:0;background:none;cursor:pointer;perspective:1200px;-webkit-tap-highlight-color:transparent}
+.gift-card-inner{position:relative;width:100%;height:230px;display:block;transform-style:preserve-3d;transition:transform .72s cubic-bezier(.22,.61,.36,1)}
+.gift-card.is-open .gift-card-inner{transform:rotateY(180deg)}
+.gift-face{position:absolute;inset:0;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;border:1px solid rgba(165,26,65,.2);border-radius:2px;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.gift-front{background:#fff;color:#211C1D}.gift-front small{margin-bottom:18px;color:#A51A41;font:600 9px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:.2em}
+.gift-front strong{font:500 28px/1 "Cormorant Garamond",Georgia,serif;letter-spacing:.02em}.gift-front em{margin-top:20px;color:#999;font:400 9px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;font-style:normal}
+.gift-back{transform:rotateY(180deg);background:#F7F1EE;color:#211C1D;text-align:center}.gift-back small{max-width:230px;color:#A51A41;font:500 15px/1.35 "Cormorant Garamond",Georgia,serif}.gift-back span{max-width:250px;margin-top:14px;color:#62585A;font:400 13px/1.6 "Lora",Georgia,serif}
+.gifts-closing{max-width:520px;margin:46px auto 0;text-align:center;opacity:0;transform:translateY(8px);transition:opacity .45s ease,transform .45s ease;pointer-events:none}.gifts-closing.is-visible{opacity:1;transform:none}
+.gifts-closing p{margin:0 0 12px;color:#777;font:400 15px/1.6 "Lora",Georgia,serif}.gifts-closing strong{display:block;color:#A51A41;font:500 29px/1.05 "Cormorant Garamond",Georgia,serif}.gifts-closing span{display:block;margin-top:12px;color:#777;font:400 12px/1.5 "Lora",Georgia,serif}
+.gifts-continue{margin:34px 0 0;padding:14px 26px;border:1px solid #D8D8D8;background:transparent;color:#777;font:700 9px/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:.18em;cursor:pointer;transition:.25s ease}.gifts-continue:not(:disabled){border-color:#A51A41;color:#A51A41}.gifts-continue:disabled{opacity:.55;cursor:not-allowed}
+@media(max-width:600px){.gifts-shell{padding:52px 20px 42px}.gifts-grid{gap:10px;margin-top:34px}.gift-card,.gift-card-inner{height:205px;min-height:205px}.gift-face{padding:18px}.gift-front strong{font-size:23px}.gift-back span{font-size:12px}}
+@media(prefers-color-scheme:dark){.gifts-page{background:#0D0A0B;color:#F4E9E3}.gifts-kicker{color:#C44768}.gifts-head h1{color:#F4E9E3}.gifts-intro{color:#B7A5A0}.gift-front{background:#151011;color:#F4E9E3;border-color:rgba(196,71,104,.25)}.gift-front small{color:#C44768}.gift-front em{color:#A99A98}.gift-back{background:#1C1517;color:#F4E9E3;border-color:rgba(196,71,104,.25)}.gift-back small{color:#C44768}.gift-back span{color:#CBB9B5}.gifts-closing p,.gifts-closing span{color:#B7A5A0}.gifts-closing strong{color:#C44768}.gifts-continue{border-color:#3F3F3F;color:#A8A0A0;background:transparent}.gifts-continue:not(:disabled){border-color:#C44768;color:#C44768}}
+</style>
 </head>
 
 <body>
@@ -5475,6 +5497,23 @@ html, body {
 </main>
 
 
+<section class="gifts-page" id="giftsPage" aria-hidden="true">
+<div class="gifts-shell">
+<header class="gifts-head">
+<p class="gifts-kicker">EU PENSEI EM VOCÊ</p>
+<h1>algumas coisas<br>que eu queria cuidar.</h1>
+<p class="gifts-intro">não são só presentes. são pequenas formas de estar perto, mesmo quando eu não estiver.</p>
+</header>
+<main class="gifts-grid" aria-label="Presentes">
+<button class="gift-card" type="button"><span class="gift-card-inner"><span class="gift-face gift-front"><small>01</small><strong>LANCHEIRA</strong><em>toque para abrir</em></span><span class="gift-face gift-back"><small>porque você quase não come.</small><span>eu sei que não posso estar aí toda vez para lembrar você de cuidar de si. então quis te dar uma pequena ajuda para quando eu não estiver.</span></span></span></button>
+<button class="gift-card" type="button"><span class="gift-card-inner"><span class="gift-face gift-front"><small>02</small><strong>GUARDA-CHUVA</strong><em>toque para abrir</em></span><span class="gift-face gift-back"><small>porque você vive pegando chuva.</small><span>eu não consigo impedir toda chuva que vai encontrar você. mas posso tentar deixar você um pouco mais protegida quando eu não estiver por perto.</span></span></span></button>
+<button class="gift-card" type="button"><span class="gift-card-inner"><span class="gift-face gift-front"><small>03</small><strong>GARRAFA</strong><em>toque para abrir</em></span><span class="gift-face gift-back"><small>essa você não precisava.</small><span>eu vi e pensei em você. bonita, diferente e impossível de passar despercebida. algumas coisas a gente compra simplesmente porque lembram alguém.</span></span></span></button>
+<button class="gift-card" type="button"><span class="gift-card-inner"><span class="gift-face gift-front"><small>04</small><strong>MOCHILA</strong><em>toque para abrir</em></span><span class="gift-face gift-back"><small>para tudo o que você carrega.</small><span>talvez eu não consiga tirar tudo do seu caminho, mas queria que pelo menos uma coisa que você carregasse tivesse sido escolhida pensando em você.</span></span></span></button>
+</main>
+<div class="gifts-closing" id="giftsClosing"><p>acho que você já percebeu o que todos eles têm em comum.</p><strong>eu comecei a prestar atenção em você.</strong><span>nas pequenas coisas. no que você precisa. no que te faz bem.</span></div>
+<button class="gifts-continue" id="giftsContinue" type="button" disabled onclick="finishGifts()">CONTINUAR</button>
+</div>
+</section>
 <section class="music-gate" id="musicGate" aria-hidden="true">
   <div class="music-gate-inner">
     <div class="music-gate-kicker">ANTES DE CONTINUAR</div>
@@ -6047,22 +6086,7 @@ function openReveal(){
   }
 }
 
-function closeReveal(){
-  const story = document.getElementById("reveal");
-  story.classList.remove("open");
-  story.setAttribute("aria-hidden","true");
-  document.body.style.overflow="";
-
-  // Ao terminar a história, as dedicatórias são liberadas
-  // e a pessoa volta para a tela da trilha sonora.
-  unlockLobbyDedications();
-
-  window.setTimeout(function(){
-    openMusicGate();
-  }, 80);
-}
-
-function storyNext(){
+function closeReveal(){ const story=document.getElementById("reveal"); if(story){story.classList.remove("open");story.setAttribute("aria-hidden","true");} document.body.style.overflow=""; unlockLobbyDedications(); window.setTimeout(function(){ openGifts(); },80); } function storyNext(){
   const pages = document.querySelectorAll(".story-page");
   const container = document.querySelector(".story-pages");
   storyIndex = Math.min(storyIndex + 1, pages.length - 1);
@@ -6473,6 +6497,11 @@ document.addEventListener("DOMContentLoaded", function(){
 })();
 </script>
 
+<script id="gifts-page-v8-js">
+function openGifts(){const page=document.getElementById("giftsPage");if(!page)return;page.classList.remove("is-open");void page.offsetWidth;page.classList.add("is-open");page.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";page.querySelectorAll(".gift-card").forEach(c=>c.classList.remove("is-open"));const c=document.getElementById("giftsClosing"),b=document.getElementById("giftsContinue");if(c)c.classList.remove("is-visible");if(b){b.disabled=true;b.setAttribute("aria-disabled","true")}}
+function finishGifts(){const page=document.getElementById("giftsPage");if(!page)return;page.classList.remove("is-open");page.setAttribute("aria-hidden","true");document.body.style.overflow="";openMusicGate()}
+document.addEventListener("DOMContentLoaded",function(){const page=document.getElementById("giftsPage");if(!page)return;const cards=[...page.querySelectorAll(".gift-card")],closing=document.getElementById("giftsClosing"),cont=document.getElementById("giftsContinue");cards.forEach(card=>card.addEventListener("click",function(){card.classList.toggle("is-open");if(cards.every(c=>c.classList.contains("is-open"))){closing.classList.add("is-visible");cont.disabled=false;cont.setAttribute("aria-disabled","false")}}))});
+</script>
 </body>
 </html>
 
