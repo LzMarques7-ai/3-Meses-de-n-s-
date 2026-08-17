@@ -4642,6 +4642,41 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
   }
 }</style>
 
+
+<style id="global-background-stability-v2">
+/* =========================================================
+   ESTABILIDADE DO FUNDO — V2
+   A cor-base do documento não muda durante animações.
+   Overlays e fundos específicos de cada página continuam intactos.
+   ========================================================= */
+
+html{
+  background-color:#FAFAFA !important;
+  background-image:none !important;
+}
+
+body{
+  background-color:#FAFAFA !important;
+  background-image:none !important;
+}
+
+/* A superfície principal da capa permanece sólida.
+   Pseudo-elementos decorativos continuam podendo aparecer por cima. */
+#reveal{
+  background-color:#FAFAFA !important;
+}
+
+/* O Spotify continua sendo preto, como definido pelo design aprovado. */
+#musicGate{
+  background-color:#050505 !important;
+}
+
+/* A página Entrelinhas continua com seu fundo escuro próprio. */
+#entrelinhasPage{
+  background-color:#121212 !important;
+}
+</style>
+
 </head>
 
 <body>
