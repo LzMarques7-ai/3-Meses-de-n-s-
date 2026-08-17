@@ -4669,6 +4669,149 @@ body{
 :root { color-scheme: light dark; }
 </style>
 
+
+<style id="semantic-theme-v18">
+/* V18 — adaptação semântica do tema do dispositivo.
+   Não é inversão automática: cada função visual possui um par claro/escuro. */
+
+:root {
+  color-scheme: light dark;
+
+  --t-bg: #FAFAFA;
+  --t-surface: #FFFFFF;
+  --t-surface-soft: #F4F0ED;
+  --t-text: #211C1D;
+  --t-text-secondary: #8D2036;
+  --t-wine: #A51A41;
+  --t-wine-strong: #8D2036;
+  --t-border: rgba(165,26,65,.20);
+  --t-shadow: rgba(31,18,22,.10);
+  --t-muted: #8A7D7E;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --t-bg: #0D0A0B;
+    --t-surface: #151011;
+    --t-surface-soft: #1C1517;
+    --t-text: #F4E9E3;
+    --t-text-secondary: #CBB9B5;
+    --t-wine: #C44768;
+    --t-wine-strong: #B85A72;
+    --t-border: rgba(196,71,104,.25);
+    --t-shadow: rgba(0,0,0,.42);
+    --t-muted: #A99A98;
+  }
+
+  html, body {
+    background: var(--t-bg) !important;
+    color: var(--t-text);
+  }
+
+  /* Superfícies gerais */
+  #reveal,
+  .story-page,
+  .story-page-02,
+  .memories-page {
+    background: var(--t-bg) !important;
+    color: var(--t-text);
+  }
+
+  /* Tipografia */
+  .story-page,
+  .story-page p,
+  .story-page .story-copy,
+  .story-page .final-copy,
+  .story-page-02,
+  .story-page-02 p,
+  .story-page-02 .story-copy,
+  .memories-page,
+  .memories-page p {
+    color: var(--t-text);
+  }
+
+  /* Elementos que funcionam como superfícies, sem tocar nas fotos */
+  .story-card,
+  .memory-card {
+    background-color: var(--t-surface);
+    border-color: var(--t-border);
+    box-shadow: 0 10px 30px var(--t-shadow);
+  }
+
+  /* Polaroides: papel escuro no modo noturno, fotos preservadas */
+  .memory-polaroid-card {
+    background-color: var(--t-surface);
+    border-color: var(--t-border);
+    box-shadow: 0 12px 30px var(--t-shadow);
+  }
+
+  /* Destaques vinho continuam vinho */
+  .story-page .wine,
+  .story-page .accent,
+  .story-page-02 .wine,
+  .story-page-02 .accent {
+    color: var(--t-wine) !important;
+  }
+
+  /* Linhas e divisores */
+  .story-page hr,
+  .story-page-02 hr,
+  .memories-page hr {
+    border-color: var(--t-border);
+  }
+
+  /* Elementos neutros explicitamente claros no design */
+  .story-page .light-surface,
+  .story-page-02 .light-surface {
+    background-color: var(--t-surface-soft) !important;
+    color: var(--t-text) !important;
+  }
+
+  /* Barra de progresso */
+  .story-progress,
+  .story-progress-track {
+    background-color: var(--t-surface-soft) !important;
+  }
+
+  .story-progress-bar {
+    background-color: var(--t-wine) !important;
+  }
+
+  /* Botões neutros acompanham o tema; vinho permanece vinho */
+  button:not(.wine-button),
+  .button:not(.wine-button) {
+    color: var(--t-text);
+    border-color: var(--t-border);
+    background-color: var(--t-surface);
+  }
+
+  /* Entrelinhas mantém sua atmosfera escura própria */
+  #entrelinhasPage {
+    background-color: #0D0A0B !important;
+    color: #F4E9E3;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html, body {
+    background: #FAFAFA !important;
+    color: #211C1D;
+  }
+
+  .story-page,
+  .story-page-02,
+  .memories-page {
+    background: #FAFAFA !important;
+  }
+
+  .story-card,
+  .memory-card,
+  .memory-polaroid-card {
+    background-color: #FFFFFF;
+  }
+}
+</style>
+
 </head>
 
 <body>
