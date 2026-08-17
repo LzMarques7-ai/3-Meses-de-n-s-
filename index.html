@@ -4562,20 +4562,212 @@ body{
 }
 </style>
 
-<style id="spotify-device-theme-v14">
-/* V14 — Spotify follows device theme: only black/white neutrals invert. */
+
+<style id="spotify-theme-v15">
+/* V15 — tema do aparelho: o Spotify mantém a mesma identidade.
+   Apenas neutros preto/branco/cinza acompanham o tema. */
+
 @media (prefers-color-scheme: light) {
-  #musicGate {
-    background: #fff !important;
-    background-color: #fff !important;
-    color: #000 !important;
+  #musicGate,
+  #musicGate .music-gate-inner {
+    background-color:#fff !important;
+    color:#000 !important;
+  }
+
+  #musicGate h2,
+  #musicGate .dedications-heading,
+  #musicGate .song-row {
+    color:#000 !important;
+  }
+
+  #musicGate .music-gate-intro,
+  #musicGate .dedications-subtitle,
+  #musicGate .song-quote {
+    color:#4a4a4a !important;
+  }
+
+  #musicGate .mystery-hint,
+  #musicGate .song-row small,
+  #musicGate .song-row b {
+    color:#6a6a6a !important;
+  }
+
+  #musicGate .song-list,
+  #musicGate .song-row {
+    border-color:#d5d5d5 !important;
+  }
+
+  #musicGate .music-continue:disabled {
+    color:#8a8a8a !important;
+    border-color:#cfcfcf !important;
+    background:#fff !important;
+  }
+
+  /* SVGs: only the neutral parts invert. Spotify green stays green. */
+  #musicGate .spotify-mark-button svg circle {
+    fill:#fff !important;
+  }
+  #musicGate .spotify-mark-button svg path {
+    stroke:#1ed760 !important;
+  }
+  #musicGate .spotify-mark-top svg path {
+    stroke:#fff !important;
   }
 }
+
 @media (prefers-color-scheme: dark) {
+  #musicGate,
+  #musicGate .music-gate-inner {
+    background-color:#050505 !important;
+    color:#fff !important;
+  }
+
+  #musicGate h2,
+  #musicGate .dedications-heading,
+  #musicGate .song-row {
+    color:#fff !important;
+  }
+
+  #musicGate .music-gate-intro,
+  #musicGate .dedications-subtitle,
+  #musicGate .song-quote {
+    color:#b3b3b3 !important;
+  }
+
+  #musicGate .mystery-hint,
+  #musicGate .song-row small,
+  #musicGate .song-row b {
+    color:#6a6a6a !important;
+  }
+
+  #musicGate .song-list,
+  #musicGate .song-row {
+    border-color:#2a2a2a !important;
+  }
+
+  #musicGate .music-continue:disabled {
+    color:#6a6a6a !important;
+    border-color:#2b2b2b !important;
+    background:#050505 !important;
+  }
+
+  #musicGate .spotify-mark-button svg circle {
+    fill:#050505 !important;
+  }
+  #musicGate .spotify-mark-button svg path {
+    stroke:#1ed760 !important;
+  }
+  #musicGate .spotify-mark-top svg path {
+    stroke:#050505 !important;
+  }
+}
+</style>
+
+
+<style id="global-device-theme-v16">
+/* ============================================================
+   V16 — TEMA GLOBAL DO DISPOSITIVO
+   Claro: identidade original creme + vinho.
+   Escuro: mesma identidade adaptada para uma leitura noturna.
+   Layout, fotos, animações e funcionalidades permanecem iguais.
+   ============================================================ */
+
+:root {
+  color-scheme: light dark;
+
+  --theme-bg: #FAFAFA;
+  --theme-surface: #FAFAFA;
+  --theme-wine: #A51A41;
+  --theme-wine-secondary: #8D2036;
+  --theme-text: #8A0015;
+  --theme-text-secondary: #8D2036;
+  --theme-border: rgba(165, 26, 65, 0.20);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-bg: #0D0A0B;
+    --theme-surface: #151011;
+    --theme-wine: #C44768;
+    --theme-wine-secondary: #B85A72;
+    --theme-text: #F4E9E3;
+    --theme-text-secondary: #CBB9B5;
+    --theme-border: rgba(196, 71, 104, 0.25);
+  }
+
+  html,
+  body {
+    background-color: var(--theme-bg) !important;
+    color: var(--theme-text);
+  }
+
+  /*
+   * Só neutralizamos superfícies neutras do projeto.
+   * A cor vinho continua sendo a identidade e não é convertida em branco.
+   */
+  #reveal,
+  .story-page,
+  .story-page-02,
+  .memories-page {
+    background-color: var(--theme-bg) !important;
+    color: var(--theme-text);
+  }
+
+  /*
+   * Elementos que usam a superfície do fundo.
+   * Fotos, capas, SVGs e elementos decorativos não são alterados aqui.
+   */
+  .story-card,
+  .memory-card,
+  .memory-polaroid-card {
+    background-color: var(--theme-surface);
+  }
+
+  /*
+   * Texto: só os tons textuais principais/secundários.
+   * Não tocamos em imagens nem na identidade vinho.
+   */
+  .story-page,
+  .story-page p,
+  .story-page .story-copy,
+  .story-page .final-copy,
+  .story-page-02,
+  .story-page-02 p,
+  .story-page-02 .story-copy,
+  .memories-page,
+  .memories-page p {
+    color: var(--theme-text);
+  }
+
+  /*
+   * Spotify segue a mesma identidade global, mas conserva sua lógica
+   * própria de preto/branco já existente na V15.
+   */
   #musicGate {
-    background: #000 !important;
-    background-color: #000 !important;
-    color: #fff !important;
+    background-color: #000000 !important;
+  }
+
+  /*
+   * Entrelinhas continua sendo uma página escura própria.
+   * Apenas sua superfície acompanha o modo noturno sem alterar o layout.
+   */
+  #entrelinhasPage {
+    background-color: #0D0A0B !important;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html,
+  body {
+    background-color: #FAFAFA !important;
+  }
+
+  #musicGate {
+    background-color: #FFFFFF !important;
+  }
+
+  #entrelinhasPage {
+    background-color: #121212 !important;
   }
 }
 </style>
