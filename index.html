@@ -4822,6 +4822,141 @@ body{
   if(q.addEventListener) q.addEventListener('change',sync); else if(q.addListener) q.addListener(sync);
 })();
 </script>
+
+<style id="theme-final-palette-fix">
+/* FINAL PALETTE OVERRIDE
+   Only colors are changed. No layout, content, photos, animations or JS behavior. */
+
+/* The password gate was the source of the brown/beige flash/screen in dark mode. */
+.password-gate {
+  background: #FAFAFA !important;
+  color: #211C1D !important;
+}
+.password-gate .password-button {
+  background: #A51A41 !important;
+  color: #FAFAFA !important;
+}
+@media (prefers-color-scheme: dark) {
+  .password-gate {
+    background: #0D0A0B !important;
+    background-image: none !important;
+    color: #F4E9E3 !important;
+  }
+  .password-gate .password-button {
+    background: #C44768 !important;
+    color: #0D0A0B !important;
+  }
+}
+
+/* Spotify: explicit light/dark values.
+   Do NOT use light-dark() here; the previous Spotify rules had the pair reversed. */
+@media (prefers-color-scheme: light) {
+  #musicGate,
+  #musicGate .music-gate-inner {
+    background: #FAFAFA !important;
+    background-color: #FAFAFA !important;
+    color: #111111 !important;
+  }
+
+  #musicGate h2,
+  #musicGate .dedications-heading,
+  #musicGate .song-row {
+    color: #111111 !important;
+  }
+
+  #musicGate .music-gate-intro,
+  #musicGate .dedications-subtitle,
+  #musicGate .song-quote {
+    color: #6A6A6A !important;
+  }
+
+  #musicGate .mystery-hint,
+  #musicGate .song-row small,
+  #musicGate .song-row b {
+    color: #777777 !important;
+  }
+
+  #musicGate .song-list,
+  #musicGate .song-row {
+    border-color: #D8D8D8 !important;
+  }
+
+  #musicGate .music-continue:disabled {
+    color: #222222 !important;
+    border-color: #222222 !important;
+    background: #000000 !important;
+  }
+
+  #musicGate .spotify-mark-button svg circle {
+    fill: #000000 !important;
+  }
+  #musicGate .spotify-mark-button svg path {
+    stroke: #1ED760 !important;
+  }
+  #musicGate .spotify-mark-top svg path {
+    stroke: #1ED760 !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #musicGate,
+  #musicGate .music-gate-inner {
+    background: #000000 !important;
+    background-color: #000000 !important;
+    color: #F4E9E3 !important;
+  }
+
+  #musicGate h2,
+  #musicGate .dedications-heading,
+  #musicGate .song-row {
+    color: #F4E9E3 !important;
+  }
+
+  #musicGate .music-gate-intro,
+  #musicGate .dedications-subtitle,
+  #musicGate .song-quote {
+    color: #C7C7C7 !important;
+  }
+
+  #musicGate .mystery-hint,
+  #musicGate .song-row small,
+  #musicGate .song-row b {
+    color: #A8A8A8 !important;
+  }
+
+  #musicGate .song-list,
+  #musicGate .song-row {
+    border-color: #2A2A2A !important;
+  }
+
+  #musicGate .music-continue:disabled {
+    color: #111111 !important;
+    border-color: #F0F0F0 !important;
+    background: #F0F0F0 !important;
+  }
+
+  #musicGate .spotify-mark-button svg circle {
+    fill: #000000 !important;
+  }
+  #musicGate .spotify-mark-button svg path {
+    stroke: #1ED760 !important;
+  }
+  #musicGate .spotify-mark-top svg path {
+    stroke: #1ED760 !important;
+  }
+}
+
+/* Keep the page canvas itself synchronized with the device theme. */
+html, body {
+  background: #FAFAFA !important;
+}
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background: #0D0A0B !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
