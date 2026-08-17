@@ -5193,6 +5193,232 @@ html, body {
 }
 </style>
 
+
+<style id="entrelinhas-theme-v7-final">
+/*
+  V7 — CORREÇÃO FINAL DO TEMA DAS ENTRELINHAS
+  Não altera layout, textos, fotos, animações ou lógica.
+*/
+
+/* =========================================================
+   1. BOTÃO ENTRELINHAS — ESTADO DESBLOQUEADO
+   O seletor inclui #musicGate para vencer as regras antigas
+   mais específicas que estavam deixando o botão preto no claro.
+   ========================================================= */
+
+@media (prefers-color-scheme: light) {
+  #musicGate #dedicationsToggle.is-revealed,
+  #musicGate #dedicationsToggle.is-revealed:enabled {
+    background: #FAFAFA !important;
+    background-color: #FAFAFA !important;
+    background-image: none !important;
+    border-color: #1ED760 !important;
+    color: #1ED760 !important;
+    box-shadow: none !important;
+  }
+
+  #musicGate #dedicationsToggle.is-revealed .dedications-icon,
+  #musicGate #dedicationsToggle.is-revealed span {
+    color: #1ED760 !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #musicGate #dedicationsToggle.is-revealed,
+  #musicGate #dedicationsToggle.is-revealed:enabled {
+    background: #0D0A0B !important;
+    background-color: #0D0A0B !important;
+    background-image: none !important;
+    border-color: #1ED760 !important;
+    color: #1ED760 !important;
+    box-shadow: none !important;
+  }
+
+  #musicGate #dedicationsToggle.is-revealed .dedications-icon,
+  #musicGate #dedicationsToggle.is-revealed span {
+    color: #1ED760 !important;
+  }
+}
+
+
+/* =========================================================
+   2. PÁGINA ENTRELINHAS — TEMA CLARO
+   ========================================================= */
+
+@media (prefers-color-scheme: light) {
+  #entrelinhasPage,
+  #entrelinhasPage.is-open {
+    background: #FAFAFA !important;
+    background-color: #FAFAFA !important;
+    background-image: none !important;
+    color: #211C1D !important;
+  }
+
+  #entrelinhasPage .el-shell {
+    color: #211C1D !important;
+  }
+
+  #entrelinhasPage .el-kicker {
+    color: #1ED760 !important;
+  }
+
+  #entrelinhasPage h1 {
+    color: #111111 !important;
+  }
+
+  #entrelinhasPage .el-intro {
+    color: #6A6A6A !important;
+  }
+
+  #entrelinhasPage .el-divider {
+    background: #D8D8D8 !important;
+  }
+
+  #entrelinhasPage .el-track {
+    background: #FAFAFA !important;
+    background-color: #FAFAFA !important;
+    color: #111111 !important;
+    border-top-color: #D8D8D8 !important;
+    border-bottom-color: #D8D8D8 !important;
+  }
+
+  #entrelinhasPage .el-num {
+    color: #666666 !important;
+  }
+
+  #entrelinhasPage .el-title {
+    color: #111111 !important;
+  }
+
+  #entrelinhasPage .el-artist {
+    color: #777777 !important;
+  }
+
+  #entrelinhasPage .el-arrow {
+    color: #666666 !important;
+  }
+
+  #entrelinhasPage .el-track.is-open .el-title,
+  #entrelinhasPage .el-track.is-open .el-arrow {
+    color: #1ED760 !important;
+  }
+
+  #entrelinhasPage .el-detail {
+    background: #FAFAFA !important;
+    color: #4A4A4A !important;
+    border-bottom-color: #D8D8D8 !important;
+  }
+
+  #entrelinhasPage .el-quote {
+    color: #4A4A4A !important;
+  }
+
+  #entrelinhasPage .el-footer {
+    border-color: #D8D8D8 !important;
+  }
+
+  #entrelinhasPage .el-return {
+    background: #FAFAFA !important;
+    color: #777777 !important;
+    border-color: #D8D8D8 !important;
+  }
+
+  #entrelinhasPage .el-return:hover {
+    color: #1ED760 !important;
+    border-color: #1ED760 !important;
+  }
+}
+
+
+/* =========================================================
+   3. PÁGINA ENTRELINHAS — TEMA ESCURO
+   ========================================================= */
+
+@media (prefers-color-scheme: dark) {
+  #entrelinhasPage,
+  #entrelinhasPage.is-open {
+    background: #0D0A0B !important;
+    background-color: #0D0A0B !important;
+    background-image: none !important;
+    color: #F4E9E3 !important;
+  }
+
+  #entrelinhasPage .el-shell {
+    color: #F4E9E3 !important;
+  }
+
+  #entrelinhasPage .el-kicker {
+    color: #1ED760 !important;
+  }
+
+  #entrelinhasPage h1 {
+    color: #F4E9E3 !important;
+  }
+
+  #entrelinhasPage .el-intro {
+    color: #A8A8A8 !important;
+  }
+
+  #entrelinhasPage .el-divider {
+    background: #2A2A2A !important;
+  }
+
+  #entrelinhasPage .el-track {
+    background: #0D0A0B !important;
+    background-color: #0D0A0B !important;
+    color: #F4E9E3 !important;
+    border-top-color: #2A2A2A !important;
+    border-bottom-color: #2A2A2A !important;
+  }
+
+  #entrelinhasPage .el-num {
+    color: #939393 !important;
+  }
+
+  #entrelinhasPage .el-title {
+    color: #F4E9E3 !important;
+  }
+
+  #entrelinhasPage .el-artist {
+    color: #A8A8A8 !important;
+  }
+
+  #entrelinhasPage .el-arrow {
+    color: #939393 !important;
+  }
+
+  #entrelinhasPage .el-track.is-open .el-title,
+  #entrelinhasPage .el-track.is-open .el-arrow {
+    color: #1ED760 !important;
+  }
+
+  #entrelinhasPage .el-detail {
+    background: #0D0A0B !important;
+    color: #C7C7C7 !important;
+    border-bottom-color: #2A2A2A !important;
+  }
+
+  #entrelinhasPage .el-quote {
+    color: #C7C7C7 !important;
+  }
+
+  #entrelinhasPage .el-footer {
+    border-color: #2A2A2A !important;
+  }
+
+  #entrelinhasPage .el-return {
+    background: #0D0A0B !important;
+    color: #A8A8A8 !important;
+    border-color: #3F3F3F !important;
+  }
+
+  #entrelinhasPage .el-return:hover {
+    color: #1ED760 !important;
+    border-color: #1ED760 !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
