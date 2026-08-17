@@ -4562,6 +4562,49 @@ body{
 }
 </style>
 
+
+<style>
+/* V13 — adaptação do Spotify ao tema do dispositivo.
+   Somente neutros são invertidos; vinho e demais cores permanecem. */
+:root { color-scheme: light dark; }
+
+@media (prefers-color-scheme: light) {
+  #musicGate {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  #musicGate .music-gate-inner,
+  #musicGate .music-player,
+  #musicGate .music-track,
+  #musicGate .music-info,
+  #musicGate .music-controls {
+    color: #000000;
+  }
+  #musicGate .music-continue {
+    color: #000000;
+    border-color: currentColor;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #musicGate {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+  #musicGate .music-gate-inner,
+  #musicGate .music-player,
+  #musicGate .music-track,
+  #musicGate .music-info,
+  #musicGate .music-controls {
+    color: #ffffff;
+  }
+  #musicGate .music-continue {
+    color: #ffffff;
+    border-color: currentColor;
+  }
+}
+</style>
+
 </head>
 
 <body>
