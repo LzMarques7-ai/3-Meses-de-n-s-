@@ -1539,7 +1539,7 @@ h1 .script{
   transform:translateX(-50%);border-radius:4px;background:#1ed760;
 }
 .music-continue{
-  width:100%;max-width:520px;height:82px;margin-top:auto;box-sizing:border-box;
+  width:100%;max-width:520px;height:82px;margin-top:38px;box-sizing:border-box;
   display:flex;align-items:center;justify-content:center;gap:18px;
   border:3px solid #0e612e;border-radius:45px;background:transparent;color:#8b8b8b;
   cursor:not-allowed;font:600 10px/1 "DM Sans",sans-serif;letter-spacing:.30em;text-transform:uppercase;
@@ -3420,6 +3420,29 @@ button,a,[role="button"]{-webkit-tap-highlight-color:transparent}
     font-size:11px !important;
     font-weight:700 !important;
     letter-spacing:.16em !important;
+  }
+}
+</style>
+
+
+<style id="continuar-posicao-correta">
+/* ÚNICA ALTERAÇÃO — CONTINUAR no ponto inferior da página Spotify.
+   Todo o restante do design permanece inalterado. */
+@media (max-width:600px){
+  #musicGate .music-gate-inner{
+    position:relative !important;
+    min-height:100svh !important;
+    box-sizing:border-box !important;
+  }
+
+  #musicGate .music-continue{
+    position:absolute !important;
+    left:24px !important;
+    right:24px !important;
+    bottom:62px !important;
+    width:auto !important;
+    max-width:350px !important;
+    margin:0 auto !important;
   }
 }
 </style>
